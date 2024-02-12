@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://cd8obostexejr"]
+
+[ext_resource type="Texture2D" uid="uid://ch4msf78k44kh" path="res://Assets/GFX/1-1.png" id="1_x3hcr"]
+[ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="2_ay305"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_n85du"]
+[ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_1gonl"]
+[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/bossBattleTheme.mp3" id="4_5l1b4"]
+[ext_resource type="AudioStream" uid="uid://de1og5kh57i6o" path="res://Assets/SFX/LC_SFX/357. Icecream Truck V2.mp3" id="5_v3l1j"]
+[ext_resource type="PackedScene" uid="uid://8if1oud1vmfr" path="res://Godot/Nodes/landmine.tscn" id="6_sic0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhsd"]
+size = Vector2(2816, 430.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgy8a"]
+size = Vector2(2944, 64)
+
+[node name="Level 1-1" type="Node2D"]
+
+[node name="Boundaries" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1408, 216.75)
+shape = SubResource("RectangleShape2D_xyhsd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1408, 328)
+texture = ExtResource("1_x3hcr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, -8, 0, 416, 352, 416, 352, 368, 384, 368, 384, 416, 624, 416, 624, 400, 656, 400, 656, 384, 672, 384, 672, 400, 1088, 400, 1088, 432, 1152, 432, 1152, 416, 1504, 416, 1504, 432, 1536, 432, 1536, 416, 1568, 416, 1568, 400, 1584, 400, 1584, 384, 1600, 384, 1600, 368, 1616, 368, 1616, 432, 1664, 432, 1664, 368, 1680, 368, 1680, 384, 1696, 384, 1696, 400, 1712, 400, 1712, 416, 1792, 416, 1792, 384, 1824, 384, 1824, 416, 1856, 416, 1856, 368, 1888, 368, 1888, 416, 1952, 416, 1952, 400, 1968, 400, 1968, 384, 1984, 384, 1984, 368, 2048, 368, 2048, 400, 2064, 400, 2064, 416, 2096, 416, 2096, 384, 2112, 384, 2112, 400, 2128, 400, 2128, 416, 2240, 416, 2240, 432, 2256, 432, 2256, 368, 2288, 368, 2288, 416, 2320, 416, 2320, 384, 2352, 384, 2352, 416, 2816, 416, 2816, -8, 2880, -8, 2880, 448, 0, 448, -64, 448, -64, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1408, -32)
+shape = SubResource("RectangleShape2D_xgy8a")
+
+[node name="Teleporter" parent="." instance=ExtResource("2_ay305")]
+scene = "res://Godot/Scene/tileset_test.tscn"
+
+[node name="Body" parent="." instance=ExtResource("2_n85du")]
+position = Vector2(104, 376)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera" parent="Body" instance=ExtResource("3_1gonl")]
+unique_name_in_owner = true
+zoom = Vector2(4, 4)
+limit_right = 2815
+limit_bottom = 441
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5l1b4")
+volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2696, 344)
+stream = ExtResource("5_v3l1j")
+autoplay = true
+attenuation = 6.06286
+
+[node name="Landmine" parent="." instance=ExtResource("6_sic0s")]
+position = Vector2(1028, 400)
+scale = Vector2(0.15, 0.132)

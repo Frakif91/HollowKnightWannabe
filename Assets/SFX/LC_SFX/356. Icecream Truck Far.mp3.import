@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dglaegtt1v3s7"
+path="res://.godot/imported/356. Icecream Truck Far.mp3-48b904d09950cf5fd7bf182982685db5.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/356. Icecream Truck Far.mp3"
+dest_files=["res://.godot/imported/356. Icecream Truck Far.mp3-48b904d09950cf5fd7bf182982685db5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

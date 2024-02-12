@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba7gv6tchtua7"
+path="res://.godot/imported/321. growl.mp3-ca8d7dbeaa6f9c3bddea6e0b8f46cde9.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/321. growl.mp3"
+dest_files=["res://.godot/imported/321. growl.mp3-ca8d7dbeaa6f9c3bddea6e0b8f46cde9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

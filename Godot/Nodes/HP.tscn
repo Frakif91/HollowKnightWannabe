@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpwo8kvrumeym"]
+
+[ext_resource type="Texture2D" uid="uid://bj2thy5b8woxq" path="res://Assets/GFX/Healths.png" id="1_7bt3t"]
+[ext_resource type="Script" path="res://Godot/Scripts/UI_HP.gd" id="1_amk17"]
+[ext_resource type="Texture2D" uid="uid://ode65m5hqba2" path="res://Assets/GFX/Numbers/9.png" id="2_yy7sh"]
+[ext_resource type="Texture2D" uid="uid://56b044xq0dta" path="res://Assets/GFX/Numbers/0.png" id="3_gpjy4"]
+[ext_resource type="Texture2D" uid="uid://bipvm1mjnlti" path="res://Assets/GFX/Numbers/2.png" id="4_r0ilm"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_amk17")
+
+[node name="UI_Health" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00694444
+anchor_top = 0.592593
+anchor_right = 0.215278
+anchor_bottom = 0.987654
+grow_vertical = 0
+pivot_offset = Vector2(0, 256)
+border_width = 3.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Health Icon" type="Sprite2D" parent="UI_Health"]
+position = Vector2(0, 256)
+texture = ExtResource("1_7bt3t")
+centered = false
+offset = Vector2(0, -256)
+
+[node name="HP_10" type="Sprite2D" parent="UI_Health"]
+position = Vector2(152, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_yy7sh")
+
+[node name="HP_01" type="Sprite2D" parent="UI_Health"]
+position = Vector2(192, 96)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_gpjy4")
+
+[node name="BP_10" type="Sprite2D" parent="UI_Health"]
+position = Vector2(152, 176)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_r0ilm")
+
+[node name="BP_01" type="Sprite2D" parent="UI_Health"]
+position = Vector2(192, 176)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_gpjy4")

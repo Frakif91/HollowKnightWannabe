@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://paa41rj36d5r"
+path="res://.godot/imported/502. Pop1.mp3-961d1b129374fe80699e879906878b3e.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/502. Pop1.mp3"
+dest_files=["res://.godot/imported/502. Pop1.mp3-961d1b129374fe80699e879906878b3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

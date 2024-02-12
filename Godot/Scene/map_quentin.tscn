@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://tgdu2xr3p1ix"]
+
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_1a3nc"]
+[ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_t3m54"]
+[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="5_74gv0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mario" parent="." instance=ExtResource("2_1a3nc")]
+position = Vector2(209, 527)
+scale = Vector2(0.66, 0.66)
+floor_max_angle = 0.261799
+
+[node name="Fond d\'écran" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.7
+scroll_base_offset = Vector2(10, 0)
+scroll_base_scale = Vector2(0.5, 0.5)
+
+[node name="Image" type="Sprite2D" parent="Fond d\'écran"]
+position = Vector2(607.143, 217.143)
+scale = Vector2(3.35938, 2.37723)
+texture = ExtResource("4_t3m54")
+metadata/_edit_lock_ = true
+
+[node name="Musique" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_74gv0")
+volume_db = -10.0
+autoplay = true
+
+[node name="Deposer" type="Node2D" parent="."]

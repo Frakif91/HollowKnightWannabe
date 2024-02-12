@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhw68sp4uksp2"
+path="res://.godot/imported/592. Shovel Hit Default.mp3-acf199ca1a8a9d7c4ff5c8e01a43e46b.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/592. Shovel Hit Default.mp3"
+dest_files=["res://.godot/imported/592. Shovel Hit Default.mp3-acf199ca1a8a9d7c4ff5c8e01a43e46b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd8obostexejr"]
+
+[ext_resource type="Texture2D" uid="uid://ch4msf78k44kh" path="res://1-1.png" id="1_rxxwp"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://main_character.tscn" id="2_c5kdh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhsd"]
+size = Vector2(2816, 430.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgy8a"]
+size = Vector2(2944, 64)
+
+[node name="Level 1-1" type="Node2D"]
+
+[node name="Boundaries" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1408, 216.75)
+shape = SubResource("RectangleShape2D_xyhsd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1408, 328)
+texture = ExtResource("1_rxxwp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, -8, 0, 416, 352, 416, 352, 368, 384, 368, 384, 416, 624, 416, 624, 400, 656, 400, 656, 384, 672, 384, 672, 400, 1088, 400, 1088, 432, 1152, 432, 1152, 416, 1504, 416, 1504, 432, 1536, 432, 1536, 416, 1568, 416, 1568, 400, 1584, 400, 1584, 384, 1600, 384, 1600, 368, 1616, 368, 1616, 432, 1664, 432, 1664, 368, 1680, 368, 1680, 384, 1696, 384, 1696, 400, 1712, 400, 1712, 416, 1792, 416, 1792, 384, 1824, 384, 1824, 416, 1856, 416, 1856, 368, 1888, 368, 1888, 416, 1952, 416, 1952, 400, 1968, 400, 1968, 384, 1984, 384, 1984, 368, 2048, 368, 2048, 400, 2064, 400, 2064, 416, 2096, 416, 2096, 384, 2112, 384, 2112, 400, 2128, 400, 2128, 416, 2240, 416, 2240, 432, 2256, 432, 2256, 368, 2288, 368, 2288, 416, 2320, 416, 2320, 384, 2352, 384, 2352, 416, 2816, 416, 2816, -8, 2880, -8, 2880, 448, 0, 448, -64, 448, -64, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1408, -32)
+shape = SubResource("RectangleShape2D_xgy8a")
+
+[node name="Body" parent="." instance=ExtResource("2_c5kdh")]
+position = Vector2(104, 376)
+scale = Vector2(0.5, 0.5)
+wall_slide_enabled = null
+
+[node name="Camera2D" type="Camera2D" parent="Body"]
+position = Vector2(0, -8)
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 2816
+limit_bottom = 432
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://l1p0nb0ry03t"]
+
+[ext_resource type="PackedScene" uid="uid://pfmypvw4vrdu" path="res://Collition Block.tscn" id="1_54nbi"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://main_character.tscn" id="2_5ph43"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_bgt8i"]
+
+[node name="Racine" type="Node2D"]
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="CollitionBox" parent="Boxes" instance=ExtResource("1_54nbi")]
+position = Vector2(288, 552)
+scale = Vector2(5, 5)
+
+[node name="CollitionBox2" parent="Boxes" instance=ExtResource("1_54nbi")]
+position = Vector2(440, 520)
+scale = Vector2(2.7765, 1)
+
+[node name="CollitionBox3" parent="Boxes" instance=ExtResource("1_54nbi")]
+position = Vector2(528, 464)
+scale = Vector2(3.92, 1)
+
+[node name="CollitionBox4" parent="Boxes" instance=ExtResource("1_54nbi")]
+position = Vector2(400, 408)
+scale = Vector2(3.92, 1)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top Box" parent="Walls" instance=ExtResource("1_54nbi")]
+scale = Vector2(72, 1)
+
+[node name="Bottom Box" parent="Walls" instance=ExtResource("1_54nbi")]
+position = Vector2(0, 632)
+scale = Vector2(72, 1)
+
+[node name="Left Box" parent="Walls" instance=ExtResource("1_54nbi")]
+scale = Vector2(1, 40.5)
+
+[node name="Right Box" parent="Walls" instance=ExtResource("1_54nbi")]
+position = Vector2(1136, 0)
+scale = Vector2(1, 40.5)
+
+[node name="Player" parent="." instance=ExtResource("2_5ph43")]
+position = Vector2(767, 604)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(5, -3)
+enabled = false
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 1155
+limit_bottom = 646
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("3_bgt8i")
+
+[connection signal="gameover" from="Player" to="Player/Camera2D" method="_on_player_gameover"]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://chcxnkqbuyxi1"]
+
+[ext_resource type="Texture2D" uid="uid://ctqfe0x76bf2f" path="res://Assets/GFX/hp_hd_0.png" id="1_exoqm"]
+[ext_resource type="Texture2D" uid="uid://35vwril6pt4p" path="res://Assets/GFX/hp_hd_4.png" id="2_n4ej0"]
+
+[sub_resource type="GDScript" id="GDScript_u6vn8"]
+resource_name = "upsting"
+script/source = "extends TextureProgressBar
+
+@onready var heart = self
+var myvalue = 1
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	myvalue += delta * 15
+	if myvalue > 100:
+		myvalue = 1
+	heart.value = myvalue
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 204.0
+min_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_exoqm")
+texture_progress = ExtResource("2_n4ej0")
+tint_progress = Color(0, 1, 1, 1)
+script = SubResource("GDScript_u6vn8")

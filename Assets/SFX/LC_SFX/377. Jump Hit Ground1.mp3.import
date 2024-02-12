@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dboqpvfih0pg5"
+path="res://.godot/imported/377. Jump Hit Ground1.mp3-9d0d462325ce4f709abe5eb7a09feb80.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/377. Jump Hit Ground1.mp3"
+dest_files=["res://.godot/imported/377. Jump Hit Ground1.mp3-9d0d462325ce4f709abe5eb7a09feb80.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

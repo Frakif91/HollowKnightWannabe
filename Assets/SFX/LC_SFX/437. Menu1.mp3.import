@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df7p3w7758f3a"
+path="res://.godot/imported/437. Menu1.mp3-8361d72583102ed80579e39e47ea5c91.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/437. Menu1.mp3"
+dest_files=["res://.godot/imported/437. Menu1.mp3-8361d72583102ed80579e39e47ea5c91.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=58.41
+beat_count=0
+bar_beats=4

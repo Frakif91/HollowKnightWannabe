@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://l1p0nb0ry03t"]
+
+[ext_resource type="PackedScene" uid="uid://pfmypvw4vrdu" path="res://Godot/Nodes/Collition Block.tscn" id="1_cgicp"]
+[ext_resource type="Texture2D" uid="uid://c1f6duvpfuijb" path="res://Assets/GFX/T_Grid.png" id="1_xjaau"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_61xu2"]
+[ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="4_3c2a2"]
+[ext_resource type="PackedScene" uid="uid://8if1oud1vmfr" path="res://Godot/Nodes/landmine.tscn" id="5_johkd"]
+[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/bossBattleTheme.mp3" id="5_xpho3"]
+[ext_resource type="PackedScene" uid="uid://c6sku2sx4io3a" path="res://Godot/Nodes/ball.tscn" id="6_gcmv5"]
+
+[sub_resource type="GDScript" id="GDScript_c2p1j"]
+resource_name = "TP TO OTHER SCENE"
+script/source = "extends Area2D
+
+@onready var level = preload(\"res://Godot/Scene/level_1_1.tscn\")
+
+func _on_player_entered_area(body):
+	if is_instance_of(body,CharacterBody2D): #if is a player
+		get_tree().change_scene_to_packed(level)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou1bc"]
+
+[node name="Racine" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 321.5)
+scale = Vector2(1.12988, 0.629883)
+texture = ExtResource("1_xjaau")
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="CollitionBox" parent="Boxes" instance=ExtResource("1_cgicp")]
+position = Vector2(288, 552)
+scale = Vector2(5, 5)
+
+[node name="CollitionBox2" parent="Boxes" instance=ExtResource("1_cgicp")]
+position = Vector2(456, 520)
+scale = Vector2(2.7765, 1)
+
+[node name="CollitionBox3" parent="Boxes" instance=ExtResource("1_cgicp")]
+position = Vector2(584, 456)
+scale = Vector2(3.92, 1)
+
+[node name="CollitionBox4" parent="Boxes" instance=ExtResource("1_cgicp")]
+position = Vector2(264, 360)
+scale = Vector2(3.92, 1)
+
+[node name="TP" type="Area2D" parent="."]
+position = Vector2(16, 616)
+script = SubResource("GDScript_c2p1j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TP"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_ou1bc")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top Box" parent="Walls" instance=ExtResource("1_cgicp")]
+scale = Vector2(72, 1)
+
+[node name="Bottom Box" parent="Walls" instance=ExtResource("1_cgicp")]
+position = Vector2(0, 632)
+scale = Vector2(72, 1)
+
+[node name="Left Box" parent="Walls" instance=ExtResource("1_cgicp")]
+scale = Vector2(1, 40.5)
+
+[node name="Right Box" parent="Walls" instance=ExtResource("1_cgicp")]
+position = Vector2(1136, 0)
+scale = Vector2(1, 40.5)
+
+[node name="Player" parent="." instance=ExtResource("2_61xu2")]
+position = Vector2(311, 336)
+floor_max_angle = 0.261799
+
+[node name="Camera" parent="Player" instance=ExtResource("4_3c2a2")]
+unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xpho3")
+volume_db = -10.0
+autoplay = true
+
+[node name="Landmine" parent="." instance=ExtResource("5_johkd")]
+position = Vector2(275, 357)
+scale = Vector2(0.15, 0.15)
+
+[node name="Ball" parent="." instance=ExtResource("6_gcmv5")]
+position = Vector2(628, 311)
+can_sleep = false
+
+[connection signal="body_entered" from="TP" to="TP" method="_on_player_entered_area"]

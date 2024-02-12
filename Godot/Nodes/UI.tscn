@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bktqfg1n4y7sh"]
+
+[ext_resource type="PackedScene" uid="uid://dpwo8kvrumeym" path="res://Godot/Nodes/HP.tscn" id="1_vtmx8"]
+
+[node name="ScreenAnchor" type="CanvasLayer"]
+
+[node name="UI" parent="." instance=ExtResource("1_vtmx8")]
+unique_name_in_owner = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl0ut35vb2y23"
+path="res://.godot/imported/508. Purchase S F X.mp3-88bff0a0a23093b89a76cf67318a4d49.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/508. Purchase S F X.mp3"
+dest_files=["res://.godot/imported/508. Purchase S F X.mp3-88bff0a0a23093b89a76cf67318a4d49.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

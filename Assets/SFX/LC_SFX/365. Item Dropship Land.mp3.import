@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bei2hcxjytwoa"
+path="res://.godot/imported/365. Item Dropship Land.mp3-2dcf8455c430e36375d68c219a60750f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/365. Item Dropship Land.mp3"
+dest_files=["res://.godot/imported/365. Item Dropship Land.mp3-2dcf8455c430e36375d68c219a60750f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

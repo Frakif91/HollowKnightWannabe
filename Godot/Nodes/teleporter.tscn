@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd1j8ws1i7gpk"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="1_rlfud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj1g0"]
+size = Vector2(48, 51)
+
+[node name="Teleporter" type="Area2D"]
+position = Vector2(2696, 344)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_rlfud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_yj1g0")

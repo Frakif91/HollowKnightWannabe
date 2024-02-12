@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7h5ttqqo8cim"
+path="res://.godot/imported/367. Jack In The Box Theme.mp3-a107ece7980cc01cc194e0e292c7c984.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/LC_SFX/367. Jack In The Box Theme.mp3"
+dest_files=["res://.godot/imported/367. Jack In The Box Theme.mp3-a107ece7980cc01cc194e0e292c7c984.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
