@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://1nxcwdc6n48p"]
+[gd_scene load_steps=35 format=3 uid="uid://1nxcwdc6n48p"]
 
 [ext_resource type="Texture2D" uid="uid://bheqn7icpjdyu" path="res://Assets/GFX/Interaction_icon/all.png" id="1_238al"]
 [ext_resource type="Texture2D" uid="uid://bg7oc5hnidgvx" path="res://Assets/GFX/Interaction_icon/97695.png" id="2_0vwqx"]
@@ -83,10 +83,6 @@ region = Rect2(530, 71, 64, 64)
 atlas = ExtResource("1_238al")
 region = Rect2(596, 71, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8l7xr"]
-atlas = ExtResource("2_0vwqx")
-region = Rect2(1, 1, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1b5mo"]
 atlas = ExtResource("1_238al")
 region = Rect2(332, 3, 64, 64)
@@ -107,25 +103,29 @@ region = Rect2(530, 3, 64, 64)
 atlas = ExtResource("1_238al")
 region = Rect2(596, 3, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p0878"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l7xr"]
 atlas = ExtResource("2_0vwqx")
 region = Rect2(1, 1, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4phtc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4w8g"]
 atlas = ExtResource("2_0vwqx")
-region = Rect2(67, 1, 64, 64)
+region = Rect2(2, 2, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ve1c5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywjg6"]
 atlas = ExtResource("2_0vwqx")
-region = Rect2(133, 1, 64, 64)
+region = Rect2(68, 2, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sahoc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijlsn"]
 atlas = ExtResource("2_0vwqx")
-region = Rect2(199, 1, 64, 64)
+region = Rect2(134, 2, 62, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dutd8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1igfh"]
 atlas = ExtResource("2_0vwqx")
-region = Rect2(265, 1, 64, 64)
+region = Rect2(200, 2, 62, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ftp"]
+atlas = ExtResource("2_0vwqx")
+region = Rect2(266, 2, 62, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wljuo"]
 animations = [{
@@ -196,14 +196,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8l7xr")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_1b5mo")
 }, {
 "duration": 1.0,
@@ -219,53 +211,37 @@ animations = [{
 "texture": SubResource("AtlasTexture_81uq4")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"downward",
 "speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p0878")
+"texture": SubResource("AtlasTexture_8l7xr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4w8g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4phtc")
+"texture": SubResource("AtlasTexture_ywjg6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ve1c5")
+"texture": SubResource("AtlasTexture_ijlsn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sahoc")
+"texture": SubResource("AtlasTexture_1igfh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dutd8")
+"texture": SubResource("AtlasTexture_k3ftp")
 }],
 "loop": true,
 "name": &"upward",
 "speed": 15.0
 }]
-
-[sub_resource type="Animation" id="Animation_5q60x"]
-resource_name = "RESET"
-
-[sub_resource type="Animation" id="Animation_wqo37"]
-resource_name = "updown"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtmm"]
-_data = {
-"RESET": SubResource("Animation_5q60x"),
-"updown": SubResource("Animation_wqo37")
-}
 
 [node name="InteractIcon" type="Control"]
 layout_mode = 3
@@ -275,13 +251,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Icon" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wljuo")
-animation = &"idle"
-frame_progress = 0.473454
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimatedSprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_trtmm")
-}
+animation = &"upward"
+frame_progress = 0.142859

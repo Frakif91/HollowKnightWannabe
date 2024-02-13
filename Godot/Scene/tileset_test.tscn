@@ -68,7 +68,7 @@ scale = Vector2(0.9, 1.14)
 scene = "res://Godot/Scene/tileset_2.tscn"
 animation = "fade_left_right_in"
 marker_path = NodePath("Marker2D")
-tp_pos = Vector2(90, 200)
+tp_pos = Vector2(1097, 159)
 
 [node name="Marker2D" type="Marker2D" parent="Teleporter"]
 position = Vector2(97.7778, -0.877197)

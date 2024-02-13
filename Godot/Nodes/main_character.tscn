@@ -1,20 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bubeuilvqxf2o"]
+[gd_scene load_steps=6 format=3 uid="uid://bubeuilvqxf2o"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/main_character.gd" id="1_8cylk"]
 [ext_resource type="SpriteFrames" uid="uid://dmt7s23wcpnw6" path="res://Godot/MarioSpriteFrame.tres" id="2_f7kyk"]
 [ext_resource type="AudioStream" uid="uid://cm8whqc1dnbfa" path="res://Assets/SFX/SML2_Jump.ogg" id="3_mrnn2"]
 [ext_resource type="AudioStream" uid="uid://cuworfs57i7f6" path="res://Assets/SFX/LC_SFX/550. Scream1.mp3" id="4_lin24"]
-
-[sub_resource type="Gradient" id="Gradient_o03kc"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.209231, 0.775385)
-colors = PackedColorArray(0.31802, 0.31802, 0.31802, 1, 0.187176, 0.187176, 0.187176, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4fnvo"]
-gradient = SubResource("Gradient_o03kc")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
+[ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light.tres" id="5_sknj3"]
 
 [node name="Body" type="CharacterBody2D"]
 script = ExtResource("1_8cylk")
@@ -29,7 +19,7 @@ polygon = PackedVector2Array(-4, 24, 4, 24, 16, 16, 16, -16, 8, -24, -8, -24, -1
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mrnn2")
-volume_db = -6.0
+volume_db = -12.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
@@ -38,10 +28,10 @@ stream = ExtResource("4_lin24")
 volume_db = -20.0
 
 [node name="LowLight" type="PointLight2D" parent="."]
-texture = SubResource("GradientTexture2D_4fnvo")
+texture = ExtResource("5_sknj3")
 texture_scale = 7.0
 
 [node name="HighLight" type="PointLight2D" parent="."]
 energy = 0.0
-texture = SubResource("GradientTexture2D_4fnvo")
+texture = ExtResource("5_sknj3")
 texture_scale = 7.0

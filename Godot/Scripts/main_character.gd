@@ -34,31 +34,32 @@ const suffer = [
 func _ready():
 	sprite.play("Stand")
 	print(self.scale.y)
-	print($"Collision".visible,typeof($"Collision"))
-	if tp_pos != Vector2(0,0):
+	print($"Collision".visible ,typeof($"Collision"))
+	if tp_pos != Vector2.ZERO :
 		position = tp_pos
 
 func _physics_process(delta):
+
 	#not finished
-	states["IsWallSliding"] = is_on_wall_only()	
+	PlayerStats.states["IsWallSliding"] = is_on_wall_only()	
 	# Add the gravity.
 	if not is_on_floor():
-		if wall_slide_enabled and is_on_wall_only() and velocity.y > 0 and is_abletomove:
-			velocity.y += (gravity * delta) * wall_slide_percentage
-			velocity.y = clamp(velocity.y, wall_slide_max_spd, wall_slide_min_spd)
+		if PlayerStats.wall_slide_enabled and is_on_wall_only() and velocity.y > 0 and PlayerStats.is_abletomove:
+			velocity.y += (gravity * delta) * PlayerStats.wall_slide_percentage
+			velocity.y = clamp(velocity.y, PlayerStats.wall_slide_max_spd, PlayerStats.wall_slide_min_spd)
 		else:
 			velocity.y += (gravity * delta)
-		if (velocity.y < 0) and not states["InGameoverState"] and is_abletomove: # y < 0 = HIGHER
-			sprite.play(anim_name[anim.JUMP])
-		elif (velocity.y > 0) and not states["InGameoverState"] and is_abletomove:
-			sprite.play(anim_name[anim.FALL])
+		if (velocity.y < 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove: # y < 0 = HIGHER
+			sprite.play(PlayerStats.anim_name[PlayerStats.anim.JUMP])
+		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove:
+			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
 	else:
 		states["HasDoubleJumped"] = false
-		if Input.is_action_pressed("ui_down"):
+		if Input.is_action_pressed("Look_Down"):
 			sprite.play("LookDown")
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and is_abletomove:
+	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and is_abletomove:
 		velocity.y = JUMP_VELOCITY
 		audioPlayer.play()
 		if not is_on_floor() and states["HasDoubleJumped"] == false:
@@ -87,6 +88,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down") and is_on_floor():
 		sprite.play("LookDown")
 		camera.offset = Vector2(0,10)
+	else:
+		camera.offset = Vector2(0,0)
 
 	
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:

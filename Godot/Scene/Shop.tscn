@@ -1,0 +1,202 @@
+[gd_scene load_steps=28 format=3 uid="uid://bu0t64lk6mixg"]
+
+[ext_resource type="Texture2D" uid="uid://dv51h5g6oa013" path="res://Assets/GFX/shop_background.png" id="1_3lf6e"]
+[ext_resource type="Texture2D" uid="uid://cbgpngxb3tnpj" path="res://Assets/GFX/shop_seller_animated.png" id="2_afehb"]
+[ext_resource type="Script" path="res://Godot/Scripts/Shop_Dialog.gd" id="2_omx0f"]
+[ext_resource type="Texture2D" uid="uid://br7g00ksn1wc6" path="res://Assets/GFX/shop_grappling_hook.png" id="3_67dox"]
+[ext_resource type="PackedScene" uid="uid://1nxcwdc6n48p" path="res://Godot/Nodes/Interact_icon.tscn" id="4_axb0a"]
+[ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="4_tpud0"]
+[ext_resource type="AudioStream" uid="uid://cwkctlr0jogyk" path="res://Assets/SFX/Mario_&_Luigi_PIT_Select_1.ogg" id="5_3nfxu"]
+[ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light.tres" id="5_ti45a"]
+[ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="6_pnpqe"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="7_vbply"]
+[ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="8_0plf6"]
+[ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="9_miho5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vcu1"]
+atlas = ExtResource("2_afehb")
+region = Rect2(0, 0, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ivfj"]
+atlas = ExtResource("2_afehb")
+region = Rect2(1024, 0, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcqof"]
+atlas = ExtResource("2_afehb")
+region = Rect2(2048, 0, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ave"]
+atlas = ExtResource("2_afehb")
+region = Rect2(3072, 0, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qblkw"]
+atlas = ExtResource("2_afehb")
+region = Rect2(4096, 0, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwn5h"]
+atlas = ExtResource("2_afehb")
+region = Rect2(0, 768, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raj8o"]
+atlas = ExtResource("2_afehb")
+region = Rect2(1024, 768, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyqgm"]
+atlas = ExtResource("2_afehb")
+region = Rect2(2048, 768, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2x0m"]
+atlas = ExtResource("2_afehb")
+region = Rect2(3072, 768, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjlve"]
+atlas = ExtResource("2_afehb")
+region = Rect2(4096, 768, 1024, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cntqm"]
+atlas = ExtResource("2_afehb")
+region = Rect2(4096, 768, 1024, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agrl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ivfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcqof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7ave")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qblkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwn5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raj8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2x0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjlve")
+}],
+"loop": false,
+"name": &"hey",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cntqm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vetci"]
+radius = 52.3805
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk25x"]
+size = Vector2(8, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efciy"]
+size = Vector2(15, 28)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ShopBackground" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3lf6e")
+
+[node name="Shop_Area" type="Area2D" parent="."]
+position = Vector2(24, -2.98023e-08)
+scale = Vector2(0.21, 0.21)
+script = ExtResource("2_omx0f")
+
+[node name="ShopSeller" type="AnimatedSprite2D" parent="Shop_Area"]
+position = Vector2(-123.81, -1.78571)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_agrl4")
+animation = &"idle"
+
+[node name="Interaction_Area" type="CollisionShape2D" parent="Shop_Area"]
+position = Vector2(0.000473022, -4.25747e-06)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_vetci")
+debug_color = Color(0, 1, 0.14902, 0.419608)
+
+[node name="InteractIcon" parent="Shop_Area" instance=ExtResource("4_axb0a")]
+texture_filter = 1
+offset_top = -152.381
+offset_bottom = -152.381
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="Shop_Area"]
+stream = ExtResource("5_3nfxu")
+volume_db = -12.0
+
+[node name="ShopGrapplingHook" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_67dox")
+
+[node name="ShopUi" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_tpud0")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-20, -32)
+texture = ExtResource("5_ti45a")
+texture_scale = 0.7
+script = ExtResource("6_pnpqe")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6, -21)
+texture = ExtResource("5_ti45a")
+texture_scale = 0.7
+script = ExtResource("6_pnpqe")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(-48, -12, -48, -40, 8, -40, 56, -44, 60, -24, 60, 8, 60, 12, -48, 16, -72, 16, -72, 24, 64, 24, 64, -56, -72, -52, -72, 8, -64, 8, -64, -12)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2"]
+position = Vector2(-68, 6)
+shape = SubResource("RectangleShape2D_jk25x")
+
+[node name="Player" parent="." instance=ExtResource("7_vbply")]
+position = Vector2(-35, 2)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera" parent="Player" instance=ExtResource("8_0plf6")]
+position = Vector2(1.66667, -3.33333)
+scale = Vector2(0.416667, 0.416667)
+zoom = Vector2(8.16, 8.16)
+limit_left = -380
+limit_top = -375
+limit_right = 380
+limit_bottom = 106
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(-56, 2)
+script = ExtResource("9_miho5")
+scene = "res://Godot/Scene/tileset_2.tscn"
+tp_pos = Vector2(312, 315)
+
+[node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_efciy")
