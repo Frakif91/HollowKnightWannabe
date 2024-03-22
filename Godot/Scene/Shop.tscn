@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://1nxcwdc6n48p" path="res://Godot/Nodes/Interact_icon.tscn" id="4_axb0a"]
 [ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="4_tpud0"]
 [ext_resource type="AudioStream" uid="uid://cwkctlr0jogyk" path="res://Assets/SFX/Mario_&_Luigi_PIT_Select_1.ogg" id="5_3nfxu"]
-[ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light.tres" id="5_ti45a"]
 [ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="6_pnpqe"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="7_vbply"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="8_0plf6"]
+[ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="8_5adlr"]
 [ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="9_miho5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vcu1"]
@@ -110,7 +110,7 @@ radius = 52.3805
 size = Vector2(8, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efciy"]
-size = Vector2(15, 28)
+size = Vector2(12, 28)
 
 [node name="Node2D" type="Node2D"]
 
@@ -125,18 +125,15 @@ script = ExtResource("2_omx0f")
 
 [node name="ShopSeller" type="AnimatedSprite2D" parent="Shop_Area"]
 position = Vector2(-123.81, -1.78571)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_agrl4")
 animation = &"idle"
 
 [node name="Interaction_Area" type="CollisionShape2D" parent="Shop_Area"]
 position = Vector2(0.000473022, -4.25747e-06)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_vetci")
 debug_color = Color(0, 1, 0.14902, 0.419608)
 
 [node name="InteractIcon" parent="Shop_Area" instance=ExtResource("4_axb0a")]
-texture_filter = 1
 offset_top = -152.381
 offset_bottom = -152.381
 
@@ -155,22 +152,27 @@ texture = ExtResource("4_tpud0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
-texture = ExtResource("5_ti45a")
+texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
+min_light = 0.1
+max_light = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
-texture = ExtResource("5_ti45a")
+energy = 0.956339
+texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
+min_light = 0.1
+max_light = 1.0
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
-polygon = PackedVector2Array(-48, -12, -48, -40, 8, -40, 56, -44, 60, -24, 60, 8, 60, 12, -48, 16, -72, 16, -72, 24, 64, 24, 64, -56, -72, -52, -72, 8, -64, 8, -64, -12)
+polygon = PackedVector2Array(-49, -13, -51, -41, 9, -43, 57, -47, 58, -25, 58, 2, 58, 10, 41, 12, 33, 13, -5, 14, -72, 15, -72, 24, 64, 24, 64, -56, -72, -52, -72, 8, -64, 8, -64, -12)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 
@@ -198,5 +200,5 @@ scene = "res://Godot/Scene/tileset_2.tscn"
 tp_pos = Vector2(312, 315)
 
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
-position = Vector2(-0.5, 0)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_efciy")

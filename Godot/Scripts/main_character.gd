@@ -95,6 +95,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()
 
+	PlayerStats.velocity = velocity
 	move_and_slide()
 	#endregion
 

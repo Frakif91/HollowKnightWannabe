@@ -70,6 +70,7 @@ enum anim {WALK, STAND, JUMP, FALL, HURT, OVER}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
+var velocity
 @export var wall_slide_enabled = false
 @export var wall_slide_percentage = 0.2
 @export var wall_slide_min_spd = 50.0
