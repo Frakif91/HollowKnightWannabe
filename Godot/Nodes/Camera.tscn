@@ -11,6 +11,11 @@ limit_right = 1155
 limit_bottom = 646
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+drag_vertical_enabled = true
+drag_left_margin = 0.35
+drag_right_margin = 0.35
+drag_bottom_margin = 0.35
 editor_draw_limits = true
 script = ExtResource("1_3wtfx")
 

@@ -29,8 +29,8 @@ stream = ExtResource("4_lin24")
 volume_db = -20.0
 
 [node name="LowLight" type="PointLight2D" parent="."]
+light_mask = 2
 energy = 2.0
-shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.392157)
 texture = ExtResource("5_q0ok5")
 texture_scale = 7.0
@@ -38,6 +38,7 @@ texture_scale = 7.0
 [node name="HighLight" type="PointLight2D" parent="."]
 visible = false
 shadow_enabled = true
-shadow_color = Color(0.254902, 0.254902, 0.254902, 0.278431)
+shadow_color = Color(0, 0, 0, 0.278431)
+shadow_filter_smooth = 10.1
 texture = ExtResource("5_vusjh")
 texture_scale = 7.0

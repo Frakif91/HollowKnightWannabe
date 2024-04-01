@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm04d4a4ygqde"]
+
+[ext_resource type="Script" path="res://Godot/Nodes/SceneProperties.gd" id="1_jx7q2"]
+
+[node name="SceneProperties" type="Node"]
+script = ExtResource("1_jx7q2")

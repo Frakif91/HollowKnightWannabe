@@ -303,6 +303,7 @@ offset_bottom = 268.0
 scale = Vector2(0.3, 0.3)
 columns = 3
 script = ExtResource("1_y1yro")
+scene_prop = null
 max_states = 4
 max_hp = 12
 hp = 6
@@ -330,7 +331,7 @@ offset_bottom = 782.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
-columns = 10
+columns = 80
 
 [node name="Stick_C" type="MarginContainer" parent="Container"]
 layout_mode = 2

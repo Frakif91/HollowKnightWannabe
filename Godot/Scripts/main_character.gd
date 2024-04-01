@@ -30,6 +30,10 @@ const suffer = [
 @onready var collision : CollisionPolygon2D = $"Collision"
 @onready var audioPlayer : AudioStreamPlayer = $"Audio"
 @onready var jumpSound : AudioStreamOggVorbis = get("res://SML2_Jump.ogg")
+@onready var lowlight : PointLight2D = $LowLight
+@onready var highlight : PointLight2D = $HighLight
+@onready var og_lowlight : PointLight2D = lowlight.duplicate()
+@onready var og_highlight : PointLight2D = highlight.duplicate()
 
 func _ready():
 	sprite.play("Stand")
