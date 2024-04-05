@@ -1,6 +1,8 @@
 @tool
 extends GridContainer
 
+@export_node_path("Node") var scene_prop : NodePath
+
 @export var max_states : int = 2
 @export_category("Health & BP")
 @export var max_hp : int = 6:
@@ -36,10 +38,15 @@ var heart_tex = [preload("res://Assets/GFX/hp_hd_0.png"),
 
 var health_container : Array[TextureRect] = []
 var act_texrect : TextureRect
-
+var og_scale = scale
+var last_container = TextureRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_container()
+	last_container = health_container[len(health_container) - 1]
+	if scene_prop:
+		#scene_prop
+		pass
 
 func init_container():
 	#clear all children
@@ -57,17 +64,22 @@ func init_container():
 		self.add_child(tex)
 
 func process_health():
+	if !Engine.is_editor_hint():
+		if hp != PlayerStats.hp:
+			hp = PlayerStats.hp
+		if max_hp != PlayerStats.max_hp:
+			max_hp = PlayerStats.max_hp
+		self.scale = lerp(self.scale, og_scale, 0.2)
+
 	var i = 0
 	var tex : Texture2D
 	for element in health_container:
 		tex = heart_tex[clamp(hp - i,0,4)]
 		element.texture = tex
 		i += max_states
-
 			
-
-
-
+func zoom_in():
+	last_container.scale = Vector2(2,2)
 
 
 

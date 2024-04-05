@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://wc0f2vdlbwky"
+path="res://.godot/imported/Cult of the Lamb OST - Saviour Extended.ogg-31e8b24c96a5321f798925f8d7a7ace3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/Cult of the Lamb OST - Saviour Extended.ogg"
+dest_files=["res://.godot/imported/Cult of the Lamb OST - Saviour Extended.ogg-31e8b24c96a5321f798925f8d7a7ace3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=65.0
+beat_count=0
+bar_beats=4

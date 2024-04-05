@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://do6co72dpcqui"
+path="res://.godot/imported/Chest Close.ogg-b08fac5dad090dcd9ff5484dcaf0d07b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/SFX/Chest Close.ogg"
+dest_files=["res://.godot/imported/Chest Close.ogg-b08fac5dad090dcd9ff5484dcaf0d07b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

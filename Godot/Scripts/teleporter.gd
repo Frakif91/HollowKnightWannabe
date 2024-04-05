@@ -9,17 +9,27 @@ class_name Teleporter
 @export var use_marker : bool = false
 @export_node_path("Marker2D") var marker_path : NodePath = ""
 @export var tp_pos : Vector2 = Vector2(0,0)
+@export_enum("None","Player Interact") var condition = "None"
 
+var the_player : MainCharacter
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	self.body_entered.connect(on_body_entered)
 
 func on_body_entered(external_body):
-	if (external_body is MainCharacter or external_body is CharacterBody2D):
+	if (external_body is MainCharacter):
 		print_debug(external_body)
-		if use_marker:
-			PlayerStats.tp_pos = get_node(marker_path).position
-		else:
-			PlayerStats.tp_pos = tp_pos
-		Transitions.call("change_scene",scene,animation)
+		the_player = external_body
+		if condition == "None":
+			teleport()
+
+func on_body_exit():
+	the_player = null
+
+func teleport():
+	if use_marker:
+		PlayerStats.tp_pos = get_node(marker_path).position
+	else:
+		PlayerStats.tp_pos = tp_pos
+	Transitions.call("change_scene",scene,animation)

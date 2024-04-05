@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var animator = $"AnimationPlayer"
+@onready var animator : AnimationPlayer = $"AnimationPlayer"
 @onready var clrect = $"ColorRect"
 
 var last_animation

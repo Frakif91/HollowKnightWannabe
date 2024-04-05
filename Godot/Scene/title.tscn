@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://v5lhor1ro7u3"]
+[gd_scene load_steps=4 format=3 uid="uid://v5lhor1ro7u3"]
 
 [ext_resource type="Texture2D" uid="uid://xocalfubpptf" path="res://Assets/GFX/Title_w._effect.png" id="1_fq8cb"]
 [ext_resource type="Script" path="res://Godot/Scripts/PlayButton.gd" id="2_swuwy"]
+[ext_resource type="Texture2D" uid="uid://b2l7stlgw350q" path="res://Assets/GFX/ButtonIcon-N64-Start.svg" id="2_ueaj1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,5 +33,10 @@ offset_top = -47.0
 offset_bottom = 44.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "Play"
+action_mode = 0
+text = "
+"
+icon = ExtResource("2_ueaj1")
+flat = true
 script = ExtResource("2_swuwy")
+scene = "res://Godot/Scene/tileset_test.tscn"

@@ -1,3 +1,4 @@
+@tool
 extends PointLight2D
 
 var light : PointLight2D = self

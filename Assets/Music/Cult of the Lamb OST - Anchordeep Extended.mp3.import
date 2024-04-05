@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3fcvmjyicfcx"
+path="res://.godot/imported/Cult of the Lamb OST - Anchordeep Extended.mp3-51e215f33d6f5720010f6993f616454c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Cult of the Lamb OST - Anchordeep Extended.mp3"
+dest_files=["res://.godot/imported/Cult of the Lamb OST - Anchordeep Extended.mp3-51e215f33d6f5720010f6993f616454c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

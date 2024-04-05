@@ -30,11 +30,15 @@ const suffer = [
 @onready var collision : CollisionPolygon2D = $"Collision"
 @onready var audioPlayer : AudioStreamPlayer = $"Audio"
 @onready var jumpSound : AudioStreamOggVorbis = get("res://SML2_Jump.ogg")
+@onready var lowlight : PointLight2D = $LowLight
+@onready var highlight : PointLight2D = $HighLight
+@onready var og_lowlight : PointLight2D = lowlight.duplicate()
+@onready var og_highlight : PointLight2D = highlight.duplicate()
 
 func _ready():
 	sprite.play("Stand")
 	print(self.scale.y)
-	print($"Collision".visible ,typeof($"Collision"))
+	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
 
@@ -95,6 +99,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()
 
+	PlayerStats.velocity = velocity
 	move_and_slide()
 	#endregion
 
