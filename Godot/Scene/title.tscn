@@ -39,3 +39,4 @@ text = "
 icon = ExtResource("2_ueaj1")
 flat = true
 script = ExtResource("2_swuwy")
+scene = "res://Godot/Scene/tileset_test.tscn"

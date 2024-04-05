@@ -10,7 +10,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.101961, 0.101961, 0.101961, 1)
+color = Color(0.054902, 0.054902, 0.054902, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="CanvasModulate"]
 scale = Vector2(0.24, 0.24)

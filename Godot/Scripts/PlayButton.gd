@@ -1,6 +1,6 @@
 extends Button
 
-@onready var scene = "res://Godot/Scene/Basic Scene.tscn"
+@export_file("*.tscn") var scene = "res://Godot/Scene/Basic Scene.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,5 +9,6 @@ func _ready():
 	self.button_down.connect(_button_pressed)
 
 func _button_pressed():
+	Transitions.play("RESET")
 	print_debug("Pressed")
 	Transitions.change_scene(scene,"fade_out")

@@ -32,7 +32,7 @@ npCamera = NodePath("../Mario/Camera")
 npBGAudio = NodePath("../BackgroundMusic")
 
 [node name="Tiles_Moduler" type="CanvasModulate" parent="."]
-color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="Tiles_Moduler"]
 scale = Vector2(0.24, 0.24)
@@ -54,7 +54,7 @@ texture = ExtResource("4_1phjy")
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Background"]
-color = Color(0.223529, 0.223529, 0.223529, 1)
+color = Color(0.192157, 0.192157, 0.192157, 1)
 
 [node name="Mario" parent="." instance=ExtResource("2_3pj8h")]
 position = Vector2(1086, 164)
@@ -105,5 +105,6 @@ scale = Vector2(-1, 1)
 
 [node name="To the main scene" parent="." instance=ExtResource("8_3n6dj")]
 position = Vector2(1160, 163)
+scene = "res://Godot/Scene/tileset_test.tscn"
 animation = "fade_right_left_in"
 tp_pos = Vector2(97.7778, -0.877197)

@@ -152,7 +152,7 @@ texture = ExtResource("4_tpud0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
-energy = 0.339974
+energy = 0.546725
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -161,6 +161,7 @@ max_light = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
+energy = 0.463631
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -188,10 +189,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1.66667, -3.33333)
 scale = Vector2(0.416667, 0.416667)
 zoom = Vector2(8.16, 8.16)
-limit_left = -380
-limit_top = -375
-limit_right = 380
-limit_bottom = 106
+limit_left = -74
+limit_top = -70
+limit_right = 77
+limit_bottom = 20
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(-56, 2)

@@ -13,10 +13,11 @@ script = ExtResource("1_8cylk")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"LookDown"
+animation = &"Stand"
+frame_progress = 0.00866589
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-4, 24, 4, 24, 16, 16, 16, -16, 8, -24, -8, -24, -16, -16, -16, 16)
+polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mrnn2")

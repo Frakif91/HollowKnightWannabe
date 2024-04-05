@@ -38,7 +38,7 @@ const suffer = [
 func _ready():
 	sprite.play("Stand")
 	print(self.scale.y)
-	print($"Collision".visible ,typeof($"Collision"))
+	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
 

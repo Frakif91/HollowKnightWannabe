@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4x4pdehhl0wq"]
+[gd_scene load_steps=6 format=3 uid="uid://c4x4pdehhl0wq"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/Camera2D.gd" id="1_3wtfx"]
+[ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="1_vxlrh"]
 [ext_resource type="PackedScene" uid="uid://smt3xe85w32f" path="res://Godot/Scene/hearts.tscn" id="2_o2pvb"]
+[ext_resource type="PackedScene" uid="uid://ohegt8ob1uca" path="res://Godot/Scene/debug_menu.tscn" id="3_32stw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecwrm"]
+shader = ExtResource("1_vxlrh")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [node name="Camera" type="Camera2D"]
+material = SubResource("ShaderMaterial_ecwrm")
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
@@ -14,8 +25,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 drag_vertical_enabled = true
 drag_left_margin = 0.35
+drag_top_margin = 0.3
 drag_right_margin = 0.35
-drag_bottom_margin = 0.35
 editor_draw_limits = true
 script = ExtResource("1_3wtfx")
 
@@ -24,3 +35,11 @@ script = ExtResource("1_3wtfx")
 [node name="UI" parent="ScreenAnchor" instance=ExtResource("2_o2pvb")]
 unique_name_in_owner = true
 scale = Vector2(1, 0.9904)
+
+[node name="Menu" parent="ScreenAnchor" instance=ExtResource("3_32stw")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

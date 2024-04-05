@@ -66,8 +66,8 @@ extends Node
 
 @onready var SPEED = 200.0
 @onready var JUMP_VELOCITY = -400.0
-enum anim {WALK, STAND, JUMP, FALL, HURT, OVER}
-const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover"]
+enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
+const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var velocity
@@ -87,6 +87,8 @@ var states : Dictionary = {
 	"IsInvincible"=false,
 	"LowHealth"=false,
 	"CanMove"=true}
+
+var inventory : Dictionary = {}
 
 signal lose_health
 signal gain_health

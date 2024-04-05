@@ -2,6 +2,8 @@ extends Node
 
 class_name SceneProperties
 
+@export var scene_name : String = "Graveyard"
+@export var scene_description : String = "A dark and Cold Place"
 @export_node_path("MainCharacter") var npPlayer : NodePath
 @export_node_path("Camera2D") var npCamera : NodePath
 @export_node_path("AudioStreamPlayer") var npBGAudio : NodePath
@@ -19,3 +21,5 @@ func _ready():
 	if not do_player_emit_light:
 		player.lowlight.energy = 0
 		player.highlight.energy = 0
+	if not scene_name.is_empty():
+		pass
