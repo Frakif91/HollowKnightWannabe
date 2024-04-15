@@ -1,3 +1,8 @@
+"""
+# PlayerState
+PlayerState is a GDScript outside the SceneTree (Autoload) used to store variable about the player 
+"""
+
 extends Node
 
 @onready var is_debug = OS.is_debug_build()
@@ -29,40 +34,13 @@ extends Node
 	get:
 		return clamp(hp,0,max_hp)
 
-@export var bp : int = 7 :
-	set(heal):
-		print(heal)
-		var value = heal - bp
-		if (value > 0):
-			if is_debug:
-				print("Mario got boosted by " + str(value) + "BP")
-			#gain_health.emit(value)
-			var old_bp = bp
-			bp = clamp(heal,0,max_bp)
-			return bp  - old_bp #USELESS
-		elif (value < 0):
-			if is_debug:
-				print("Mario got depressed by " + str(value) + "BP")
-			#lose_health.emit(value)
-			var old_bp = bp
-			bp = clamp(heal,0,max_bp)
-			return bp  - old_bp #USELESS
-		else:
-			print("Didn't do shit")
-	get:
-		return clamp(bp,0,max_bp)
-
-
-@export var hide_zeros = true
-@export_range(0,1,0.01) var low_percentage = 0.33
-@export_category("\"Low\" Effect")
-@export var low_health_effect : bool = true
-@export var affect_BP : bool = false
-@export var low_hp_color = Color(1, 0.322, 1)
-@export var low_bp_color = Color(0.5, 0.5, 0.5)
-@export var level : int = 0
-@export var xp : int = 0
-@export var money : int = 0
+#@export var hide_zeros = true
+#@export_range(0,1,0.01) var low_percentage = 0.33
+#@export_category("\"Low\" Effect")
+#@export var low_health_effect : bool = true
+#@export var affect_BP : bool = false
+#@export var low_hp_color = Color(1, 0.322, 1)
+#@export var low_bp_color = Color(0.5, 0.5, 0.5)
 
 @onready var SPEED = 200.0
 @onready var JUMP_VELOCITY = -400.0
@@ -75,7 +53,13 @@ var velocity
 @export var wall_slide_percentage = 0.2
 @export var wall_slide_min_spd = 50.0
 @export var wall_slide_max_spd = 10.0
-@onready var camera : Camera2D
+var camera : Camera2D
+
+@export var level : int = 0
+@export var xp : int = 0
+@export var money : int = 0
+@export var speed_multiplier : float = 1.0
+@export var jump_multiplier : float = 1.0
 
 var states : Dictionary = {
 	"Walking"=false,
@@ -88,7 +72,13 @@ var states : Dictionary = {
 	"LowHealth"=false,
 	"CanMove"=true}
 
-var inventory : Dictionary = {}
+var inventory : Dictionary = {
+	"Helmet"			: 0,
+	"Chestplate"		: 0,
+	"Boots"  			: 0,
+	"Main Hand"			: 0,
+	"Second Hand"		: 0,
+}
 
 signal lose_health
 signal gain_health

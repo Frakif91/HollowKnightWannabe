@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 class_name MainCharacter
 
-var SPEED = 125.0
-var JUMP_VELOCITY = -270.0
+#region variable
+const SPEED = 125.0
+const JUMP_VELOCITY = -270.0
 var gravity_mult = 1.2
 @onready var anim = PlayerStats.anim
 @onready var anim_name = PlayerStats.anim_name

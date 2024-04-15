@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://drio2xnae5t7y"]
+
+[ext_resource type="FontFile" uid="uid://c7jwae8f5qxse" path="res://Assets/Fonts/NITEMARE.TTF" id="1_dt3wg"]
+[ext_resource type="Script" path="res://Godot/Scripts/AreaAnnouncer.gd" id="1_uc0it"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n563s"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.517647)
+skew = Vector2(0.73, 0)
+
+[sub_resource type="Theme" id="Theme_a8gtp"]
+Panel/styles/panel = SubResource("StyleBoxFlat_n563s")
+
+[sub_resource type="LabelSettings" id="LabelSettings_2kjdx"]
+font = ExtResource("1_dt3wg")
+font_size = 57
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.364706)
+shadow_offset = Vector2(3, 3.33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb18s"]
+font = ExtResource("1_dt3wg")
+font_size = 24
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.211765)
+
+[sub_resource type="Animation" id="Animation_6vu4p"]
+resource_name = "RESET"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("The Whole:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("The Whole:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_80pai"]
+resource_name = "Show"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("The Whole:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-516, -0.25, 0, 0.25, 0, 0, -0.8, 0, 0.9, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("The Whole:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfm0a"]
+_data = {
+"RESET": SubResource("Animation_6vu4p"),
+"Show": SubResource("Animation_80pai")
+}
+
+[node name="Area Announcer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uc0it")
+
+[node name="The Whole" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BakcPanel" type="Panel" parent="The Whole"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -229.0
+offset_top = 464.0
+offset_right = 385.0
+offset_bottom = 583.0
+grow_vertical = 2
+theme = SubResource("Theme_a8gtp")
+
+[node name="FrontPanel" type="Panel" parent="The Whole/BakcPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -48.5
+offset_right = 596.0
+offset_bottom = 49.5
+grow_vertical = 2
+theme = SubResource("Theme_a8gtp")
+
+[node name="Title" type="Label" parent="The Whole"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 476.0
+offset_right = 275.0
+offset_bottom = 557.0
+text = "The Graveyard
+"
+label_settings = SubResource("LabelSettings_2kjdx")
+
+[node name="Description" type="Label" parent="The Whole"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 554.0
+offset_right = 235.0
+offset_bottom = 600.0
+text = "A Dark and Old Place"
+label_settings = SubResource("LabelSettings_yb18s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cfm0a")
+}
