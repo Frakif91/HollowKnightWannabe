@@ -1,7 +1,6 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://67utkh87t7q4"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://67utkh87t7q4"]
 
 [ext_resource type="Texture2D" uid="uid://mv4wk6l8kgxt" path="res://Assets/map/pixil-frame-0.png" id="1_0vhks"]
-[ext_resource type="Texture2D" uid="uid://bnm8ucrnp561c" path="res://Assets/GFX/pixil-frame-0.png" id="2_dwugy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fm7f3"]
 texture = ExtResource("1_0vhks")
@@ -156,7 +155,6 @@ texture_region_size = Vector2i(11, 11)
 0:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uo02e"]
-texture = ExtResource("2_dwugy")
 separation = Vector2i(2, 2)
 texture_region_size = Vector2i(11, 11)
 1:0/0 = 0
