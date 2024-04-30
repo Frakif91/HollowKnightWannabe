@@ -112,7 +112,7 @@ position = Vector2(72, 554)
 scale = Vector2(-1, 1)
 
 [node name="To the main scene" parent="." instance=ExtResource("8_3n6dj")]
-position = Vector2(1160, 163)
+position = Vector2(1156, 163)
 scene = "res://Godot/Scene/tileset_test.tscn"
 animation = "fade_right_left_in"
 tp_pos = Vector2(97.7778, -0.877197)

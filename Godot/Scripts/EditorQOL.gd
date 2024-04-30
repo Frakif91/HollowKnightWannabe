@@ -30,17 +30,17 @@ func apply_editor_changes():
 	#Est-ce que le script est executé dans l'éditeur ?
 	if Engine.is_editor_hint():
 		if is_instance_of(self,CanvasModulate):
-				print_debug("CanvasModulate, in Editor")
-				self.color = ie_node_modulate
+			print_debug("CanvasModulate, in Editor")
+			self.color = ie_node_modulate
 		if is_instance_of(self,Light2D):
-				print_debug("Light2D, in Editor")
-				self.energy = ie_node_light
+			print_debug("Light2D, in Editor")
+			self.energy = ie_node_light
 
 func apply_ig_changes():
 	if not Engine.is_editor_hint():
-			if is_instance_of(self,CanvasModulate):
-				print_debug("CanvasModulate, in Game")
-				self.color = ig_node_modulate
+		if is_instance_of(self,CanvasModulate):
+			print_debug("CanvasModulate, in Game")
+			self.color = ig_node_modulate
 		if is_instance_of(self,Light2D):
-				print_debug("Light2D, in Game")
-				self.energy = ig_node_light
+			print_debug("Light2D, in Game")
+			self.energy = ig_node_light

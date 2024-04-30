@@ -1,10 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=67 format=3 uid="uid://dmt7s23wcpnw6"]
+[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://dmt7s23wcpnw6"]
 
 [ext_resource type="Texture2D" uid="uid://13ibs55ro1vj" path="res://Assets/GFX/spritesheet_hlk_jump.w.stand.png" id="1_5rf5o"]
 [ext_resource type="Texture2D" uid="uid://b1as7u2bu3rxm" path="res://Assets/GFX/Mario Juming Sprite Sheets.png" id="1_864oi"]
 [ext_resource type="Texture2D" uid="uid://dexklbigndqvj" path="res://Assets/GFX/Mario Battle Sheet.png" id="2_1d46a"]
 [ext_resource type="Texture2D" uid="uid://v1iejopiby11" path="res://Assets/GFX/spritesheet_hlk.png" id="3_dy7xv"]
 [ext_resource type="Texture2D" uid="uid://d337j2ygfdw6u" path="res://Assets/GFX/sprite_sheet_down.png" id="4_obugb"]
+[ext_resource type="Texture2D" uid="uid://c2gf01q2w1rnr" path="res://Assets/GFX/swing_anim.png" id="5_ikwro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_prtdy"]
 atlas = ExtResource("1_5rf5o")
@@ -109,6 +110,22 @@ region = Rect2(498, 0, 249, 399)
 [sub_resource type="AtlasTexture" id="AtlasTexture_omdm6"]
 atlas = ExtResource("1_5rf5o")
 region = Rect2(0, 0, 252, 399)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmr5h"]
+atlas = ExtResource("5_ikwro")
+region = Rect2(573, 0, 573, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u64h1"]
+atlas = ExtResource("5_ikwro")
+region = Rect2(1146, 0, 573, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uosc7"]
+atlas = ExtResource("5_ikwro")
+region = Rect2(1719, 0, 573, 412)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgdvd"]
+atlas = ExtResource("5_ikwro")
+region = Rect2(2292, 0, 573, 412)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfu2h"]
 atlas = ExtResource("2_1d46a")
@@ -372,6 +389,26 @@ animations = [{
 "loop": true,
 "name": &"Stand",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmr5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u64h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uosc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgdvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmr5h")
+}],
+"loop": false,
+"name": &"Swing_Sword",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
