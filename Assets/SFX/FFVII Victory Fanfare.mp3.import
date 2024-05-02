@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bt20h51xo5bgd"
+path="res://.godot/imported/FFVII Victory Fanfare.mp3-fbe19d7a2996d38e474c383db25b55a0.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/FFVII Victory Fanfare.mp3"
+dest_files=["res://.godot/imported/FFVII Victory Fanfare.mp3-fbe19d7a2996d38e474c383db25b55a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

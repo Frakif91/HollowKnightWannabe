@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvvb5tc3w7ao8"]
+[gd_scene load_steps=10 format=3 uid="uid://dvvb5tc3w7ao8"]
 
 [ext_resource type="TileSet" uid="uid://d1v4xpherg4v5" path="res://Godot/SMM_HD_TileSet_with_light-o.tres" id="1_f82ti"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="1_kvecr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="4_0cgpl"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="6_dhnbe"]
 [ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
+[ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="9_rrlpr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -78,3 +79,7 @@ tp_pos = Vector2(1097, 159)
 position = Vector2(97.7778, -0.877197)
 scale = Vector2(1.11111, 0.877193)
 gizmo_extents = 18.5
+
+[node name="Roach" parent="." instance=ExtResource("9_rrlpr")]
+position = Vector2(759, 377)
+scale = Vector2(0.1, 0.1)
