@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ohegt8ob1uca"]
+[gd_scene load_steps=9 format=3 uid="uid://ohegt8ob1uca"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/escape_menu.gd" id="1_af220"]
 [ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="2_3cv75"]
@@ -148,10 +148,14 @@ _data = {
 "Show-Hide": SubResource("Animation_wg1yy")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_f6r6a"]
+font_size = 18
+
 [sub_resource type="LabelSettings" id="LabelSettings_kle1j"]
 font_size = 46
 
 [node name="Pause Layer" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_af220")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -161,15 +165,15 @@ libraries = {
 autoplay = "RESET"
 
 [node name="MenuBar" type="TabContainer" parent="."]
-anchors_preset = -1
-anchor_left = 0.15
-anchor_top = 0.15
-anchor_right = 0.85
-anchor_bottom = 0.85
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = 345.6
 offset_top = 129.6
 offset_right = 1152.0
-offset_bottom = 598.7
+offset_bottom = 583.2
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mdu0g")
@@ -202,15 +206,34 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="MenuBar/Menu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MenuBar/Menu/MarginContainer"]
+[node name="Resume" type="Button" parent="MenuBar/Menu/MarginContainer"]
 layout_mode = 2
-text = "Pause"
+text = "Resume"
 text_direction = 1
 language = "Uni_US"
 
 [node name="Button2" type="Button" parent="MenuBar/Menu/MarginContainer"]
 layout_mode = 2
-text = "Hello
+text = "Dummy 2 : Long text Button
+"
+text_direction = 1
+language = "Uni_US"
+
+[node name="Button3" type="Button" parent="MenuBar/Menu/MarginContainer"]
+layout_mode = 2
+text = "Dummy 3 :
+Multi text Button
+2 Line of text
+"
+text_direction = 1
+language = "Uni_US"
+
+[node name="HSeparator2" type="HSeparator" parent="MenuBar/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="MenuBar/Menu/MarginContainer"]
+layout_mode = 2
+text = "Quit
 "
 text_direction = 1
 language = "Uni_US"
@@ -241,15 +264,35 @@ uppercase = true
 [node name="HSeparator" type="HSeparator" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="Label2" type="Label" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Blue Style"
+text = "Scenes"
+label_settings = SubResource("LabelSettings_f6r6a")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ButtonTPScene1" type="Button" parent="MenuBar/Option/MarginContainer"]
+layout_mode = 2
+text = "First Room
+"
 text_direction = 1
 language = "Uni_US"
 
-[node name="Button2" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="ButtonTPScene2" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Dark Style"
+text = "Second Room"
+text_direction = 1
+language = "Uni_US"
+
+[node name="ButtonTPShop" type="Button" parent="MenuBar/Option/MarginContainer"]
+layout_mode = 2
+text = "Shop"
+text_direction = 1
+language = "Uni_US"
+
+[node name="ButtonTPQuentin" type="Button" parent="MenuBar/Option/MarginContainer"]
+layout_mode = 2
+text = "Quentin's Room"
 text_direction = 1
 language = "Uni_US"
 
@@ -291,3 +334,8 @@ some...
 label_settings = SubResource("LabelSettings_kle1j")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPScene1" to="." method="TP_But1"]
+[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPScene2" to="." method="TP_But2"]
+[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPShop" to="." method="TP_But3"]
+[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPQuentin" to="." method="TP_But4"]

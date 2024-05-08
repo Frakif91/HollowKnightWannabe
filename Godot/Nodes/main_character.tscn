@@ -8,16 +8,30 @@
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="5_vusjh"]
 
 [node name="Body" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_8cylk")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
+polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, 0, 8, 20)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"Stand"
-frame_progress = 0.00866589
+animation = &"Swing_Sword"
+frame = 4
+frame_progress = 1.0
+metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
+metadata/_edit_lock_ = true
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mrnn2")
@@ -35,6 +49,7 @@ energy = 2.0
 shadow_color = Color(0, 0, 0, 0.392157)
 texture = ExtResource("5_q0ok5")
 texture_scale = 7.0
+metadata/_edit_lock_ = true
 
 [node name="HighLight" type="PointLight2D" parent="."]
 visible = false

@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl4e42dvomf8s"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/Roach.gd" id="1_v1y2i"]
+[ext_resource type="Texture2D" uid="uid://6yif00lsja82" path="res://Assets/GFX/Enemies/Monster.png" id="2_ahkww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge0ng"]
+size = Vector2(256, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c27b"]
+size = Vector2(196, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us5fo"]
+atlas = ExtResource("2_ahkww")
+region = Rect2(0, 0, 328, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu6w3"]
+atlas = ExtResource("2_ahkww")
+region = Rect2(984, 0, 328, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt0o5"]
+atlas = ExtResource("2_ahkww")
+region = Rect2(656, 0, 328, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o88ru"]
+atlas = ExtResource("2_ahkww")
+region = Rect2(328, 0, 328, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n25dl"]
+atlas = ExtResource("2_ahkww")
+region = Rect2(0, 0, 328, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfr7p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us5fo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu6w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt0o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o88ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n25dl")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Roach" type="CharacterBody2D"]
+script = ExtResource("1_v1y2i")
+
+[node name="Damage_Trigger" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Damage_Area" type="CollisionShape2D" parent="Damage_Trigger"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ge0ng")
+debug_color = Color(0.959195, 0.203621, 5.77569e-07, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 0)
+shape = SubResource("RectangleShape2D_7c27b")
+
+[node name="ASprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tfr7p")
+animation = &"walking"
+autoplay = "walking"
+frame_progress = 0.931718
+metadata/_edit_lock_ = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="ITimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Damage_Trigger" to="." method="_body_entered"]
