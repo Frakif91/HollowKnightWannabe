@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6yif00lsja82" path="res://Assets/GFX/Enemies/Monster.png" id="2_ahkww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ge0ng"]
-size = Vector2(256, 164)
+size = Vector2(232, 164)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c27b"]
 size = Vector2(196, 144)
@@ -59,6 +59,7 @@ animations = [{
 
 [node name="Roach" type="CharacterBody2D"]
 script = ExtResource("1_v1y2i")
+ex_movement_type = 0
 
 [node name="Damage_Trigger" type="Area2D" parent="."]
 collision_layer = 2

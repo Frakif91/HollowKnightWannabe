@@ -25,10 +25,10 @@ scroll_base_offset = Vector2(10, 0)
 scroll_base_scale = Vector2(0.5, 0.5)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxBackground"]
-color = Color(0.360784, 0.360784, 0.360784, 1)
+color = Color(0.205117, 0.205117, 0.205117, 1)
 script = ExtResource("1_t6khd")
-ig_node_modulate = Color(0.0705882, 0.0705882, 0.0705882, 1)
-ie_node_modulate = Color(0.360784, 0.360784, 0.360784, 1)
+ig_node_modulate = Color(0.103744, 0.103744, 0.103744, 1)
+ie_node_modulate = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
 position = Vector2(607.143, 217.143)
@@ -50,10 +50,10 @@ limit_right = 1135
 limit_bottom = 616
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.568627, 0.568627, 0.568627, 1)
+color = Color(0.513233, 0.513233, 0.513233, 1)
 script = ExtResource("1_t6khd")
-ig_node_modulate = Color(0.00784314, 0.00784314, 0.00784314, 1)
-ie_node_modulate = Color(0.568627, 0.568627, 0.568627, 1)
+ig_node_modulate = Color(0.230315, 0.230315, 0.230315, 1)
+ie_node_modulate = Color(0.513233, 0.513233, 0.513233, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="CanvasModulate"]
 scale = Vector2(0.24, 0.24)
@@ -80,16 +80,25 @@ position = Vector2(97.7778, -0.877197)
 scale = Vector2(1.11111, 0.877193)
 gizmo_extents = 18.5
 
+[node name="Roach3" parent="." instance=ExtResource("9_rrlpr")]
+position = Vector2(247, 560)
+scale = Vector2(0.1, 0.1)
+ex_movement_type = 0
+
+[node name="Marker2D" type="Marker2D" parent="Roach3"]
+position = Vector2(-1130, -20)
+
+[node name="Marker2D2" type="Marker2D" parent="Roach3"]
+position = Vector2(490, 1.90735e-06)
+
 [node name="Roach" parent="." instance=ExtResource("9_rrlpr")]
 position = Vector2(759, 377)
 scale = Vector2(0.1, 0.1)
 
-[node name="Roach2" parent="." node_paths=PackedStringArray("position1", "position2") instance=ExtResource("9_rrlpr")]
+[node name="Roach2" parent="." instance=ExtResource("9_rrlpr")]
 position = Vector2(353, 515)
 scale = Vector2(0.1, 0.1)
 ex_movement_type = 0
-position1 = NodePath("Marker2D1")
-position2 = NodePath("Marker2D2")
 
 [node name="Marker2D1" type="Marker2D" parent="Roach2"]
 position = Vector2(-340, -20)

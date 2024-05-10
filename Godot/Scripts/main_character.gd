@@ -3,9 +3,24 @@ extends CharacterBody2D
 class_name MainCharacter
 
 #region variable
-const SPEED = 125.0
-const JUMP_VELOCITY = -270.0
-var gravity_mult = 1.2
+var SPEED = PlayerStats.SPEED
+var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
+var gravity_mult = PlayerStats.GRAVITY_MULT
+var is_attacking = false
+
+var is_dead = false
+var invulnerability_timer = 1.
+var is_invulnerable = false
+var is_looking_down = false
+var hurt_color : Color = Color(1,0,0)
+
+var STOPPING_FRICTION = PlayerStats.STOPPING_FRICTION
+var ACCELERATION_SPEED = PlayerStats.ACCELERATION_SPEED
+var STOPPING_FRICTION_AIRBORN = PlayerStats.STOPPING_FRICTION_AIRBORN
+var ACCELERATION_SPEED_AIRBORN = PlayerStats.ACCELERATION_SPEED_AIRBORN
+
+var LOOK_DOWN_Y = PlayerStats.LOOK_DOWN_Y
+
 @onready var anim = PlayerStats.anim
 @onready var anim_name = PlayerStats.anim_name
 @onready var is_abletomove = PlayerStats.is_abletomove
@@ -29,12 +44,14 @@ const suffer = [
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * self.scale.y * gravity_mult#980
 @onready var sprite : AnimatedSprite2D = $"Sprite"
 @onready var collision : CollisionPolygon2D = $"Collision"
-@onready var audioPlayer : AudioStreamPlayer = $"Audio"
+@onready var audioPlayer : AudioStreamPlayer = $"JumpSFX"
+@onready var swingSFX : AudioStreamPlayer = $"SwingSwordSFX"
 @onready var jumpSound : AudioStreamOggVorbis = get("res://SML2_Jump.ogg")
 @onready var lowlight : PointLight2D = $LowLight
 @onready var highlight : PointLight2D = $HighLight
 @onready var og_lowlight : PointLight2D = lowlight.duplicate()
 @onready var og_highlight : PointLight2D = highlight.duplicate()
+@onready var hit_collition : CollisionPolygon2D = $"Col_Hit/Attack_Area"
 
 func _ready():
 	sprite.play("Stand")
@@ -42,6 +59,7 @@ func _ready():
 	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
+	hit_collition.disabled = true
 
 func _physics_process(delta):
 
@@ -60,8 +78,6 @@ func _physics_process(delta):
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
 	else:
 		states["HasDoubleJumped"] = false
-		if Input.is_action_pressed("Look_Down"):
-			sprite.play("LookDown")
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and is_abletomove:
@@ -69,32 +85,55 @@ func _physics_process(delta):
 		audioPlayer.play()
 		if not is_on_floor() and states["HasDoubleJumped"] == false:
 			states["HasDoubleJumped"] = true
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking:
+		sprite.play(anim_name[anim.ATTACK])
+		hit_collition.disabled = false
+		is_attacking = true
+		await wait(0.4)
+		hit_collition.disabled = true
+		await wait(0.01)
+		is_attacking = false
+		sprite.play(anim_name[anim.STAND])
 
 	if is_on_floor():
 		#Do some shit on the floor
 		# (put code here)
 		pass
 		
-	#region: physics
+	#region Physics
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
 	
-	if sign(direction) == -1: sprite.flip_h = true
-	elif sign(direction) == 1: sprite.flip_h = false
+	if sign(direction) == -1: sprite.flip_h = true ; hit_collition.scale.x = -1
+	elif sign(direction) == 1: sprite.flip_h = false ; hit_collition.scale.x = 1
+
+	if is_looking_down:
+		direction = 0 #if you're looking down, stops you from moving
+	if is_attacking and (not PlayerStats.can_attack_and_slide):
+		direction = 0
+
 	
 	if direction:
-		if is_on_floor() and (not states["InGameoverState"] and is_abletomove): sprite.play(anim_name[anim.WALK])
-		velocity.x = direction * SPEED
+		if is_on_floor() and (not states["InGameoverState"] and is_abletomove and not is_attacking): sprite.play(anim_name[anim.WALK])
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
+		else:
+			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
 	else:
-		if is_on_floor() and (not states["InGameoverState"] and is_abletomove): sprite.play(anim_name[anim.STAND])
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor() and (not states["InGameoverState"] and is_abletomove and not is_attacking): sprite.play(anim_name[anim.STAND])
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
+		else:
+			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
 	
 	if Input.is_action_pressed("ui_down") and is_on_floor():
 		sprite.play("LookDown")
-		camera.offset = Vector2(0,10)
+		is_looking_down = true
+		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
 	else:
-		camera.offset = Vector2(0,0)
+		is_looking_down = false
+		camera.offset.y = lerpf(camera.offset.y,0,0.1)
 
 	
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
@@ -108,6 +147,7 @@ func wait(time:float):
 	await get_tree().create_timer(time).timeout
 
 func on_gameover():
+	#region On Gameover
 		velocity.y = -250
 		is_abletomove = false
 		states["InGameoverState"] = true
@@ -130,7 +170,7 @@ func on_gameover():
 		await Transitions.play("fade_out")
 		await wait(1)
 		get_tree().reload_current_scene()
-
+		#endregion
 
 func ground():
 	if is_on_floor():
@@ -138,3 +178,31 @@ func ground():
 	else:
 		while not is_on_floor(): await wait(0.1)
 		return true
+
+@onready var sound : AudioStreamPlayer = $"Sound"
+@onready var defeat_sound = load("res://Assets/SFX/LC_SFX/614. Slam Ground.mp3")
+@onready var hurt_sound = load("res://Assets/SFX/LC_SFX/592. Shovel Hit Default.mp3")
+@onready var Invincibility_Timer : Timer = $ITimer
+
+
+
+func when_hit():
+	#Cannot check collition so, check Roach.gd for this function "call"
+	#print_debug("Body in Collition")
+	is_dead = await get_hurt()
+	if is_dead:
+		on_gameover()
+
+func get_hurt():
+	if not is_invulnerable:
+		PlayerStats.hp -= 1
+		sound.stream = hurt_sound
+		sound.play()
+		modulate = hurt_color
+		is_invulnerable = true
+		if PlayerStats.hp < 0:
+			return true
+		Invincibility_Timer.start(invulnerability_timer)
+		await Invincibility_Timer.timeout
+		is_invulnerable = false
+		return false

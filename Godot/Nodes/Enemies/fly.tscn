@@ -1,64 +1,47 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwvaa1ibi8meg"]
+[gd_scene load_steps=13 format=3 uid="uid://dfs0vkmkvfql1"]
 
-[ext_resource type="Script" path="res://Godot/Scripts/Roach.gd" id="1_ng28d"]
-[ext_resource type="Texture2D" uid="uid://chj2onl2qv668" path="res://Assets/GFX/Enemies/i won.png" id="2_sxbph"]
+[ext_resource type="Script" path="res://Godot/Scripts/Roach.gd" id="1_omn5r"]
+[ext_resource type="Texture2D" uid="uid://chj2onl2qv668" path="res://Assets/GFX/Enemies/i won.png" id="2_ev4do"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fh07l"]
-radius = 140.014
+[sub_resource type="CircleShape2D" id="CircleShape2D_or78o"]
+radius = 84.214
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wl7be"]
-radius = 121.062
+[sub_resource type="CircleShape2D" id="CircleShape2D_nckst"]
+radius = 70.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbaaj"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m03tc"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(1, 1, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2f5d"]
-atlas = ExtResource("2_sxbph")
-region = Rect2(99, 60, 48, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gn0ag"]
-atlas = ExtResource("2_sxbph")
-region = Rect2(50, 60, 48, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wh2no"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ukbr"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(1, 1, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_13v5j"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbusq"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(50, 1, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tifx"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrddh"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(99, 1, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gsfi"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnrcm"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(1, 60, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uflgn"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_db8ta"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(50, 60, 48, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vpyco"]
-atlas = ExtResource("2_sxbph")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v03n1"]
+atlas = ExtResource("2_ev4do")
 region = Rect2(99, 60, 48, 58)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tfr7p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cbaaj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2f5d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gn0ag")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2f5d")
+"texture": SubResource("AtlasTexture_m03tc")
 }],
 "loop": true,
 "name": &"idle",
@@ -66,50 +49,56 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wh2no")
+"texture": SubResource("AtlasTexture_2ukbr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_13v5j")
+"texture": SubResource("AtlasTexture_qbusq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1tifx")
+"texture": SubResource("AtlasTexture_yrddh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8gsfi")
+"texture": SubResource("AtlasTexture_bnrcm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uflgn")
+"texture": SubResource("AtlasTexture_db8ta")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vpyco")
+"texture": SubResource("AtlasTexture_v03n1")
 }],
 "loop": true,
 "name": &"walking",
-"speed": 12.0
+"speed": 10.0
 }]
 
-[node name="Roach" type="StaticBody2D"]
-script = ExtResource("1_ng28d")
+[node name="Fly" type="CharacterBody2D"]
+script = ExtResource("1_omn5r")
+cur_entity_type = 1
+ex_movement_type = 2
 
 [node name="Damage_Trigger" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="Damage_Area" type="CollisionShape2D" parent="Damage_Trigger"]
-position = Vector2(4, -20)
-shape = SubResource("CircleShape2D_fh07l")
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_or78o")
 debug_color = Color(0.959195, 0.203621, 5.77569e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -20)
-shape = SubResource("CircleShape2D_wl7be")
+position = Vector2(4, -8)
+shape = SubResource("CircleShape2D_nckst")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.54747e-13, -4)
-scale = Vector2(5.75, 5.46552)
+[node name="ASprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_tfr7p")
-animation = &"walking"
-frame_progress = 0.170506
+animation = &"idle"
+autoplay = "walking"
+frame_progress = 0.577326
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(-224, 0)
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="ITimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Damage_Trigger" to="." method="_body_entered"]

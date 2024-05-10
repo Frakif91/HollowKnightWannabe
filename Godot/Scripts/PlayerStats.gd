@@ -42,19 +42,29 @@ extends Node
 #@export var low_hp_color = Color(1, 0.322, 1)
 #@export var low_bp_color = Color(0.5, 0.5, 0.5)
 
-@onready var SPEED = 200.0
-@onready var JUMP_VELOCITY = -400.0
+@export_category("Movement")
+@export var SPEED = 125.0
+@export var JUMP_VELOCITY = -270.0
+@export var GRAVITY_MULT = 1.2
+@export var STOPPING_FRICTION = 1000
+@export var ACCELERATION_SPEED = 500
+@export var STOPPING_FRICTION_AIRBORN = 1
+@export var ACCELERATION_SPEED_AIRBORN = 250
+@export var LOOK_DOWN_Y = 30
 enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var velocity
+@export_category("Others")
+@export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false
 @export var wall_slide_percentage = 0.2
 @export var wall_slide_min_spd = 50.0
 @export var wall_slide_max_spd = 10.0
 var camera : Camera2D
 
+@export_category("RPG - Stats")
 @export var level : int = 0
 @export var xp : int = 0
 @export var money : int = 0

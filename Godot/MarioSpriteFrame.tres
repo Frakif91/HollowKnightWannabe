@@ -408,7 +408,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Swing_Sword",
-"speed": 1.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

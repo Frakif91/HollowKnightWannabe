@@ -11,13 +11,14 @@ func _ready():
 		Transitions.play("Hide")
 	$MenuBar/Menu/MarginContainer/QuitButton.pressed.connect(when_quit)
 	$MenuBar/Menu/MarginContainer/Resume.pressed.connect(when_resume)
+	show_hide(true)
 
 func _input(event):
 	if Input.is_action_pressed("Menu"):
 		if not is_in_action:
 			is_in_action = true
 			is_showed = not is_showed
-			show_hide(is_showed)
+			await show_hide(is_showed)
 			is_in_action = false
 		else:
 			printerr("Not in Action")

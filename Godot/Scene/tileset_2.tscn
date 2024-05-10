@@ -34,10 +34,10 @@ npBGAudio = NodePath("../BackgroundMusic")
 
 [node name="Tiles_Moduler" type="CanvasModulate" parent="."]
 position = Vector2(0, 2)
-color = Color(0.611765, 0.611765, 0.611765, 1)
+color = Color(0.617455, 0.617455, 0.617455, 1)
 script = ExtResource("2_x1vb5")
 ig_node_modulate = Color(0.0142752, 0.0142752, 0.0142752, 1)
-ie_node_modulate = Color(0.611765, 0.611765, 0.611765, 1)
+ie_node_modulate = Color(0.617455, 0.617455, 0.617455, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="Tiles_Moduler"]
 scale = Vector2(0.24, 0.24)
@@ -115,4 +115,4 @@ scale = Vector2(-1, 1)
 position = Vector2(1156, 163)
 scene = "res://Godot/Scene/tileset_test.tscn"
 animation = "fade_right_left_in"
-tp_pos = Vector2(97.7778, -0.877197)
+tp_pos = Vector2(105, 99)

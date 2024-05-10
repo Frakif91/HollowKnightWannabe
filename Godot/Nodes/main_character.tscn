@@ -1,25 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://bubeuilvqxf2o"]
+[gd_scene load_steps=8 format=3 uid="uid://bubeuilvqxf2o"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/main_character.gd" id="1_8cylk"]
 [ext_resource type="SpriteFrames" uid="uid://dmt7s23wcpnw6" path="res://Godot/MarioSpriteFrame.tres" id="2_f7kyk"]
+[ext_resource type="Script" path="res://Godot/Scripts/tmp_hit_col.gd" id="2_k8n8l"]
 [ext_resource type="AudioStream" uid="uid://cm8whqc1dnbfa" path="res://Assets/SFX/SML2_Jump.ogg" id="3_mrnn2"]
 [ext_resource type="AudioStream" uid="uid://cuworfs57i7f6" path="res://Assets/SFX/LC_SFX/550. Scream1.mp3" id="4_lin24"]
 [ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light_low.tres" id="5_q0ok5"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="5_vusjh"]
 
 [node name="Body" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
 script = ExtResource("1_8cylk")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Col_Hit" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("2_k8n8l")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="Attack_Area" type="CollisionPolygon2D" parent="Col_Hit"]
 light_mask = 2
 visibility_layer = 2
-polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, 0, 8, 20)
+position = Vector2(-4, 0)
+polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, -4, 4, 24)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
@@ -33,7 +34,7 @@ metadata/_edit_lock_ = true
 polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
 metadata/_edit_lock_ = true
 
-[node name="Audio" type="AudioStreamPlayer" parent="."]
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mrnn2")
 volume_db = -12.0
 
@@ -58,3 +59,9 @@ shadow_color = Color(0, 0, 0, 0.278431)
 shadow_filter_smooth = 10.1
 texture = ExtResource("5_vusjh")
 texture_scale = 7.0
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="ITimer" type="Timer" parent="."]
+
+[node name="SwingSwordSFX" type="AudioStreamPlayer" parent="."]
