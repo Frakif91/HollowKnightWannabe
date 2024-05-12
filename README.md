@@ -1,5 +1,5 @@
 # Hollow Knight Wannabe
-(HKW)
+(HKW) -new 
 
 ## Our first game based on **HollowKnight**
 
