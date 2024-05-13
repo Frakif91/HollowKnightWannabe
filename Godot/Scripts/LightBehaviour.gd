@@ -3,8 +3,8 @@ extends PointLight2D
 
 var light : PointLight2D = self
 @export_category("Light behaviour")
-@export var min_light = 0.5
-@export var max_light = 3.0
+@export var min_light = 0.2
+@export var max_light = 2.0
 @export var step_light = 100.0
 @export var power_light = 5.0
 @onready var rng_light = FastNoiseLite.new()

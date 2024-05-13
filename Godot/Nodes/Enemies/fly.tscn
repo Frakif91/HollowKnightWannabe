@@ -91,7 +91,7 @@ shape = SubResource("CircleShape2D_nckst")
 
 [node name="ASprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.90735e-06, 0)
-scale = Vector2(3.3, 3.3)
+scale = Vector2(-3.3, 3.3)
 sprite_frames = SubResource("SpriteFrames_tfr7p")
 animation = &"idle"
 autoplay = "walking"

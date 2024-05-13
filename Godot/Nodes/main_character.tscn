@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bubeuilvqxf2o"]
+[gd_scene load_steps=9 format=3 uid="uid://bubeuilvqxf2o"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/main_character.gd" id="1_8cylk"]
 [ext_resource type="SpriteFrames" uid="uid://dmt7s23wcpnw6" path="res://Godot/MarioSpriteFrame.tres" id="2_f7kyk"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cuworfs57i7f6" path="res://Assets/SFX/LC_SFX/550. Scream1.mp3" id="4_lin24"]
 [ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light_low.tres" id="5_q0ok5"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="5_vusjh"]
+[ext_resource type="AudioStream" uid="uid://ckoup6lp8pdm7" path="res://Assets/SFX/LC_SFX/596. Shovel Swing.mp3" id="8_nh53m"]
 
 [node name="Body" type="CharacterBody2D"]
 script = ExtResource("1_8cylk")
@@ -17,6 +18,7 @@ collision_mask = 2
 script = ExtResource("2_k8n8l")
 
 [node name="Attack_Area" type="CollisionPolygon2D" parent="Col_Hit"]
+visible = false
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-4, 0)
@@ -31,6 +33,7 @@ frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
 metadata/_edit_lock_ = true
 
@@ -65,3 +68,4 @@ texture_scale = 7.0
 [node name="ITimer" type="Timer" parent="."]
 
 [node name="SwingSwordSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nh53m")

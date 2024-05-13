@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvvb5tc3w7ao8"]
+[gd_scene load_steps=11 format=3 uid="uid://dvvb5tc3w7ao8"]
 
 [ext_resource type="TileSet" uid="uid://d1v4xpherg4v5" path="res://Godot/SMM_HD_TileSet_with_light-o.tres" id="1_f82ti"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="1_kvecr"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="6_dhnbe"]
 [ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="9_rrlpr"]
+[ext_resource type="PackedScene" uid="uid://dfs0vkmkvfql1" path="res://Godot/Nodes/Enemies/fly.tscn" id="10_ajk6o"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,10 +51,10 @@ limit_right = 1135
 limit_bottom = 616
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.513233, 0.513233, 0.513233, 1)
+color = Color(0.000693898, 0.000693898, 0.000693897, 1)
 script = ExtResource("1_t6khd")
-ig_node_modulate = Color(0.230315, 0.230315, 0.230315, 1)
-ie_node_modulate = Color(0.513233, 0.513233, 0.513233, 1)
+ig_node_modulate = Color(0.133196, 0.133196, 0.133196, 1)
+ie_node_modulate = Color(0.000693898, 0.000693898, 0.000693897, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="CanvasModulate"]
 scale = Vector2(0.24, 0.24)
@@ -83,7 +84,6 @@ gizmo_extents = 18.5
 [node name="Roach3" parent="." instance=ExtResource("9_rrlpr")]
 position = Vector2(247, 560)
 scale = Vector2(0.1, 0.1)
-ex_movement_type = 0
 
 [node name="Marker2D" type="Marker2D" parent="Roach3"]
 position = Vector2(-1130, -20)
@@ -98,10 +98,13 @@ scale = Vector2(0.1, 0.1)
 [node name="Roach2" parent="." instance=ExtResource("9_rrlpr")]
 position = Vector2(353, 515)
 scale = Vector2(0.1, 0.1)
-ex_movement_type = 0
 
 [node name="Marker2D1" type="Marker2D" parent="Roach2"]
 position = Vector2(-340, -20)
 
 [node name="Marker2D2" type="Marker2D" parent="Roach2"]
 position = Vector2(300, -20)
+
+[node name="Fly" parent="." instance=ExtResource("10_ajk6o")]
+position = Vector2(589, 171)
+scale = Vector2(0.2, 0.2)

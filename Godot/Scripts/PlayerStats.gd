@@ -7,6 +7,26 @@ extends Node
 
 @onready var is_debug = OS.is_debug_build()
 
+@export var Default_Variable : Dictionary = {
+	"hp"							= 10,
+	"max_hp"						= 20,
+	"max_bp"						= 15,
+	"SPEED"							= 125.0,
+	"JUMP_VELOCITY"					= -270.0,
+	"GRAVITY_MULT"					= 1.2,
+	"STOPPING_FRICTION"				= 1000,
+	"ACCELERATION_SPEED"			= 500,
+	"STOPPING_FRICTION_AIRBORN"		= 1,
+	"ACCELERATION_SPEED_AIRBORN"	= 250,
+	"LOOK_DOWN_Y"					= 30,
+	"can_attack_and_slide" 			= false,
+	"wall_slide_enabled" 			= false,
+ 	"wall_slide_percentage" 		= 0.2,
+	"wall_slide_min_spd" 			= 50.0,
+ 	"wall_slide_max_spd"			= 10.0
+}
+
+
 @export_category("Health & BP")
 @export var max_hp : int = 20
 @export var max_bp : int = 15

@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://bu0t64lk6mixg"]
+[gd_scene load_steps=29 format=3 uid="uid://bu0t64lk6mixg"]
 
-[ext_resource type="Texture2D" uid="uid://dv51h5g6oa013" path="res://Assets/GFX/shop_background.png" id="1_3lf6e"]
+[ext_resource type="Texture2D" uid="uid://d2yjn0bjsofx0" path="res://Assets/GFX/IMG_1019.png" id="1_2hxjn"]
 [ext_resource type="Texture2D" uid="uid://cbgpngxb3tnpj" path="res://Assets/GFX/shop_seller_animated.png" id="2_afehb"]
 [ext_resource type="Script" path="res://Godot/Scripts/Shop_Dialog.gd" id="2_omx0f"]
 [ext_resource type="Texture2D" uid="uid://br7g00ksn1wc6" path="res://Assets/GFX/shop_grappling_hook.png" id="3_67dox"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="8_0plf6"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="8_5adlr"]
 [ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="9_miho5"]
+[ext_resource type="AudioStream" uid="uid://dktivtjk1xxea" path="res://Assets/Music/TLOF-WW_Terry'sshop.mp3" id="13_ahdns"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vcu1"]
 atlas = ExtResource("2_afehb")
@@ -116,7 +117,7 @@ size = Vector2(12, 28)
 
 [node name="ShopBackground" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_3lf6e")
+texture = ExtResource("1_2hxjn")
 
 [node name="Shop_Area" type="Area2D" parent="."]
 position = Vector2(24, -2.98023e-08)
@@ -152,7 +153,7 @@ texture = ExtResource("4_tpud0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
-energy = 0.64647
+energy = 0.657719
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -161,7 +162,6 @@ max_light = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
-energy = 0.82675
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -173,7 +173,7 @@ max_light = 1.0
 [node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
-polygon = PackedVector2Array(-49, -13, -51, -41, 9, -43, 57, -47, 58, -25, 58, 2, 58, 10, 41, 12, 33, 13, -5, 14, -72, 15, -72, 24, 64, 24, 64, -56, -72, -52, -72, 8, -64, 8, -64, -12)
+polygon = PackedVector2Array(-66, -64, 57, -64, 58, 13, -72, 14, -72, 24, 64, 24, 65, -73, -72, -72, -72, 14, -65, 14)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Walls"]
 
@@ -182,7 +182,7 @@ position = Vector2(-68, 6)
 shape = SubResource("RectangleShape2D_jk25x")
 
 [node name="Player" parent="." instance=ExtResource("7_vbply")]
-position = Vector2(-35, 2)
+position = Vector2(-32, -7)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera" parent="Player" instance=ExtResource("8_0plf6")]
@@ -193,6 +193,7 @@ limit_left = -74
 limit_top = -70
 limit_right = 77
 limit_bottom = 20
+metadata/_edit_lock_ = true
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(-56, 2)
@@ -203,3 +204,7 @@ tp_pos = Vector2(312, 315)
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_efciy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ahdns")
+volume_db = -14.0

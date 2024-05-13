@@ -55,14 +55,23 @@ const suffer = [
 
 func _ready():
 	sprite.play("Stand")
-	print(self.scale.y)
+	#print(self.scale.y)
 	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
 	hit_collition.disabled = true
 
-func _physics_process(delta):
+func _process(delta):
+	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
+	var t_colort = [1,1,1] #Target color (colorT for Target)
+	var t_colorw = [0.1,0.1,0.1] #Delta color (colorW for Weight)
+	sprite.modulate = Color(
+		lerpf(t_colorm[0],t_colort[0],t_colorw[0]),
+		lerpf(t_colorm[1],t_colort[1],t_colorw[1]),
+		lerpf(t_colorm[2]*delta,t_colort[2]*delta,t_colorw[2]*delta)
+	)
 
+func _physics_process(delta):
 	#not finished
 	PlayerStats.states["IsWallSliding"] = is_on_wall_only()	
 	# Add the gravity.
@@ -80,13 +89,14 @@ func _physics_process(delta):
 		states["HasDoubleJumped"] = false
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and is_abletomove:
+	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and PlayerStats.is_abletomove:
 		velocity.y = JUMP_VELOCITY
 		audioPlayer.play()
 		if not is_on_floor() and states["HasDoubleJumped"] == false:
 			states["HasDoubleJumped"] = true
 	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking:
 		sprite.play(anim_name[anim.ATTACK])
+		swingSFX.play()
 		hit_collition.disabled = false
 		is_attacking = true
 		await wait(0.4)
@@ -115,13 +125,13 @@ func _physics_process(delta):
 
 	
 	if direction:
-		if is_on_floor() and (not states["InGameoverState"] and is_abletomove and not is_attacking): sprite.play(anim_name[anim.WALK])
+		if is_on_floor() and (not states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking): sprite.play(anim_name[anim.WALK])
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
 		else:
 			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
 	else:
-		if is_on_floor() and (not states["InGameoverState"] and is_abletomove and not is_attacking): sprite.play(anim_name[anim.STAND])
+		if is_on_floor() and (not states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking): sprite.play(anim_name[anim.STAND])
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
 		else:
@@ -149,7 +159,7 @@ func wait(time:float):
 func on_gameover():
 	#region On Gameover
 		velocity.y = -250
-		is_abletomove = false
+		PlayerStats.is_abletomove = false
 		states["InGameoverState"] = true
 		sprite.stop()
 		sprite.play(anim_name[anim.HURT])
@@ -165,11 +175,13 @@ func on_gameover():
 		print("TIME AS COME")
 		await sprite.animation_finished
 		print("QUITING")
-		await wait(1)
-		print("Wait for ready")
 		await Transitions.play("fade_out")
 		await wait(1)
+		print("Wait for ready")
+		Transitions.play("fade_in")
 		get_tree().reload_current_scene()
+		PlayerStats.is_abletomove = true
+		PlayerStats.states["InGameoverState"] = false
 		#endregion
 
 func ground():
@@ -198,9 +210,9 @@ func get_hurt():
 		PlayerStats.hp -= 1
 		sound.stream = hurt_sound
 		sound.play()
-		modulate = hurt_color
+		sprite.modulate = hurt_color
 		is_invulnerable = true
-		if PlayerStats.hp < 0:
+		if PlayerStats.hp <= 0:
 			return true
 		Invincibility_Timer.start(invulnerability_timer)
 		await Invincibility_Timer.timeout

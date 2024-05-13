@@ -300,12 +300,12 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 1160.0
 offset_bottom = 268.0
-scale = Vector2(0.3, 0.3)
-columns = 3
+scale = Vector2(0.35, 0.35)
+columns = 5
 script = ExtResource("1_y1yro")
+test_hp = 8
+test_maxhp = 10
 max_states = 4
-max_hp = 12
-hp = 6
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 2

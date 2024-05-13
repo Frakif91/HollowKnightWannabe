@@ -20,21 +20,21 @@ func change_scene(scene,animation):
 	last_animation = animation
 	if scene != "reload":
 		get_tree().call_deferred("change_scene_to_file",scene)
-		finish_animation()
+		finish_animation(last_animation)
 	else:
 		get_tree().reload_current_scene()
-		finish_animation()
+		finish_animation(last_animation)
 		
 
-func finish_animation():
-	print_debug(last_animation)
+func finish_animation(last_anim):
 	play("RESET")
-	if last_animation == "fade_out":
+	print_debug("Finishing FO Animation : ",last_animation)
+	if last_anim == "fade_out":
 		animator.play("fade_in")
 		last_animation = "none"
-	if last_animation == "fade_left_right_in":
+	elif last_anim == "fade_left_right_in":
 		animator.play("fade_left_right_out")
 		last_animation = "none"
-	if last_animation == "fade_right_left_in":
+	elif last_anim == "fade_right_left_in":
 		animator.play("fade_right_left_out")
 		last_animation = "none"

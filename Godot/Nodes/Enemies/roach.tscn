@@ -63,7 +63,7 @@ ex_movement_type = 0
 
 [node name="Damage_Trigger" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 
 [node name="Damage_Area" type="CollisionShape2D" parent="Damage_Trigger"]
 position = Vector2(0, -10)

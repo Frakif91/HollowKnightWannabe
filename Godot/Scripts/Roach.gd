@@ -77,7 +77,7 @@ func _process(delta):
 
 func _body_entered(body):
 	if body is Col_Hit:
-		print_debug("Body in Collition",body)
+		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
 		if is_dead:
 			sound.stream = defeat_sound
