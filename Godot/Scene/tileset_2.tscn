@@ -121,3 +121,9 @@ tp_pos = Vector2(105, 99)
 [node name="Fly" parent="." instance=ExtResource("14_xdpvt")]
 position = Vector2(362, 535)
 scale = Vector2(0.2, 0.2)
+
+[node name="Teleporter" parent="." instance=ExtResource("8_3n6dj")]
+position = Vector2(29, 185)
+scene = "res://Godot/Scene/map_quentin.tscn"
+animation = "fade_left_right_in"
+tp_pos = Vector2(219, 542)

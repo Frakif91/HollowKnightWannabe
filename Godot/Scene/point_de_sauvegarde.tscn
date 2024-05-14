@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://nhmh1n6ma6bw"]
+
+[ext_resource type="Script" path="res://Godot/Scene/point_de_sauvegarde.gd" id="1_2sitd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k26xi"]
+
+[node name="poin_de_sovgarde_pic" type="Area2D"]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(2, 0)
+script = ExtResource("1_2sitd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k26xi")

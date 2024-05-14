@@ -51,10 +51,10 @@ limit_right = 1135
 limit_bottom = 616
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.000693898, 0.000693898, 0.000693897, 1)
+color = Color(0.960784, 0.960784, 0.960784, 1)
 script = ExtResource("1_t6khd")
 ig_node_modulate = Color(0.133196, 0.133196, 0.133196, 1)
-ie_node_modulate = Color(0.000693898, 0.000693898, 0.000693897, 1)
+ie_node_modulate = Color(0.960784, 0.960784, 0.960784, 1)
 
 [node name="HD_TileMap" type="TileMap" parent="CanvasModulate"]
 scale = Vector2(0.24, 0.24)

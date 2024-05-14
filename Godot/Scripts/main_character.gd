@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 class_name MainCharacter
-
+var point_de_sovgarde = Vector2.ZERO
 #region variable
 var SPEED = PlayerStats.SPEED
 var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
@@ -218,3 +218,14 @@ func get_hurt():
 		await Invincibility_Timer.timeout
 		is_invulnerable = false
 		return false
+
+
+func _on_area_2d_body_entered(body): #colition avec un pic
+	if body is MainCharacter:
+		position = PlayerStats.tp_pos
+		get_hurt()
+
+
+func _on_poin_de_sovgarde_body_entered(body):
+	if body is MainCharacter:
+		PlayerStats.tp_pos = position
