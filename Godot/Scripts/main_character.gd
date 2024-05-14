@@ -8,6 +8,7 @@ var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
 var gravity_mult = PlayerStats.GRAVITY_MULT
 var is_attacking = false
 
+
 var is_dead = false
 var invulnerability_timer = 1.
 var is_invulnerable = false
@@ -61,12 +62,13 @@ func _ready():
 	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
+		camera.position = tp_pos
 	hit_collition.disabled = true
 
 func _process(delta):
 	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
 	var t_colort = [1,1,1] #Target color (colorT for Target)
-	var t_colorw = [0.1,0.1,0.1] #Delta color (colorW for Weight)
+	var t_colorw = [delta,delta,delta] #Delta color (colorW for Weight)
 	sprite.modulate = Color(
 		lerpf(t_colorm[0],t_colort[0],t_colorw[0]),
 		lerpf(t_colorm[1],t_colort[1],t_colorw[1]),

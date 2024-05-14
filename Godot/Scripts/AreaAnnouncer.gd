@@ -5,6 +5,7 @@ extends Control
 @onready var title_node : Label = $"The Whole/Title"
 @onready var descr_node : Label = $"The Whole/Description"
 
+@onready var scene_properties : SceneProperties = $".." 
 
 @export var title : String = "None":
 	set(value):

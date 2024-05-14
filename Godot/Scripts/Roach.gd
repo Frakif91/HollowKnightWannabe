@@ -58,7 +58,7 @@ func _process(delta):
 
 	var t_colorm = [modulate.r,modulate.g,modulate.b] # Actual color
 	var t_colort = [1,1,1] #Aimed color
-	var t_colorw = [0.1,0.1,0.1] #Delta color
+	var t_colorw = [delta,delta,delta] #Delta color
 	modulate = Color(
 		lerpf(t_colorm[0],t_colort[0],t_colorw[0]),
 		lerpf(t_colorm[1],t_colort[1],t_colorw[1]),

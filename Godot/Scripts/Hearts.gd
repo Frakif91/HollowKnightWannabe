@@ -5,6 +5,7 @@ extends GridContainer
 @export_node_path("Node") var scene_properties : NodePath
 @onready var scene_prop : SceneProperties = get_node_or_null(scene_properties)
 
+@export var last_container_beat : bool = true
 @export var test_hp : int = 6
 @export var test_maxhp : int = 6 
 
@@ -26,8 +27,15 @@ var og_scale = scale
 var last_container : TextureRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	max_hp = PlayerStats.max_hp
-	hp = PlayerStats.hp
+	if last_container_beat and not Engine.is_editor_hint():
+		var timer_btw_beats = Timer.new()
+
+	if not Engine.is_editor_hint():
+		max_hp = PlayerStats.max_hp
+		hp = PlayerStats.hp
+	else:
+		max_hp = 12
+		hp = 12
 	init_container(max_hp,hp)
 	last_container = health_container[len(health_container) - 1]
 	if scene_prop:
@@ -35,8 +43,9 @@ func _ready():
 		pass
 
 func _process(delta):
-	max_hp = PlayerStats.max_hp
-	hp = PlayerStats.hp
+	if not Engine.is_editor_hint():
+		max_hp = PlayerStats.max_hp
+		hp = PlayerStats.hp
 	process_health(max_hp,hp,delta,2)
 
 

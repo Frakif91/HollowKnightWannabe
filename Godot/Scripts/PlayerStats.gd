@@ -8,11 +8,11 @@ extends Node
 @onready var is_debug = OS.is_debug_build()
 
 @export var Default_Variable : Dictionary = {
-	"hp"							= 10,
-	"max_hp"						= 20,
+	"hp"							= 12,
+	"max_hp"						= 1,
 	"max_bp"						= 15,
 	"SPEED"							= 125.0,
-	"JUMP_VELOCITY"					= -270.0,
+	"JUMP_VELOCITY"					= -220.0,
 	"GRAVITY_MULT"					= 1.2,
 	"STOPPING_FRICTION"				= 1000,
 	"ACCELERATION_SPEED"			= 500,
@@ -28,9 +28,9 @@ extends Node
 
 
 @export_category("Health & BP")
-@export var max_hp : int = 20
-@export var max_bp : int = 15
-@export var hp : int = 10 :
+@export var max_hp : int = 12
+@export var max_bp : int = 1
+@export var hp : int = 12 :
 	set(heal):
 		print(heal)
 		var value = heal - hp
@@ -64,7 +64,7 @@ extends Node
 
 @export_category("Movement")
 @export var SPEED = 125.0
-@export var JUMP_VELOCITY = -200.0
+@export var JUMP_VELOCITY = -220.0
 @export var GRAVITY_MULT = 1.2
 @export var STOPPING_FRICTION = 1000
 @export var ACCELERATION_SPEED = 500
@@ -75,6 +75,7 @@ enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
+var safety_checkpoint_pos = Vector2(0,0)
 var velocity
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
@@ -109,6 +110,21 @@ var inventory : Dictionary = {
 	"Main Hand"			: 0,
 	"Second Hand"		: 0,
 }
+
+enum save_types {DEFAULT,GAMEPLAY,ENTIRE,INVENTORY}
+
+func save_file(type):
+	pass
+
+func load_file(type):
+	if type == save_types.DEFAULT:
+		hp = Default_Variable["hp"]
+		max_hp = Default_Variable["max_hp"]
+		SPEED = Default_Variable["SPEED"]
+		JUMP_VELOCITY = Default_Variable["JUMP_VELOCITY"]
+		can_attack_and_slide = Default_Variable["can_attack_and_slide"]
+		wall_slide_enabled = Default_Variable["wall_slide_enabled"]
+
 
 signal lose_health
 signal gain_health

@@ -1,6 +1,6 @@
 extends Node
 
-enum item_type {WEAPON,MATERIAL}
+enum item_type {WEAPON,MATERIAL,ARMOR,UTILITY}
 
 class Item:
     var name : String = ""
