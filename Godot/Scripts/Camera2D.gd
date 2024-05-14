@@ -1,8 +1,12 @@
+@tool
 extends Camera2D
 
 var camera : Camera2D = self
 @export var randomStrength : float = 10.0
 @export var shakeFade : float = 5.0
+
+@onready var ui = $"ScreenAnchor/UI"
+@onready var menu = $"Menu"
 
 var rng = RandomNumberGenerator.new()
 var shake_strength : float = 0.0

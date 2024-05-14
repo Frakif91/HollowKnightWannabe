@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="9_rrlpr"]
 [ext_resource type="PackedScene" uid="uid://dfs0vkmkvfql1" path="res://Godot/Nodes/Enemies/fly.tscn" id="10_ajk6o"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 
 [node name="SceneProperties" parent="." instance=ExtResource("1_w1mhg")]
 unique_name_in_owner = true

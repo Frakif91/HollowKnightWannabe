@@ -26,7 +26,7 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="SceneProperties" parent="." instance=ExtResource("1_au2sm")]
 npPlayer = NodePath("../Mario")

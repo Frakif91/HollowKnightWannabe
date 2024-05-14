@@ -13,6 +13,8 @@ var invulnerability_timer = 1.
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
+var jump_hold = 10
+var jump_remaining = 0
 
 var STOPPING_FRICTION = PlayerStats.STOPPING_FRICTION
 var ACCELERATION_SPEED = PlayerStats.ACCELERATION_SPEED
@@ -89,11 +91,26 @@ func _physics_process(delta):
 		states["HasDoubleJumped"] = false
 
 	# Handle jump.
+	"""
 	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and PlayerStats.is_abletomove:
 		velocity.y = JUMP_VELOCITY
 		audioPlayer.play()
 		if not is_on_floor() and states["HasDoubleJumped"] == false:
 			states["HasDoubleJumped"] = true
+	"""
+
+	if Input.is_action_pressed("Jump") and (jump_remaining > 0):
+		jump_remaining -= 1
+		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("Jump") and (jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"]:
+		PlayerStats.states["HasDoubleJumped"] = true
+		jump_remaining = 1
+	
+	if Input.is_action_just_released("Jump"):
+		jump_remaining = 0
+
+	# Handle Attacks
 	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking:
 		sprite.play(anim_name[anim.ATTACK])
 		swingSFX.play()
@@ -106,9 +123,7 @@ func _physics_process(delta):
 		sprite.play(anim_name[anim.STAND])
 
 	if is_on_floor():
-		#Do some shit on the floor
-		# (put code here)
-		pass
+		jump_remaining = jump_hold
 		
 	#region Physics
 	# Get the input direction and handle the movement/deceleration.

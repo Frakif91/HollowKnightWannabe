@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
 [ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="9_ogms8"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_bt2k3"]
-[ext_resource type="PackedScene" uid="uid://c2oj7pn4ttcu0" path="res://Godot/Scene/pic.tscn" id="12_v6om2"]
-[ext_resource type="PackedScene" uid="uid://nhmh1n6ma6bw" path="res://Godot/Scene/point_de_sauvegarde.tscn" id="13_mgv7m"]
+[ext_resource type="PackedScene" path="res://Godot/Scene/pic.tscn" id="12_v6om2"]
+[ext_resource type="PackedScene" path="res://Godot/Scene/point_de_sauvegarde.tscn" id="13_mgv7m"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []

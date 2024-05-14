@@ -64,7 +64,7 @@ extends Node
 
 @export_category("Movement")
 @export var SPEED = 125.0
-@export var JUMP_VELOCITY = -270.0
+@export var JUMP_VELOCITY = -200.0
 @export var GRAVITY_MULT = 1.2
 @export var STOPPING_FRICTION = 1000
 @export var ACCELERATION_SPEED = 500
