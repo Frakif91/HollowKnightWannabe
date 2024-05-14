@@ -68,7 +68,7 @@ func _process(delta):
 	sprite.modulate = Color(
 		lerpf(t_colorm[0],t_colort[0],t_colorw[0]),
 		lerpf(t_colorm[1],t_colort[1],t_colorw[1]),
-		lerpf(t_colorm[2]*delta,t_colort[2]*delta,t_colorw[2]*delta)
+		lerpf(t_colorm[2],t_colort[2],t_colorw[2])
 	)
 
 func _physics_process(delta):
