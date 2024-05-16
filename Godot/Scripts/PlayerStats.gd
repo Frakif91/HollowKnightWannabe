@@ -64,19 +64,21 @@ extends Node
 
 @export_category("Movement")
 @export var SPEED = 125.0
-@export var JUMP_VELOCITY = -220.0
+@export var JUMP_VELOCITY = -170.0
 @export var GRAVITY_MULT = 1.2
 @export var STOPPING_FRICTION = 1000
-@export var ACCELERATION_SPEED = 500
-@export var STOPPING_FRICTION_AIRBORN = 1
-@export var ACCELERATION_SPEED_AIRBORN = 250
+@export var ACCELERATION_SPEED = 600
+@export var STOPPING_FRICTION_AIRBORN = 10
+@export var ACCELERATION_SPEED_AIRBORN = 350
 @export var LOOK_DOWN_Y = 30
+@export var JUMP_HOLD = 12
 enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var safety_checkpoint_pos = Vector2(0,0)
-var velocity
+var velocity # No use
+var jump_remaining = JUMP_HOLD
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false

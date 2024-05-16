@@ -80,6 +80,7 @@ func _body_entered(body):
 		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
 		if is_dead:
+			damage_trigger.queue_free()
 			sound.stream = defeat_sound
 			sound.play()
 			await sound.finished

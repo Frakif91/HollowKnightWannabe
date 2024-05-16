@@ -14,7 +14,7 @@ var invulnerability_timer = 1.
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
-var jump_hold = 10
+var jump_hold = 10 # Number of frames to hold space (to jump higher)
 var jump_remaining = 0
 
 var STOPPING_FRICTION = PlayerStats.STOPPING_FRICTION
@@ -62,7 +62,7 @@ func _ready():
 	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
-		camera.position = tp_pos
+		#camera.position = tp_pos
 	hit_collition.disabled = true
 
 func _process(delta):
@@ -78,6 +78,7 @@ func _process(delta):
 func _physics_process(delta):
 	#not finished
 	PlayerStats.states["IsWallSliding"] = is_on_wall_only()	
+
 	# Add the gravity.
 	if not is_on_floor():
 		if PlayerStats.wall_slide_enabled and is_on_wall_only() and velocity.y > 0 and PlayerStats.is_abletomove:
@@ -101,16 +102,19 @@ func _physics_process(delta):
 			states["HasDoubleJumped"] = true
 	"""
 
-	if Input.is_action_pressed("Jump") and (jump_remaining > 0):
-		jump_remaining -= 1
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0):
+		if PlayerStats.jump_remaining == PlayerStats.JUMP_HOLD:
+			audioPlayer.play()
+		PlayerStats.jump_remaining -= 1
+		velocity.y = PlayerStats.JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("Jump") and (jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"]:
+	if Input.is_action_just_pressed("Jump") and (PlayerStats.jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"]:
 		PlayerStats.states["HasDoubleJumped"] = true
-		jump_remaining = 1
-	
-	if Input.is_action_just_released("Jump"):
-		jump_remaining = 0
+		velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
+		audioPlayer.play()
+
+	if Input.is_action_just_released("Jump") or is_on_ceiling_only():
+		PlayerStats.jump_remaining = 0
 
 	# Handle Attacks
 	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking:
@@ -125,7 +129,7 @@ func _physics_process(delta):
 		sprite.play(anim_name[anim.STAND])
 
 	if is_on_floor():
-		jump_remaining = jump_hold
+		PlayerStats.jump_remaining = PlayerStats.JUMP_HOLD
 		
 	#region Physics
 	# Get the input direction and handle the movement/deceleration.
@@ -139,17 +143,19 @@ func _physics_process(delta):
 		direction = 0 #if you're looking down, stops you from moving
 	if is_attacking and (not PlayerStats.can_attack_and_slide):
 		direction = 0
+	if camera.menu_visible:
+		direction = 0
 
 	
 	if direction:
-		if is_on_floor() and (not states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking): sprite.play(anim_name[anim.WALK])
-		if is_on_floor():
+		if is_on_floor() and (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking):
+			sprite.play(anim_name[anim.WALK])
 			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
 		else:
 			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
 	else:
-		if is_on_floor() and (not states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking): sprite.play(anim_name[anim.STAND])
-		if is_on_floor():
+		if is_on_floor() and (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking):
+			sprite.play(anim_name[anim.STAND])
 			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
 		else:
 			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
@@ -173,6 +179,13 @@ func _physics_process(delta):
 func wait(time:float):
 	await get_tree().create_timer(time).timeout
 
+
+func on_gameover():
+	emit_signal("PlayerStats.gameover")
+	PlayerStats.states["InGameoverState"] = true
+
+
+"""
 func on_gameover():
 	#region On Gameover
 		velocity.y = -250
@@ -200,6 +213,7 @@ func on_gameover():
 		PlayerStats.is_abletomove = true
 		PlayerStats.states["InGameoverState"] = false
 		#endregion
+"""
 
 func ground():
 	if is_on_floor():
@@ -239,10 +253,17 @@ func get_hurt():
 
 func _on_area_2d_body_entered(body): #colition avec un pic
 	if body is MainCharacter:
-		position = PlayerStats.tp_pos
-		get_hurt()
+		position = PlayerStats.safety_checkpoint_pos
+		PlayerStats.hp -= 1
+		sound.stream = hurt_sound
+		sound.play()
+		sprite.modulate = hurt_color
+		if PlayerStats.hp <= 0:
+			on_gameover()
 
-
-func _on_poin_de_sovgarde_body_entered(body):
+func _on_checkpoint_colition(body):
 	if body is MainCharacter:
-		PlayerStats.tp_pos = position
+		print_debug("Checkpoint")
+		PlayerStats.safety_checkpoint_pos = position
+		#if PlayerStats.is_debug:
+		sprite.modulate = Color(0.5,1,0.5)

@@ -11,7 +11,10 @@ config_version=5
 [application]
 
 config/name="Hollow Knight Wannabe"
-config/version="1.1.5"
+config/name_localized={
+"fr": "Chevalier de l'ombre"
+}
+config/version="1.2.5"
 run/main_scene="res://Godot/Scene/tileset_test.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://Assets/GFX/Loading.png"
@@ -32,7 +35,9 @@ gdscript/warnings/integer_division=0
 
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [editor]
 
@@ -91,13 +96,14 @@ Attack={
 
 [internationalization]
 
-locale/locale_filter_mode=0
+locale/locale_filter_mode=1
 locale/language_filter=["fr"]
 locale/country_filter=["EU", "FR", "US"]
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=2
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=1

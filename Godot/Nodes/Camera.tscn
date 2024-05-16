@@ -34,9 +34,18 @@ script = ExtResource("1_3wtfx")
 
 [node name="UI" parent="ScreenAnchor" instance=ExtResource("2_o2pvb")]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
 unique_name_in_owner = true
+visible = false
 offset = Vector2(-169, 0)
 transform = Transform2D(1, 0, 0, 1, -169, 0)
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Are you sure ?"
+initial_position = 4
+size = Vector2i(333, 100)
+dialog_text = "Are you sure you want to quit the game ?"
+dialog_autowrap = true

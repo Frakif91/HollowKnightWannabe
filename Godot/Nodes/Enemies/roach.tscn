@@ -58,6 +58,7 @@ animations = [{
 }]
 
 [node name="Roach" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_v1y2i")
 ex_movement_type = 0
 
