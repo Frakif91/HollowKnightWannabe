@@ -1,11 +1,13 @@
 extends Area2D
 
-class_name Chest
+class_name Interaction
 
 @onready var interact_icon : AnimatedSprite2D = $Chest_Tex
 @onready var instructions : Control = $"InteractIcon"
 @onready var instructions_animation : AnimatedSprite2D = $"InteractIcon/Icon"
-@onready var audio : AudioStreamPlayer = $"OpenSFX"
+
+@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
+@onready var chest_audio : AudioStreamPlayer = $"OpenSFX"
 var can_interact_with_chest = false
 @export var is_already_open = false
 
@@ -17,17 +19,18 @@ func _ready():
 	if is_already_open:
 		interact_icon.play("normal")
 	instructions.visible = false
-	#shop_area.get_overlapping_bodies()
 
 func _on_body_entered(_body):
-	print(_body)
-	if _body is MainCharacter and !is_already_open:
-		can_interact_with_chest = true
-		instructions.visible = true
-		instructions_animation.play("upward")
+	match(object_type):
+		case "Chest":
+			if _body is MainCharacter and !is_already_open:
+				can_interact_with_chest = true
+				instructions.visible = true
+				instructions_animation.play("upward")
+		case "Chest"
+			pass
 
 func _on_body_exited(_body):
-	print(_body)
 	if _body is MainCharacter:
 		can_interact_with_chest = false
 		instructions.visible = false
@@ -43,7 +46,7 @@ func _process(_delta):
 		if mario:
 			is_already_open = true
 			instructions.visible = false
-			audio.play()
+			chest_audio.play()
 			interact_icon.play("normal")
 			await interact_icon.animation_finished
 			mario.is_abletomove = true

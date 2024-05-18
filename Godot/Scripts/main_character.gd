@@ -64,6 +64,7 @@ func _ready():
 		position = tp_pos
 		#camera.position = tp_pos
 	hit_collition.disabled = true
+	PlayerStats.player = self
 
 func _process(delta):
 	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
@@ -227,7 +228,13 @@ func ground():
 @onready var hurt_sound = load("res://Assets/SFX/LC_SFX/592. Shovel Hit Default.mp3")
 @onready var Invincibility_Timer : Timer = $ITimer
 
-
+func _on_body_collition(body):
+	if body is Checkpoint:
+		_on_checkpoint_collition(body)
+	if body is Ennemies:
+		when_hit()
+	if body is SpinBox:
+		_on_spike_collition(body)
 
 func when_hit():
 	#Cannot check collition so, check Roach.gd for this function "call"
@@ -251,7 +258,7 @@ func get_hurt():
 		return false
 
 
-func _on_area_2d_body_entered(body): #colition avec un pic
+func _on_spike_collition(body): #colition avec un pic
 	if body is MainCharacter:
 		position = PlayerStats.safety_checkpoint_pos
 		PlayerStats.hp -= 1
@@ -261,9 +268,8 @@ func _on_area_2d_body_entered(body): #colition avec un pic
 		if PlayerStats.hp <= 0:
 			on_gameover()
 
-func _on_checkpoint_colition(body):
-	if body is MainCharacter:
-		print_debug("Checkpoint")
-		PlayerStats.safety_checkpoint_pos = position
-		#if PlayerStats.is_debug:
-		sprite.modulate = Color(0.5,1,0.5)
+func _on_checkpoint_collition(body):
+	print_debug("Checkpoint")
+	PlayerStats.safety_checkpoint_pos = position
+	#if PlayerStats.is_debug:
+	sprite.modulate = Color(0.5,1,0.5)

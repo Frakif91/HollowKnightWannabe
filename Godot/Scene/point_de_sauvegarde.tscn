@@ -4,10 +4,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k26xi"]
 
-[node name="poin_de_sovgarde_pic" type="Area2D"]
+[node name="Checkpoint" type="Area2D"]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(2, 0)
 script = ExtResource("1_2sitd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_k26xi")
