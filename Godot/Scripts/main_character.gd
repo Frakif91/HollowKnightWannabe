@@ -64,7 +64,7 @@ func _ready():
 		position = tp_pos
 		#camera.position = tp_pos
 	hit_collition.disabled = true
-	PlayerStats.player = self
+#	PlayerStats.player = self
 
 func _process(delta):
 	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
@@ -229,8 +229,9 @@ func ground():
 @onready var Invincibility_Timer : Timer = $ITimer
 
 func _on_body_collition(body):
-	if body is Checkpoint:
-		_on_checkpoint_collition(body)
+	pass
+#	if body is Checkpoint:
+#		_on_checkpoint_collition(body)
 	if body is Ennemies:
 		when_hit()
 	if body is SpinBox:
