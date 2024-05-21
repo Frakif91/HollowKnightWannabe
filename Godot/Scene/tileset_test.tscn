@@ -14,6 +14,7 @@
 
 [node name="SceneProperties" parent="." instance=ExtResource("1_w1mhg")]
 unique_name_in_owner = true
+scene_description = "First part of your adventure"
 npPlayer = NodePath("../Mario")
 npCamera = NodePath("../Mario/Camera")
 npBGAudio = NodePath("../AudioStreamPlayer")

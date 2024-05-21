@@ -7,6 +7,10 @@ class_name Interaction
 @onready var instructions_animation : AnimatedSprite2D = $"InteractIcon/Icon"
 
 @export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
+#spikes
+@export var spike_damage : int = 4
+
+#Chest
 @onready var chest_audio : AudioStreamPlayer = $"OpenSFX"
 var can_interact_with_chest = false
 @export var is_already_open = false
@@ -22,13 +26,17 @@ func _ready():
 
 func _on_body_entered(_body):
 	match(object_type):
-		case "Chest":
+		"Chest":
 			if _body is MainCharacter and !is_already_open:
 				can_interact_with_chest = true
 				instructions.visible = true
 				instructions_animation.play("upward")
-		case "Chest"
+		"Spikes":
 			pass
+		"Checkpoint":
+			if _body is MainCharacter:
+				PlayerStats.safety_checkpoint_pos = position
+				_body.sprite.modulate = Color(0.5,1,0.5)
 
 func _on_body_exited(_body):
 	if _body is MainCharacter:

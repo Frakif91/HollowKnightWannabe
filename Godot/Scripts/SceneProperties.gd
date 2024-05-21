@@ -23,3 +23,11 @@ func _ready():
 		player.highlight.energy = 0
 	if not scene_name.is_empty():
 		pass
+	if camera:
+		if camera.area_announcer:
+			print_debug("Showing Title")
+			camera.area_announcer.show_title(scene_name,scene_description,1)
+		else:
+			printerr("Camera Area Announcer not found")
+	else:
+		printerr("Camera not found")

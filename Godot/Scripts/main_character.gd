@@ -64,7 +64,7 @@ func _ready():
 		position = tp_pos
 		#camera.position = tp_pos
 	hit_collition.disabled = true
-#	PlayerStats.player = self
+	PlayerStats.player = self
 
 func _process(delta):
 	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
@@ -182,7 +182,7 @@ func wait(time:float):
 
 
 func on_gameover():
-	emit_signal("PlayerStats.gameover")
+	PlayerStats.gameover.emit()
 	PlayerStats.states["InGameoverState"] = true
 
 
@@ -229,24 +229,26 @@ func ground():
 @onready var Invincibility_Timer : Timer = $ITimer
 
 func _on_body_collition(body):
-	pass
-#	if body is Checkpoint:
-#		_on_checkpoint_collition(body)
 	if body is Ennemies:
-		when_hit()
-	if body is SpinBox:
-		_on_spike_collition(body)
+		when_hit(body.damage_dealt)
+	if body is Interaction:
+		if body.type == "Spikes":
+			_on_spike_collition(body.spike_damage)
+		elif body.type == "Checkpoint":
+			_on_checkpoint_collition(body)
+		elif body.type == "Chest":
+			pass
 
-func when_hit():
+func when_hit(damage):
 	#Cannot check collition so, check Roach.gd for this function "call"
 	#print_debug("Body in Collition")
-	is_dead = await get_hurt()
+	is_dead = await get_hurt(damage)
 	if is_dead:
 		on_gameover()
 
-func get_hurt():
+func get_hurt(damage):
 	if not is_invulnerable:
-		PlayerStats.hp -= 1
+		PlayerStats.hp -= damage
 		sound.stream = hurt_sound
 		sound.play()
 		sprite.modulate = hurt_color

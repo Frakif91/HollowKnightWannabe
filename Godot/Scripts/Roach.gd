@@ -8,6 +8,7 @@ var is_dead = false
 @export var speed = 20
 @export var runing_speed = 200
 @export var health : int = 2
+@export var damage_dealt : int = 2
 var invulnerability_timer = 1.
 var is_invulnerable = false 
 var gravity = 50
@@ -88,7 +89,7 @@ func _body_entered(body):
 	if body is MainCharacter:
 		#print Touched
 		print_debug("Touched")
-		body.when_hit()
+		body.when_hit(damage_dealt)
 
 func _old_move():
 	#Old Code -> not working and i did a burnout

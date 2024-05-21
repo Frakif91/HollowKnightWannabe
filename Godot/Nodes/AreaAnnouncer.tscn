@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drio2xnae5t7y"]
+[gd_scene load_steps=11 format=3 uid="uid://drio2xnae5t7y"]
 
 [ext_resource type="FontFile" uid="uid://c7jwae8f5qxse" path="res://Assets/Fonts/NITEMARE.TTF" id="1_dt3wg"]
 [ext_resource type="Script" path="res://Godot/Scripts/AreaAnnouncer.gd" id="1_uc0it"]
@@ -73,8 +73,34 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1)
 }
 
+[sub_resource type="Animation" id="Animation_vemmu"]
+resource_name = "Hide"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("The Whole:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.8, 0, 0.9, 0, -516, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("The Whole:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cfm0a"]
 _data = {
+"Hide": SubResource("Animation_vemmu"),
 "RESET": SubResource("Animation_6vu4p"),
 "Show": SubResource("Animation_80pai")
 }
@@ -87,6 +113,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uc0it")
+title = "Debuging Scene"
+description = "Debuging of \"Area\" Announcer"
+enter_delay = 1.0
+post_duration = 3.0
 
 [node name="The Whole" type="Control" parent="."]
 anchors_preset = 0

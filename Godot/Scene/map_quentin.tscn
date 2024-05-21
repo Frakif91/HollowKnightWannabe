@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=13 format=3 uid="uid://tgdu2xr3p1ix"]
 
+[ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
 [ext_resource type="Texture2D" uid="uid://d2mggu1bh2ijs" path="res://Assets/map/IMG_1017.png" id="1_wt8wl"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_1a3nc"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
@@ -11,34 +12,37 @@
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
 [ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="9_ogms8"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_bt2k3"]
-[ext_resource type="PackedScene" uid="uid://c2oj7pn4ttcu0" path="res://Godot/Scene/pic.tscn" id="12_v6om2"]
-[ext_resource type="PackedScene" uid="uid://nhmh1n6ma6bw" path="res://Godot/Scene/point_de_sauvegarde.tscn" id="13_mgv7m"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
+[node name="SceneProperties" type="Node" parent="."]
+script = ExtResource("1_4ojid")
+scene_name = "Map Quentin"
+scene_description = "Tutorial map"
+npPlayer = NodePath("../Mario")
+npCamera = NodePath("../Mario/Camera")
+npBGAudio = NodePath("../Musique")
+do_player_emit_light = false
+
 [node name="Fond d\'écran" type="ParallaxBackground" parent="."]
 follow_viewport_enabled = true
-follow_viewport_scale = 0.7
+follow_viewport_scale = 0.5
 scroll_base_offset = Vector2(10, 0)
 scroll_base_scale = Vector2(0.5, 0.5)
 
 [node name="Image" type="Sprite2D" parent="Fond d\'écran"]
 position = Vector2(607.143, 217.143)
-scale = Vector2(3.35938, 2.37723)
+scale = Vector2(3, 3)
 texture = ExtResource("4_t3m54")
-offset = Vector2(0, 211.215)
+offset = Vector2(0, 253.55)
+region_rect = Rect2(-426.909, 0.405, 940.909, 510.05)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(673, 800)
 scale = Vector2(0.658203, 0.675)
 texture = ExtResource("1_wt8wl")
-
-[node name="ParallaxLayer" type="ParallaxBackground" parent="."]
-scale = Vector2(0.68166, 0.679534)
-transform = Transform2D(0.68166, 0, 0, 0.679534, 0, 0)
-scroll_base_scale = Vector2(0, 0)
 
 [node name="Mario" parent="." instance=ExtResource("2_1a3nc")]
 position = Vector2(211, 545)
@@ -47,7 +51,6 @@ floor_max_angle = 0.261799
 safe_margin = 0.001
 
 [node name="Camera" parent="Mario" instance=ExtResource("2_bwo3r")]
-position = Vector2(-50, 44)
 zoom = Vector2(5, 5)
 limit_left = -4745
 limit_top = -3600
@@ -58,8 +61,6 @@ limit_bottom = 5546
 stream = ExtResource("5_74gv0")
 volume_db = -10.0
 autoplay = true
-
-[node name="Deposer" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -107,22 +108,3 @@ texture = ExtResource("9_ogms8")
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
 position = Vector2(51, 882)
 scale = Vector2(0.1, 0.1)
-
-[node name="pic" parent="." instance=ExtResource("12_v6om2")]
-position = Vector2(255, 960)
-scale = Vector2(27.6484, -0.466781)
-
-[node name="pic2" parent="." instance=ExtResource("12_v6om2")]
-position = Vector2(683, 944)
-scale = Vector2(9.20712, -0.222402)
-
-[node name="poin_de_sovgarde" parent="." instance=ExtResource("13_mgv7m")]
-position = Vector2(354, 759)
-
-[node name="poin_de_sovgarde2" parent="." instance=ExtResource("13_mgv7m")]
-position = Vector2(775, 913)
-
-[connection signal="body_entered" from="pic" to="Mario" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="pic2" to="Mario" method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="poin_de_sovgarde" to="Mario" method="_on_poin_de_sovgarde_body_entered"]
-[connection signal="body_entered" from="poin_de_sovgarde2" to="Mario" method="_on_poin_de_sovgarde_body_entered"]

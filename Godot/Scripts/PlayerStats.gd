@@ -76,6 +76,7 @@ enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
+var player : MainCharacter
 var safety_checkpoint_pos = Vector2(0,0)
 var velocity # No use
 var jump_remaining = JUMP_HOLD
