@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v1iejopiby11"
-path="res://.godot/imported/spritesheet_hlk.png-9f406fadf35294a7a3ac31bdfa269bab.ctex"
+uid="uid://blqbsteh7iar4"
+path="res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-7c3de98745b9463803225712c2aefacb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/spritesheet_hlk.png"
-dest_files=["res://.godot/imported/spritesheet_hlk.png-9f406fadf35294a7a3ac31bdfa269bab.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/IMG_1028-ezgif.com-gif-to-sprite-converter.png"
+dest_files=["res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-7c3de98745b9463803225712c2aefacb.ctex"]
 
 [params]
 

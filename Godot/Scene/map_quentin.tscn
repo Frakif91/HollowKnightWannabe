@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=15 format=3 uid="uid://tgdu2xr3p1ix"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
+[ext_resource type="Texture2D" uid="uid://cyhvvjpioxutm" path="res://Assets/GFX/fond_cimetier.png" id="1_m340d"]
 [ext_resource type="Texture2D" uid="uid://d2mggu1bh2ijs" path="res://Assets/map/IMG_1017.png" id="1_wt8wl"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_1a3nc"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
@@ -12,9 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
 [ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="9_ogms8"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_bt2k3"]
+[ext_resource type="Texture2D" uid="uid://c164oy5rxp026" path="res://Assets/GFX/IMG_1033.png" id="13_7ig4k"]
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+
+[node name="fond-cimetiére" type="Sprite2D" parent="."]
+position = Vector2(481, 196)
+rotation = -3.14159
+scale = Vector2(0.226184, 0.244295)
+texture = ExtResource("1_m340d")
 
 [node name="SceneProperties" type="Node" parent="."]
 script = ExtResource("1_4ojid")
@@ -25,13 +33,13 @@ npCamera = NodePath("../Mario/Camera")
 npBGAudio = NodePath("../Musique")
 do_player_emit_light = false
 
-[node name="Fond d\'écran" type="ParallaxBackground" parent="."]
+[node name="Fond d\'écran2" type="ParallaxBackground" parent="."]
 follow_viewport_enabled = true
 follow_viewport_scale = 0.5
 scroll_base_offset = Vector2(10, 0)
 scroll_base_scale = Vector2(0.5, 0.5)
 
-[node name="Image" type="Sprite2D" parent="Fond d\'écran"]
+[node name="Image" type="Sprite2D" parent="Fond d\'écran2"]
 position = Vector2(607.143, 217.143)
 scale = Vector2(3, 3)
 texture = ExtResource("4_t3m54")
@@ -45,12 +53,13 @@ scale = Vector2(0.658203, 0.675)
 texture = ExtResource("1_wt8wl")
 
 [node name="Mario" parent="." instance=ExtResource("2_1a3nc")]
-position = Vector2(333, 367)
+position = Vector2(341, 373)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
 
 [node name="Camera" parent="Mario" instance=ExtResource("2_bwo3r")]
+position = Vector2(0, 2)
 zoom = Vector2(5, 5)
 limit_left = -4745
 limit_top = -3600
@@ -108,3 +117,9 @@ texture = ExtResource("9_ogms8")
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
 position = Vector2(51, 882)
 scale = Vector2(0.1, 0.1)
+
+[node name="cimeitére" type="Sprite2D" parent="."]
+position = Vector2(488, 159)
+rotation = -3.14583
+scale = Vector2(0.233657, 0.291577)
+texture = ExtResource("13_7ig4k")

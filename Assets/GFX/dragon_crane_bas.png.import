@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://13ibs55ro1vj"
-path="res://.godot/imported/spritesheet_hlk_jump.w.stand.png-2ed90345d85f26a1165a4f224d375c25.ctex"
+uid="uid://dvl3nu5jn57h3"
+path="res://.godot/imported/dragon_crane_bas.png-6698d253b8fffd3a1e1eae61e5e8d2eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/spritesheet_hlk_jump.w.stand.png"
-dest_files=["res://.godot/imported/spritesheet_hlk_jump.w.stand.png-2ed90345d85f26a1165a4f224d375c25.ctex"]
+source_file="res://Assets/GFX/dragon_crane_bas.png"
+dest_files=["res://.godot/imported/dragon_crane_bas.png-6698d253b8fffd3a1e1eae61e5e8d2eb.ctex"]
 
 [params]
 

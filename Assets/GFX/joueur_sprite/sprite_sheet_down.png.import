@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn38jbgunyo6s"
-path="res://.godot/imported/spritesheet_turning.png-a93a6939f0dba801a2a4aa8907e8cf93.ctex"
+uid="uid://d337j2ygfdw6u"
+path="res://.godot/imported/sprite_sheet_down.png-0137d05eea6a10b7656281e96ab7d0be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/spritesheet_turning.png"
-dest_files=["res://.godot/imported/spritesheet_turning.png-a93a6939f0dba801a2a4aa8907e8cf93.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/sprite_sheet_down.png"
+dest_files=["res://.godot/imported/sprite_sheet_down.png-0137d05eea6a10b7656281e96ab7d0be.ctex"]
 
 [params]
 

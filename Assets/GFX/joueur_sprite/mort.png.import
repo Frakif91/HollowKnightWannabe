@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d337j2ygfdw6u"
-path="res://.godot/imported/sprite_sheet_down.png-7dfbbe2b58a0b39eb6b9b89a3c769b48.ctex"
+uid="uid://ddwl6p1nvkfhg"
+path="res://.godot/imported/mort.png-6fa714bb4d864166a91c490d032efcaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/sprite_sheet_down.png"
-dest_files=["res://.godot/imported/sprite_sheet_down.png-7dfbbe2b58a0b39eb6b9b89a3c769b48.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/mort.png"
+dest_files=["res://.godot/imported/mort.png-6fa714bb4d864166a91c490d032efcaa.ctex"]
 
 [params]
 

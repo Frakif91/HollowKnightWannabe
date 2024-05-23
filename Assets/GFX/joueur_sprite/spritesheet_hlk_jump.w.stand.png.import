@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddwl6p1nvkfhg"
-path="res://.godot/imported/mort.png-f918ebdaa5181891fa71fe4d5b28f985.ctex"
+uid="uid://13ibs55ro1vj"
+path="res://.godot/imported/spritesheet_hlk_jump.w.stand.png-71d8c3937092503e20a2fa11fcf9f563.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/mort.png"
-dest_files=["res://.godot/imported/mort.png-f918ebdaa5181891fa71fe4d5b28f985.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/spritesheet_hlk_jump.w.stand.png"
+dest_files=["res://.godot/imported/spritesheet_hlk_jump.w.stand.png-71d8c3937092503e20a2fa11fcf9f563.ctex"]
 
 [params]
 

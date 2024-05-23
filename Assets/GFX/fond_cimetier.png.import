@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2gf01q2w1rnr"
-path="res://.godot/imported/swing_anim.png-298f96bf51057fb8e0de4cd7a4f70c94.ctex"
+uid="uid://cyhvvjpioxutm"
+path="res://.godot/imported/fond_cimetier.png-68b18fd75bf451b5ddb724d6fdd8f80a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/swing_anim.png"
-dest_files=["res://.godot/imported/swing_anim.png-298f96bf51057fb8e0de4cd7a4f70c94.ctex"]
+source_file="res://Assets/GFX/fond_cimetier.png"
+dest_files=["res://.godot/imported/fond_cimetier.png-68b18fd75bf451b5ddb724d6fdd8f80a.ctex"]
 
 [params]
 
