@@ -23,7 +23,8 @@ extends Node
 	"wall_slide_enabled" 			= false,
  	"wall_slide_percentage" 		= 0.2,
 	"wall_slide_min_spd" 			= 50.0,
- 	"wall_slide_max_spd"			= 10.0
+ 	"wall_slide_max_spd"			= 10.0,
+	"money"							= 0
 }
 
 
@@ -77,16 +78,18 @@ const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gam
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var player : MainCharacter
+var camera : Camera2D
 var safety_checkpoint_pos = Vector2(0,0)
 var velocity # No use
 var jump_remaining = JUMP_HOLD
+var hurt_color = Color(1,0,0,1)
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false
 @export var wall_slide_percentage = 0.2
 @export var wall_slide_min_spd = 50.0
 @export var wall_slide_max_spd = 10.0
-var camera : Camera2D
+
 
 @export_category("RPG - Stats")
 @export var level : int = 0
@@ -127,6 +130,7 @@ func load_file(type):
 		JUMP_VELOCITY = Default_Variable["JUMP_VELOCITY"]
 		can_attack_and_slide = Default_Variable["can_attack_and_slide"]
 		wall_slide_enabled = Default_Variable["wall_slide_enabled"]
+		money = Default_Variable["money"]
 		is_abletomove = true
 
 

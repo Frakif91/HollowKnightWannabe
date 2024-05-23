@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 class_name MainCharacter
-var point_de_sovgarde = Vector2.ZERO
+#var point_de_sovgarde = Vector2.ZERO
 #region variable
 var SPEED = PlayerStats.SPEED
 var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
 var gravity_mult = PlayerStats.GRAVITY_MULT
 var is_attacking = false
-
-
+var is_in_jump_action = false
+var has_double_jump = true
 var is_dead = false
 var invulnerability_timer = 1.
 var is_invulnerable = false
@@ -95,8 +95,6 @@ func _physics_process(delta):
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.JUMP])
 		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove:
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
-	else:
-		states["HasDoubleJumped"] = false
 
 	# Handle jump.
 	"""
@@ -105,24 +103,30 @@ func _physics_process(delta):
 		audioPlayer.play()
 		if not is_on_floor() and states["HasDoubleJumped"] == false:
 			states["HasDoubleJumped"] = true
-	"""
+	"""	
 
-	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0) and is_on_floor():
-		if PlayerStats.jump_remaining == PlayerStats.JUMP_HOLD:
+	if Input.is_action_just_pressed("Jump"):
+		if is_on_floor():
+			jump_remaining = PlayerStats.JUMP_HOLD
 			audioPlayer.play()
-		PlayerStats.jump_remaining -= 1
-		velocity.y = PlayerStats.JUMP_VELOCITY
+			velocity.y = PlayerStats.JUMP_VELOCITY
+		elif (not is_on_floor() and PlayerStats.jump_remaining <= 0) and has_double_jump:
+			has_double_jump = false
+			velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
 	
-	if Input.is_action_just_pressed("Jump") and (PlayerStats.jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"] and not is_on_floor():
-		PlayerStats.states["HasDoubleJumped"] = true
-		velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
-		audioPlayer.play()
+	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0) and not is_on_floor():
+		velocity.y = PlayerStats.JUMP_VELOCITY
+		PlayerStats.jump_remaining -= 1		
 
+	# Stop Holding Button "Jump" or Bumped Head on Celing -> Reset Hold Jump
 	if Input.is_action_just_released("Jump") or is_on_ceiling_only():
 		PlayerStats.jump_remaining = 0
+	
+	if is_on_floor():
+		has_double_jump = false
 
 	# Handle Attacks
-	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["GameOver"]:
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
 		sprite.play(anim_name[anim.ATTACK])
 		swingSFX.play()
 		hit_collition.disabled = false
@@ -133,8 +137,7 @@ func _physics_process(delta):
 		is_attacking = false
 		sprite.play(anim_name[anim.STAND])
 
-	if is_on_floor():
-		PlayerStats.jump_remaining = PlayerStats.JUMP_HOLD
+	
 		
 	#region Physics
 	# Get the input direction and handle the movement/deceleration.
@@ -271,14 +274,3 @@ func get_hurt(damage):
 		await Invincibility_Timer.timeout
 		is_invulnerable = false
 		return false
-
-
-func _on_spike_collition(body): #colition avec un pic
-	if body is MainCharacter:
-		position = PlayerStats.safety_checkpoint_pos
-		PlayerStats.hp -= 1
-		sound.stream = hurt_sound
-		sound.play()
-		sprite.modulate = hurt_color
-		if PlayerStats.hp <= 0:
-			on_gameover()

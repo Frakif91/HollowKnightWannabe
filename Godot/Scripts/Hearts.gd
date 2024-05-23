@@ -27,6 +27,7 @@ var og_scale = scale
 var last_container : TextureRect
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	og_scale = scale
 	if last_container_beat and not Engine.is_editor_hint():
 		var timer_btw_beats = Timer.new()
 

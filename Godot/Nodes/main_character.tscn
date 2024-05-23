@@ -56,8 +56,6 @@ texture_scale = 7.0
 metadata/_edit_lock_ = true
 
 [node name="HighLight" type="PointLight2D" parent="."]
-visible = false
-shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.278431)
 shadow_filter_smooth = 10.1
 texture = ExtResource("5_vusjh")
