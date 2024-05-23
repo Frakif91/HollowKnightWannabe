@@ -16,6 +16,7 @@ var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
 var jump_hold = 10 # Number of frames to hold space (to jump higher)
 var jump_remaining = 0
+var gameover_load = preload("res://Assets/SFX/lego-breaking.mp3")
 
 var STOPPING_FRICTION = PlayerStats.STOPPING_FRICTION
 var ACCELERATION_SPEED = PlayerStats.ACCELERATION_SPEED
@@ -54,9 +55,12 @@ const suffer = [
 @onready var highlight : PointLight2D = $HighLight
 @onready var og_lowlight : PointLight2D = lowlight.duplicate()
 @onready var og_highlight : PointLight2D = highlight.duplicate()
+@onready var gameover_player : AudioStreamPlayer = AudioStreamPlayer.new() ; 
 @onready var hit_collition : CollisionPolygon2D = $"Col_Hit/Attack_Area"
 
 func _ready():
+	gameover_player.stream = gameover_load
+	self.add_child(gameover_player)
 	sprite.play("Stand")
 	#print(self.scale.y)
 	#print($"Collision".visible ,typeof($"Collision"))
@@ -103,13 +107,13 @@ func _physics_process(delta):
 			states["HasDoubleJumped"] = true
 	"""
 
-	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0):
+	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0) and is_on_floor():
 		if PlayerStats.jump_remaining == PlayerStats.JUMP_HOLD:
 			audioPlayer.play()
 		PlayerStats.jump_remaining -= 1
 		velocity.y = PlayerStats.JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("Jump") and (PlayerStats.jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"]:
+	if Input.is_action_just_pressed("Jump") and (PlayerStats.jump_remaining <= 0) and not PlayerStats.states["HasDoubleJumped"] and not is_on_floor():
 		PlayerStats.states["HasDoubleJumped"] = true
 		velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
 		audioPlayer.play()
@@ -118,7 +122,7 @@ func _physics_process(delta):
 		PlayerStats.jump_remaining = 0
 
 	# Handle Attacks
-	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking:
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["GameOver"]:
 		sprite.play(anim_name[anim.ATTACK])
 		swingSFX.play()
 		hit_collition.disabled = false
@@ -161,7 +165,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
 	
-	if Input.is_action_pressed("ui_down") and is_on_floor():
+	if Input.is_action_pressed("Look_Down") and is_on_floor():
 		sprite.play("LookDown")
 		is_looking_down = true
 		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
@@ -184,6 +188,14 @@ func wait(time:float):
 func on_gameover():
 	PlayerStats.gameover.emit()
 	PlayerStats.states["InGameoverState"] = true
+	PlayerStats.is_abletomove = false
+	var gamover_sound = gameover_load.instantiate_playback()
+	sprite.play("Gameover")
+	gameover_player.play()
+	await sprite.animation_finished
+	await wait(1)
+	await Transitions.change_scene("reload","fade_out")
+	PlayerStats.load_file(PlayerStats.save_types.DEFAULT)
 
 
 """

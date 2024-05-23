@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_edkg2"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_1phjy"]
 [ext_resource type="Script" path="res://Assets/Music/Tempo.gd" id="6_8nxdw"]
-[ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="6_v86nc"]
 [ext_resource type="AudioStream" uid="uid://c3fcvmjyicfcx" path="res://Assets/Music/Cult of the Lamb OST - Anchordeep Extended.mp3" id="6_y0xsm"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="7_nrh5l"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="8_3n6dj"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="8_yebiq"]
 [ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="9_diged"]
+[ext_resource type="Script" path="res://Godot/Scripts/Chest.gd" id="9_y5evl"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="14_junue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vygco"]
@@ -97,8 +97,8 @@ position = Vector2(312, 315)
 
 [node name="To the shop" type="Area2D" parent="."]
 position = Vector2(275, 323)
-script = ExtResource("6_v86nc")
-scene = "res://Godot/Scene/Shop.tscn"
+script = ExtResource("9_y5evl")
+object_type = "Teleport Interact"
 
 [node name="Sprite2D" type="Sprite2D" parent="To the shop"]
 position = Vector2(192, -163)

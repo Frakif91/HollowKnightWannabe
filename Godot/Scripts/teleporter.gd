@@ -16,12 +16,11 @@ var the_player : MainCharacter
 
 func _ready():
 	self.body_entered.connect(on_body_entered)
+	var variable = clamp(10,1,4)
 
 func on_body_entered(external_body):
 	if (external_body is MainCharacter):
-		print_debug(external_body)
-		the_player = external_body
-		if condition == "None":
+		#print_debug(external_body)
 			teleport()
 
 func on_body_exit():

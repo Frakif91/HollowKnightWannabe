@@ -9,7 +9,7 @@ extends Node
 
 @export var Default_Variable : Dictionary = {
 	"hp"							= 12,
-	"max_hp"						= 1,
+	"max_hp"						= 12,
 	"max_bp"						= 15,
 	"SPEED"							= 125.0,
 	"JUMP_VELOCITY"					= -220.0,
@@ -127,6 +127,7 @@ func load_file(type):
 		JUMP_VELOCITY = Default_Variable["JUMP_VELOCITY"]
 		can_attack_and_slide = Default_Variable["can_attack_and_slide"]
 		wall_slide_enabled = Default_Variable["wall_slide_enabled"]
+		is_abletomove = true
 
 
 signal lose_health

@@ -94,3 +94,6 @@ func teleporting(index: int):
 	for child in $MenuBar/Option/MarginContainer.get_children():
 		if is_instance_of(child, Button):
 			child.disabled = false
+	if Transitions:
+		assert(Transitions)
+		await Transitions.play("fade_in")

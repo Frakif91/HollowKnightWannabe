@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="7_vbply"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="8_0plf6"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="8_5adlr"]
-[ext_resource type="Script" path="res://Godot/Scripts/teleporter.gd" id="9_miho5"]
+[ext_resource type="Script" path="res://Godot/Scripts/Chest.gd" id="12_qsgrw"]
 [ext_resource type="AudioStream" uid="uid://dktivtjk1xxea" path="res://Assets/Music/TLOF-WW_Terry'sshop.mp3" id="13_ahdns"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vcu1"]
@@ -153,7 +153,7 @@ texture = ExtResource("4_tpud0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
-energy = 0.933429
+energy = 0.601545
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -162,7 +162,6 @@ max_light = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
-energy = 0.968951
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -198,9 +197,7 @@ metadata/_edit_lock_ = true
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(-56, 2)
-script = ExtResource("9_miho5")
-scene = "res://Godot/Scene/tileset_2.tscn"
-tp_pos = Vector2(312, 315)
+script = ExtResource("12_qsgrw")
 
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-2, 0)
