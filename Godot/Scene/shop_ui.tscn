@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhmm1jqfnqm22"]
+[gd_scene load_steps=8 format=3 uid="uid://cbenwshj2ai52"]
 
 [ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="1_bkug2"]
 [ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour.gd" id="1_csg1y"]
@@ -29,7 +29,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 0.727928
+energy = 1.16276
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -41,7 +41,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 5.0
+energy = 4.7416
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")

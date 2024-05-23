@@ -39,6 +39,8 @@ visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="AreaAnnouncer" parent="ScreenAnchor" instance=ExtResource("5_bnfan")]
+offset_top = -350.0
+offset_bottom = -350.0
 title = "Test"
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
