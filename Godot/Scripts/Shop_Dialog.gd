@@ -4,6 +4,7 @@ extends Area2D
 @onready var instructions : Control = $"InteractIcon"
 @onready var instructions_animation : AnimatedSprite2D = $"InteractIcon/Icon"
 @onready var audio : AudioStreamPlayer = $"SelectSound"
+var shop_ui = preload("res://Godot/Scene/shop_ui.tscn") 
 var can_interact_with_shop = false
 
 func _ready():
@@ -31,7 +32,6 @@ func _process(_delta):
     if Input.is_action_just_pressed("Interact") and can_interact_with_shop:
         PlayerStats.is_abletomove = false
         audio.play()
-        await audio.finished
         $"ShopSeller".play("hey")
         await Transitions.change_scene("reload","fade_out")
         PlayerStats.is_abletomove = true

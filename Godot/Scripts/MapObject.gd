@@ -7,6 +7,7 @@ var interaction = preload("res://Godot/Nodes/Interact_icon.tscn")
 @export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
 
 var can_interact_with_chest = false
+var can_interact_with_teleporter = false
 @export var is_already_open = false
 
 var interact_icon : AnimatedSprite2D

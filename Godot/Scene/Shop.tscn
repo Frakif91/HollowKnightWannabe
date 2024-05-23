@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bu0t64lk6mixg"]
+[gd_scene load_steps=30 format=3 uid="uid://bu0t64lk6mixg"]
 
 [ext_resource type="Texture2D" uid="uid://d2yjn0bjsofx0" path="res://Assets/GFX/IMG_1019.png" id="1_2hxjn"]
 [ext_resource type="Texture2D" uid="uid://cbgpngxb3tnpj" path="res://Assets/GFX/shop_seller_animated.png" id="2_afehb"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="8_5adlr"]
 [ext_resource type="Script" path="res://Godot/Scripts/Chest.gd" id="12_qsgrw"]
 [ext_resource type="AudioStream" uid="uid://dktivtjk1xxea" path="res://Assets/Music/TLOF-WW_Terry'sshop.mp3" id="13_ahdns"]
+[ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="14_kbj0y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vcu1"]
 atlas = ExtResource("2_afehb")
@@ -153,7 +154,7 @@ texture = ExtResource("4_tpud0")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
-energy = 0.601545
+energy = 0.879962
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -162,6 +163,7 @@ max_light = 1.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
+energy = 0.998895
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -206,3 +208,11 @@ shape = SubResource("RectangleShape2D_efciy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ahdns")
 volume_db = -14.0
+
+[node name="SceneProperties" type="Node" parent="."]
+script = ExtResource("14_kbj0y")
+scene_name = "Shop"
+scene_description = "A colol place to hang out and buy stuff"
+npPlayer = NodePath("../Player")
+npCamera = NodePath("../Player/Camera")
+npBGAudio = NodePath("../AudioStreamPlayer")
