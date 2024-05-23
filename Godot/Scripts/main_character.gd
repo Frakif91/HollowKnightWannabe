@@ -231,13 +231,13 @@ func ground():
 func _on_body_collition(body):
 	if body is Ennemies:
 		when_hit(body.damage_dealt)
-	if body is Interaction:
+	"""_add_constant_torqueif body is Interaction:
 		if body.type == "Spikes":
 			_on_spike_collition(body.spike_damage)
 		elif body.type == "Checkpoint":
 			_on_checkpoint_collition(body)
 		elif body.type == "Chest":
-			pass
+			pass"""
 
 func when_hit(damage):
 	#Cannot check collition so, check Roach.gd for this function "call"
@@ -270,9 +270,3 @@ func _on_spike_collition(body): #colition avec un pic
 		sprite.modulate = hurt_color
 		if PlayerStats.hp <= 0:
 			on_gameover()
-
-func _on_checkpoint_collition(body):
-	print_debug("Checkpoint")
-	PlayerStats.safety_checkpoint_pos = position
-	#if PlayerStats.is_debug:
-	sprite.modulate = Color(0.5,1,0.5)

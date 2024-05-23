@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhmm1jqfnqm22"]
+[gd_scene load_steps=8 format=3 uid="uid://dhmm1jqfnqm22"]
 
 [ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="1_bkug2"]
+[ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour.gd" id="1_csg1y"]
 [ext_resource type="AudioStream" uid="uid://dktivtjk1xxea" path="res://Assets/Music/TLOF-WW_Terry'sshop.mp3" id="2_kna3j"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="3_vj514"]
 [ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="4_aukdg"]
@@ -8,21 +9,18 @@
 [sub_resource type="LabelSettings" id="LabelSettings_431r6"]
 font_size = 32
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_o4wbj"]
+font_size = 38
+
+[node name="ShopUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_csg1y")
 
 [node name="ShopUi" type="Sprite2D" parent="."]
 position = Vector2(579.5, 329.5)
 scale = Vector2(0.5755, 0.432667)
 texture = ExtResource("1_bkug2")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 39.0
-offset_top = 394.0
-offset_right = 396.0
-offset_bottom = 438.0
-text = "Teddy :
-   \"You trippin' balls bruh, stop the gögö\""
-label_settings = SubResource("LabelSettings_431r6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kna3j")
@@ -31,7 +29,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 0.849336
+energy = 0.727928
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -40,9 +38,10 @@ max_light = 1.2
 step_light = 200.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 4.71832
+energy = 5.0
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -50,3 +49,36 @@ min_light = 0.1
 max_light = 5.0
 step_light = 1000.0
 power_light = 60.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 369.0
+offset_right = 1144.0
+offset_bottom = 644.0
+
+[node name="Text" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -526.0
+offset_top = -190.0
+offset_right = 526.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "\"You trippin' balls bruh, stop the gögö\""
+label_settings = SubResource("LabelSettings_431r6")
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 143.0
+offset_bottom = 76.0
+text = "Teddy
+"
+label_settings = SubResource("LabelSettings_o4wbj")
