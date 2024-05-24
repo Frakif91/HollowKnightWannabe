@@ -3,7 +3,7 @@ extends Control
 @export var text_to_type : Array[String] = ["You trippin' balls bruh...",
 	"Man, i think you need healing cuz you're hallucinating.",
 	"Come back with money next time.","..."]
-var wait_time = 0.05
+var wait_time = 0.02
 var is_typing = false
 var have_to_stop
 

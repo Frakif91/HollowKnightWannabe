@@ -1,6 +1,6 @@
 [gd_scene load_steps=49 format=3 uid="uid://cighbat1wnbkp"]
 
-[ext_resource type="Script" path="res://Godot/Scripts/Chest.gd" id="1_57741"]
+[ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_jayq3"]
 [ext_resource type="Texture2D" uid="uid://bmma157vaaki5" path="res://Assets/GFX/Chests.png" id="2_aorq7"]
 [ext_resource type="Shader" path="res://Godot/Shaders/Outline.gdshader" id="2_u2350"]
 [ext_resource type="PackedScene" uid="uid://1nxcwdc6n48p" path="res://Godot/Nodes/Interact_icon.tscn" id="3_pd7d1"]
@@ -322,8 +322,10 @@ animations = [{
 size = Vector2(60, 42)
 
 [node name="Chest" type="Area2D"]
-script = ExtResource("1_57741")
+position = Vector2(-1, 0)
+script = ExtResource("1_jayq3")
 object_type = "Chest"
+chest_reward = "Coins"
 
 [node name="Chest_Tex" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

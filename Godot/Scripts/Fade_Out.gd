@@ -21,14 +21,13 @@ func change_scene(scene,animation):
 	if scene is String:
 		if scene != "reload":
 			get_tree().call_deferred("change_scene_to_file",scene)
-			get_tree().change_scene_to_file(scene)
 			finish_animation(last_animation)
 		else:
 			get_tree().reload_current_scene()
 			finish_animation(last_animation)
 	elif scene is PackedScene:
 			get_tree().call_deferred("change_scene_to_file",scene)
-			get_tree().change_scene_to_file(scene)
+			get_tree().change_scene_to_packed(scene)
 			finish_animation(last_animation)
 
 func finish_animation(last_anim):

@@ -5,6 +5,10 @@ class_name MapObject
 @export_category("Map Object")
 @export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
 
+@export_subgroup("Interaction Icon")
+@export var interact_offset = Vector2(0,-50)
+@export var interact_scale = Vector2(0.3,0.3)
+
 @export_subgroup("Chest")
 @export var is_already_open = false
 @export_enum("Coins","Healing") var chest_reward = "Healing"
@@ -24,12 +28,22 @@ var interact_icon : AnimatedSprite2D
 var instructions  : Control
 var instructions_animation : AnimatedSprite2D
 var chest_audio : AudioStreamPlayer
+var interaction_node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+
+	if object_type == "Chest" or object_type == "Teleport Interact":
+		interaction_node = interaction.instantiate()
+		add_child(interaction_node)
+		instructions = $"InteractIcon"
+		instructions_animation = $"InteractIcon/Icon"
+		instructions.position = interact_offset
+		instructions.scale = interact_scale
+
 	if object_type == "Chest":
 		interact_icon = $Chest_Tex
 		chest_audio = $"OpenSFX"
@@ -37,11 +51,6 @@ func _ready():
 		if is_already_open:
 			interact_icon.play("normal")
 		instructions.visible = false
-	if object_type == "Teleport Interact":
-		var interaction_node = interaction.instantiate()
-		add_child(interaction_node)
-		instructions = $"InteractIcon"
-		instructions_animation = $"InteractIcon/Icon"
 		
 
 func _on_body_entered(_body):
@@ -98,5 +107,6 @@ func _input(event):
 		"Teleport Interact":
 			if event.is_action_pressed(&"Interact") and can_interact_with_teleporter:
 				print_debug(typeof(scene_to_TP))
-				await get_tree().create_timer(10).timeout
-				Transitions.change_scene(scene_to_TP,"fade_out")
+				PlayerStats.is_abletomove = false
+				await Transitions.change_scene(scene_to_TP,"fade_out")
+				PlayerStats.is_abletomove = true

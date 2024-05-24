@@ -107,14 +107,15 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
-			jump_remaining = PlayerStats.JUMP_HOLD
+			PlayerStats.jump_remaining = PlayerStats.JUMP_HOLD
 			audioPlayer.play()
 			velocity.y = PlayerStats.JUMP_VELOCITY
 		elif (not is_on_floor() and PlayerStats.jump_remaining <= 0) and has_double_jump:
+			audioPlayer.play()
 			has_double_jump = false
 			velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
 	
-	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0) and not is_on_floor():
+	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0):
 		velocity.y = PlayerStats.JUMP_VELOCITY
 		PlayerStats.jump_remaining -= 1		
 
@@ -123,7 +124,7 @@ func _physics_process(delta):
 		PlayerStats.jump_remaining = 0
 	
 	if is_on_floor():
-		has_double_jump = false
+		has_double_jump = true
 
 	# Handle Attacks
 	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:

@@ -29,7 +29,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 1.15791
+energy = 1.10454
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")

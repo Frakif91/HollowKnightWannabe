@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="7_nrh5l"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="8_3n6dj"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="8_yebiq"]
+[ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="9_64yy0"]
 [ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="9_diged"]
-[ext_resource type="Script" path="res://Godot/Scripts/Chest.gd" id="9_y5evl"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="14_junue"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vygco"]
@@ -97,8 +97,12 @@ position = Vector2(312, 315)
 
 [node name="To the shop" type="Area2D" parent="."]
 position = Vector2(275, 323)
-script = ExtResource("9_y5evl")
+script = ExtResource("9_64yy0")
 object_type = "Teleport Interact"
+interact_offset = Vector2(0, -40)
+interact_scale = Vector2(0.5, 0.5)
+chest_reward = "Coins"
+scene_to_TP = "res://Godot/Scene/Shop.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="To the shop"]
 position = Vector2(192, -163)

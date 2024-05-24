@@ -25,10 +25,11 @@ func _ready():
 		instructions_animation = $"InteractIcon/Icon"
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	instructions_animation.play("idle")
-	if is_already_open:
-		interact_icon.play("normal")
-	instructions.visible = false
+	if instructions_animation:
+		instructions_animation.play("idle")
+		if is_already_open:
+			interact_icon.play("normal")
+		instructions.visible = false
 
 
 func _on_body_entered(_body):

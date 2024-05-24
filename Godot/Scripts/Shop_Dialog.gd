@@ -28,13 +28,13 @@ func _on_body_exited(_body):
 		instructions.visible = false
 	pass
 
-func _process(_delta):
-	if Input.is_action_just_pressed("Interact") and can_interact_with_shop:
+func _input(event):
+	if event.is_action_pressed("Interact") and can_interact_with_shop:
 		PlayerStats.is_abletomove = false
 		audio.play()
 		$"ShopSeller".play("hey")
-		await Transitions.change_scene("reload","fade_out")
-		PlayerStats.is_abletomove = true
+		await Transitions.change_scene(shop_ui,"fade_out")
+		Transitions.play("fade_in")
 
 
 var text : Dictionary = {
