@@ -1,7 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
-.vscode/settings.json
-.vscode
 Movie.avi
+.vscode
+settings.json
+".vscode/settings.json"
 .vscode/settings.json
-.vscode/settings.json
+.vscode/
