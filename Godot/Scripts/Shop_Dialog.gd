@@ -30,20 +30,11 @@ func _on_body_exited(_body):
 
 func _input(event):
 	if event.is_action_pressed("Interact") and can_interact_with_shop:
+		can_interact_with_shop = false
 		PlayerStats.is_abletomove = false
 		audio.play()
 		$"ShopSeller".play("hey")
+		PlayerStats.tp_pos = PlayerStats.player.position		
 		await Transitions.change_scene(shop_ui,"fade_out")
-		Transitions.play("fade_in")
-
-
-var text : Dictionary = {
-		"Q1" :"Qu’est-ce que cet endroit",
-		"R1" : "Eh bien, c’est le sous-sol du cimetière ?",
-		"Q2" : "Vous êtes un pirate ?",
-		"R2" : "Oui, enfin autrefois, à cette époque, je me prénommais… J’ai sillonné toutes les mers du monde avec mon équipage, les Botri. Nous étions les grands pirates de notre temps.",
-		"Q3" : "Comment vous êtes-vous retrouvé ici ?",
-		"R3" : "Malgré notre ténacité en tant que pirates, cela ne nous a pas protégés d’une trahison. C’était la nuit, et nous avions fait escale sur une petite île où nous avons décidé de passer la nuit. Mais à peine avions-nous fermé les yeux que j’ai entendu crier : ‘La marine ! La marine !’ J’ai sauté de mon hamac, attrapé mon sabre, et vu deux énormes navires qui nous tiraient dessus. J’ai combattu comme un diable, mais ils ont fini par m’attraper et me faire prisonnier. Ils avaient prévu de me pendre, mais avant cela, on m’a laissé un étrange message qui m’a conduit à être enterré dans mon village natal, et c’est ainsi que je me suis retrouvé ici.",
-		"Q4" : "Qui est ce garde ?",
-		"R4" : "Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton."
-}
+		
+		#Transitions.play("fade_in")

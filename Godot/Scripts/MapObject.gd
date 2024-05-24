@@ -16,6 +16,7 @@ class_name MapObject
 @export_subgroup("Teleportation")
 @export_file("*.tscn") var scene_to_TP
 @export var tp_fade_animation : String = "fade_out" 
+@export var tp_pos : Vector2 = Vector2(0,0)
 
 @onready var sound : AudioStreamPlayer = $"Sound"
 #@onready var defeat_sound = load("res://Assets/SFX/LC_SFX/614. Slam Ground.mp3")
@@ -43,6 +44,7 @@ func _ready():
 		instructions_animation = $"InteractIcon/Icon"
 		instructions.position = interact_offset
 		instructions.scale = interact_scale
+		instructions.visible = false
 
 	if object_type == "Chest":
 		interact_icon = $Chest_Tex
@@ -108,5 +110,6 @@ func _input(event):
 			if event.is_action_pressed(&"Interact") and can_interact_with_teleporter:
 				print_debug(typeof(scene_to_TP))
 				PlayerStats.is_abletomove = false
+				PlayerStats.tp_pos = tp_pos
 				await Transitions.change_scene(scene_to_TP,"fade_out")
 				PlayerStats.is_abletomove = true
