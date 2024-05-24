@@ -11,7 +11,7 @@ extends Control
 @export var description : String = "None"
 @export var enter_delay : float = 0.7
 @export var enter_duration : float = 1.0
-@export var post_duration : float = 1.0
+@export var post_duration : float = 3.0
 @export var end_duration : float = 1.0
 
 var default_font = load("res://Assets/Fonts/NITEMARE.TTF")

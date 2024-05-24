@@ -105,7 +105,7 @@ func _physics_process(delta):
 			states["HasDoubleJumped"] = true
 	"""	
 
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("Jump") and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
 		if is_on_floor():
 			PlayerStats.jump_remaining = PlayerStats.JUMP_HOLD
 			audioPlayer.play()
@@ -115,7 +115,7 @@ func _physics_process(delta):
 			has_double_jump = false
 			velocity.y = PlayerStats.JUMP_VELOCITY * 1.2
 	
-	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0):
+	if Input.is_action_pressed("Jump") and (PlayerStats.jump_remaining > 0) and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
 		velocity.y = PlayerStats.JUMP_VELOCITY
 		PlayerStats.jump_remaining -= 1		
 

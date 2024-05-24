@@ -26,7 +26,7 @@ func _ready():
 	if camera:
 		if camera.area_announcer:
 			print_debug("Showing Title")
-			camera.area_announcer.show_title(scene_name,scene_description,1)
+			camera.area_announcer.show_title(scene_name,scene_description,3)
 		else:
 			printerr("Camera Area Announcer not found")
 	else:

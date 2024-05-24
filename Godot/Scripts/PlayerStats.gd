@@ -12,12 +12,12 @@ extends Node
 	"max_hp"						= 12,
 	"max_bp"						= 15,
 	"SPEED"							= 125.0,
-	"JUMP_VELOCITY"					= -220.0,
+	"JUMP_VELOCITY"					= -170.0,
 	"GRAVITY_MULT"					= 1.2,
 	"STOPPING_FRICTION"				= 1000,
-	"ACCELERATION_SPEED"			= 500,
-	"STOPPING_FRICTION_AIRBORN"		= 1,
-	"ACCELERATION_SPEED_AIRBORN"	= 250,
+	"ACCELERATION_SPEED"			= 600,
+	"STOPPING_FRICTION_AIRBORN"		= 10,
+	"ACCELERATION_SPEED_AIRBORN"	= 350,
 	"LOOK_DOWN_Y"					= 30,
 	"can_attack_and_slide" 			= false,
 	"wall_slide_enabled" 			= false,
@@ -132,6 +132,7 @@ func load_file(type):
 		wall_slide_enabled = Default_Variable["wall_slide_enabled"]
 		money = Default_Variable["money"]
 		is_abletomove = true
+		PlayerStats.states["InGameoverState"] = false
 
 
 signal lose_health

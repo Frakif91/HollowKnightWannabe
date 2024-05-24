@@ -15,7 +15,8 @@ func _ready():
 	$MenuBar/Menu/MarginContainer/QuitButton.pressed.connect(when_quit)
 	$MenuBar/Menu/MarginContainer/Resume.pressed.connect(when_resume)
 	$"../ConfirmationDialog".confirmed.connect(_quit)
-	show_hide(false)
+	menu.visible = false
+	animplayer.play_backwards("Show-Hide")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Menu") and not is_in_action:
@@ -90,6 +91,7 @@ func teleporting(index: int):
 		_:
 			file = "title.tscn"
 	Transitions.play("RESET")
+	PlayerStats.tp_pos = Vector2(0,0)
 	await Transitions.change_scene(path + file,"fade_out")
 	for child in $MenuBar/Option/MarginContainer.get_children():
 		if is_instance_of(child, Button):

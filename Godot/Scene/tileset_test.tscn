@@ -44,7 +44,7 @@ floor_max_angle = 0.261799
 
 [node name="Camera" parent="Mario" instance=ExtResource("4_0cgpl")]
 unique_name_in_owner = true
-zoom = Vector2(3, 3)
+zoom = Vector2(3.5, 3.5)
 limit_left = 25
 limit_top = 20
 limit_right = 1135
@@ -82,7 +82,7 @@ scale = Vector2(1.11111, 0.877193)
 gizmo_extents = 18.5
 
 [node name="Roach" parent="." instance=ExtResource("9_rrlpr")]
-position = Vector2(725, 523)
+position = Vector2(484, 517)
 scale = Vector2(0.15, 0.15)
 
 [node name="Roach2" parent="." instance=ExtResource("9_rrlpr")]
