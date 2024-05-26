@@ -11,7 +11,7 @@ class_name MapObject
 
 @export_subgroup("Chest")
 @export var is_already_open = false
-@export_enum("Coins","Healing") var chest_reward = "Healing"
+@export_enum("Coins","Healing") var chest_reward = "Coins"
 
 @export_subgroup("Teleportation")
 @export_file("*.tscn") var scene_to_TP

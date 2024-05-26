@@ -67,7 +67,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 5.0
+energy = 4.48301
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -92,12 +92,19 @@ offset_right = 1136.0
 offset_bottom = 280.0
 theme = ExtResource("6_8m10w")
 
+[node name="PanelName" type="Panel" parent="Control"]
+offset_left = -15.0
+offset_top = -71.0
+offset_right = 172.0
+offset_bottom = 25.0
+theme = ExtResource("6_8m10w")
+
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 0
 offset_left = 885.0
 offset_top = -287.0
 offset_right = 1131.0
-offset_bottom = 54.0
+offset_bottom = 28.0
 theme = ExtResource("6_8m10w")
 
 [node name="Text" type="Label" parent="Control"]
@@ -108,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -526.0
-offset_top = -190.0
-offset_right = 478.0
-offset_bottom = -7.0
+offset_left = -529.0
+offset_top = -216.0
+offset_right = 376.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_431r6")
@@ -120,10 +127,10 @@ text_overrun_behavior = 4
 
 [node name="Name" type="Label" parent="Control"]
 layout_mode = 1
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 155.0
-offset_bottom = 84.0
+offset_left = 2.0
+offset_top = -53.0
+offset_right = 149.0
+offset_bottom = 18.0
 text = "Teddy 
 "
 label_settings = SubResource("LabelSettings_o4wbj")
@@ -147,7 +154,7 @@ icon = ExtResource("6_hneo3")
 expand_icon = true
 
 [node name="Pass Button" type="TouchScreenButton" parent="Control"]
-position = Vector2(953, 194)
+position = Vector2(1044, 112)
 scale = Vector2(0.28125, 0.28125)
 texture_normal = ExtResource("8_05lcp")
 texture_pressed = SubResource("GradientTexture2D_2d0ga")
@@ -162,10 +169,10 @@ anchor_left = 0.788
 anchor_top = 0.14
 anchor_right = 0.988
 anchor_bottom = 0.64
-offset_left = 0.223938
-offset_top = 0.279999
+offset_left = 0.223999
+offset_top = 1.28
 offset_right = -0.176025
-offset_bottom = 0.279968
+offset_bottom = -23.72
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -1,19 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://cighbat1wnbkp"]
+[gd_scene load_steps=46 format=3 uid="uid://cighbat1wnbkp"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_jayq3"]
 [ext_resource type="Texture2D" uid="uid://bmma157vaaki5" path="res://Assets/GFX/Chests.png" id="2_aorq7"]
-[ext_resource type="Shader" path="res://Godot/Shaders/Outline.gdshader" id="2_u2350"]
-[ext_resource type="PackedScene" uid="uid://1nxcwdc6n48p" path="res://Godot/Nodes/Interact_icon.tscn" id="3_pd7d1"]
 [ext_resource type="AudioStream" uid="uid://bqi7ffv4xsp80" path="res://Assets/SFX/Chest Open.ogg" id="4_0brm0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0q07x"]
-shader = ExtResource("2_u2350")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.901
-shader_parameter/pattern = 1
-shader_parameter/inside = false
-shader_parameter/add_margins = false
-shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga44e"]
 atlas = ExtResource("2_aorq7")
@@ -329,7 +318,6 @@ chest_reward = "Coins"
 
 [node name="Chest_Tex" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-material = SubResource("ShaderMaterial_0q07x")
 position = Vector2(8, -16)
 sprite_frames = SubResource("SpriteFrames_6nkhg")
 animation = &"normal"
@@ -337,11 +325,6 @@ animation = &"normal"
 [node name="Interaction_Area" type="CollisionShape2D" parent="."]
 position = Vector2(2, -19)
 shape = SubResource("RectangleShape2D_t3wyi")
-
-[node name="InteractIcon" parent="." instance=ExtResource("3_pd7d1")]
-offset_top = -60.0
-offset_bottom = -60.0
-scale = Vector2(0.467297, 0.463227)
 
 [node name="OpenSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0brm0")

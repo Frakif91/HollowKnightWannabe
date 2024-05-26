@@ -36,6 +36,7 @@ script = ExtResource("1_3wtfx")
 
 [node name="UI" parent="ScreenAnchor" instance=ExtResource("3_ftv57")]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="AreaAnnouncer" parent="ScreenAnchor" instance=ExtResource("5_bnfan")]
@@ -43,7 +44,8 @@ offset_top = -350.0
 offset_bottom = -350.0
 title = "Test"
 
-[node name="Control" parent="ScreenAnchor" instance=ExtResource("5_bh64k")]
+[node name="TouchButtons" parent="ScreenAnchor" instance=ExtResource("5_bh64k")]
+visible = false
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
 unique_name_in_owner = true
