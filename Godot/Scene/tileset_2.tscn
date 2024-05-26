@@ -101,7 +101,6 @@ script = ExtResource("9_64yy0")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
 interact_scale = Vector2(0.5, 0.5)
-chest_reward = "Coins"
 scene_to_TP = "res://Godot/Scene/Shop.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="To the shop"]

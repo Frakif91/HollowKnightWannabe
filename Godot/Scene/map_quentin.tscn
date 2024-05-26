@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=28 format=3 uid="uid://tgdu2xr3p1ix"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
 [ext_resource type="Texture2D" uid="uid://cyhvvjpioxutm" path="res://Assets/GFX/fond_cimetier.png" id="1_m340d"]
@@ -13,11 +13,42 @@
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
 [ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="9_ogms8"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_bt2k3"]
+[ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="11_ef0l0"]
 [ext_resource type="Texture2D" uid="uid://c164oy5rxp026" path="res://Assets/GFX/IMG_1033.png" id="13_7ig4k"]
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="15_hox65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wehwd"]
 size = Vector2(20, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56eby"]
+size = Vector2(116, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xd65p"]
+size = Vector2(255, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6orxy"]
+size = Vector2(413, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkc4y"]
+size = Vector2(117, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cshd1"]
+size = Vector2(13, 83.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5eou"]
+size = Vector2(13, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwfnv"]
+size = Vector2(230, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qaq3n"]
+size = Vector2(78, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
+size = Vector2(329, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmh2o"]
+size = Vector2(156, 5)
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -100,9 +131,13 @@ scale = Vector2(0.557453, 0.593744)
 texture = ExtResource("9_h2prk")
 
 [node name="cofre" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(692, 785)
 scale = Vector2(0.634735, 0.55013)
 texture = ExtResource("9_ogms8")
+
+[node name="Chest" parent="." instance=ExtResource("11_ef0l0")]
+position = Vector2(417, 704)
 
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
 position = Vector2(47, 882)
@@ -139,3 +174,103 @@ object_type = "Checkpoint"
 position = Vector2(0, -24.5)
 shape = SubResource("RectangleShape2D_wehwd")
 debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint2" type="Area2D" parent="MapObjects"]
+position = Vector2(365, 791)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint2"]
+position = Vector2(48, -8.5)
+shape = SubResource("RectangleShape2D_56eby")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint3" type="Area2D" parent="MapObjects"]
+position = Vector2(291, 690)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint3"]
+position = Vector2(-110.5, 14.5)
+shape = SubResource("RectangleShape2D_xd65p")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint5" type="Area2D" parent="MapObjects"]
+position = Vector2(1143, 1034)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint5"]
+position = Vector2(-73.5, 12)
+shape = SubResource("RectangleShape2D_6orxy")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint6" type="Area2D" parent="MapObjects"]
+position = Vector2(412, 1067)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint6"]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_bkc4y")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint7" type="Area2D" parent="MapObjects"]
+position = Vector2(412, 1067)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint7"]
+position = Vector2(4.5, -39.75)
+shape = SubResource("RectangleShape2D_cshd1")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint8" type="Area2D" parent="MapObjects"]
+position = Vector2(113, 880)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint8"]
+position = Vector2(4.5, -33)
+shape = SubResource("RectangleShape2D_w5eou")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint9" type="Area2D" parent="MapObjects"]
+position = Vector2(113, 880)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint9"]
+position = Vector2(-42, 10)
+shape = SubResource("RectangleShape2D_hwfnv")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint4" type="Area2D" parent="MapObjects"]
+position = Vector2(393, 690)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint4"]
+position = Vector2(21, 16.5)
+shape = SubResource("RectangleShape2D_qaq3n")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Spikes" type="Area2D" parent="MapObjects"]
+position = Vector2(261, 943)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes"]
+position = Vector2(90, 12)
+shape = SubResource("RectangleShape2D_w200a")
+debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)
+
+[node name="Spikes2" type="Area2D" parent="MapObjects"]
+position = Vector2(608, 934)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes2"]
+position = Vector2(86, 11.5)
+shape = SubResource("RectangleShape2D_dmh2o")
+debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)

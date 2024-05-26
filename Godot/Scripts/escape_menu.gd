@@ -113,3 +113,7 @@ func _on_volume_slider_value_changed(value):
 
 func _on_volume_slider_drag_ended(value_changed):
 	$"MenuBar/Settings/SettingsTab/FN_ChangeV_SFX".play()
+
+
+func _on_load_button_pressed():
+	pass # Replace with function body.
