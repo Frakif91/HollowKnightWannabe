@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4x4pdehhl0wq"]
+[gd_scene load_steps=8 format=3 uid="uid://c4x4pdehhl0wq"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/Camera2D.gd" id="1_3wtfx"]
 [ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="1_vxlrh"]
-[ext_resource type="PackedScene" uid="uid://smt3xe85w32f" path="res://Godot/Scene/hearts.tscn" id="2_o2pvb"]
 [ext_resource type="PackedScene" uid="uid://ohegt8ob1uca" path="res://Godot/Scene/debug_menu.tscn" id="3_32stw"]
+[ext_resource type="PackedScene" uid="uid://smt3xe85w32f" path="res://Godot/Nodes/hearts.tscn" id="3_ftv57"]
+[ext_resource type="PackedScene" uid="uid://drf4owgyw5us6" path="res://Godot/Nodes/TouchButtons.tscn" id="5_bh64k"]
 [ext_resource type="PackedScene" uid="uid://drio2xnae5t7y" path="res://Godot/Nodes/AreaAnnouncer.tscn" id="5_bnfan"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecwrm"]
@@ -33,15 +34,16 @@ script = ExtResource("1_3wtfx")
 
 [node name="ScreenAnchor" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="ScreenAnchor" instance=ExtResource("2_o2pvb")]
+[node name="UI" parent="ScreenAnchor" instance=ExtResource("3_ftv57")]
 unique_name_in_owner = true
-visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="AreaAnnouncer" parent="ScreenAnchor" instance=ExtResource("5_bnfan")]
 offset_top = -350.0
 offset_bottom = -350.0
 title = "Test"
+
+[node name="Control" parent="ScreenAnchor" instance=ExtResource("5_bh64k")]
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
 unique_name_in_owner = true

@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://smt3xe85w32f"]
+[gd_scene load_steps=12 format=3 uid="uid://b3jgw6cbuhped"]
 
-[ext_resource type="Script" path="res://Godot/Scripts/ControlDisplayBehiavior.gd" id="1_t6djv"]
-[ext_resource type="Script" path="res://Godot/Scripts/Hearts.gd" id="1_y1yro"]
-[ext_resource type="Texture2D" uid="uid://b1u507g7rixyb" path="res://Assets/GFX/ButtonIcon-GCN-Control_Stick.svg" id="2_5nfug"]
-[ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="3_ib43y"]
-[ext_resource type="Texture2D" uid="uid://d00tysmq5oggj" path="res://Assets/GFX/ButtonIcon-N64-A.svg" id="4_k2a18"]
-[ext_resource type="Texture2D" uid="uid://df83yhx60f5pp" path="res://Assets/GFX/ButtonIcon-N64-B.svg" id="5_dpyw8"]
+[ext_resource type="Texture2D" uid="uid://b1u507g7rixyb" path="res://Assets/GFX/ButtonIcon-GCN-Control_Stick.svg" id="1_3j35c"]
+[ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="2_k362p"]
+[ext_resource type="Texture2D" uid="uid://d00tysmq5oggj" path="res://Assets/GFX/ButtonIcon-N64-A.svg" id="3_r8tsk"]
+[ext_resource type="Texture2D" uid="uid://df83yhx60f5pp" path="res://Assets/GFX/ButtonIcon-N64-B.svg" id="4_11jtj"]
 
 [sub_resource type="Gradient" id="Gradient_xs084"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.649231, 1)
+offsets = PackedFloat32Array(0.732143, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_4vian"]
@@ -273,10 +271,10 @@ _data = {
 "Turning_on": SubResource("Animation_cad4f")
 }
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_isf52"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_swtk2"]
 gradient = SubResource("Gradient_xs084")
 fill = 1
-fill_from = Vector2(0.58547, 0.632479)
+fill_from = Vector2(0.62069, 0.607759)
 fill_to = Vector2(0.504274, 0.115385)
 
 [node name="Control" type="Control"]
@@ -286,7 +284,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t6djv")
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ColorRect")
@@ -294,26 +292,13 @@ libraries = {
 "": SubResource("AnimationLibrary_v25q8")
 }
 
-[node name="HContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 1160.0
-offset_bottom = 268.0
-scale = Vector2(0.35, 0.35)
-columns = 5
-script = ExtResource("1_y1yro")
-test_hp = 8
-test_maxhp = 10
-max_states = 4
-
 [node name="ColorRect" type="TextureRect" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 458.0
 offset_top = 308.0
 offset_right = 1510.0
 offset_bottom = 779.999
-texture = SubResource("GradientTexture2D_isf52")
+texture = SubResource("GradientTexture2D_swtk2")
 
 [node name="Container" type="GridContainer" parent="."]
 layout_direction = 2
@@ -338,7 +323,7 @@ layout_mode = 2
 [node name="TexStick" type="TextureRect" parent="Container/Stick_C"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("2_5nfug")
+texture = ExtResource("1_3j35c")
 
 [node name="LabStick" type="Label" parent="Container/Stick_C"]
 layout_mode = 2
@@ -346,7 +331,7 @@ text = "Move
 
 
 "
-label_settings = ExtResource("3_ib43y")
+label_settings = ExtResource("2_k362p")
 
 [node name="AC" type="MarginContainer" parent="Container"]
 layout_mode = 2
@@ -354,7 +339,7 @@ layout_mode = 2
 [node name="TexA" type="TextureRect" parent="Container/AC"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("4_k2a18")
+texture = ExtResource("3_r8tsk")
 
 [node name="LabA" type="Label" parent="Container/AC"]
 layout_mode = 2
@@ -362,7 +347,7 @@ text = "Jump
 
 
 "
-label_settings = ExtResource("3_ib43y")
+label_settings = ExtResource("2_k362p")
 
 [node name="BC" type="MarginContainer" parent="Container"]
 layout_mode = 2
@@ -370,7 +355,7 @@ layout_mode = 2
 [node name="TexB" type="TextureRect" parent="Container/BC"]
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("5_dpyw8")
+texture = ExtResource("4_11jtj")
 
 [node name="LabB" type="Label" parent="Container/BC"]
 layout_mode = 2
@@ -378,4 +363,4 @@ text = "Attack
 
 
 "
-label_settings = ExtResource("3_ib43y")
+label_settings = ExtResource("2_k362p")
