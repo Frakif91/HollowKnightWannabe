@@ -64,7 +64,9 @@ func _on_body_entered(_body):
 				instructions_animation.play("upward")
 		"Spikes":
 			if _body is MainCharacter:
-				position = PlayerStats.safety_checkpoint_pos
+				_body.position = PlayerStats.safety_checkpoint_pos
+				_body.get_hurt(4)
+				_body.velocity = Vector2.ZERO
 				PlayerStats.hp -= 1
 				sound.stream = hurt_sound
 				sound.play()
