@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbenwshj2ai52"]
+[gd_scene load_steps=17 format=3 uid="uid://cbenwshj2ai52"]
 
 [ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="1_bkug2"]
 [ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour.gd" id="1_csg1y"]
 [ext_resource type="AudioStream" uid="uid://cptvxa074f0co" path="res://Assets/Music/TLOZ-TW_Boutique.mp3" id="3_b587t"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="3_vj514"]
 [ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="4_aukdg"]
+[ext_resource type="Theme" uid="uid://bdgwcurxul1wa" path="res://shop_theme.tres" id="6_8m10w"]
 [ext_resource type="FontFile" uid="uid://hypo2b0odnw2" path="res://Assets/Fonts/The Wild Breath of Zelda.otf" id="6_egsks"]
 [ext_resource type="Texture2D" uid="uid://cracad6crkkkc" path="res://Assets/GFX/Right_Button.png" id="6_hneo3"]
 [ext_resource type="Texture2D" uid="uid://cnpjvi0xjcvdn" path="res://Assets/GFX/Interact_Button.png" id="8_05lcp"]
@@ -35,7 +36,11 @@ fill_to = Vector2(1, 0.5)
 
 [node name="ShopUI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_csg1y")
 
 [node name="ShopUi" type="Sprite2D" parent="."]
@@ -50,7 +55,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 0.914842
+energy = 1.2
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -62,7 +67,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 5.0
+energy = 4.48301
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -79,6 +84,29 @@ offset_top = 369.0
 offset_right = 1144.0
 offset_bottom = 644.0
 
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 1123.0
+offset_top = -287.0
+offset_right = 1136.0
+offset_bottom = 280.0
+theme = ExtResource("6_8m10w")
+
+[node name="PanelName" type="Panel" parent="Control"]
+offset_left = -15.0
+offset_top = -71.0
+offset_right = 172.0
+offset_bottom = 25.0
+theme = ExtResource("6_8m10w")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = -287.0
+offset_right = 1131.0
+offset_bottom = 28.0
+theme = ExtResource("6_8m10w")
+
 [node name="Text" type="Label" parent="Control"]
 clip_contents = true
 layout_mode = 1
@@ -87,10 +115,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -526.0
-offset_top = -190.0
-offset_right = 478.0
-offset_bottom = -7.0
+offset_left = -529.0
+offset_top = -216.0
+offset_right = 376.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_431r6")
@@ -99,15 +127,15 @@ text_overrun_behavior = 4
 
 [node name="Name" type="Label" parent="Control"]
 layout_mode = 1
-offset_left = 8.0
-offset_top = 13.0
-offset_right = 155.0
-offset_bottom = 84.0
+offset_left = 2.0
+offset_top = -53.0
+offset_right = 149.0
+offset_bottom = 18.0
 text = "Teddy 
 "
 label_settings = SubResource("LabelSettings_o4wbj")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="QuitButton" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -125,24 +153,40 @@ mouse_default_cursor_shape = 2
 icon = ExtResource("6_hneo3")
 expand_icon = true
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
-position = Vector2(953, 194)
+[node name="Pass Button" type="TouchScreenButton" parent="Control"]
+position = Vector2(1044, 112)
 scale = Vector2(0.28125, 0.28125)
 texture_normal = ExtResource("8_05lcp")
 texture_pressed = SubResource("GradientTexture2D_2d0ga")
 action = "Interact"
 visibility_mode = 1
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -238.0
-offset_right = -15.0
-offset_bottom = 52.0
-grow_horizontal = 0
+anchors_preset = -1
+anchor_left = 0.788
+anchor_top = 0.14
+anchor_right = 0.988
+anchor_bottom = 0.64
+offset_left = 0.223999
+offset_top = 1.28
+offset_right = -0.176025
+offset_bottom = -23.72
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_8m10w")
 text = "Du soins! s'il te plait."
+
+[node name="AskText" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("6_8m10w")
+text = "Qui est le garde
+ à l'entrée ?"
 
 [node name="SelectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_23x6k")
@@ -153,5 +197,6 @@ stream = ExtResource("10_eqcm8")
 [node name="HealSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_jxl5t")
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_heal_button"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/HealButton" to="." method="_on_heal_button"]
+[connection signal="pressed" from="GridContainer/AskText" to="." method="_on_guard_qna"]
