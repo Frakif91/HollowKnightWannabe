@@ -34,6 +34,7 @@ var interaction_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound = AudioStreamPlayer.new()
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -64,17 +65,15 @@ func _on_body_entered(_body):
 				instructions_animation.play("upward")
 		"Spikes":
 			if _body is MainCharacter:
-				position = PlayerStats.safety_checkpoint_pos
+				_body.position = PlayerStats.safety_checkpoint_pos
+				_body.get_hurt(4)
+				_body.velocity = Vector2.ZERO
 				PlayerStats.hp -= 1
-				sound.stream = hurt_sound
+				sound.stream = PlayerStats.player.hurt_sound
 				sound.play()
 				_body.sprite.modulate = PlayerStats.hurt_color
 				if PlayerStats.hp <= 0:
 					_body.on_gameover()
-			if _body is MainCharacter:
-				_body.position = PlayerStats.safety_checkpoint_pos
-				_body.get_hurt(4)
-				_body.velocity = Vector2.ZERO
 		"Checkpoint":
 			if _body is MainCharacter:
 				PlayerStats.safety_checkpoint_pos = _body.position

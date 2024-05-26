@@ -115,7 +115,7 @@ scale = Vector2(0.634735, 0.55013)
 texture = ExtResource("9_ogms8")
 
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
-position = Vector2(51, 882)
+position = Vector2(47, 882)
 scale = Vector2(0.1, 0.1)
 
 [node name="cimeitére" type="Sprite2D" parent="."]
