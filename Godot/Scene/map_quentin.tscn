@@ -258,7 +258,7 @@ debug_color = Color(0, 0.648632, 0.174227, 0.42)
 [node name="Spikes" type="Area2D" parent="MapObjects"]
 position = Vector2(261, 943)
 script = ExtResource("15_hox65")
-object_type = "Checkpoint"
+object_type = "Spikes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes"]
 position = Vector2(90, 12)

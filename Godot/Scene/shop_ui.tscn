@@ -93,6 +93,7 @@ offset_bottom = 280.0
 theme = ExtResource("6_8m10w")
 
 [node name="PanelName" type="Panel" parent="Control"]
+layout_mode = 0
 offset_left = -15.0
 offset_top = -71.0
 offset_right = 172.0
