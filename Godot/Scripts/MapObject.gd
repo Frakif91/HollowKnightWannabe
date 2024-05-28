@@ -4,6 +4,7 @@ class_name MapObject
 
 @export_category("Map Object")
 @export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
+@export var spike_damage = 2 
 
 @export_subgroup("Interaction Icon")
 @export var interact_offset = Vector2(0,-50)
@@ -12,6 +13,7 @@ class_name MapObject
 @export_subgroup("Chest")
 @export var is_already_open = false
 @export_enum("Coins","Healing") var chest_reward = "Coins"
+@export var reward_count = 1
 
 @export_subgroup("Teleportation")
 @export_file("*.tscn") var scene_to_TP
@@ -65,15 +67,17 @@ func _on_body_entered(_body):
 				instructions_animation.play("upward")
 		"Spikes":
 			if _body is MainCharacter:
-				_body.position = PlayerStats.safety_checkpoint_pos
-				_body.get_hurt(4)
-				_body.velocity = Vector2.ZERO
-				PlayerStats.hp -= 1
-				sound.stream = PlayerStats.player.hurt_sound
-				sound.play()
-				_body.sprite.modulate = PlayerStats.hurt_color
-				if PlayerStats.hp <= 0:
+				var is_dead = _body.get_hurt(spike_damage)
+				if is_dead:
 					_body.on_gameover()
+				else:
+					_body.position = PlayerStats.safety_checkpoint_pos
+					_body.velocity = Vector2.ZERO
+					#_body.move_and_slide()
+					sound.stream = PlayerStats.player.hurt_sound
+					sound.play()
+				_body.sprite.modulate = PlayerStats.hurt_color
+				
 		"Checkpoint":
 			if _body is MainCharacter:
 				PlayerStats.safety_checkpoint_pos = _body.position

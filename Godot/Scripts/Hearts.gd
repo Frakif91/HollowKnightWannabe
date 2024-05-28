@@ -95,7 +95,7 @@ func process_health(maxhp,curhp,delta,unzoom_speed):
 			i += max_states
 			
 func zoom_in():
-	current_affected_container.scale = Vector2(1.4, 1.4)
+	current_affected_container.scale = Vector2(1.8, 1.8)
 		#i += max_states
 		#if hp > i - 1:
 		#	tex = fullhealth

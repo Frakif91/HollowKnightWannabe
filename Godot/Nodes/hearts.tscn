@@ -303,7 +303,7 @@ offset_bottom = 268.0
 scale = Vector2(0.35, 0.35)
 columns = 3
 script = ExtResource("1_y1yro")
-test_hp = 8
+test_hp = 12
 test_maxhp = 10
 max_states = 4
 

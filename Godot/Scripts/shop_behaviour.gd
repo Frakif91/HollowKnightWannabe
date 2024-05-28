@@ -39,7 +39,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("Interact") and not is_typing:
 		line_of_text[1] = str(int(line_of_text[1]) + 1)
-		if int(line_of_text[1]) > len(text_to_type) - 1:
+		if int(line_of_text[1]) > 7:
 			line_of_text = "R0"
 		await typing(text_to_type[line_of_text])
 	elif event.is_action_pressed("Interact") and is_typing:

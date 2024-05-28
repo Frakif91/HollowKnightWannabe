@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cptvxa074f0co" path="res://Assets/Music/TLOZ-TW_Boutique.mp3" id="3_b587t"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="3_vj514"]
 [ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="4_aukdg"]
-[ext_resource type="Theme" uid="uid://bdgwcurxul1wa" path="res://shop_theme.tres" id="6_8m10w"]
+[ext_resource type="Theme" uid="uid://cr2ucq17qf2l5" path="res://shop_theme.tres" id="6_8m10w"]
 [ext_resource type="FontFile" uid="uid://hypo2b0odnw2" path="res://Assets/Fonts/The Wild Breath of Zelda.otf" id="6_egsks"]
 [ext_resource type="Texture2D" uid="uid://cracad6crkkkc" path="res://Assets/GFX/Right_Button.png" id="6_hneo3"]
 [ext_resource type="Texture2D" uid="uid://cnpjvi0xjcvdn" path="res://Assets/GFX/Interact_Button.png" id="8_05lcp"]
@@ -55,7 +55,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 1.2
+energy = 1.15721
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -67,7 +67,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 4.48301
+energy = 3.59779
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")

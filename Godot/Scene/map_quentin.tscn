@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=29 format=3 uid="uid://tgdu2xr3p1ix"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
 [ext_resource type="Texture2D" uid="uid://cyhvvjpioxutm" path="res://Assets/GFX/fond_cimetier.png" id="1_m340d"]
@@ -19,6 +19,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wehwd"]
 size = Vector2(20, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7tgb"]
+size = Vector2(37, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56eby"]
 size = Vector2(116, 29)
@@ -175,6 +178,19 @@ position = Vector2(0, -24.5)
 shape = SubResource("RectangleShape2D_wehwd")
 debug_color = Color(0, 0.648632, 0.174227, 0.42)
 
+[node name="TP_MapTuto" type="Area2D" parent="MapObjects"]
+position = Vector2(795, 917)
+script = ExtResource("15_hox65")
+object_type = "Teleport Interact"
+interact_offset = Vector2(0, -20)
+scene_to_TP = "res://Godot/Scene/tuto_scene.tscn"
+tp_fade_animation = "fade_right_left_in"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/TP_MapTuto"]
+position = Vector2(1.5, -24.5)
+shape = SubResource("RectangleShape2D_t7tgb")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
 [node name="Checkpoint2" type="Area2D" parent="MapObjects"]
 position = Vector2(365, 791)
 script = ExtResource("15_hox65")
@@ -268,7 +284,7 @@ debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)
 [node name="Spikes2" type="Area2D" parent="MapObjects"]
 position = Vector2(608, 934)
 script = ExtResource("15_hox65")
-object_type = "Checkpoint"
+object_type = "Spikes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes2"]
 position = Vector2(86, 11.5)
