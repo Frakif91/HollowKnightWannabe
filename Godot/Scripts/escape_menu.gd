@@ -67,6 +67,9 @@ func TP_But3():
 	teleporting(3)
 func TP_But4():
 	teleporting(4)
+func TP_But5():
+	teleporting(5)
+
 func save_game_state():
 	PlayerStats.save_file(PlayerStats.save_types.GAMEPLAY)
 func load_game_state():
@@ -92,6 +95,8 @@ func teleporting(index: int):
 			file = "Shop.tscn"
 		4:
 			file = "map_quentin.tscn"
+		5:
+			file = "tuto_scene.tscn"
 		_:
 			file = "title.tscn"
 	Transitions.play("RESET")
@@ -114,6 +119,3 @@ func _on_volume_slider_value_changed(value):
 func _on_volume_slider_drag_ended(value_changed):
 	$"MenuBar/Settings/SettingsTab/FN_ChangeV_SFX".play()
 
-
-func _on_load_button_pressed():
-	pass # Replace with function body.

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cdbcapw5lru3w"
+
+[deps]
+
+files=["res://Godot/Pot/shop.fr                                              .translation", "res://Godot/Pot/shop.en .translation", "res://Godot/Pot/shop.jp.translation"]
+
+source_file="res://Godot/Pot/shop.csv"
+dest_files=["res://Godot/Pot/shop.fr                                              .translation", "res://Godot/Pot/shop.en .translation", "res://Godot/Pot/shop.jp.translation"]
+
+[params]
+
+compress=true
+delimiter=0
