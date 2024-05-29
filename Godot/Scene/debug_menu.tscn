@@ -262,7 +262,7 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Options"
+text = "OPTION_TEXT"
 label_settings = ExtResource("2_3cv75")
 horizontal_alignment = 1
 uppercase = true
@@ -272,33 +272,33 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Scenes"
+text = "SCENE_TEXT
+"
 label_settings = SubResource("LabelSettings_f6r6a")
 horizontal_alignment = 1
 uppercase = true
 
 [node name="ButtonTPScene1" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "First Room
-"
+text = "TP_ROOM_1"
 text_direction = 1
 language = "Uni_US"
 
 [node name="ButtonTPScene2" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Second Room"
+text = "TP_ROOM_2"
 text_direction = 1
 language = "Uni_US"
 
 [node name="ButtonTPShop" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Shop"
+text = "TP_ROOM_3"
 text_direction = 1
 language = "Uni_US"
 
 [node name="ButtonTPQuentin" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
-text = "Quentin's Room"
+text = "TP_ROOM_4"
 text_direction = 1
 language = "Uni_US"
 
@@ -308,15 +308,14 @@ layout_mode = 2
 [node name="Save Button" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
 disabled = true
-text = "Save Game State
-"
+text = "SAVE_BUTTON_TEXT"
 text_direction = 1
 language = "Uni_US"
 
 [node name="Load Button" type="Button" parent="MenuBar/Option/MarginContainer"]
 layout_mode = 2
 disabled = true
-text = "Load Game State"
+text = "LOAD_BUTTON_TEXT"
 text_direction = 1
 language = "Uni_US"
 

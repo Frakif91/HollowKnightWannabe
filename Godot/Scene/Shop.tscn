@@ -155,7 +155,7 @@ texture = ExtResource("4_tpud0")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.818781
+energy = 0.487689
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -165,12 +165,21 @@ max_light = 1.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.821663
+energy = 0.951804
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
 min_light = 0.1
 max_light = 1.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(-74, 2)
+energy = 2.0
+texture = ExtResource("8_5adlr")
+texture_scale = 0.7
+script = ExtResource("6_pnpqe")
+min_light = 3.0
+step_light = 0.0
 
 [node name="Walls" type="Node2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://smt3xe85w32f"]
+[gd_scene load_steps=15 format=3 uid="uid://smt3xe85w32f"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/ControlDisplayBehiavior.gd" id="1_t6djv"]
 [ext_resource type="Script" path="res://Godot/Scripts/Hearts.gd" id="1_y1yro"]
@@ -273,6 +273,8 @@ _data = {
 "Turning_on": SubResource("Animation_cad4f")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_luqqc"]
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_isf52"]
 gradient = SubResource("Gradient_xs084")
 fill = 1
@@ -295,6 +297,7 @@ libraries = {
 }
 
 [node name="HContainer" type="GridContainer" parent="."]
+material = SubResource("CanvasItemMaterial_luqqc")
 layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
