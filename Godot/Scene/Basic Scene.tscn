@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_61xu2"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="4_3c2a2"]
 [ext_resource type="PackedScene" uid="uid://8if1oud1vmfr" path="res://Godot/Nodes/landmine.tscn" id="5_johkd"]
-[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/bossBattleTheme.mp3" id="5_xpho3"]
+[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/musique mario/bossBattleTheme.mp3" id="5_xpho3"]
 [ext_resource type="PackedScene" uid="uid://c6sku2sx4io3a" path="res://Godot/Nodes/ball.tscn" id="6_gcmv5"]
 
 [sub_resource type="GDScript" id="GDScript_c2p1j"]

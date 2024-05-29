@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pqedancyv440"
+path="res://.godot/imported/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3-4bf654f32d357131d68fde39a6de8899.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3"
+dest_files=["res://.godot/imported/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3-4bf654f32d357131d68fde39a6de8899.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

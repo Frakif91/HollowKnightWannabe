@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=30 format=3 uid="uid://tgdu2xr3p1ix"]
 
+[ext_resource type="Texture2D" uid="uid://c8e8ldifk77nl" path="res://Assets/map/fond cimetire soutérin.png" id="1_3g1hs"]
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
 [ext_resource type="Texture2D" uid="uid://cyhvvjpioxutm" path="res://Assets/GFX/fond_cimetier.png" id="1_m340d"]
 [ext_resource type="Texture2D" uid="uid://d2mggu1bh2ijs" path="res://Assets/map/IMG_1017.png" id="1_wt8wl"]
@@ -7,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_t3m54"]
 [ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="4_tdvxj"]
-[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="5_74gv0"]
+[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="5_74gv0"]
 [ext_resource type="Texture2D" uid="uid://dl25u70xrxu2x" path="res://Assets/map/IMG_1013.png" id="7_3ke5h"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_be8pd"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
@@ -48,13 +49,18 @@ size = Vector2(230, 8)
 size = Vector2(78, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
-size = Vector2(329, 5)
+size = Vector2(389.5, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmh2o"]
 size = Vector2(156, 5)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(684, 806)
+scale = Vector2(0.722168, 0.613932)
+texture = ExtResource("1_3g1hs")
 
 [node name="fond-cimetiére" type="Sprite2D" parent="."]
 position = Vector2(481, 196)
@@ -278,6 +284,16 @@ object_type = "Spikes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes"]
 position = Vector2(90, 12)
+shape = SubResource("RectangleShape2D_w200a")
+debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)
+
+[node name="Spikes3" type="Area2D" parent="MapObjects"]
+position = Vector2(546, 1211)
+script = ExtResource("15_hox65")
+object_type = "Spikes"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes3"]
+position = Vector2(122.75, 7.75)
 shape = SubResource("RectangleShape2D_w200a")
 debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)
 

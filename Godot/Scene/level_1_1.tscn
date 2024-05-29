@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="2_ay305"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_n85du"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_1gonl"]
-[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/bossBattleTheme.mp3" id="4_5l1b4"]
+[ext_resource type="AudioStream" uid="uid://84w5inx71rca" path="res://Assets/Music/musique mario/bossBattleTheme.mp3" id="4_5l1b4"]
 [ext_resource type="AudioStream" uid="uid://de1og5kh57i6o" path="res://Assets/SFX/LC_SFX/357. Icecream Truck V2.mp3" id="5_v3l1j"]
 [ext_resource type="PackedScene" uid="uid://8if1oud1vmfr" path="res://Godot/Nodes/landmine.tscn" id="6_sic0s"]
 
