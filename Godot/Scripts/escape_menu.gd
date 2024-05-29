@@ -112,10 +112,14 @@ func teleporting(index: int):
 
 func _on_volume_slider_value_changed(value):
 	$"MenuBar/Settings/SettingsTab/ST_ChangeV_SFX".play()
-	master_volume_label.text = "MASTER VOLUME : " + str(volume_slider.value) + "%"
+	master_volume_label.text = tr("MASTER_VOLUME") + " : " + str(volume_slider.value) + "%"
 	AudioServer.set_bus_volume_db(0,linear_to_db(volume_slider.value/200))
 
 
 func _on_volume_slider_drag_ended(value_changed):
 	$"MenuBar/Settings/SettingsTab/FN_ChangeV_SFX".play()
 
+const locals = ["fr","en","es"]
+
+func _on_local_select_item_selected(index : int):
+	TranslationServer.set_locale(locals[index])

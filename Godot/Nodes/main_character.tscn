@@ -27,8 +27,7 @@ polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, -4
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"Stand"
-frame_progress = 0.877652
+animation = &"Walk"
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]

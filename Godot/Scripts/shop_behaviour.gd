@@ -19,7 +19,6 @@ var text_to_type : Dictionary = {
 		"R7" : "Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton."
 }
 
-
 var wait_time = 0.03
 var is_typing = false
 var have_to_stop
@@ -34,7 +33,9 @@ var line_of_text : String = "R0"
 
 func _ready():
 	PlayerStats.is_abletomove = true
-	typing(text_to_type["R0"])
+	#TranslationServer.add_translation(load("res://Godot/Pot/shop.en .translation"))
+	print("Traduction Available for menu text object : " + str(menu_text.can_translate_messages()))
+	typing(tr("SHOP_HI"))
 
 func _input(event):
 	if event.is_action_pressed("Interact") and not is_typing:
@@ -48,7 +49,6 @@ func _input(event):
 		menu_text.text = "\"" + text_to_type[line_of_text] + "\""
 		is_typing = false
 		have_to_stop = false
-		
 
 func typing(sentence : String):
 	is_typing = true
@@ -58,7 +58,25 @@ func typing(sentence : String):
 
 	var final_string = ""
 	for word in words:
-		final_string = final_string + word 
+		final_string = final_string + word
+		menu_text.text = "\"" + final_string + "\""
+		if have_to_stop:
+			return
+		if word != " ":
+			$"Talk".play()
+			await wait_rule(word)
+	is_typing = false
+
+func tr_typing(key : String):
+	var sentence = tr(key)
+	is_typing = true
+	var words = []
+	for letter in range(len(sentence)):
+		words.append(sentence[letter])
+
+	var final_string = ""
+	for word in words:
+		final_string = final_string + word
 		menu_text.text = "\"" + final_string + "\""
 		if have_to_stop:
 			return
@@ -102,13 +120,13 @@ func _on_heal_button():
 	if not is_typing:
 		if PlayerStats.hp == PlayerStats.max_hp:
 			$"SelectSFX".play()
-			await typing("Tu as l'air déjà en pleine forme.")
+			await tr_typing("SHOP_HEAL_FULL")
 		else:
-			await typing("Voilà, j'espère que tu te sens mieux a présent.")
+			await tr_typing("SHOP_HEAL")
 			PlayerStats.hp = PlayerStats.max_hp
 			$"HealSFX".play()
 
 func _on_guard_qna():
 	if not is_typing:
-		await typing(text_to_type["R7"])
+		await tr_typing("SHOP_R7")
 

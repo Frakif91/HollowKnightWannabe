@@ -1,16 +1,40 @@
-keys    ,fr                                              ,en ,jp
-Shop_Hi ,Bonjour ! vous avez besoin de quelque chose ?,Good day ! do you need anything ?,
-Shop_Gb,J'espères te revoir bientôt.,I hope to see you again,
-Shop_Q1 ,Qu’est-ce que cet endroit ?,Where are we ?,
-Shop_R1 ,"Eh bien, Nous sommes au sous-sol du cimetière...","Well, under the graveyard, why ?",
-Shop_Q2 ,Vous êtes un pirate ?,Are you a pirate?,
-Shop_R2 ,"Oui, enfin autrefois, à cette époque, je me prénommais… J’ai sillonné toutes les mers du monde avec mon équipage, les Botri. Nous étions les grands pirates de notre temps.","Yes, well in the past, at that time, my name was like that... I sailed all the seas of the world with my crew, the Botri. We were the great pirates of our time.",
-Shop_Q3 ,Comment vous êtes-vous retrouvé ici ?,How did you end up here?,
-Shop_R3-1,"Malgré notre ténacité en tant que pirates, cela ne nous a pas protégés d’une trahison. C’était la nuit, et nous avions fait escale sur une petite île où nous avons décidé de passer la nuit.","Despite our tenacity as pirates, it did not protect us from betrayal. It was nighttime, and we had stopped off on a small island where we decided to spend the night.",
-Shop_R3-2,"Mais à peine avions-nous fermé les yeux que j’ai entendu crier : \""La marine ! La marine !\"" J’ai sauté de mon hamac, attrapé mon sabre, et vu deux énormes navires qui nous tiraient dessus.","But barely had we closed our eyes when I heard shouts: ""The navy! The navy!"" I jumped out of my hammock, grabbed my saber, and saw two enormous ships firing at us.",
-Shop_R3-3,"J’ai combattu comme un diable, mais ils ont fini par m’attraper et me faire prisonnier. Ils avaient prévu de me pendre..."," I fought like hell, but they finally caught me and took me prisoner. They planned to hang me…",
-Shop_R3-4,"...mais avant cela, on m’a laissé un étrange message qui m’a conduit à être enterré dans mon village natal, et c’est ainsi que je me suis retrouvé ici.","...but before that, I was left a strange message that led to me being buried in my native village, and that's how I ended up here.",
-Shop_Q7 ,Qui est ce garde ?,Who is this guard?,
-Shop_R7 ,"Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton.",All I know about him is that he has no intention of letting anyone out of the cemetery. I would have liked to teach him good manners with a device other than this stick.,
-Shop_Heal,"Voilà, j'espère que tu te sens mieux a présent.","There you go, I hope you feel better now.",
-Shop_Heal_Full,Tu as l'air déjà en pleine forme.,You already look in great shape.,
+key,fr,en,es
+SHOP_HI,Bonjour ! vous avez besoin de quelque chose ?,Good day ! do you need anything ?,"¡Hola!,¿qieres algo?"
+SHOP_GB,J'espères te revoir bientôt.,I hope to see you again,Hasta luego.
+SHOP_Q1,Qu’est-ce que cet endroit ?,Where are we ?,¿Cual es este lugar?
+SHOP_R1,"Eh bien, Nous sommes au sous-sol du cimetière...","Well, under the graveyard, why ?",Somos en el sótano del cementario... 
+SHOP_Q2,Vous êtes un pirate ?,Are you a pirate?,¿Eres un pirata?
+SHOP_R2,"Oui, enfin autrefois, à cette époque, je me prénommais… J’ai sillonné toutes les mers du monde avec mon équipage, les Botri. Nous étions les grands pirates de notre temps.","Yes, well in the past, at that time, my name was like that... I sailed all the seas of the world with my crew, the Botri. We were the great pirates of our time.","Si, pero antes, durante este tiempo me llamaba... crucé todos los mares del mundo con mis tripulantes, los Botris. Eramos los piratas mas grandes de nuestro tiempo."
+SHOP_Q3,Comment vous êtes-vous retrouvé ici ?,How did you end up here?,¿Cómo llegaste hasta aquí?
+SHOP_R3-1,"Malgré notre ténacité en tant que pirates, cela ne nous a pas protégés d’une trahison. C’était la nuit, et nous avions fait escale sur une petite île où nous avons décidé de passer la nuit.","Despite our tenacity as pirates, it did not protect us from betrayal. It was nighttime, and we had stopped off on a small island where we decided to spend the night.","A pesar de nuestra tenacidad como piratas,eso no nos protegió de la traición. Occurió durante la noche,decidimos hacer una escala en una pequeña isla por la noche"
+SHOP_R3-2,"Mais à peine avions-nous fermé les yeux que j’ai entendu crier : \""La marine ! La marine !\"" J’ai sauté de mon hamac, attrapé mon sabre, et vu deux énormes navires qui nous tiraient dessus.","But barely had we closed our eyes when I heard shouts: ""The navy! The navy!"" I jumped out of my hammock, grabbed my saber, and saw two enormous ships firing at us.","Pero apenas habíamos cerrado los ojos cuando oí vociferar : \""¡la Armada! ¡la Armada!\"".Salté de mi hamaca,tomé mi sable y vi dos navíos que les disparaban a nosotros."
+SHOP_R3-3,"J’ai combattu comme un diable, mais ils ont fini par m’attraper et me faire prisonnier. Ils avaient prévu de me pendre..."," I fought like hell, but they finally caught me and took me prisoner. They planned to hang me…","combatí como el diablo, pero lograron atraparme y hacerme prisionero.Planeaban colgarme..."
+SHOP_R3-4,"...mais avant cela, on m’a laissé un étrange message ce qui m’a conduit à être enterré dans mon village natal, et c’est ainsi que je me suis retrouvé ici.","...but before that, I was left a strange message that led to me being buried in my native village, and that's how I ended up here.","...pero antes de eso, me dejaron un mensaje extraño que me llevó a ser enterrado en mi pueblo natal, y así fue como terminé aquí"
+SHOP_Q7,Qui est ce garde ?,Who is this guard?,¿Quién es esta guarda?
+SHOP_R7,"Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton.",All I know about him is that he has no intention of letting anyone out of the cemetery. I would have liked to teach him good manners with a device other than this stick.,"Lo único que sé de él es que no tiene intención de dejar salir a nadie del cementerio.Me hubiera gustado enseñarle buenos modales con un aparato que no fuera este bastón."
+SHOP_HEAL,"Voilà, j'espère que tu te sens mieux a présent.","There you go, I hope you feel better now.","Ahí lo tienes, espero que te sientas mejor ahora."
+SHOP_HEAL_FULL,Tu as l'air déjà en pleine forme.,You already look in great shape.,Ya te ves en muy buena forma.
+OPTION_TEXT,Options,Options,
+TP_ROOM_1,1er Salle,First Room,
+TP_ROOM_2,2nd Salle,Second Room,
+TP_ROOM_3,Boutique,Shop,
+TP_ROOM_4,Salle de Quentin,"Quenin’s Map",
+SAVE_BUTTON_TEXT,Savegarder,Save,
+LOAD_BUTTON_TEXT,Charger,Load,
+RESUME,Continuer,Resume,
+DUMMY1,Eh1,Eh1,
+DUMMY2,Eh2,Eh2,
+EXIT_BUTTON_TEXT,Quitter,Exit,
+SCENE_TEXT,Scènes,Scene
+
+FIRST_SCENE_TITLE,"Sous-sol Cimetière","Graveyard Underground"
+FIRST_SCENE_DESCR,"Sous-sol du Cimetière.","Underground of the Graveyard"
+SECOND_SCENE_TITLE,"-1 Cimetière","-1 Graveyard"
+SECOND_SCENE_DESCR,"Sous-sol du Cimetière.","Underground of the Graveyard"
+SHOP_SCENE_TITLE,"Boutique de Teddy","Teddy's Shop"
+SHOP_SCENE_DESCR,"L'endroit où se trouve le nécessaire.","Where you can find all the necessary items."
+QUENTINS_SCENE_TITLE,"Map de Quentin","Quentin's Room"
+QUENTINS_SCENE_DESCR,"Sous-sol du Cimetière, ou l'on vous à enterré.","Graveyard's underground, where they burried you."
+TUTORIAL_SCENE_TITLE,"Salle de Tutoriel","Tutorial Scene"
+TUTORIAL_SCENE_DESCR,"Salle de Tutoriel pour apprendre les bases.","Tutorial Scene to learn the basics."
+MASTER_VOLUME_STR,"Volume Principal","Master Volume","volume pricipal"

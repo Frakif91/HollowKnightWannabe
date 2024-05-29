@@ -19,11 +19,14 @@ class_name MapObject
 @export_file("*.tscn") var scene_to_TP
 @export var tp_fade_animation : String = "fade_out" 
 @export var tp_pos : Vector2 = Vector2(0,0)
+@export var look_at_the_door : bool = false
 
-@onready var sound : AudioStreamPlayer = $"Sound"
+@onready var sound : AudioStreamPlayer = AudioStreamPlayer.new()
 #@onready var defeat_sound = load("res://Assets/SFX/LC_SFX/614. Slam Ground.mp3")
 @onready var hurt_sound = load("res://Assets/SFX/LC_SFX/592. Shovel Hit Default.mp3")
 var interaction = preload("res://Godot/Nodes/Interact_icon.tscn")
+var open_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_OPEN.wav")
+var close_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_CLOSE.wav")
 var can_interact_with_chest = false
 var can_interact_with_teleporter = false
 
@@ -36,7 +39,7 @@ var interaction_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sound = AudioStreamPlayer.new()
+	add_child(sound)
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
@@ -67,8 +70,8 @@ func _on_body_entered(_body):
 				instructions_animation.play("upward")
 		"Spikes":
 			if _body is MainCharacter:
-				var is_dead = _body.get_hurt(spike_damage)
-				if is_dead:
+				PlayerStats.hp -= 1
+				if PlayerStats.hp <= 0:
 					_body.on_gameover()
 				else:
 					_body.position = PlayerStats.safety_checkpoint_pos
@@ -114,5 +117,14 @@ func _input(event):
 				print_debug(typeof(scene_to_TP))
 				PlayerStats.is_abletomove = false
 				PlayerStats.tp_pos = tp_pos
+				#PlayerStats.player.sprite.play()
+				if look_at_the_door:
+					sound.stop()
+					sound.stream = open_door_sound
+					sound.play()
 				await Transitions.change_scene(scene_to_TP,"fade_out")
 				PlayerStats.is_abletomove = true
+				if look_at_the_door:
+					sound.stop()
+					sound.stream = close_door_sound
+					sound.play()
