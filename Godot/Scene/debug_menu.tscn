@@ -184,7 +184,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mdu0g")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Menu" type="Control" parent="MenuBar"]
 visible = false
@@ -245,6 +245,7 @@ text_direction = 1
 language = "Uni_US"
 
 [node name="Option" type="Control" parent="MenuBar"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="VBoxContainer" parent="MenuBar/Option"]
@@ -320,7 +321,6 @@ text_direction = 1
 language = "Uni_US"
 
 [node name="Settings" type="Control" parent="MenuBar"]
-visible = false
 layout_mode = 2
 
 [node name="SettingsTab" type="VBoxContainer" parent="MenuBar/Settings"]
@@ -356,10 +356,13 @@ layout_mode = 2
 
 [node name="MV_Title" type="Label" parent="MenuBar/Settings/SettingsTab"]
 layout_mode = 2
-text = "MASTER VOLUME : "
+text = "MASTER_VOLUME_STR"
 horizontal_alignment = 1
+uppercase = true
+language = "fr"
 
 [node name="Control" type="Control" parent="MenuBar/Settings/SettingsTab"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Volume_Slider" type="HSlider" parent="MenuBar/Settings/SettingsTab/Control"]
@@ -377,6 +380,26 @@ theme = ExtResource("2_mdu0g")
 max_value = 200.0
 step = 2.0
 value = 100.0
+
+[node name="HSeparator2" type="HSeparator" parent="MenuBar/Settings/SettingsTab"]
+layout_mode = 2
+
+[node name="LocalText" type="Label" parent="MenuBar/Settings/SettingsTab"]
+layout_mode = 2
+text = "Local Language"
+horizontal_alignment = 1
+
+[node name="LocalSelect" type="OptionButton" parent="MenuBar/Settings/SettingsTab"]
+layout_mode = 2
+alignment = 1
+item_count = 3
+selected = 0
+popup/item_0/text = "FR"
+popup/item_0/id = 0
+popup/item_1/text = "EN"
+popup/item_1/id = 1
+popup/item_2/text = "ES"
+popup/item_2/id = 2
 
 [node name="Debug" type="Control" parent="MenuBar"]
 visible = false
@@ -419,3 +442,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPQuentin" to="." method="TP_But4"]
 [connection signal="drag_ended" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="item_selected" from="MenuBar/Settings/SettingsTab/LocalSelect" to="." method="_on_local_select_item_selected"]

@@ -116,7 +116,6 @@ script = ExtResource("1_uc0it")
 title = "Debuging Scene"
 description = "Debuging of \"Area\" Announcer"
 enter_delay = 1.0
-post_duration = 3.0
 
 [node name="The Whole" type="Control" parent="."]
 anchors_preset = 0
@@ -152,9 +151,9 @@ offset_left = 22.0
 offset_top = 476.0
 offset_right = 275.0
 offset_bottom = 557.0
-text = "The Graveyard
-"
+text = "SHOP_SCENE_TITLE"
 label_settings = SubResource("LabelSettings_2kjdx")
+language = "fr"
 
 [node name="Description" type="Label" parent="The Whole"]
 layout_mode = 0

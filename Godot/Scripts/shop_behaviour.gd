@@ -35,7 +35,6 @@ func _ready():
 	PlayerStats.is_abletomove = true
 	#TranslationServer.add_translation(load("res://Godot/Pot/shop.en .translation"))
 	print("Traduction Available for menu text object : " + str(menu_text.can_translate_messages()))
-	TranslationServer.set_locale("fr")
 	typing(tr("SHOP_HI"))
 
 func _input(event):

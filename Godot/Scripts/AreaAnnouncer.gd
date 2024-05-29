@@ -18,6 +18,7 @@ var default_font = load("res://Assets/Fonts/NITEMARE.TTF")
 @export var font : Font = default_font
 
 func _ready():
+	title_node.set_message_translation(true)
 	visible = false
 	if get_tree().current_scene == self:
 		show_title(title,description,post_duration)
@@ -30,8 +31,8 @@ func _ready():
 
 func show_title(sp_title,sp_description,duration):
 	await wait(enter_delay)
-	title_node.text = sp_title
-	descr_node.text = sp_description
+	title_node.text = tr(sp_title)
+	descr_node.text = tr(sp_description)
 	animator.play("Show",0,1/enter_duration)
 	await wait(0.1) #problems
 	visible = true
