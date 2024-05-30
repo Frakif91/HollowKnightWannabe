@@ -390,14 +390,9 @@ horizontal_alignment = 1
 [node name="LocalSelect" type="OptionButton" parent="MenuBar/Settings/SettingsTab"]
 layout_mode = 2
 alignment = 1
-item_count = 3
 selected = 0
-popup/item_0/text = "FR"
-popup/item_0/id = 0
-popup/item_1/text = "EN"
-popup/item_1/id = 1
-popup/item_2/text = "ES"
-popup/item_2/id = 2
+fit_to_longest_item = false
+allow_reselect = true
 
 [node name="Debug" type="Control" parent="MenuBar"]
 visible = false

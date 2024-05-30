@@ -9,6 +9,7 @@ var is_dead = false
 @export var runing_speed = 200
 @export var health : int = 2
 @export var damage_dealt : int = 2
+@export var coin_reward : int = 1
 var invulnerability_timer = 1.
 var is_invulnerable = false 
 var gravity = 50

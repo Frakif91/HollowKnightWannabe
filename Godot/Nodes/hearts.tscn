@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://smt3xe85w32f"]
+[gd_scene load_steps=18 format=3 uid="uid://smt3xe85w32f"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/ControlDisplayBehiavior.gd" id="1_t6djv"]
 [ext_resource type="Script" path="res://Godot/Scripts/Hearts.gd" id="1_y1yro"]
@@ -6,6 +6,8 @@
 [ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="3_ib43y"]
 [ext_resource type="Texture2D" uid="uid://d00tysmq5oggj" path="res://Assets/GFX/ButtonIcon-N64-A.svg" id="4_k2a18"]
 [ext_resource type="Texture2D" uid="uid://df83yhx60f5pp" path="res://Assets/GFX/ButtonIcon-N64-B.svg" id="5_dpyw8"]
+[ext_resource type="FontFile" uid="uid://jpe7nrfftcfi" path="res://Assets/Fonts/04B_30__.TTF" id="7_471ka"]
+[ext_resource type="Texture2D" uid="uid://co671oggb4s18" path="res://Assets/GFX/lebron.png" id="8_78hfn"]
 
 [sub_resource type="Gradient" id="Gradient_xs084"]
 interpolation_mode = 2
@@ -281,6 +283,10 @@ fill = 1
 fill_from = Vector2(0.58547, 0.632479)
 fill_to = Vector2(0.504274, 0.115385)
 
+[sub_resource type="LabelSettings" id="LabelSettings_l1qju"]
+font = ExtResource("7_471ka")
+font_size = 51
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -311,6 +317,7 @@ test_maxhp = 10
 max_states = 4
 
 [node name="ColorRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 458.0
 offset_top = 308.0
@@ -382,3 +389,39 @@ text = "Attack
 
 "
 label_settings = ExtResource("3_ib43y")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 85.0
+grow_horizontal = 0
+
+[node name="Coins" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -181.0
+offset_top = 13.0
+offset_right = -16.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "x 10"
+label_settings = SubResource("LabelSettings_l1qju")
+horizontal_alignment = 2
+
+[node name="CoinTex" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -291.0
+offset_top = 1.0
+offset_right = 532.0
+offset_bottom = 784.0
+grow_horizontal = 0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_78hfn")

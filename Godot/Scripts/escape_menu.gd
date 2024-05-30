@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var menu : TabContainer = $MenuBar
 @onready var master_volume_label : Label = $"MenuBar/Settings/SettingsTab/MV_Title" 
 @onready var volume_slider : HSlider = $"MenuBar/Settings/SettingsTab/Control/Volume_Slider"
+@onready var local_select : OptionButton = $"MenuBar/Settings/SettingsTab/LocalSelect"
+const locals = ["en","fr","de","es"]
 var is_showed = false
 var is_in_action = false
 
@@ -12,6 +14,18 @@ const FAILED = false
 const SUCCES = true
 
 func _ready():
+	for idx in local_select.item_count:
+		print("Removing Item n°" + str(idx) + " named " + local_select.get_item_text(idx))
+		local_select.remove_item(idx)
+	var i = 0
+	if OS.is_debug_build():
+		for lang in TranslationServer.get_loaded_locales():
+			print("Languages n°"+ str(i+1) + " : " + str(lang) + " <-> " + str(TranslationServer.get_locale_name(lang)))
+			local_select.add_item(TranslationServer.get_locale_name(lang),i)
+			i += 1
+			if PlayerStats.chosed_local_index == i:
+				PlayerStats.chosed_local = lang
+	
 	if scene_file_path == "res://Godot/Scene/debug_menu.tscn":
 		Transitions.play("Hide")
 	$MenuBar/Menu/MarginContainer/QuitButton.pressed.connect(when_quit)
@@ -119,7 +133,8 @@ func _on_volume_slider_value_changed(value):
 func _on_volume_slider_drag_ended(value_changed):
 	$"MenuBar/Settings/SettingsTab/FN_ChangeV_SFX".play()
 
-const locals = ["fr","en","es"]
-
 func _on_local_select_item_selected(index : int):
 	TranslationServer.set_locale(locals[index])
+	PlayerStats.chosed_local_index = index
+	PlayerStats.chosed_local = TranslationServer.get_locale()
+	#TranslationServer.get_language_name()

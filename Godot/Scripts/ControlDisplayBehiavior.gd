@@ -17,6 +17,8 @@ func _ready():
 	showed = false
 
 func _process(delta):
+	$"Control/Coins".text = "X " + str(PlayerStats.money)
+
 	if PlayerStats.velocity == Vector2.ZERO:
 		if timeing < wait_time:
 			timeing += delta

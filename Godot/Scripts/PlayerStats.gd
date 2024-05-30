@@ -89,6 +89,9 @@ var safety_checkpoint_pos = Vector2(0,0)
 var velocity # No use
 var jump_remaining = JUMP_HOLD
 var hurt_color = Color(1,0,0,1)
+var user_local = TranslationServer.get_locale()
+var chosed_local = user_local
+var chosed_local_index = 1
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false
