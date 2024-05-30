@@ -49,7 +49,7 @@ size = Vector2(230, 8)
 size = Vector2(78, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w200a"]
-size = Vector2(389.5, 4.5)
+size = Vector2(389.5, 10.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmh2o"]
 size = Vector2(156, 5)
@@ -283,7 +283,7 @@ script = ExtResource("15_hox65")
 object_type = "Spikes"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Spikes"]
-position = Vector2(90, 12)
+position = Vector2(51, 14.125)
 shape = SubResource("RectangleShape2D_w200a")
 debug_color = Color(0.771749, 0.0641612, 9.62615e-08, 0.42)
 

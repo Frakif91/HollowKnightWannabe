@@ -66,7 +66,8 @@ func _ready():
 	#print($"Collision".visible ,typeof($"Collision"))
 	if tp_pos != Vector2.ZERO :
 		position = tp_pos
-		#camera.position = tp_pos
+	PlayerStats.safety_checkpoint_pos = position
+	#camera.position = tp_pos
 	hit_collition.disabled = true
 	PlayerStats.player = self
 
@@ -157,25 +158,29 @@ func _physics_process(delta):
 
 	
 	if direction:
-		if is_on_floor() and (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking):
-			sprite.play(anim_name[anim.WALK])
-			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
-		else:
-			velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
+		if (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove):
+			if is_on_floor():
+				if not is_attacking:
+					sprite.play(anim_name[anim.WALK])
+				velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
+			else:
+				velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
 	else:
-		if is_on_floor() and (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not is_attacking):
-			sprite.play(anim_name[anim.STAND])
-			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
-		else:
-			velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
+		if (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove):
+			if is_on_floor():
+				if not is_attacking:
+					sprite.play(anim_name[anim.STAND])
+				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
+			else:
+				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
 	
 	if Input.is_action_pressed("Look_Down") and is_on_floor():
 		sprite.play("LookDown")
 		is_looking_down = true
-		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
+		camera.position.y = lerpf(camera.position.y,LOOK_DOWN_Y,0.1)
 	else:
 		is_looking_down = false
-		camera.offset.y = lerpf(camera.offset.y,0,0.1)
+		camera.position.y = lerpf(camera.position.y,0,0.1)
 
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()

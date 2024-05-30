@@ -71,6 +71,7 @@ func _on_body_entered(_body):
 		"Spikes":
 			if _body is MainCharacter:
 				PlayerStats.hp -= 1
+				PlayerStats.camera.apply_shake(3)
 				if PlayerStats.hp <= 0:
 					_body.on_gameover()
 				else:
