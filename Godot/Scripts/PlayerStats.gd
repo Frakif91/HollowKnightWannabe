@@ -7,6 +7,8 @@ extends Node
 
 @onready var is_debug = OS.is_debug_build()
 
+const save_path = "user://gamesave.save"
+
 @export var Default_Variable : Dictionary = {
 	"hp"							= 12,
 	"max_hp"						= 12,
@@ -18,7 +20,7 @@ extends Node
 	"ACCELERATION_SPEED"			= 600,
 	"STOPPING_FRICTION_AIRBORN"		= 10,
 	"ACCELERATION_SPEED_AIRBORN"	= 350,
-	"LOOK_DOWN_Y"					= 30,
+	"LOOK_DOWN_Y"					= 50,
 	"can_attack_and_slide" 			= false,
 	"wall_slide_enabled" 			= false,
  	"wall_slide_percentage" 		= 0.2,
@@ -75,7 +77,7 @@ extends Node
 @export var ACCELERATION_SPEED = 600
 @export var STOPPING_FRICTION_AIRBORN = 10
 @export var ACCELERATION_SPEED_AIRBORN = 350
-@export var LOOK_DOWN_Y = 30
+@export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
 enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
 const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
@@ -124,31 +126,41 @@ var inventory : Dictionary = {
 enum save_types {DEFAULT,GAMEPLAY,ENTIRE,INVENTORY,SCENE}
 
 func save_file(type):
-	# Note: This can be called from anywhere inside the tree. This function is
-		# path independent.
-		# Go through everything in the persist category and ask them to return a
-		# dict of relevant variables.
-			var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-			var save_nodes = get_tree().get_nodes_in_group("Persist")
-			for node in save_nodes:
-				# Check the node is an instanced scene so it can be instanced again during load.
-				if node.scene_file_path.is_empty():
-					print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-					continue
+	printraw("Saving...")
+	match(type):
+		save_types.DEFAULT:
+			print(" DEFAULT Variable")
+			hp = Default_Variable["hp"]
+			max_hp = Default_Variable["max_hp"]
+			SPEED = Default_Variable["SPEED"]
+			JUMP_VELOCITY = Default_Variable["JUMP_VELOCITY"]
+			can_attack_and_slide = Default_Variable["can_attack_and_slide"]
+			wall_slide_enabled = Default_Variable["wall_slide_enabled"]
+			money = Default_Variable["money"]
+			is_abletomove = true
+			PlayerStats.states["InGameoverState"] = false
 
-				# Check the node has a save function.
-				if !node.has_method("save"):
-					print("persistent node '%s' is missing a save() function, skipped" % node.name)
-					continue
-
-				# Call the node's save function.
-				var node_data = node.call("save")
-
-				# JSON provides a static method to serialized JSON string.
-				var json_string = JSON.stringify(node_data)
-
-				# Store the save dictionary as a new line in the save file.
-				save_game.store_line(json_string)
+		save_types.GAMEPLAY:
+			print(" GAMEPLAY Variable")
+			#if FileAccess.file_exists(save_path):
+			var file = FileAccess.open(save_path, FileAccess.WRITE)
+			print("OPEN : " + error_string(FileAccess.get_open_error()))
+			file.store_var(hp)
+			file.store_var(max_hp)
+			file.store_var(SPEED)
+			file.store_var(JUMP_VELOCITY)
+			file.store_var(can_attack_and_slide)
+			file.store_var(wall_slide_enabled)
+			file.store_var(money)
+			file.store_var(is_abletomove)
+			file.store_var(PlayerStats.states["InGameoverState"])
+			file.store_var(get_tree())
+			if player:
+				file.store_var(player.position)
+			else:
+				file.store_var(Vector2(0,0))
+			file.close()
+			
 
 func load_file(type):
 	match(type):
@@ -162,58 +174,24 @@ func load_file(type):
 			money = Default_Variable["money"]
 			is_abletomove = true
 			PlayerStats.states["InGameoverState"] = false
-
 		save_types.GAMEPLAY:
-			# Note: This can be called from anywhere inside the tree. This function
-			# is path independent.
-			if not FileAccess.file_exists("user://savegame.save"):
-				return # Error! We don't have a save to load.
-				
-			# We need to revert the game state so we're not cloning objects
-			# during loading. This will vary wildly depending on the needs of a
-			# project, so take care with this step.
-			# For our example, we will accomplish this by deleting saveable objects.
-			var save_nodes = get_tree().get_nodes_in_group("Persist")
-			for i in save_nodes:
-				i.queue_free()
-
-			# Load the file line by line and process that dictionary to restore
-			# the object it represents.
-			var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
-			while save_game.get_position() < save_game.get_length():
-				var json_string = save_game.get_line()
-
-				# Creates the helper class to interact with JSON
-				var json = JSON.new()
-
-				# Check if there is any error while parsing the JSON string, skip in case of failure
-				var parse_result = json.parse(json_string)
-				if not parse_result == OK:
-					print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-					continue
-
-				# Get the data from the JSON object
-				var node_data = json.get_data()
-
-				# Firstly, we need to create the object and add it to the tree and set its position.
-				var new_object = load(node_data["filename"]).instantiate()
-				get_node(node_data["parent"]).add_child(new_object)
-				new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-
-				# Now we set the remaining variables.
-				for i in node_data.keys():
-					if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
-						continue
-					new_object.set(i, node_data[i])		
-				hp = Default_Variable["hp"]
-				max_hp = Default_Variable["max_hp"]
-				SPEED = Default_Variable["SPEED"]
-				JUMP_VELOCITY = Default_Variable["JUMP_VELOCITY"]
-				can_attack_and_slide = Default_Variable["can_attack_and_slide"]
-				wall_slide_enabled = Default_Variable["wall_slide_enabled"]
-				money = Default_Variable["money"]
-				is_abletomove = true
-				PlayerStats.states["InGameoverState"] = false
+			if FileAccess.file_exists(save_path):
+				var file = FileAccess.open(save_path, FileAccess.READ)
+				print("OPEN : " + error_string(FileAccess.get_open_error()))
+				hp =					 				file.get_var()
+				max_hp = 								file.get_var()
+				SPEED = 								file.get_var()
+				JUMP_VELOCITY = 						file.get_var()
+				can_attack_and_slide = 					file.get_var()
+				wall_slide_enabled = 					file.get_var()
+				money = 								file.get_var()
+				is_abletomove = 						file.get_var()
+				PlayerStats.states["InGameoverState"] = file.get_var()
+				get_tree().change_scene_to_packed(		file.get_var())
+				tp_pos =								file.get_var()
+				file.close()
+			else:
+				printerr("File Doesn't exist !")
 
 
 

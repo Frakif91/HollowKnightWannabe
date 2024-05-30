@@ -177,8 +177,11 @@ func _physics_process(delta):
 		is_looking_down = false
 		camera.offset.y = lerpf(camera.offset.y,0,0.1)
 
-	
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
+		on_gameover()
+
+	if not is_on_floor() and position.y > 5000:
+		PlayerStats.hp = 0
 		on_gameover()
 
 	PlayerStats.velocity = velocity
@@ -196,8 +199,7 @@ func on_gameover():
 	var gamover_sound = gameover_load.instantiate_playback()
 	sprite.play("Gameover")
 	gameover_player.play()
-	await sprite.animation_finished
-	await wait(1)
+	await wait(2.3)
 	await Transitions.change_scene("reload","fade_out")
 	PlayerStats.load_file(PlayerStats.save_types.DEFAULT)
 
