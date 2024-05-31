@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ohegt8ob1uca"]
+[gd_scene load_steps=14 format=3 uid="uid://ohegt8ob1uca"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/escape_menu.gd" id="1_af220"]
 [ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="2_3cv75"]
 [ext_resource type="Theme" uid="uid://u1hl8ir320oa" path="res://Godot/debug_menu_theme_basic.tres" id="2_mdu0g"]
+[ext_resource type="AudioStream" uid="uid://byx1cyp45nmqq" path="res://Assets/SFX/DR_SFX/Select.mp3" id="4_u5qkh"]
 [ext_resource type="AudioStream" uid="uid://clxu747fpwwml" path="res://Assets/SFX/DR_SFX/sys_talk_sfx.mp3" id="4_xl1k3"]
 [ext_resource type="AudioStream" uid="uid://b6s8qa1qm7od8" path="res://Assets/SFX/minecraft_click.mp3" id="5_26gh3"]
+[ext_resource type="AudioStream" uid="uid://byjkdf0n0syal" path="res://Assets/SFX/DR_SFX/save.mp3" id="5_odinb"]
 
 [sub_resource type="Animation" id="Animation_7xp12"]
 resource_name = "RESET"
@@ -316,6 +318,12 @@ text = "LOAD_BUTTON_TEXT"
 text_direction = 1
 language = "Uni_US"
 
+[node name="LoadSFX" type="AudioStreamPlayer" parent="MenuBar/Options/MarginContainer"]
+stream = ExtResource("4_u5qkh")
+
+[node name="SaveSFX" type="AudioStreamPlayer" parent="MenuBar/Options/MarginContainer"]
+stream = ExtResource("5_odinb")
+
 [node name="Settings" type="Control" parent="MenuBar"]
 visible = false
 layout_mode = 2
@@ -431,6 +439,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPScene2" to="." method="TP_But2"]
 [connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPShop" to="." method="TP_But3"]
 [connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPQuentin" to="." method="TP_But4"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/Save Button" to="." method="_save_game_state"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/Load Button" to="." method="_load_game_state"]
 [connection signal="drag_ended" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="item_selected" from="MenuBar/Settings/SettingsTab/LocalSelect" to="." method="_on_local_select_item_selected"]

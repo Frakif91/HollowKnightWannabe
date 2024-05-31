@@ -85,9 +85,11 @@ func TP_But4():
 func TP_But5():
 	teleporting(5)
 
-func save_game_state():
+func _save_game_state():
+	$"MenuBar/Options/MarginContainer/SaveSFX".play()
 	PlayerStats.save_file(PlayerStats.save_types.GAMEPLAY)
-func load_game_state():
+func _load_game_state():
+	$"MenuBar/Options/MarginContainer/LoadSFX".play()
 	PlayerStats.load_file(PlayerStats.save_types.GAMEPLAY)
 
 func teleporting(index: int):

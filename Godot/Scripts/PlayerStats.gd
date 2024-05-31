@@ -128,10 +128,10 @@ var inventory : Dictionary = {
 enum save_types {DEFAULT,GAMEPLAY,ENTIRE,INVENTORY,SCENE}
 
 func save_file(type):
-	printraw("Saving...")
+	print("Saving...")
 	match(type):
 		save_types.DEFAULT:
-			print(" DEFAULT Variable")
+			print_debug(" DEFAULT Variable")
 			hp = Default_Variable["hp"]
 			max_hp = Default_Variable["max_hp"]
 			SPEED = Default_Variable["SPEED"]
@@ -143,7 +143,7 @@ func save_file(type):
 			PlayerStats.states["InGameoverState"] = false
 
 		save_types.GAMEPLAY:
-			print(" GAMEPLAY Variable")
+			print_debug(" DEFAULT Variable")
 			#if FileAccess.file_exists(save_path):
 			var file = FileAccess.open(save_path, FileAccess.WRITE)
 			print("OPEN : " + error_string(FileAccess.get_open_error()))
@@ -156,7 +156,7 @@ func save_file(type):
 			file.store_var(money)
 			file.store_var(is_abletomove)
 			file.store_var(PlayerStats.states["InGameoverState"])
-			file.store_var(get_tree())
+			file.store_var(get_tree().current_scene.scene_file_path)
 			if player:
 				file.store_var(player.position)
 			else:
@@ -165,8 +165,10 @@ func save_file(type):
 			
 
 func load_file(type):
+	print("Loading...")
 	match(type):
 		save_types.DEFAULT:
+			print_debug(" DEFAULT Variable")
 			hp = Default_Variable["hp"]
 			max_hp = Default_Variable["max_hp"]
 			SPEED = Default_Variable["SPEED"]
@@ -176,11 +178,20 @@ func load_file(type):
 			money = Default_Variable["money"]
 			is_abletomove = true
 			PlayerStats.states["InGameoverState"] = false
+
 		save_types.GAMEPLAY:
+			print_debug(" GAMEPLAY Variable")
 			if FileAccess.file_exists(save_path):
 				var file = FileAccess.open(save_path, FileAccess.READ)
-				print("OPEN : " + error_string(FileAccess.get_open_error()))
+				var dict = {}
+				await Transitions.play("fade_bottom_up_in")
+				if FileAccess.get_open_error(): #If Error
+					print("ERROR Trying to read savefile : " + error_string(FileAccess.get_open_error()))
+					Transitions.play("RESET")
+					return
+				## THE ORDER OF LOADING VARIABLE IS CRUTIAL
 				hp =					 				file.get_var()
+				#dict["hp"] = hp
 				max_hp = 								file.get_var()
 				SPEED = 								file.get_var()
 				JUMP_VELOCITY = 						file.get_var()
@@ -189,9 +200,29 @@ func load_file(type):
 				money = 								file.get_var()
 				is_abletomove = 						file.get_var()
 				PlayerStats.states["InGameoverState"] = file.get_var()
-				get_tree().change_scene_to_packed(		file.get_var())
+				var packed_scene =						file.get_var()
 				tp_pos =								file.get_var()
 				file.close()
+				print_debug("Finished to read save file, changing scene...")
+				if packed_scene is PackedScene:
+					print("Scene is PackedScene")
+					get_tree().change_scene_to_packed(packed_scene)
+					Transitions.play("fade_bottom_up_out")
+				elif packed_scene is String:
+					print("Scene is Path")
+					get_tree().change_scene_to_file(packed_scene)
+					Transitions.play("fade_bottom_up_out")
+				elif packed_scene is EncodedObjectAsID:
+					print("Loading an EOIA ID -> Instanced Scene...")
+					var EOIA = instance_from_id(packed_scene.get_object_id())
+					if EOIA:
+						get_tree().change_scene_to_packed(EOIA)
+					else:
+						push_error("EOIA pointing to no PackedScene nor Object")
+					Transitions.play("fade_bottom_up_out")
+				else:
+					Transitions.play("RESET")
+					push_error("\""+str(typeof(packed_scene))+"\" is not a PackedScene nor a EOAI")
 			else:
 				printerr("File Doesn't exist !")
 

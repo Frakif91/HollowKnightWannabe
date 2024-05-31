@@ -42,3 +42,6 @@ func finish_animation(last_anim):
 	elif last_anim == "fade_right_left_in":
 		animator.play("fade_right_left_out")
 		last_animation = "none"
+	elif last_anim == "fade_bottom_up_in":
+		animator.play("fade_bottom_up_out")
+		last_animation = "none"

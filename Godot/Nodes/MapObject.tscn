@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://xm38ji0wqfk1"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_im7fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ky3e"]
+
+[node name="MapObject" type="Area2D"]
+script = ExtResource("1_im7fw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ky3e")
