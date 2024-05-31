@@ -63,9 +63,9 @@ scale = Vector2(0.722168, 0.613932)
 texture = ExtResource("1_3g1hs")
 
 [node name="fond-cimetiére" type="Sprite2D" parent="."]
-position = Vector2(481, 196)
+position = Vector2(479, 220)
 rotation = -3.14159
-scale = Vector2(0.226184, 0.244295)
+scale = Vector2(0.226184, 0.211185)
 texture = ExtResource("1_m340d")
 
 [node name="SceneProperties" type="Node" parent="."]
@@ -146,7 +146,8 @@ scale = Vector2(0.634735, 0.55013)
 texture = ExtResource("9_ogms8")
 
 [node name="Chest" parent="." instance=ExtResource("11_ef0l0")]
-position = Vector2(417, 704)
+position = Vector2(423, 711)
+scale = Vector2(0.83197, 0.914654)
 
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
 position = Vector2(47, 882)
