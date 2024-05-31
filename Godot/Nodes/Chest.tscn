@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://cighbat1wnbkp"]
+[gd_scene load_steps=40 format=3 uid="uid://cighbat1wnbkp"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_jayq3"]
 [ext_resource type="Texture2D" uid="uid://bmma157vaaki5" path="res://Assets/GFX/Chests.png" id="2_aorq7"]
+[ext_resource type="Texture2D" uid="uid://bqc5flrfmwr4x" path="res://Assets/GFX/cofre-ezgif.com-gif-to-sprite-converter.png" id="3_88pdx"]
 [ext_resource type="AudioStream" uid="uid://bqi7ffv4xsp80" path="res://Assets/SFX/Chest Open.ogg" id="4_0brm0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga44e"]
@@ -84,45 +85,17 @@ region = Rect2(144, 160, 48, 32)
 atlas = ExtResource("2_aorq7")
 region = Rect2(192, 160, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pclwy"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(0, 0, 48, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wni0"]
+atlas = ExtResource("3_88pdx")
+region = Rect2(0, 0, 345, 330)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yrso1"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(48, 0, 48, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p5w6"]
+atlas = ExtResource("3_88pdx")
+region = Rect2(345, 0, 345, 330)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbapv"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(96, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrr0e"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(144, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_08c6t"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(192, 0, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcy5u"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(0, 32, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6c1y"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(48, 32, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4fiv"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(96, 32, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kc6d3"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(144, 32, 48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o2glv"]
-atlas = ExtResource("2_aorq7")
-region = Rect2(192, 32, 48, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jhfw"]
+atlas = ExtResource("3_88pdx")
+region = Rect2(690, 0, 345, 330)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pano1"]
 atlas = ExtResource("2_aorq7")
@@ -238,34 +211,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pclwy")
+"texture": SubResource("AtlasTexture_3wni0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yrso1")
+"texture": SubResource("AtlasTexture_2p5w6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xbapv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrr0e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_08c6t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wcy5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6c1y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d4fiv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kc6d3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o2glv")
+"texture": SubResource("AtlasTexture_5jhfw")
 }],
 "loop": false,
 "name": &"normal",
@@ -317,7 +269,8 @@ object_type = "Chest"
 
 [node name="Chest_Tex" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(8, -16)
+position = Vector2(3, -24)
+scale = Vector2(0.103515, 0.106785)
 sprite_frames = SubResource("SpriteFrames_6nkhg")
 animation = &"normal"
 

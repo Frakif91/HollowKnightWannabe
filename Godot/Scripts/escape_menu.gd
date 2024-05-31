@@ -6,7 +6,8 @@ extends CanvasLayer
 @onready var master_volume_label : Label = $"MenuBar/Settings/SettingsTab/MV_Title" 
 @onready var volume_slider : HSlider = $"MenuBar/Settings/SettingsTab/Control/Volume_Slider"
 @onready var local_select : OptionButton = $"MenuBar/Settings/SettingsTab/LocalSelect"
-const locals = ["fr","en","es","de"]
+@onready var scene_select : VBoxContainer = $"MenuBar/Options/MarginContainer"
+const locals = ["en","fr","de","es"]
 var is_showed = false
 var is_in_action = false
 
@@ -93,7 +94,7 @@ func teleporting(index: int):
 	assert(index is int)
 	#print(index)
 	#var button_to_disable = []
-	for child in $MenuBar/Option/MarginContainer.get_children():
+	for child in scene_select.get_children():
 		if is_instance_of(child, Button):
 			child.disabled = true
 
@@ -116,7 +117,7 @@ func teleporting(index: int):
 	Transitions.play("RESET")
 	PlayerStats.tp_pos = Vector2(0,0)
 	await Transitions.change_scene(path + file,"fade_out")
-	for child in $MenuBar/Option/MarginContainer.get_children():
+	for child in scene_select.get_children():
 		if is_instance_of(child, Button):
 			child.disabled = false
 	if Transitions:

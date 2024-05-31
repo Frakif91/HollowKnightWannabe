@@ -99,7 +99,6 @@ var chosed_local_index = 1
 @export var wall_slide_min_spd = 50.0
 @export var wall_slide_max_spd = 10.0
 
-
 @export_category("RPG - Stats")
 @export var level : int = 0
 @export var xp : int = 0

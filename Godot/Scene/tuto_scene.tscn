@@ -786,27 +786,27 @@ stream = ExtResource("5_emija")
 volume_db = -10.0
 autoplay = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="faux_sol" type="StaticBody2D" parent="."]
 position = Vector2(408, 648)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="faux_sol"]
 position = Vector2(15, 27)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_4h7ou")
 one_way_collision = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="sol_boss" type="StaticBody2D" parent="."]
 position = Vector2(78, 642)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sol_boss"]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_ijmge")
 one_way_collision = true
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="mur_invisible" type="StaticBody2D" parent="."]
 position = Vector2(360, 624)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mur_invisible"]
 position = Vector2(27.9375, -8)
 shape = SubResource("RectangleShape2D_c2aie")
 
@@ -961,12 +961,12 @@ offset_bottom = 230.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 315.0
-offset_top = 162.0
-offset_right = 395.0
-offset_bottom = 193.0
-text = "Evite les piques !
-V"
+offset_left = 203.0
+offset_top = 146.0
+offset_right = 326.0
+offset_bottom = 194.0
+text = "appuyez brèvement sur
+pour faire un petit saut ..."
 label_settings = SubResource("LabelSettings_15dof")
 horizontal_alignment = 1
 
@@ -1029,5 +1029,16 @@ offset_top = 421.0
 offset_right = 437.0
 offset_bottom = 452.0
 text = "Sort Ici !!!"
+label_settings = SubResource("LabelSettings_15dof")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 147.0
+offset_right = 482.0
+offset_bottom = 195.0
+text = "... longuement
+ pour faire un grand saut"
 label_settings = SubResource("LabelSettings_15dof")
 horizontal_alignment = 1
