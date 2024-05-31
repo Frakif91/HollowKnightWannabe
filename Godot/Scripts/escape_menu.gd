@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var master_volume_label : Label = $"MenuBar/Settings/SettingsTab/MV_Title" 
 @onready var volume_slider : HSlider = $"MenuBar/Settings/SettingsTab/Control/Volume_Slider"
 @onready var local_select : OptionButton = $"MenuBar/Settings/SettingsTab/LocalSelect"
-const locals = ["en","fr","de","es"]
+const locals = ["fr","en","es","de"]
 var is_showed = false
 var is_in_action = false
 

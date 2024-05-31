@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://xnbd5hsttywm"
+
+[deps]
+
+files=["res://Godot/Pot/tranlsations.fr.translation", "res://Godot/Pot/tranlsations.en.translation", "res://Godot/Pot/tranlsations.es.translation", "res://Godot/Pot/tranlsations.de.translation"]
+
+source_file="res://Godot/Pot/tranlsations.csv"
+dest_files=["res://Godot/Pot/tranlsations.fr.translation", "res://Godot/Pot/tranlsations.en.translation", "res://Godot/Pot/tranlsations.es.translation", "res://Godot/Pot/tranlsations.de.translation"]
+
+[params]
+
+compress=true
+delimiter=0
