@@ -177,10 +177,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Look_Down") and is_on_floor():
 		sprite.play("LookDown")
 		is_looking_down = true
-		camera.position.y = lerpf(camera.position.y,LOOK_DOWN_Y,0.1)
+		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
 	else:
 		is_looking_down = false
-		camera.position.y = lerpf(camera.position.y,0,0.1)
+		camera.offset.y = lerpf(camera.offset.y,0,0.1)
 
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()
@@ -262,9 +262,11 @@ func _on_body_collition(body):
 		elif body.type == "Chest":
 			pass"""
 
-func when_hit(damage):
+func when_hit(damage,object : Node2D = Node2D.new()):
 	#Cannot check collition so, check Roach.gd for this function "call"
 	#print_debug("Body in Collition")
+	if object.position != Vector2(0,0):
+		velocity = (position - object.position).normalized() * 50
 	is_dead = await get_hurt(damage)
 	if is_dead:
 		on_gameover()

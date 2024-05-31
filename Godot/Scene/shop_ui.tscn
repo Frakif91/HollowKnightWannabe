@@ -55,7 +55,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 1.08409
+energy = 1.2
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -67,7 +67,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 3.10515
+energy = 5.0
 texture = ExtResource("3_vj514")
 texture_scale = 0.7
 script = ExtResource("4_aukdg")
@@ -183,7 +183,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_8m10w")
-text = "Du soins! s'il te plait."
+text = "HEAL_BUTTON"
 
 [node name="AskText" type="Button" parent="GridContainer"]
 layout_mode = 2
