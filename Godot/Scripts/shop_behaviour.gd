@@ -42,11 +42,11 @@ func _input(event):
 		line_of_text[1] = str(int(line_of_text[1]) + 1)
 		if int(line_of_text[1]) > 7:
 			line_of_text = "R0"
-		await typing(text_to_type[line_of_text])
+		await tr_typing("SHOP_"+line_of_text)
 	elif event.is_action_pressed("Interact") and is_typing:
 		have_to_stop = true
 		await wait(wait_time + 0.02)
-		menu_text.text = "\"" + text_to_type[line_of_text] + "\""
+		menu_text.text = "\"" + str(tr("SHOP_"+line_of_text)) + "\""
 		is_typing = false
 		have_to_stop = false
 
@@ -94,7 +94,7 @@ func _on_button_pressed():
 		await wait(wait_time)
 	have_to_stop = false
 	print_debug("Pressed")
-	await typing("J'espères te revoir bientôt")
+	await tr_typing("SHOP_GB")
 	await wait(0.3)
 	await Transitions.change_scene("res://Godot/Scene/Shop.tscn","fade_out")
 

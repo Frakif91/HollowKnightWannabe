@@ -107,3 +107,13 @@ func zoom_in():
 		#	tex = mptyhealth
 		#	print_debug("empty health ",i - 1," ",hp)
 		#element.texture = tex
+"""
+func test():
+	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
+	var t_colort = [1,1,1] #Target color (colorT for Target)
+	var t_colorw = [delta,delta,delta] #Delta color (colorW for Weight)
+	sprite.modulate = Color(
+		lerpf(t_colorm[0],t_colort[0],t_colorw[0]),
+		lerpf(t_colorm[1],t_colort[1],t_colorw[1]),
+		lerpf(t_colorm[2],t_colort[2],t_colorw[2])
+	)"""

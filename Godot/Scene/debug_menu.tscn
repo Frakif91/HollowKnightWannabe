@@ -176,15 +176,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 345.6
-offset_top = 129.6
-offset_right = 1152.0
-offset_bottom = 583.2
+offset_left = -230.4
+offset_top = -194.4
+offset_right = 576.0
+offset_bottom = 259.2
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mdu0g")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="Menu" type="Control" parent="MenuBar"]
 visible = false
@@ -244,11 +244,10 @@ text = "Quit
 text_direction = 1
 language = "Uni_US"
 
-[node name="Option" type="Control" parent="MenuBar"]
-visible = false
+[node name="Options" type="Control" parent="MenuBar"]
 layout_mode = 2
 
-[node name="MarginContainer" type="VBoxContainer" parent="MenuBar/Option"]
+[node name="MarginContainer" type="VBoxContainer" parent="MenuBar/Options"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15
@@ -261,64 +260,64 @@ offset_right = -3.67996
 offset_bottom = -4.13004
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="MenuBar/Option/MarginContainer"]
+[node name="Label" type="Label" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "OPTION_TEXT"
 label_settings = ExtResource("2_3cv75")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="MenuBar/Option/MarginContainer"]
+[node name="HSeparator" type="HSeparator" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MenuBar/Option/MarginContainer"]
+[node name="Label2" type="Label" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
-text = "SCENE_TEXT
-"
+text = "SCENE_TEXT"
 label_settings = SubResource("LabelSettings_f6r6a")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="ButtonTPScene1" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="ButtonTPScene1" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "TP_ROOM_1"
 text_direction = 1
 language = "Uni_US"
 
-[node name="ButtonTPScene2" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="ButtonTPScene2" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "TP_ROOM_2"
 text_direction = 1
 language = "Uni_US"
 
-[node name="ButtonTPShop" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="ButtonTPShop" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "TP_ROOM_3"
 text_direction = 1
 language = "Uni_US"
 
-[node name="ButtonTPQuentin" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="ButtonTPQuentin" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "TP_ROOM_4"
 text_direction = 1
 language = "Uni_US"
 
-[node name="HSeparator2" type="HSeparator" parent="MenuBar/Option/MarginContainer"]
+[node name="HSeparator2" type="HSeparator" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 
-[node name="Save Button" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="Save Button" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "SAVE_BUTTON_TEXT"
 text_direction = 1
 language = "Uni_US"
 
-[node name="Load Button" type="Button" parent="MenuBar/Option/MarginContainer"]
+[node name="Load Button" type="Button" parent="MenuBar/Options/MarginContainer"]
 layout_mode = 2
 text = "LOAD_BUTTON_TEXT"
 text_direction = 1
 language = "Uni_US"
 
 [node name="Settings" type="Control" parent="MenuBar"]
+visible = false
 layout_mode = 2
 
 [node name="SettingsTab" type="VBoxContainer" parent="MenuBar/Settings"]
@@ -390,14 +389,8 @@ horizontal_alignment = 1
 [node name="LocalSelect" type="OptionButton" parent="MenuBar/Settings/SettingsTab"]
 layout_mode = 2
 alignment = 1
-item_count = 3
-selected = 0
-popup/item_0/text = "FR"
-popup/item_0/id = 0
-popup/item_1/text = "EN"
-popup/item_1/id = 1
-popup/item_2/text = "ES"
-popup/item_2/id = 2
+fit_to_longest_item = false
+allow_reselect = true
 
 [node name="Debug" type="Control" parent="MenuBar"]
 visible = false
@@ -434,10 +427,10 @@ label_settings = SubResource("LabelSettings_akvwf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPScene1" to="." method="TP_But1"]
-[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPScene2" to="." method="TP_But2"]
-[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPShop" to="." method="TP_But3"]
-[connection signal="pressed" from="MenuBar/Option/MarginContainer/ButtonTPQuentin" to="." method="TP_But4"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPScene1" to="." method="TP_But1"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPScene2" to="." method="TP_But2"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPShop" to="." method="TP_But3"]
+[connection signal="pressed" from="MenuBar/Options/MarginContainer/ButtonTPQuentin" to="." method="TP_But4"]
 [connection signal="drag_ended" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_drag_ended"]
 [connection signal="value_changed" from="MenuBar/Settings/SettingsTab/Control/Volume_Slider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="item_selected" from="MenuBar/Settings/SettingsTab/LocalSelect" to="." method="_on_local_select_item_selected"]

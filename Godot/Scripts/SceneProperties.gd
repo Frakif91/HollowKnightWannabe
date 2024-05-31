@@ -1,3 +1,4 @@
+@icon("res://Assets/GFX/Iconinfo.png")
 extends Node
 
 class_name SceneProperties

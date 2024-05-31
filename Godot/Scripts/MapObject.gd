@@ -112,6 +112,17 @@ func _input(event):
 				chest_audio.play()
 				interact_icon.play("normal")
 				await interact_icon.animation_finished
+				match(chest_reward):
+					"Coins":
+						PlayerStats.money += reward_count
+					"Healing":
+						PlayerStats.hp += reward_count
+					"Max_HP":
+						PlayerStats.max_hp += reward_count
+						PlayerStats.hp = PlayerStats.max_hp
+						var audbig_reward = AudioStreamPlayer.new()
+						audbig_reward.stream = load("res://Assets/SFX/139-item-catch.mp3")
+						audbig_reward.play()
 				PlayerStats.is_abletomove = true
 		"Teleport Interact":
 			if event.is_action_pressed(&"Interact") and can_interact_with_teleporter:

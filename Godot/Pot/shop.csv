@@ -1,40 +1,41 @@
-key,fr,en,es
-SHOP_HI,Bonjour ! vous avez besoin de quelque chose ?,Good day ! do you need anything ?,"¡Hola!,¿qieres algo?"
-SHOP_GB,J'espères te revoir bientôt.,I hope to see you again,Hasta luego.
-SHOP_Q1,Qu’est-ce que cet endroit ?,Where are we ?,¿Cual es este lugar?
-SHOP_R1,"Eh bien, Nous sommes au sous-sol du cimetière...","Well, under the graveyard, why ?",Somos en el sótano del cementario... 
-SHOP_Q2,Vous êtes un pirate ?,Are you a pirate?,¿Eres un pirata?
-SHOP_R2,"Oui, enfin autrefois, à cette époque, je me prénommais… J’ai sillonné toutes les mers du monde avec mon équipage, les Botri. Nous étions les grands pirates de notre temps.","Yes, well in the past, at that time, my name was like that... I sailed all the seas of the world with my crew, the Botri. We were the great pirates of our time.","Si, pero antes, durante este tiempo me llamaba... crucé todos los mares del mundo con mis tripulantes, los Botris. Eramos los piratas mas grandes de nuestro tiempo."
-SHOP_Q3,Comment vous êtes-vous retrouvé ici ?,How did you end up here?,¿Cómo llegaste hasta aquí?
-SHOP_R3-1,"Malgré notre ténacité en tant que pirates, cela ne nous a pas protégés d’une trahison. C’était la nuit, et nous avions fait escale sur une petite île où nous avons décidé de passer la nuit.","Despite our tenacity as pirates, it did not protect us from betrayal. It was nighttime, and we had stopped off on a small island where we decided to spend the night.","A pesar de nuestra tenacidad como piratas,eso no nos protegió de la traición. Occurió durante la noche,decidimos hacer una escala en una pequeña isla por la noche"
-SHOP_R3-2,"Mais à peine avions-nous fermé les yeux que j’ai entendu crier : \""La marine ! La marine !\"" J’ai sauté de mon hamac, attrapé mon sabre, et vu deux énormes navires qui nous tiraient dessus.","But barely had we closed our eyes when I heard shouts: ""The navy! The navy!"" I jumped out of my hammock, grabbed my saber, and saw two enormous ships firing at us.","Pero apenas habíamos cerrado los ojos cuando oí vociferar : \""¡la Armada! ¡la Armada!\"".Salté de mi hamaca,tomé mi sable y vi dos navíos que les disparaban a nosotros."
-SHOP_R3-3,"J’ai combattu comme un diable, mais ils ont fini par m’attraper et me faire prisonnier. Ils avaient prévu de me pendre..."," I fought like hell, but they finally caught me and took me prisoner. They planned to hang me…","combatí como el diablo, pero lograron atraparme y hacerme prisionero.Planeaban colgarme..."
-SHOP_R3-4,"...mais avant cela, on m’a laissé un étrange message ce qui m’a conduit à être enterré dans mon village natal, et c’est ainsi que je me suis retrouvé ici.","...but before that, I was left a strange message that led to me being buried in my native village, and that's how I ended up here.","...pero antes de eso, me dejaron un mensaje extraño que me llevó a ser enterrado en mi pueblo natal, y así fue como terminé aquí"
-SHOP_Q7,Qui est ce garde ?,Who is this guard?,¿Quién es esta guarda?
-SHOP_R7,"Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton.",All I know about him is that he has no intention of letting anyone out of the cemetery. I would have liked to teach him good manners with a device other than this stick.,"Lo único que sé de él es que no tiene intención de dejar salir a nadie del cementerio.Me hubiera gustado enseñarle buenos modales con un aparato que no fuera este bastón."
-SHOP_HEAL,"Voilà, j'espère que tu te sens mieux a présent.","There you go, I hope you feel better now.","Ahí lo tienes, espero que te sientas mejor ahora."
-SHOP_HEAL_FULL,Tu as l'air déjà en pleine forme.,You already look in great shape.,Ya te ves en muy buena forma.
-OPTION_TEXT,Options,Options,
-TP_ROOM_1,1er Salle,First Room,
-TP_ROOM_2,2nd Salle,Second Room,
-TP_ROOM_3,Boutique,Shop,
-TP_ROOM_4,Salle de Quentin,"Quenin’s Map",
-SAVE_BUTTON_TEXT,Savegarder,Save,
-LOAD_BUTTON_TEXT,Charger,Load,
-RESUME,Continuer,Resume,
-DUMMY1,Eh1,Eh1,
-DUMMY2,Eh2,Eh2,
-EXIT_BUTTON_TEXT,Quitter,Exit,
-SCENE_TEXT,Scènes,Scene
-
-FIRST_SCENE_TITLE,"Sous-sol Cimetière","Graveyard Underground"
-FIRST_SCENE_DESCR,"Sous-sol du Cimetière.","Underground of the Graveyard"
-SECOND_SCENE_TITLE,"-1 Cimetière","-1 Graveyard"
-SECOND_SCENE_DESCR,"Sous-sol du Cimetière.","Underground of the Graveyard"
-SHOP_SCENE_TITLE,"Boutique de Teddy","Teddy's Shop"
-SHOP_SCENE_DESCR,"L'endroit où se trouve le nécessaire.","Where you can find all the necessary items."
-QUENTINS_SCENE_TITLE,"Map de Quentin","Quentin's Room"
-QUENTINS_SCENE_DESCR,"Sous-sol du Cimetière, ou l'on vous à enterré.","Graveyard's underground, where they burried you."
-TUTORIAL_SCENE_TITLE,"Salle de Tutoriel","Tutorial Scene"
-TUTORIAL_SCENE_DESCR,"Salle de Tutoriel pour apprendre les bases.","Tutorial Scene to learn the basics."
-MASTER_VOLUME_STR,"Volume Principal","Master Volume","volume pricipal"
+key,fr,en,es,de
+SHOP_HI,Bonjour ! vous avez besoin de quelque chose ?,Good day ! do you need anything ?,"¡Hola!,¿qieres algo?",Guten Morgen ! brauchst du irgendetwas ?
+SHOP_GB,J'espères te revoir bientôt.,I hope to see you again,Hasta luego.,Ich hoffe dich bald wieder zu sehen.
+SHOP_Q1,Qu’est-ce que cet endroit ?,Where are we ?,¿Cual es este lugar?,Was ist das für ein Ort?
+SHOP_R1,"Eh bien, Nous sommes au sous-sol du cimetière...","Well, under the graveyard, why ?",Somos en el sótano del cementario... ,"Nun, wir sind im Keller des Friedhofs …"
+SHOP_Q2,Vous êtes un pirate ?,Are you a pirate?,¿Eres un pirata?,Bist du ein Pirat?
+SHOP_R2,"Oui, enfin autrefois, à cette époque, je me prénommais… J’ai sillonné toutes les mers du monde avec mon équipage, les Botri. Nous étions les grands pirates de notre temps.","Yes, well in the past, at that time, my name was like that... I sailed all the seas of the world with my crew, the Botri. We were the great pirates of our time.","Si, pero antes, durante este tiempo me llamaba... crucé todos los mares del mundo con mis tripulantes, los Botris. Eramos los piratas mas grandes de nuestro tiempo.","Ja, früher, damals, war mein Vorname ... Ich bin mit meiner Crew, der Botri, über alle Meere der Welt gesegelt. Wir waren die großen Piraten unserer Zeit."
+SHOP_Q3,Comment vous êtes-vous retrouvé ici ?,How did you end up here?,¿Cómo llegaste hasta aquí?,Wie bist du hier gelandet?
+SHOP_R3-1,"Malgré notre ténacité en tant que pirates, cela ne nous a pas protégés d’une trahison. C’était la nuit, et nous avions fait escale sur une petite île où nous avons décidé de passer la nuit.","Despite our tenacity as pirates, it did not protect us from betrayal. It was nighttime, and we had stopped off on a small island where we decided to spend the night.","A pesar de nuestra tenacidad como piratas,eso no nos protegió de la traición. Occurió durante la noche,decidimos hacer una escala en una pequeña isla por la noche","Trotz unserer Hartnäckigkeit als Piraten schützte es uns nicht vor Verrat. Es war Nacht und wir hatten auf einer kleinen Insel Halt gemacht, wo wir beschlossen, die Nacht zu verbringen."
+SHOP_R3-2,"Mais à peine avions-nous fermé les yeux que j’ai entendu crier : \""La marine ! La marine !\"" J’ai sauté de mon hamac, attrapé mon sabre, et vu deux énormes navires qui nous tiraient dessus.","But barely had we closed our eyes when I heard shouts: ""The navy! The navy!"" I jumped out of my hammock, grabbed my saber, and saw two enormous ships firing at us.","Pero apenas habíamos cerrado los ojos cuando oí vociferar : \""¡la Armada! ¡la Armada!\"".Salté de mi hamaca,tomé mi sable y vi dos navíos que les disparaban a nosotros.","Doch kaum hatten wir die Augen geschlossen, hörte ich Rufe: „Die Marine! Die Marine!“ Ich sprang aus meiner Hängematte, schnappte mir meinen Säbel und sah, wie zwei riesige Schiffe auf uns feuerten."
+SHOP_R3-3,"J’ai combattu comme un diable, mais ils ont fini par m’attraper et me faire prisonnier. Ils avaient prévu de me pendre..."," I fought like hell, but they finally caught me and took me prisoner. They planned to hang me…","combatí como el diablo, pero lograron atraparme y hacerme prisionero.Planeaban colgarme...","Ich habe höllisch gekämpft, aber schließlich haben sie mich erwischt und gefangen genommen. Sie hatten vor, mich aufzuhängen…"
+SHOP_R3-4,"...mais avant cela, on m’a laissé un étrange message ce qui m’a conduit à être enterré dans mon village natal, et c’est ainsi que je me suis retrouvé ici.","...but before that, I was left a strange message that led to me being buried in my native village, and that's how I ended up here.","...pero antes de eso, me dejaron un mensaje extraño que me llevó a ser enterrado en mi pueblo natal, y así fue como terminé aquí","...aber vorher wurde mir eine seltsame Nachricht hinterlassen, die dazu führte, dass ich in meinem Heimatdorf begraben wurde, und so landete ich hier."
+SHOP_Q7,Qui est ce garde ?,Who is this guard?,¿Quién es esta guarda?,Wer ist dieser Wächter?
+SHOP_R7,"Tout ce que je sais de lui, c’est qu’il n’a pas l’intention de laisser sortir la moindre personne du cimetière. J’aurais bien aimé lui apprendre les bonnes manières avec un engin autre que ce bâton.",All I know about him is that he has no intention of letting anyone out of the cemetery. I would have liked to teach him good manners with a device other than this stick.,Lo único que sé de él es que no tiene intención de dejar salir a nadie del cementerio.Me hubiera gustado enseñarle buenos modales con un aparato que no fuera este bastón.,"Ich weiß nur, dass er nicht die Absicht hat, irgendjemanden vom Friedhof zu lassen. Ich hätte ihm gerne mit einem anderen Gerät als diesem Stock gute Manieren beigebracht."
+SHOP_HEAL,"Voilà, j'espère que tu te sens mieux a présent.","There you go, I hope you feel better now.","Ahí lo tienes, espero que te sientas mejor ahora.","Na schön, ich hoffe, dass es dir jetzt besser geht."
+SHOP_HEAL_FULL,Tu as l'air déjà en pleine forme.,You already look in great shape.,Ya te ves en muy buena forma.,Du siehst schon großartig aus.
+OPTION_TEXT,Options,Options,Opciones,Optionen
+TP_ROOM_1,1er Salle,First Room,Primera Habitación,Erster Raum
+TP_ROOM_2,2nd Salle,Second Room,Segunda Habitación,Zweiter Raum
+TP_ROOM_3,Boutique,Shop,Comercio,Geschäft
+TP_ROOM_4,Salle de Quentin,Quenin’s Map,La habitación de Quintín.,Quentins Zimmer
+SAVE_BUTTON_TEXT,Savegarder,Save,Savegarder,Sparen
+LOAD_BUTTON_TEXT,Charger,Load,ChargeCargarr,Speicherstands Laden
+RESUME,Continuer,Resume,Continuar,Weiter
+DUMMY1,Eh1,Eh1,Eh1,DUMMY
+DUMMY2,Eh2,Eh2,Eh2,DUMMY
+EXIT_BUTTON_TEXT,Quitter,Exit,Salir,Beenden
+SCENE_TEXT,Scènes,Scene,Escena,Szene
+PLACEHOLDER,FR_Placeholder,EN_Placeholder,ES_PlaceHolder,DE_Placeholder
+FIRST_SCENE_TITLE,Sous-sol Cimetière,Graveyard Underground,Cementerio del sótano,Friedhofskeller
+FIRST_SCENE_DESCR,Sous-sol du Cimetière.,Underground of the Graveyard,Sótano del Cementerio.,Keller des Friedhofs.
+SECOND_SCENE_TITLE,-1 Cimetière,-1 Graveyard,-1 Cementerio,Friedhofskeller
+SECOND_SCENE_DESCR,Sous-sol du Cimetière.,Underground of the Graveyard,Sótano del Cementerio.,Keller des Friedhofs.
+SHOP_SCENE_TITLE,Boutique de Teddy,Teddy's Shop,La tienda de Teddy,Terrys Geshaf
+SHOP_SCENE_DESCR,L'endroit où se trouve le nécessaire.,Where you can find all the necessary items.,El lugar donde encuentras lo que necesitas.,"der Ort, an dem Sie alles finden, was Sie brauchen."
+QUENTINS_SCENE_TITLE,Map de Quentin,Quentin's Room,El mapa de Quintín.,Quentins Map
+QUENTINS_SCENE_DESCR,"Sous-sol du Cimetière, ou l'on vous à enterré.","Graveyard's underground, where they burried you.","Sótano del Cementerio, donde está enterrado.",Keller des Friedhofs: wo Sie begraben wurden.
+TUTORIAL_SCENE_TITLE,Salle de Tutoriel,Tutorial Scene,Sala de tutoriales,Tutorial-Raum
+TUTORIAL_SCENE_DESCR,Salle de Tutoriel pour apprendre les bases.,Tutorial Scene to learn the basics.,Sala de tutoriales para aprender los conceptos básicos.,Tutorial-Raum zum Erlernen der Grundlagen.
+MASTER_VOLUME_STR,Volume Principal,Master Volume,Volumen principal,Hauptvolumen
+HEAL_BUTTON,J'ai besoins de soins.,I need healing.,Necesito atención.,Ich brauche Pflege.

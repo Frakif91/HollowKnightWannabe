@@ -6,10 +6,10 @@ uid="uid://xnbd5hsttywm"
 
 [deps]
 
-files=["res://Godot/Pot/shop.fr.translation", "res://Godot/Pot/shop.en.translation", "res://Godot/Pot/shop.es.translation"]
+files=["res://Godot/Pot/shop.fr.translation", "res://Godot/Pot/shop.en.translation", "res://Godot/Pot/shop.es.translation", "res://Godot/Pot/shop.de.translation"]
 
 source_file="res://Godot/Pot/shop.csv"
-dest_files=["res://Godot/Pot/shop.fr.translation", "res://Godot/Pot/shop.en.translation", "res://Godot/Pot/shop.es.translation"]
+dest_files=["res://Godot/Pot/shop.fr.translation", "res://Godot/Pot/shop.en.translation", "res://Godot/Pot/shop.es.translation", "res://Godot/Pot/shop.de.translation"]
 
 [params]
 

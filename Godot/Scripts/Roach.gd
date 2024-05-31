@@ -9,9 +9,10 @@ var is_dead = false
 @export var runing_speed = 200
 @export var health : int = 2
 @export var damage_dealt : int = 2
+@export var coin_reward : int = 1
 var invulnerability_timer = 1.
 var is_invulnerable = false 
-var gravity = 50
+var gravity = 98
 var hurt_color : Color = Color(1,0,0)
 
 @export_category("Behavior")
@@ -80,16 +81,18 @@ func _body_entered(body):
 	if body is Col_Hit:
 		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
+		velocity = (position - body.position).normalized() * 30
 		if is_dead:
 			damage_trigger.queue_free()
 			sound.stream = defeat_sound
 			sound.play()
 			await sound.finished
+			PlayerStats.money += coin_reward
 			queue_free()
 	if body is MainCharacter:
 		#print Touched
 		print_debug("Touched")
-		body.when_hit(damage_dealt)
+		body.when_hit(damage_dealt,self)
 
 func _old_move():
 	#Old Code -> not working and i did a burnout
@@ -143,8 +146,12 @@ func move():
 	if is_on_wall():
 		move_direction_right = not move_direction_right
 	
-	velocity.x = ((int(move_direction_right) * 2) - 1) * speed
-	velocity.y = gravity
+	if is_on_floor():
+		velocity.x = ((int(move_direction_right) * 2) - 1) * speed
+		velocity.y = 0
+	else:
+		velocity.x = ((int(move_direction_right) * 2) - 1) * (speed/3)
+		velocity.y += gravity
 	if not is_dead:
 		move_and_slide()
 "

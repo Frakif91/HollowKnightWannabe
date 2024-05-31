@@ -164,7 +164,6 @@ max_light = 1.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.841997
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
