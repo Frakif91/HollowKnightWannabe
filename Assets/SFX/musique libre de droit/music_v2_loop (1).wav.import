@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://p5vxutgbcf3l"
+path="res://.godot/imported/music_v2_loop (1).wav-03045e242905ecc981e3b23c1ff97cc3.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/musique libre de droit/music_v2_loop (1).wav"
+dest_files=["res://.godot/imported/music_v2_loop (1).wav-03045e242905ecc981e3b23c1ff97cc3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

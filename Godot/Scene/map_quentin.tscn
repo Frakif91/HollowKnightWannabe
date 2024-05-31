@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_t3m54"]
 [ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="4_tdvxj"]
-[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="5_74gv0"]
+[ext_resource type="AudioStream" uid="uid://p5vxutgbcf3l" path="res://Assets/SFX/musique libre de droit/music_v2_loop (1).wav" id="6_ho8hn"]
 [ext_resource type="Texture2D" uid="uid://dl25u70xrxu2x" path="res://Assets/map/IMG_1013.png" id="7_3ke5h"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_be8pd"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
@@ -97,7 +97,7 @@ scale = Vector2(0.658203, 0.675)
 texture = ExtResource("1_wt8wl")
 
 [node name="Musique" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_74gv0")
+stream = ExtResource("6_ho8hn")
 volume_db = -10.0
 autoplay = true
 
