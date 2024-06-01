@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://xm38ji0wqfk1"]
+[gd_scene load_steps=3 format=3 uid="uid://rblu52mqggkk"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_im7fw"]
 

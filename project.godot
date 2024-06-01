@@ -104,6 +104,7 @@ Attack_Mobile={
 
 [input_devices]
 
+pointing/emulate_touch_from_mouse=true
 pointing/android/enable_long_press_as_right_click=true
 
 [internationalization]
@@ -123,4 +124,3 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 anti_aliasing/quality/msaa_2d=1
-viewport/hdr_2d=true

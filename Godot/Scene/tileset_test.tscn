@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="3_f1crn"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="4_0cgpl"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="6_dhnbe"]
-[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
+[ext_resource type="AudioStream" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="9_rrlpr"]
 
 [node name="Node2D3" type="Node2D"]
