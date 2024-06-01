@@ -155,7 +155,6 @@ texture = ExtResource("4_tpud0")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.811271
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -165,7 +164,6 @@ max_light = 1.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.638179
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -213,7 +211,6 @@ position = Vector2(-56, 2)
 script = ExtResource("12_w0ske")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
-scene_to_TP = "res://Godot/Scene/tileset_2.tscn"
 tp_pos = Vector2(312, 315)
 
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]

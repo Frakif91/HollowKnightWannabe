@@ -521,13 +521,12 @@ sources/0 = SubResource("TileSetAtlasSource_lh4ga")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 1, 1)
-self_modulate = Color(0, 1, 1, 1)
-position = Vector2(291, 563)
+position = Vector2(206, 96)
 scale = Vector2(411.5, 194.5)
 texture = SubResource("PlaceholderTexture2D_rxk4x")
 
 [node name="Mario" parent="." instance=ExtResource("1_fsq2m")]
-position = Vector2(120, 82)
+position = Vector2(140, 137)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
@@ -542,7 +541,7 @@ editor_draw_drag_margin = true
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-position = Vector2(16, 16)
+position = Vector2(49, 64)
 tile_set = SubResource("TileSet_lboip")
 collision_animatable = true
 format = 2

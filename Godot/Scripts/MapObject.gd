@@ -3,10 +3,11 @@ extends Area2D
 class_name MapObject
 
 @export_category("Map Object")
-@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense","levier") var object_type : String
-@export var spike_damage = 2 
+@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense","Lever") var object_type : String
+@export var spike_damage = 2
+@export var connected_door : Door_Interact
 
-@export_subgroup("Interaction Icon")
+@export_subgroup("Interaction Icon","interact_")
 @export var interact_offset = Vector2(0,-50)
 @export var interact_scale = Vector2(0.3,0.3)
 
@@ -15,11 +16,11 @@ class_name MapObject
 @export_enum("Coins","Healing") var chest_reward = "Coins"
 @export var reward_count = 1
 
-@export_subgroup("Teleportation")
-@export_file("*.tscn") var scene_to_TP
+@export_subgroup("Teleportation","tp_")
+@export_file("*.tscn") var tp_to_scene
 @export var tp_fade_animation : String = "fade_out" 
 @export var tp_pos : Vector2 = Vector2(0,0)
-@export var look_at_the_door : bool = false
+@export var tp_look_at_the_door : bool = false
 
 @onready var sound : AudioStreamPlayer = AudioStreamPlayer.new()
 #@onready var defeat_sound = load("res://Assets/SFX/LC_SFX/614. Slam Ground.mp3")
@@ -30,7 +31,7 @@ var close_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_CLOSE.wav")
 var can_interact_with_chest = false
 var can_interact_with_teleporter = false
 var can_interact_with_levier = false
-var already_levier = false
+var already_interacted_with_levier = false
 
 var interact_icon : AnimatedSprite2D
 var instructions  : Control
@@ -44,7 +45,7 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
-	if object_type == "Chest" or object_type == "Teleport Interact":
+	if object_type == "Chest" or object_type == "Teleport Interact" or object_type == "Lever":
 		interaction_node = interaction.instantiate()
 		add_child(interaction_node)
 		instructions = $"InteractIcon"
@@ -92,9 +93,11 @@ func _on_body_entered(_body):
 				can_interact_with_teleporter = true
 				instructions.visible = true
 				instructions_animation.play("upward")
-		"levier":
+		"Lever":
 			if _body is MainCharacter:
 				can_interact_with_levier = true
+				instructions.visible = true
+				instructions_animation.play("upward")
 
 func _on_body_exited(_body):
 	match object_type:
@@ -105,6 +108,10 @@ func _on_body_exited(_body):
 		"Teleport Interact":
 			if _body is MainCharacter and _body.is_abletomove:
 				can_interact_with_teleporter = false
+				instructions.visible = false
+		"Lever":
+			if _body is MainCharacter and _body.is_abletomove:
+				can_interact_with_levier = false
 				instructions.visible = false
 		
 
@@ -131,23 +138,26 @@ func _input(event):
 				PlayerStats.is_abletomove = true
 		"Teleport Interact":
 			if event.is_action_pressed(&"Interact") and can_interact_with_teleporter:
-				print_debug(typeof(scene_to_TP))
+				print_debug(typeof(tp_to_scene))
 				PlayerStats.is_abletomove = false
 				PlayerStats.tp_pos = tp_pos
 				#PlayerStats.player.sprite.play()
-				if look_at_the_door:
+				if tp_look_at_the_door:
 					sound.stop()
 					sound.stream = open_door_sound
 					sound.play()
-				await Transitions.change_scene(scene_to_TP,"fade_out")
+				await Transitions.change_scene(tp_to_scene,"fade_out")
 				PlayerStats.is_abletomove = true
-				if look_at_the_door:
+				if tp_look_at_the_door:
 					sound.stop()
 					sound.stream = close_door_sound
 					sound.play()
-		"levier":
-			if event.is_action_pressed(&"Interact") and can_interact_with_levier == true and not already_levier:
+		"Lever":
+			if event.is_action_pressed(&"Interact") and can_interact_with_levier == true and not already_interacted_with_levier:
 				$AnimatedSprite2D.play("default")
-				already_levier = true
+				already_interacted_with_levier = true
+				if connected_door:
+					connected_door._on_lever_refresh()
+				
 		
 		

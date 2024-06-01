@@ -1,18 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbg7qtmj4k87l"]
+[gd_scene load_steps=5 format=3 uid="uid://bbg7qtmj4k87l"]
 
-[ext_resource type="Script" path="res://Porte Interactible.gd" id="1_teie2"]
-[ext_resource type="Texture2D" path="res://Assets/GFX/Interact_door_atlas.png" id="2_a7wah"]
+[ext_resource type="Script" path="res://Godot/Scripts/porte_interactible.gd" id="1_nxuit"]
+[ext_resource type="Texture2D" uid="uid://poovw8u5jfln" path="res://Assets/GFX/Interact_door_atlas.png" id="2_a7wah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go250"]
+size = Vector2(433.5, 894)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ey0a3"]
+font_size = 40
+font_color = Color(1, 0.174173, 0.127215, 1)
 
 [node name="Porte Interactible" type="StaticBody2D"]
-script = ExtResource("1_teie2")
-play_custom_sfx = null
-camera_goes_towards = null
+script = ExtResource("1_nxuit")
 
 [node name="Col" type="CollisionShape2D" parent="."]
+position = Vector2(-27.25, 9)
 shape = SubResource("RectangleShape2D_go250")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_a7wah")
 hframes = 5
+
+[node name="Label" type="Label" parent="."]
+offset_left = -363.0
+offset_top = 461.0
+offset_right = 370.0
+offset_bottom = 574.0
+text = "Impossible d'interagir avec la porte. Trouvez tout les leviers pour l'ouvrir."
+label_settings = SubResource("LabelSettings_ey0a3")
+autowrap_mode = 3
