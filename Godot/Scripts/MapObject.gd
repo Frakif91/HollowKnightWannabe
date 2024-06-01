@@ -3,7 +3,7 @@ extends Area2D
 class_name MapObject
 
 @export_category("Map Object")
-@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
+@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense","levier") var object_type : String
 @export var spike_damage = 2 
 
 @export_subgroup("Interaction Icon")
@@ -29,13 +29,14 @@ var open_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_OPEN.wav")
 var close_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_CLOSE.wav")
 var can_interact_with_chest = false
 var can_interact_with_teleporter = false
+var can_interact_with_levier = false
+var already_levier = false
 
 var interact_icon : AnimatedSprite2D
 var instructions  : Control
 var instructions_animation : AnimatedSprite2D
 var chest_audio : AudioStreamPlayer
 var interaction_node
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -91,6 +92,9 @@ func _on_body_entered(_body):
 				can_interact_with_teleporter = true
 				instructions.visible = true
 				instructions_animation.play("upward")
+		"levier":
+			if _body is MainCharacter:
+				can_interact_with_levier = true
 
 func _on_body_exited(_body):
 	match object_type:
@@ -102,6 +106,7 @@ func _on_body_exited(_body):
 			if _body is MainCharacter and _body.is_abletomove:
 				can_interact_with_teleporter = false
 				instructions.visible = false
+		
 
 func _input(event):
 	match object_type:
@@ -140,3 +145,9 @@ func _input(event):
 					sound.stop()
 					sound.stream = close_door_sound
 					sound.play()
+		"levier":
+			if event.is_action_pressed(&"Interact") and can_interact_with_levier == true and not already_levier:
+				$AnimatedSprite2D.play("default")
+				already_levier = true
+		
+		

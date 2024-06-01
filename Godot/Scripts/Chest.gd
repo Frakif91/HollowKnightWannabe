@@ -6,7 +6,7 @@ var interact_icon : AnimatedSprite2D
 var instructions : Control
 var instructions_animation : AnimatedSprite2D
 
-@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense") var object_type : String
+@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense",) var object_type : String
 #spikes
 @export var spike_damage : int = 4
 

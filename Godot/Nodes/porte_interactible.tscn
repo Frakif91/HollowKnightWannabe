@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbg7qtmj4k87l"]
+
+[ext_resource type="Script" path="res://Porte Interactible.gd" id="1_teie2"]
+[ext_resource type="Texture2D" path="res://Assets/GFX/Interact_door_atlas.png" id="2_a7wah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go250"]
+
+[node name="Porte Interactible" type="StaticBody2D"]
+script = ExtResource("1_teie2")
+play_custom_sfx = null
+camera_goes_towards = null
+
+[node name="Col" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_go250")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a7wah")
+hframes = 5

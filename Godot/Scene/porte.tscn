@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://casdmtl36ij64"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="1_nmi7t"]
+[ext_resource type="Texture2D" uid="uid://4rssv8ne6ngt" path="res://Assets/GFX/animation_objet/pilier1.png" id="2_npdc7"]
+[ext_resource type="Texture2D" uid="uid://cy5is4ixv842j" path="res://Assets/GFX/animation_objet/pilier2.png" id="3_7ff7v"]
+[ext_resource type="Texture2D" uid="uid://bbme8kh3s73m8" path="res://Assets/GFX/animation_objet/pilier3.png" id="4_pek8j"]
+[ext_resource type="Texture2D" uid="uid://bdkytjoxyd378" path="res://Assets/GFX/animation_objet/pilier4.png" id="5_6lx66"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53e0g"]
+size = Vector2(139, 93)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0sa1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_npdc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ff7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pek8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6lx66")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MapObject" type="Area2D"]
+script = ExtResource("1_nmi7t")
+object_type = "levier"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-35, 22.5)
+shape = SubResource("RectangleShape2D_53e0g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, 24)
+scale = Vector2(0.405273, 0.405273)
+sprite_frames = SubResource("SpriteFrames_o0sa1")
+frame_progress = 0.997712

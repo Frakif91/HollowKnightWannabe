@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://drf4owgyw5us6"]
+[gd_scene load_steps=11 format=3 uid="uid://drf4owgyw5us6"]
 
 [ext_resource type="Texture2D" uid="uid://cracad6crkkkc" path="res://Assets/GFX/Right_Button.png" id="1_caftl"]
+[ext_resource type="Script" path="res://Godot/Nodes/TouchButtonsPressed.gd" id="1_yxlah"]
 [ext_resource type="Texture2D" uid="uid://om6fss0s1j64" path="res://Assets/GFX/Left_Button.png" id="2_n5pmf"]
 [ext_resource type="Texture2D" uid="uid://47gduifcavk5" path="res://Assets/GFX/Down_Button.png" id="3_mvcaf"]
 [ext_resource type="Texture2D" uid="uid://ntsgf5bw842y" path="res://Assets/GFX/Attack_Button.png" id="4_6ob35"]
@@ -16,6 +17,7 @@ size = Vector2(256, 256)
 
 [node name="Control" type="CanvasLayer"]
 layer = 3
+script = ExtResource("1_yxlah")
 
 [node name="RIGHTBUTTON" type="TouchScreenButton" parent="."]
 position = Vector2(273, 462)

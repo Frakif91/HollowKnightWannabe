@@ -36,6 +36,7 @@ script = ExtResource("1_3wtfx")
 
 [node name="UI" parent="ScreenAnchor" instance=ExtResource("3_ftv57")]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="AreaAnnouncer" parent="ScreenAnchor" instance=ExtResource("5_bnfan")]
