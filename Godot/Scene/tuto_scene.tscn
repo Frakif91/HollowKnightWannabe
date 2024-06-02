@@ -728,7 +728,7 @@ size = Vector2(32, 10)
 [sub_resource type="LabelSettings" id="LabelSettings_15dof"]
 font_size = 10
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="SceneProperties" type="Node" parent="."]
 script = ExtResource("4_s8gn2")
@@ -873,7 +873,6 @@ script = ExtResource("7_q7du6")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -10)
 interact_scale = Vector2(0.4, 0.4)
-scene_to_TP = "res://Godot/Scene/map_quentin.tscn"
 tp_fade_animation = "fade_left_right_in"
 tp_pos = Vector2(911, 1184)
 

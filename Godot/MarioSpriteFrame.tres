@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=67 format=3 uid="uid://dmt7s23wcpnw6"]
+[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://dmt7s23wcpnw6"]
 
 [ext_resource type="Texture2D" uid="uid://b1as7u2bu3rxm" path="res://Assets/GFX/Mario Juming Sprite Sheets.png" id="1_864oi"]
 [ext_resource type="Texture2D" uid="uid://13ibs55ro1vj" path="res://Assets/GFX/joueur_sprite/spritesheet_hlk_jump.w.stand.png" id="1_vb1mn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d337j2ygfdw6u" path="res://Assets/GFX/joueur_sprite/sprite_sheet_down.png" id="5_mt5so"]
 [ext_resource type="Texture2D" uid="uid://blqbsteh7iar4" path="res://Assets/GFX/joueur_sprite/IMG_1028-ezgif.com-gif-to-sprite-converter.png" id="6_nxh8u"]
 [ext_resource type="Texture2D" uid="uid://v1iejopiby11" path="res://Assets/GFX/joueur_sprite/spritesheet_hlk.png" id="7_g80kj"]
+[ext_resource type="Texture2D" uid="uid://duyoh88y81kyt" path="res://Assets/GFX/joueur_sprite/IMG_1048-ezgif.com-gif-to-sprite-converter.png" id="8_ypsy5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_prtdy"]
 atlas = ExtResource("1_vb1mn")
@@ -92,13 +93,13 @@ region = Rect2(638, 0, 638, 386)
 atlas = ExtResource("6_nxh8u")
 region = Rect2(1276, 0, 638, 386)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3srn8"]
-atlas = ExtResource("6_nxh8u")
-region = Rect2(1914, 0, 638, 386)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdg8"]
 atlas = ExtResource("6_nxh8u")
 region = Rect2(2552, 0, 638, 386)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3srn8"]
+atlas = ExtResource("6_nxh8u")
+region = Rect2(1914, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_salcy"]
 atlas = ExtResource("6_nxh8u")
@@ -244,6 +245,22 @@ region = Rect2(598, 0, 259, 406)
 atlas = ExtResource("7_g80kj")
 region = Rect2(897, 0, 259, 406)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux7lc"]
+atlas = ExtResource("8_ypsy5")
+region = Rect2(0, 0, 333, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fby2d"]
+atlas = ExtResource("8_ypsy5")
+region = Rect2(333, 0, 333, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcq64"]
+atlas = ExtResource("8_ypsy5")
+region = Rect2(666, 0, 333, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wajru"]
+atlas = ExtResource("8_ypsy5")
+region = Rect2(999, 0, 333, 220)
+
 [resource]
 animations = [{
 "frames": [{
@@ -351,10 +368,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_k4iqd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3srn8")
+"texture": SubResource("AtlasTexture_6tdg8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6tdg8")
+"texture": SubResource("AtlasTexture_3srn8")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_salcy")
@@ -477,4 +494,21 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux7lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fby2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcq64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wajru")
+}],
+"loop": true,
+"name": &"quatre_pattes",
+"speed": 5.0
 }]
