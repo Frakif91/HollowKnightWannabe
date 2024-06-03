@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_t3m54"]
 [ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="4_tdvxj"]
-[ext_resource type="AudioStream" uid="uid://p5vxutgbcf3l" path="res://Assets/SFX/musique libre de droit/music_v2_loop (1).wav" id="6_ho8hn"]
+[ext_resource type="AudioStream" uid="uid://b7hwqioqmvl36" path="res://Assets/Music/HKM3_boss_song.mp3" id="6_fw6py"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_be8pd"]
 [ext_resource type="PackedScene" uid="uid://casdmtl36ij64" path="res://Godot/Scene/porte.tscn" id="8_xmnir"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
@@ -99,7 +99,7 @@ scale = Vector2(0.658203, 0.675)
 texture = ExtResource("1_wt8wl")
 
 [node name="Musique" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_ho8hn")
+stream = ExtResource("6_fw6py")
 volume_db = -10.0
 autoplay = true
 
@@ -160,6 +160,7 @@ texture = ExtResource("9_ogms8")
 [node name="Chest" parent="." instance=ExtResource("11_ef0l0")]
 position = Vector2(423, 711)
 scale = Vector2(0.83197, 0.914654)
+reward_count = 15
 
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
 position = Vector2(47, 882)
@@ -175,7 +176,7 @@ safe_margin = 0.001
 zoom = Vector2(5, 5)
 limit_left = -70
 limit_top = -3600
-limit_right = 1320
+limit_right = 4450
 limit_bottom = 5546
 editor_draw_drag_margin = true
 

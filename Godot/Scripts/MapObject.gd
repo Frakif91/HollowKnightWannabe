@@ -156,6 +156,7 @@ func _input(event):
 			if event.is_action_pressed(&"Interact") and can_interact_with_levier == true and not already_interacted_with_levier:
 				$AnimatedSprite2D.play("default")
 				already_interacted_with_levier = true
+				$"OpenSFX".play()
 				if connected_door:
 					connected_door._on_lever_refresh()
 				

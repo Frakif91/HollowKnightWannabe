@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbg7qtmj4k87l"]
+[gd_scene load_steps=6 format=3 uid="uid://bbg7qtmj4k87l"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/porte_interactible.gd" id="1_nxuit"]
 [ext_resource type="Texture2D" uid="uid://poovw8u5jfln" path="res://Assets/GFX/Interact_door_atlas.png" id="2_a7wah"]
+[ext_resource type="AudioStream" uid="uid://bcujvjwk5om0b" path="res://Assets/SFX/WU_SE_OBJ_DOOR_OPEN.wav" id="3_n15xj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_go250"]
 size = Vector2(433.5, 894)
@@ -22,10 +23,14 @@ texture = ExtResource("2_a7wah")
 hframes = 5
 
 [node name="Label" type="Label" parent="."]
-offset_left = -363.0
-offset_top = 461.0
-offset_right = 370.0
-offset_bottom = 574.0
+visible = false
+offset_left = -365.0
+offset_top = 517.0
+offset_right = 368.0
+offset_bottom = 630.0
 text = "Impossible d'interagir avec la porte. Trouvez tout les leviers pour l'ouvrir."
 label_settings = SubResource("LabelSettings_ey0a3")
 autowrap_mode = 3
+
+[node name="OpeningSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n15xj")

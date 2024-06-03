@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_edkg2"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_1phjy"]
 [ext_resource type="Script" path="res://Assets/Music/Tempo.gd" id="6_8nxdw"]
-[ext_resource type="AudioStream" path="res://Assets/Music/musique mario/Cult of the Lamb OST - Anchordeep Extended.mp3" id="6_y0xsm"]
+[ext_resource type="AudioStream" uid="uid://c3fcvmjyicfcx" path="res://Assets/Music/musique mario/Cult of the Lamb OST - Anchordeep Extended.mp3" id="6_y0xsm"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="7_nrh5l"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="8_3n6dj"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="8_yebiq"]
@@ -101,8 +101,8 @@ script = ExtResource("9_64yy0")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
 interact_scale = Vector2(0.5, 0.5)
-scene_to_TP = "res://Godot/Scene/Shop.tscn"
-look_at_the_door = true
+tp_to_scene = "res://Godot/Scene/Shop.tscn"
+tp_look_at_the_door = true
 
 [node name="Sprite2D" type="Sprite2D" parent="To the shop"]
 position = Vector2(192, -163)
@@ -115,8 +115,9 @@ shape = SubResource("RectangleShape2D_vygco")
 
 [node name="Chest" parent="." instance=ExtResource("7_nrh5l")]
 material = SubResource("ShaderMaterial_s5vk0")
-position = Vector2(72, 554)
+position = Vector2(71, 563)
 scale = Vector2(-1, 1)
+reward_count = 10
 
 [node name="To the main scene" parent="." instance=ExtResource("8_3n6dj")]
 position = Vector2(1156, 163)

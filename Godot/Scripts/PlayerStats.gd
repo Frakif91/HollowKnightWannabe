@@ -19,7 +19,7 @@ const save_path = "user://gamesave.save"
 	"STOPPING_FRICTION"				= 1000,
 	"ACCELERATION_SPEED"			= 600,
 	"STOPPING_FRICTION_AIRBORN"		= 10,
-	"ACCELERATION_SPEED_AIRBORN"	= 350,
+	"ACCELERATION_SPEED_AIRBORN"	= 600,
 	"LOOK_DOWN_Y"					= 50,
 	"can_attack_and_slide" 			= false,
 	"wall_slide_enabled" 			= false,
@@ -76,7 +76,7 @@ const save_path = "user://gamesave.save"
 @export var STOPPING_FRICTION = 1000
 @export var ACCELERATION_SPEED = 600
 @export var STOPPING_FRICTION_AIRBORN = 10
-@export var ACCELERATION_SPEED_AIRBORN = 350
+@export var ACCELERATION_SPEED_AIRBORN = 500
 @export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
 enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
@@ -92,6 +92,7 @@ var hurt_color = Color(1,0,0,1)
 var user_local = TranslationServer.get_locale()
 var chosed_local = user_local
 var chosed_local_index = 1
+var timer_stoped = false
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false

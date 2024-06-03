@@ -317,7 +317,8 @@ test_maxhp = 10
 max_states = 4
 
 [node name="ColorRect" type="TextureRect" parent="."]
-visible = false
+texture_filter = 2
+texture_repeat = 1
 layout_mode = 2
 offset_left = 458.0
 offset_top = 308.0

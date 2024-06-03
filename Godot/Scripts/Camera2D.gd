@@ -12,6 +12,7 @@ var menu_visible : bool = false
 @onready var menu = $"Menu"
 @onready var confirmation_window = $"ConfirmationDialog"
 @onready var area_announcer = $"ScreenAnchor/AreaAnnouncer"
+@onready var touch_button = $"ScreenAnchor/TouchButtons"
 
 var rng = RandomNumberGenerator.new()
 var shake_strength : float = 0.0
@@ -24,13 +25,15 @@ func _ready():
 		PlayerStats.camera = self
 		ui.visible = true
 		menu.visible = true
+		touch_button.show()
 	else:
+		touch_button.hide()
 		ui.visible = false
 		menu.visible = false
 	#OS.alert("Do you want to quit ?","Are you sure ?")
 
 func apply_shake(power):
-	if (power != null):
+	if (power > 0.1):
 		shake_strength = power
 	else:
 		shake_strength = randomStrength

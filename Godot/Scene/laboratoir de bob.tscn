@@ -526,12 +526,13 @@ scale = Vector2(411.5, 194.5)
 texture = SubResource("PlaceholderTexture2D_rxk4x")
 
 [node name="Mario" parent="." instance=ExtResource("1_fsq2m")]
-position = Vector2(140, 137)
+position = Vector2(79, 77)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
 
 [node name="Camera" parent="Mario" instance=ExtResource("2_fhbud")]
+position = Vector2(-2, 2)
 zoom = Vector2(5, 5)
 limit_left = -9970
 limit_top = -9600
@@ -541,7 +542,6 @@ editor_draw_drag_margin = true
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-position = Vector2(49, 64)
 tile_set = SubResource("TileSet_lboip")
 collision_animatable = true
 format = 2

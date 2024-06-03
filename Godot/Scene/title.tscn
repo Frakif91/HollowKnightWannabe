@@ -23,6 +23,7 @@ mouse_filter = 2
 texture = ExtResource("1_fq8cb")
 
 [node name="Button" type="Button" parent="."]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

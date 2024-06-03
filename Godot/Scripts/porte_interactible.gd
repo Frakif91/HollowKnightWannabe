@@ -36,3 +36,4 @@ func _on_lever_refresh():
 	if i == 3:
 		collision.disabled = true
 		label.hide()
+		$"OpeningSFX".play()

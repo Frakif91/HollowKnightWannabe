@@ -84,6 +84,8 @@ func TP_But4():
 	teleporting(4)
 func TP_But5():
 	teleporting(5)
+func TP_But6():
+	teleporting(6)
 
 func _save_game_state():
 	$"MenuBar/Options/MarginContainer/SaveSFX".play()
@@ -114,6 +116,8 @@ func teleporting(index: int):
 			file = "map_quentin.tscn"
 		5:
 			file = "tuto_scene.tscn"
+		6:
+			file = "laboratoir de bob.tscn"
 		_:
 			file = "title.tscn"
 	Transitions.play("RESET")

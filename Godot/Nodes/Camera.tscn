@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4x4pdehhl0wq"]
+[gd_scene load_steps=11 format=3 uid="uid://c4x4pdehhl0wq"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/Camera2D.gd" id="1_3wtfx"]
 [ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="1_vxlrh"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://smt3xe85w32f" path="res://Godot/Nodes/hearts.tscn" id="3_ftv57"]
 [ext_resource type="PackedScene" uid="uid://drf4owgyw5us6" path="res://Godot/Nodes/TouchButtons.tscn" id="5_bh64k"]
 [ext_resource type="PackedScene" uid="uid://drio2xnae5t7y" path="res://Godot/Nodes/AreaAnnouncer.tscn" id="5_bnfan"]
+[ext_resource type="FontFile" uid="uid://b7lu2exjpd0hf" path="res://Assets/Fonts/Daydream.ttf" id="6_0qbdx"]
+[ext_resource type="Script" path="res://Godot/Scripts/Timer.gd" id="7_mim6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecwrm"]
 shader = ExtResource("1_vxlrh")
@@ -14,6 +16,10 @@ shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_hov78"]
+font = ExtResource("6_0qbdx")
+font_size = 32
 
 [node name="Camera" type="Camera2D"]
 material = SubResource("ShaderMaterial_ecwrm")
@@ -46,6 +52,22 @@ title = "Test"
 
 [node name="TouchButtons" parent="ScreenAnchor" instance=ExtResource("5_bh64k")]
 visible = false
+
+[node name="Label" type="Label" parent="ScreenAnchor"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -79.0
+offset_right = 101.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "16:59:59"
+label_settings = SubResource("LabelSettings_hov78")
+script = ExtResource("7_mim6k")
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
 unique_name_in_owner = true

@@ -47,7 +47,7 @@ const suffer = [
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * self.scale.y * gravity_mult#980
 @onready var sprite : AnimatedSprite2D = $"Sprite"
-@onready var collision : CollisionPolygon2D = $"Collision"
+@onready var collision : CollisionShape2D = $"Collision"
 @onready var audioPlayer : AudioStreamPlayer = $"JumpSFX"
 @onready var swingSFX : AudioStreamPlayer = $"SwingSwordSFX"
 @onready var jumpSound : AudioStreamOggVorbis = get("res://SML2_Jump.ogg")
@@ -187,6 +187,7 @@ func _physics_process(delta):
 
 	if not is_on_floor() and position.y > 5000:
 		PlayerStats.hp = 0
+		PlayerStats.camera.apply_shake(5)
 		on_gameover()
 
 	PlayerStats.velocity = velocity
@@ -267,6 +268,8 @@ func when_hit(damage,object : Node2D = Node2D.new()):
 	#print_debug("Body in Collition")
 	if object.position != Vector2(0,0):
 		velocity = (position - object.position).normalized() * 50
+	Input.vibrate_handheld(100)
+	Input.start_joy_vibration(0,0.0,1.0,0.1)
 	is_dead = await get_hurt(damage)
 	if is_dead:
 		on_gameover()

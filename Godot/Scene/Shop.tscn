@@ -1,11 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://bu0t64lk6mixg"]
+[gd_scene load_steps=29 format=3 uid="uid://bu0t64lk6mixg"]
 
 [ext_resource type="Texture2D" uid="uid://d2yjn0bjsofx0" path="res://Assets/GFX/IMG_1019.png" id="1_2hxjn"]
 [ext_resource type="Texture2D" uid="uid://cbgpngxb3tnpj" path="res://Assets/GFX/shop_seller_animated.png" id="2_afehb"]
 [ext_resource type="Script" path="res://Godot/Scripts/Shop_Dialog.gd" id="2_omx0f"]
 [ext_resource type="Texture2D" uid="uid://br7g00ksn1wc6" path="res://Assets/GFX/shop_grappling_hook.png" id="3_67dox"]
 [ext_resource type="PackedScene" uid="uid://1nxcwdc6n48p" path="res://Godot/Nodes/Interact_icon.tscn" id="4_axb0a"]
-[ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="4_tpud0"]
 [ext_resource type="AudioStream" uid="uid://cwkctlr0jogyk" path="res://Assets/SFX/Mario_&_Luigi_PIT_Select_1.ogg" id="5_3nfxu"]
 [ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="6_pnpqe"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="7_vbply"]
@@ -147,11 +146,6 @@ volume_db = -12.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_67dox")
 
-[node name="ShopUi" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_tpud0")
-
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
 color = Color(1, 0.764706, 0.14902, 1)
@@ -164,6 +158,7 @@ max_light = 1.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
 color = Color(1, 0.764706, 0.14902, 1)
+energy = 0.953905
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
