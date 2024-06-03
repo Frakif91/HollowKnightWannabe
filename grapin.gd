@@ -1,13 +1,13 @@
 extends CharacterBody2D
 var droit = true
-var temps = 0.1
+var shoot_time = 0.1
+var cooldown = 0.5
 var direction = Vector2.ZERO
-var tire = false
+var shooting = false
+var speed = 300
+var progression = 0
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_on_body_entered().connect(_on_body_entered)
+@onready var direction_indicator = $"Indicator"
 
 func _on_body_entered(body):
 	if is_instance_of(body,TileMap):
@@ -15,31 +15,36 @@ func _on_body_entered(body):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if tire == false :
-		if Input.is_action_just_pressed("Move_Left"):
-			direction.x = -10
-		elif Input.is_action_just_released("Move_Left"):
-			direction.x=0
-		if Input.is_action_just_pressed("Move_right"):
-			direction.x = 10
-		elif Input.is_action_just_released("Move_right"):
-			direction.x=0
-		if  Input.is_action_just_pressed("look_up"):
-			direction.y = -10
-		elif Input.is_action_just_released("look_up"):
-			direction.y=0
-		if Input.is_action_just_pressed("Look_Down"):
-			direction.y = 10
-		elif Input.is_action_just_released("Look_Down"):
-			direction.y=0
-	if Input.is_action_just_pressed("Attack")and tire == false and direction != Vector2.ZERO:
-		tire=true
-		position = PlayerStats.player.position
-		await mouve()
-		tire =false
+	if shooting == false:
 		direction = Vector2.ZERO
+		if Input.get_axis(&"Move_Left",&"Move_right"):
+			direction.x = Input.get_axis(&"Move_Left",&"Move_right")
+		if Input.get_axis(&"look_up",&"Look_Down"):
+			direction.y = Input.get_axis(&"look_up",&"Look_Down")
+	
+	# Indicateur Visuel sur la direction
+	if direction and PlayerStats.player: #Vérifier si on pointe bien une direction et que le joueur
+		direction_indicator.global_position = PlayerStats.player.position + (direction * 20)
 
-func mouve():
-	for i in range(12):
-		position+= direction
-		await get_tree().create_timer(0.1).timeout
+	if Input.is_action_just_pressed("Attack") and not shooting: #Si tu peux attaquer
+		shoot() #alors Attaque
+	
+	if shooting:
+		progression += 1
+		position = PlayerStats.player.position
+		velocity = direction * speed * progression
+		move()
+
+func shoot():
+	shooting = true
+	progression = 0
+	position = PlayerStats.player.position
+	await wait(shoot_time)
+	progression = 0
+	shooting = false
+
+func move():
+	move_and_slide()
+
+func wait(time:float):
+	await get_tree().create_timer(time).timeout

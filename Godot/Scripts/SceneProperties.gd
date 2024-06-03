@@ -29,6 +29,6 @@ func _ready():
 			print_debug("Showing Title")
 			camera.area_announcer.show_title(scene_name,scene_description,3)
 		else:
-			printerr("Camera Area Announcer not found")
+			push_warning("Camera Area Announcer not found")
 	else:
-		printerr("Camera not found")
+		push_error("Camera not found")

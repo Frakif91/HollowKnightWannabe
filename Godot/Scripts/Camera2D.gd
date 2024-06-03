@@ -33,13 +33,13 @@ func _ready():
 	#OS.alert("Do you want to quit ?","Are you sure ?")
 
 func apply_shake(power):
-	if (power > 0.1):
+	if (power != 0):
 		shake_strength = power
 	else:
 		shake_strength = randomStrength
 
 func _process(delta):
-	if shake_strength > 0:
+	if shake_strength > 0.05:
 		shake_strength = lerpf(shake_strength,0,shakeFade * delta)
 		offset = randomOffset()
 	if menu.get_script() == load("res://Godot/Scripts/escape_menu.gd") and not Engine.is_editor_hint():

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://yi21nggbi18s"]
+[gd_scene load_steps=8 format=3 uid="uid://de0gk8lo15bab"]
 
 [ext_resource type="Texture2D" uid="uid://cioglqvkl36vv" path="res://Assets/GFX/Tileset/test_tileset_grass.png" id="1_pgrid"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_4dl67"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_3qgj5"]
-[ext_resource type="PackedScene" uid="uid://c3k45i0g6u8ek" path="res://grapin.tscn" id="4_v84nu"]
+[ext_resource type="PackedScene" uid="uid://sxyd5fgxm3u0" path="res://grapin.tscn" id="4_v84nu"]
+[ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="5_wt68k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mu4ey"]
 texture = ExtResource("1_pgrid")
@@ -227,3 +228,7 @@ limit_bottom = 9546
 editor_draw_drag_margin = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_v84nu")]
+position = Vector2(-61, -44)
+
+[node name="SceneProperties" type="Node" parent="."]
+script = ExtResource("5_wt68k")
