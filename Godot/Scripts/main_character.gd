@@ -4,6 +4,7 @@ class_name MainCharacter
 #var point_de_sovgarde = Vector2.ZERO
 #region variable
 var SPEED = PlayerStats.SPEED
+var CRAWL_SPEED = PlayerStats.CRAWL_SPEED
 var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
 var gravity_mult = PlayerStats.GRAVITY_MULT
 var is_attacking = false
@@ -16,6 +17,7 @@ var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
 var jump_hold = 10 # Number of frames to hold space (to jump higher)
 var in_cutscene = false
+var crawling = false
 var jump_remaining = 0
 var gameover_load = preload("res://Assets/SFX/lego-breaking.mp3")
 
@@ -58,6 +60,7 @@ const suffer = [
 @onready var og_highlight : PointLight2D = highlight.duplicate()
 @onready var gameover_player : AudioStreamPlayer = AudioStreamPlayer.new() ; 
 @onready var hit_collition : CollisionPolygon2D = $"Col_Hit/Attack_Area"
+@onready var collision_allfour : CollisionShape2D = $"Collision_AllFour"
 
 func _ready():
 	gameover_player.stream = gameover_load
@@ -70,6 +73,7 @@ func _ready():
 	PlayerStats.safety_checkpoint_pos = position
 	#camera.position = tp_pos
 	hit_collition.disabled = true
+	collision_allfour.disabled = true
 	PlayerStats.player = self
 
 func _process(delta):
@@ -98,16 +102,8 @@ func _physics_process(delta):
 		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
 
-	# Handle jump.
-	"""
-	if Input.is_action_just_pressed("Jump") and (is_on_floor() or not states["HasDoubleJumped"]) and not states["InGameoverState"] and PlayerStats.is_abletomove:
-		velocity.y = JUMP_VELOCITY
-		audioPlayer.play()
-		if not is_on_floor() and states["HasDoubleJumped"] == false:
-			states["HasDoubleJumped"] = true
-	"""	
-
-	if Input.is_action_just_pressed("Jump") and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
+	#region Handle jump.
+	if Input.is_action_just_pressed("Jump") and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"] and not crawling:
 		if is_on_floor():
 			PlayerStats.jump_remaining = PlayerStats.JUMP_HOLD
 			audioPlayer.play()
@@ -139,10 +135,8 @@ func _physics_process(delta):
 		await wait(0.01)
 		is_attacking = false
 		sprite.play(anim_name[anim.STAND])
-
-	
 		
-	#region Physics
+	#region Movement
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
@@ -150,8 +144,6 @@ func _physics_process(delta):
 	if sign(direction) == -1: sprite.flip_h = true ; hit_collition.scale.x = -1
 	elif sign(direction) == 1: sprite.flip_h = false ; hit_collition.scale.x = 1
 
-	if is_looking_down:
-		direction = 0 #if you're looking down, stops you from moving
 	if is_attacking and (not PlayerStats.can_attack_and_slide):
 		direction = 0
 	if camera.menu_visible:
@@ -162,8 +154,11 @@ func _physics_process(delta):
 		if (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove):
 			if is_on_floor():
 				if not is_attacking and not PlayerStats.in_cutscene:
-					sprite.play(anim_name[anim.WALK])
-				velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
+					if crawling:
+						velocity.x = move_toward(velocity.x,direction * CRAWL_SPEED, delta * ACCELERATION_SPEED)
+					else:
+						sprite.play(anim_name[anim.WALK])
+						velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
 			else:
 				velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED_AIRBORN)
 	else:
@@ -174,17 +169,37 @@ func _physics_process(delta):
 				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
 			else:
 				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
-	
-	if Input.is_action_pressed("Look_Down") and is_on_floor():
-		if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
-			sprite.play("LookDown")
-		is_looking_down = true
-		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
-	else:
-		is_looking_down = false
-		camera.offset.y = lerpf(camera.offset.y,0,0.1)
 
-	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
+	
+	if Input.is_action_pressed(&"Look_Down") and is_on_floor():
+		var input_direction =  Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
+
+		if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
+			is_looking_down = true
+		if not crawling:
+			if input_direction:
+				crawling = true
+			if is_looking_down:
+				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
+				sprite.play("LookDown")
+		else:
+			sprite.play(anim_name[anim.CRAWLING],abs(input_direction))
+			camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y/2,0.05)
+			collision.disabled = true
+			collision_allfour.disabled = false
+	else:
+		camera.offset.y = lerpf(camera.offset.y,0,0.1)
+		collision.disabled = false
+		collision_allfour.disabled = true
+
+	#region Handle Other Things
+	
+	if Input.is_action_just_released(&"Look_Down"):
+		#TODO: #8 CHECK
+		is_looking_down = false
+		crawling = false
+
+	if Input.is_action_just_pressed(&"Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()
 
 	if not is_on_floor() and position.y > 4000:

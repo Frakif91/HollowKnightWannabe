@@ -94,6 +94,7 @@ func _on_body_entered(_body):
 					await get_tree().create_timer(0.5).timeout
 					await Transitions.play("fade_bottom_up_in",3)
 					_body.position = PlayerStats.safety_checkpoint_pos
+					await get_tree().create_timer(0.3).timeout
 					PlayerStats.is_abletomove = true
 					_body.is_invulnerable = false
 					PlayerStats.in_cutscene = false

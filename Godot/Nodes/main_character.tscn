@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bubeuilvqxf2o"]
+[gd_scene load_steps=11 format=3 uid="uid://bubeuilvqxf2o"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/main_character.gd" id="1_8cylk"]
 [ext_resource type="SpriteFrames" uid="uid://dmt7s23wcpnw6" path="res://Godot/MarioSpriteFrame.tres" id="2_f7kyk"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://x2ofysjyinom" path="res://Godot/point_light_low.tres" id="5_q0ok5"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="5_vusjh"]
 [ext_resource type="AudioStream" uid="uid://ckoup6lp8pdm7" path="res://Assets/SFX/LC_SFX/596. Shovel Swing.mp3" id="8_nh53m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iykkh"]
+radius = 11.625
+height = 52.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3gs6"]
 radius = 12.0
@@ -28,16 +32,16 @@ visibility_layer = 2
 position = Vector2(-4, 0)
 polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, -4, 4, 24)
 
+[node name="Collision_AllFour" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 14.25)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_iykkh")
+debug_color = Color(0.354277, 0.249659, 1, 0.42)
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"Hurt"
-
-[node name="Collision2" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
-disabled = true
-metadata/_edit_lock_ = true
+animation = &"Crawling"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.0883865, 0.618717)

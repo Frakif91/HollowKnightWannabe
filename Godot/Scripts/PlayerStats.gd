@@ -14,6 +14,7 @@ const save_path = "user://gamesave.save"
 	"max_hp"						= 12,
 	"max_bp"						= 15,
 	"SPEED"							= 125.0,
+	"CRAWL_SPEED"					= 20.0,
 	"JUMP_VELOCITY"					= -170.0,
 	"GRAVITY_MULT"					= 1.2,
 	"STOPPING_FRICTION"				= 1000,
@@ -71,6 +72,7 @@ const save_path = "user://gamesave.save"
 
 @export_category("Movement")
 @export var SPEED = 125.0
+@export var CRAWL_SPEED = 30
 @export var JUMP_VELOCITY = -170.0
 @export var GRAVITY_MULT = 1.2
 @export var STOPPING_FRICTION = 1000
@@ -79,8 +81,8 @@ const save_path = "user://gamesave.save"
 @export var ACCELERATION_SPEED_AIRBORN = 500
 @export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
-enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK}
-const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword"]
+enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING}
+const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword","Crawling"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var player : MainCharacter
