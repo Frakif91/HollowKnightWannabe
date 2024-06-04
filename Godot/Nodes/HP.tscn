@@ -25,9 +25,9 @@ anchor_bottom = 0.987654
 grow_vertical = 0
 pivot_offset = Vector2(0, 256)
 border_width = 3.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Health Icon" type="Sprite2D" parent="UI_Health"]
+visible = false
 position = Vector2(0, 256)
 texture = ExtResource("1_7bt3t")
 centered = false
@@ -44,11 +44,13 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_gpjy4")
 
 [node name="BP_10" type="Sprite2D" parent="UI_Health"]
+visible = false
 position = Vector2(152, 176)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_r0ilm")
 
 [node name="BP_01" type="Sprite2D" parent="UI_Health"]
+visible = false
 position = Vector2(192, 176)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_gpjy4")

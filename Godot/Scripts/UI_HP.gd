@@ -40,17 +40,17 @@ func _process(_delta):
 		image_hp_01 = images[int(str(hp)[1])]
 		image_hp_10 = images[int(str(hp)[0])]
 
-	if (bp < 10):
-		image_bp_01 = images[bp]
-		image_bp_10 = images[0]
-	else:
-		image_bp_01 = images[int(str(bp)[1])]
-		image_bp_10 = images[int(str(bp)[0])]
+	#if (bp < 10):
+	#	image_bp_01 = images[bp]
+	#	image_bp_10 = images[0]
+	#else:
+	#	image_bp_01 = images[int(str(bp)[1])]
+	#	image_bp_10 = images[int(str(bp)[0])]
 	
 	$"UI_Health/HP_01".texture = image_hp_01
-	$"UI_Health/BP_01".texture = image_bp_01
+	#$"UI_Health/BP_01".texture = image_bp_01
 	$"UI_Health/HP_10".texture = image_hp_10
-	$"UI_Health/BP_10".texture = image_bp_10
+	#$"UI_Health/BP_10".texture = image_bp_10
 
 	if hide_zeros:
 		if (hp < 10):
@@ -58,10 +58,10 @@ func _process(_delta):
 		else:
 			$"UI_Health/HP_10".visible = true
 		
-		if (bp < 10):
-			$"UI_Health/BP_10".visible = false
-		else:
-			$"UI_Health/BP_10".visible = true
+		#if (bp < 10):
+		#	$"UI_Health/BP_10".visible = false
+		#else:
+		#	$"UI_Health/BP_10".visible = true
 
 	if low_health_effect:
 		if hp < (max_hp*low_percentage):
@@ -70,10 +70,10 @@ func _process(_delta):
 		else:
 			$"UI_Health/HP_01".self_modulate = Color("white")
 			$"UI_Health/HP_10".self_modulate = Color("white")
-	if low_health_effect and affect_BP:
-		if bp < (max_bp*low_percentage):
-			$"UI_Health/BP_01".self_modulate = low_bp_color
-			$"UI_Health/BP_10".self_modulate = low_bp_color
-		else:
-			$"UI_Health/BP_01".self_modulate = Color("white")
-			$"UI_Health/BP_10".self_modulate = Color("white")
+	#if low_health_effect and affect_BP:
+	#	if bp < (max_bp*low_percentage):
+	#		$"UI_Health/BP_01".self_modulate = low_bp_color
+	#		$"UI_Health/BP_10".self_modulate = low_bp_color
+	#	else:
+	#		$"UI_Health/BP_01".self_modulate = Color("white")
+	#		$"UI_Health/BP_10".self_modulate = Color("white")

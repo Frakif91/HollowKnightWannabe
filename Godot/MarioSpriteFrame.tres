@@ -1,9 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://dmt7s23wcpnw6"]
+[gd_resource type="SpriteFrames" load_steps=73 format=3 uid="uid://dmt7s23wcpnw6"]
 
 [ext_resource type="Texture2D" uid="uid://b1as7u2bu3rxm" path="res://Assets/GFX/Mario Juming Sprite Sheets.png" id="1_864oi"]
 [ext_resource type="Texture2D" uid="uid://13ibs55ro1vj" path="res://Assets/GFX/joueur_sprite/spritesheet_hlk_jump.w.stand.png" id="1_vb1mn"]
 [ext_resource type="Texture2D" uid="uid://dexklbigndqvj" path="res://Assets/GFX/Mario Battle Sheet.png" id="2_1d46a"]
 [ext_resource type="Texture2D" uid="uid://ddwl6p1nvkfhg" path="res://Assets/GFX/joueur_sprite/mort.png" id="2_k4hso"]
+[ext_resource type="Texture2D" uid="uid://segfejt8p4ay" path="res://Assets/GFX/joueur_sprite/player_hurt.png" id="5_jc6ti"]
 [ext_resource type="Texture2D" uid="uid://d337j2ygfdw6u" path="res://Assets/GFX/joueur_sprite/sprite_sheet_down.png" id="5_mt5so"]
 [ext_resource type="Texture2D" uid="uid://blqbsteh7iar4" path="res://Assets/GFX/joueur_sprite/IMG_1028-ezgif.com-gif-to-sprite-converter.png" id="6_nxh8u"]
 [ext_resource type="Texture2D" uid="uid://v1iejopiby11" path="res://Assets/GFX/joueur_sprite/spritesheet_hlk.png" id="7_g80kj"]
@@ -65,9 +66,9 @@ region = Rect2(180, 670, 60, 67)
 atlas = ExtResource("2_1d46a")
 region = Rect2(0, 1426, 84, 62)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oce7s"]
-atlas = ExtResource("2_1d46a")
-region = Rect2(168, 1798, 84, 62)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxl66"]
+atlas = ExtResource("5_jc6ti")
+region = Rect2(0, 0, 505, 399)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s47c3"]
 atlas = ExtResource("1_vb1mn")
@@ -327,7 +328,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oce7s")
+"texture": SubResource("AtlasTexture_rxl66")
 }],
 "loop": true,
 "name": &"Hurt",
@@ -494,6 +495,11 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 12.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

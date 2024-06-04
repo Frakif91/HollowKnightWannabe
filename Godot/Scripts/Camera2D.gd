@@ -13,11 +13,15 @@ var menu_visible : bool = false
 @onready var confirmation_window = $"ConfirmationDialog"
 @onready var area_announcer = $"ScreenAnchor/AreaAnnouncer"
 @onready var touch_button = $"ScreenAnchor/TouchButtons"
+@onready var coin_counter = $"ScreenAnchor/UI/Control/CoinTex"
+@onready var coin_player = AudioStreamPlayer.new()
+const coin_sfx = preload("res://Assets/SFX/WU_SE_OBJ_COIN_BOUND.wav")
 
 var rng = RandomNumberGenerator.new()
 var shake_strength : float = 0.0
 
 func _ready():
+	coin_player.stream = coin_sfx
 	if get_tree().current_scene is PlayerCamera:
 		print("Debug Scene")
 		area_announcer.show_title("Camera Test","This is a camera test",3)
@@ -42,6 +46,8 @@ func _process(delta):
 	if shake_strength > 0.05:
 		shake_strength = lerpf(shake_strength,0,shakeFade * delta)
 		offset = randomOffset()
+	else:
+		shake_strength = 0
 	if menu.get_script() == load("res://Godot/Scripts/escape_menu.gd") and not Engine.is_editor_hint():
 		menu_visible = menu.get("is_showed")
 

@@ -286,6 +286,8 @@ fill_to = Vector2(0.504274, 0.115385)
 [sub_resource type="LabelSettings" id="LabelSettings_l1qju"]
 font = ExtResource("7_471ka")
 font_size = 51
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -396,7 +398,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -170.0
+offset_left = -258.0
+offset_right = -88.0
 offset_bottom = 85.0
 grow_horizontal = 0
 
@@ -405,12 +408,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -181.0
+offset_left = -149.0
 offset_top = 13.0
 offset_right = -16.0
 offset_bottom = 64.0
 grow_horizontal = 0
-text = "x 10"
+text = "x10"
 label_settings = SubResource("LabelSettings_l1qju")
 horizontal_alignment = 2
 
@@ -419,10 +422,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -291.0
-offset_top = 1.0
-offset_right = 532.0
-offset_bottom = 784.0
+offset_left = -230.0
+offset_top = -1.0
+offset_right = 593.0
+offset_bottom = 782.0
 grow_horizontal = 0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_78hfn")

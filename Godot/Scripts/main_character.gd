@@ -10,11 +10,12 @@ var is_attacking = false
 var is_in_jump_action = false
 var has_double_jump = true
 var is_dead = false
-var invulnerability_timer = 1.
+var invulnerability_timer = 0.3
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
 var jump_hold = 10 # Number of frames to hold space (to jump higher)
+var in_cutscene = false
 var jump_remaining = 0
 var gameover_load = preload("res://Assets/SFX/lego-breaking.mp3")
 
@@ -92,9 +93,9 @@ func _physics_process(delta):
 			velocity.y = clamp(velocity.y, PlayerStats.wall_slide_max_spd, PlayerStats.wall_slide_min_spd)
 		else:
 			velocity.y += (gravity * delta)
-		if (velocity.y < 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove: # y < 0 = HIGHER
+		if (velocity.y < 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene: # y < 0 = HIGHER
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.JUMP])
-		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove:
+		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
 
 	# Handle jump.
@@ -160,7 +161,7 @@ func _physics_process(delta):
 	if direction:
 		if (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove):
 			if is_on_floor():
-				if not is_attacking:
+				if not is_attacking and not PlayerStats.in_cutscene:
 					sprite.play(anim_name[anim.WALK])
 				velocity.x = move_toward(velocity.x,direction * SPEED, delta * ACCELERATION_SPEED)
 			else:
@@ -168,14 +169,15 @@ func _physics_process(delta):
 	else:
 		if (not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove):
 			if is_on_floor():
-				if not is_attacking:
+				if not is_attacking and not PlayerStats.in_cutscene:
 					sprite.play(anim_name[anim.STAND])
 				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION)
 			else:
 				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
 	
 	if Input.is_action_pressed("Look_Down") and is_on_floor():
-		sprite.play("LookDown")
+		if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
+			sprite.play("LookDown")
 		is_looking_down = true
 		camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
 	else:
@@ -185,7 +187,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Gameover") and is_on_floor() and is_abletomove:
 		on_gameover()
 
-	if not is_on_floor() and position.y > 5000:
+	if not is_on_floor() and position.y > 4000:
 		PlayerStats.hp = 0
 		PlayerStats.camera.apply_shake(5)
 		on_gameover()
@@ -202,6 +204,7 @@ func on_gameover():
 	PlayerStats.gameover.emit()
 	PlayerStats.states["InGameoverState"] = true
 	PlayerStats.is_abletomove = false
+	PlayerStats.in_cutscene = true
 	var gamover_sound = gameover_load.instantiate_playback()
 	sprite.play("Gameover")
 	gameover_player.play()
@@ -274,8 +277,22 @@ func when_hit(damage,object : Node2D = Node2D.new()):
 	if is_dead:
 		on_gameover()
 
-func get_hurt(damage):
-	if not is_invulnerable:
+func get_hurt(damage,use_vulnerability = true):
+	
+	if use_vulnerability:
+		if (not is_invulnerable):
+			PlayerStats.hp -= damage
+			sound.stream = hurt_sound
+			sound.play()
+			sprite.modulate = hurt_color
+			is_invulnerable = true
+			if PlayerStats.hp <= 0:
+				return true
+			Invincibility_Timer.start(invulnerability_timer)
+			await Invincibility_Timer.timeout
+			is_invulnerable = false
+			return false
+	else:
 		PlayerStats.hp -= damage
 		sound.stream = hurt_sound
 		sound.play()

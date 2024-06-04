@@ -93,6 +93,7 @@ var user_local = TranslationServer.get_locale()
 var chosed_local = user_local
 var chosed_local_index = 1
 var timer_stoped = false
+var in_cutscene = false
 @export_category("Others")
 @export var can_attack_and_slide : bool = false
 @export var wall_slide_enabled = false
@@ -125,6 +126,17 @@ var inventory : Dictionary = {
 	"Main Hand"			: 0,
 	"Second Hand"		: 0,
 }
+
+func add_coin(value) -> bool:
+	if not camera:
+		return false
+	for coin in range(value):
+		money += coin
+		camera.coin_player.play()
+		await get_tree().create_timer(0.05).timeout
+	return true
+
+
 
 enum save_types {DEFAULT,GAMEPLAY,ENTIRE,INVENTORY,SCENE}
 
@@ -228,7 +240,8 @@ func load_file(type):
 				printerr("File Doesn't exist !")
 
 
-
+signal remove_coin
+signal get_coin
 signal lose_health
 signal gain_health
 signal gameover

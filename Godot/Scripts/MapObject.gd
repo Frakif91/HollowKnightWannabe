@@ -71,18 +71,34 @@ func _on_body_entered(_body):
 				instructions.visible = true
 				instructions_animation.play("upward")
 		"Spikes":
-			if _body is MainCharacter:
-				PlayerStats.hp -= 1
+			if _body is MainCharacter and not _body.is_invulnerable:
 				PlayerStats.camera.apply_shake(3)
+				Input.vibrate_handheld(200)
+				Input.start_joy_vibration(0,0.5,1,0.2)
+				PlayerStats.hp -= spike_damage
+				sound.stream = hurt_sound
+				sound.play()
+				_body.sprite.modulate = _body.hurt_color
 				if PlayerStats.hp <= 0:
+					_body.velocity = Vector2.ZERO
 					_body.on_gameover()
 				else:
-					_body.position = PlayerStats.safety_checkpoint_pos
-					_body.velocity = Vector2.ZERO
-					#_body.move_and_slide()
+					_body.velocity = Vector2(0,-200)
+					PlayerStats.is_invulnerable = true
+					PlayerStats.is_abletomove = false
+					PlayerStats.in_cutscene = true
+					_body.sprite.play("Hurt")
+					_body.sprite.modulate = PlayerStats.hurt_color
 					sound.stream = PlayerStats.player.hurt_sound
 					sound.play()
-				_body.sprite.modulate = PlayerStats.hurt_color
+					await get_tree().create_timer(0.5).timeout
+					await Transitions.play("fade_bottom_up_in",3)
+					_body.position = PlayerStats.safety_checkpoint_pos
+					PlayerStats.is_abletomove = true
+					PlayerStats.is_invulnerable = false
+					PlayerStats.in_cutscene = true
+					Transitions.play("fade_bottom_up_out",3)
+					#_body.move_and_slide()
 				
 		"Checkpoint":
 			if _body is MainCharacter:

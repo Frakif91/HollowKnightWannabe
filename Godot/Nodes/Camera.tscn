@@ -20,6 +20,8 @@ shader_parameter/shake_color_rate = 0.01
 [sub_resource type="LabelSettings" id="LabelSettings_hov78"]
 font = ExtResource("6_0qbdx")
 font_size = 32
+outline_size = 12
+outline_color = Color(0.125911, 0.125911, 0.125911, 1)
 
 [node name="Camera" type="Camera2D"]
 material = SubResource("ShaderMaterial_ecwrm")
@@ -46,6 +48,7 @@ visible = false
 scale = Vector2(1, 0.9904)
 
 [node name="AreaAnnouncer" parent="ScreenAnchor" instance=ExtResource("5_bnfan")]
+visible = false
 offset_top = -350.0
 offset_bottom = -350.0
 title = "Test"

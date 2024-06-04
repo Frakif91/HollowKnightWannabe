@@ -102,6 +102,7 @@ object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
 interact_scale = Vector2(0.5, 0.5)
 tp_to_scene = "res://Godot/Scene/Shop.tscn"
+tp_fade_animation = "fade_bottom_up_in"
 tp_look_at_the_door = true
 
 [node name="Sprite2D" type="Sprite2D" parent="To the shop"]

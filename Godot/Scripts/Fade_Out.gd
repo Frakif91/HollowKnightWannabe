@@ -9,8 +9,8 @@ signal finished_fadeout
 func _enter_tree():
 	pass
 
-func play(animation : String):
-	animator.play(animation)
+func play(animation : String, speed : float = 1):
+	animator.play(animation,-1,speed)
 	await animator.animation_finished
 	finished_fadeout.emit()
 

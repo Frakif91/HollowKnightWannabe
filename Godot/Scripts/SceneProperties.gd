@@ -17,8 +17,12 @@ class_name SceneProperties
 @onready var background_audio_player : AudioStreamPlayer = get_node(npBGAudio)
 
 func _ready():
-	if !player.is_node_ready():
-		await player.ready
+	if not player:
+		await get_tree().create_timer(0.1).timeout
+		if player:
+			if not player.is_node_ready():
+				await player.ready
+
 	if not do_player_emit_light:
 		player.lowlight.energy = 0
 		player.highlight.energy = 0

@@ -31,14 +31,16 @@ polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, -4
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"Stand"
+animation = &"Hurt"
 
 [node name="Collision2" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, 24, 8, 24, 12, 16, 12, -16, 8, -24, -8, -24, -12, -16, -12, 16)
 disabled = true
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.0883865, 0.618717)
 shape = SubResource("CapsuleShape2D_w3gs6")
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
