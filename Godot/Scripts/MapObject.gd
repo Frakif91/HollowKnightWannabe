@@ -84,7 +84,7 @@ func _on_body_entered(_body):
 					_body.on_gameover()
 				else:
 					_body.velocity = Vector2(0,-200)
-					PlayerStats.is_invulnerable = true
+					_body.is_invulnerable = true
 					PlayerStats.is_abletomove = false
 					PlayerStats.in_cutscene = true
 					_body.sprite.play("Hurt")
@@ -95,8 +95,9 @@ func _on_body_entered(_body):
 					await Transitions.play("fade_bottom_up_in",3)
 					_body.position = PlayerStats.safety_checkpoint_pos
 					PlayerStats.is_abletomove = true
-					PlayerStats.is_invulnerable = false
-					PlayerStats.in_cutscene = true
+					_body.is_invulnerable = false
+					PlayerStats.in_cutscene = false
+					_body.sprite.play("Stand")
 					Transitions.play("fade_bottom_up_out",3)
 					#_body.move_and_slide()
 				
