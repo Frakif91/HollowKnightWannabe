@@ -193,6 +193,7 @@ func load_file(type):
 			money = Default_Variable["money"]
 			is_abletomove = true
 			PlayerStats.states["InGameoverState"] = false
+			PlayerStats.in_cutscene = false
 
 		save_types.GAMEPLAY:
 			print_debug(" GAMEPLAY Variable")

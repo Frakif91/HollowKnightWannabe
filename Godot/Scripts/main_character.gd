@@ -63,6 +63,8 @@ const suffer = [
 @onready var collision_allfour : CollisionShape2D = $"Collision_AllFour"
 
 func _ready():
+	in_cutscene = false
+	crawling = false
 	gameover_player.stream = gameover_load
 	self.add_child(gameover_player)
 	sprite.play("Stand")
@@ -139,7 +141,8 @@ func _physics_process(delta):
 	#region Movement
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
+	var direction = 0
+	direction = Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
 	
 	if sign(direction) == -1: sprite.flip_h = true ; hit_collition.scale.x = -1
 	elif sign(direction) == 1: sprite.flip_h = false ; hit_collition.scale.x = 1
@@ -176,17 +179,15 @@ func _physics_process(delta):
 
 		if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
 			is_looking_down = true
-		if not crawling:
-			if input_direction:
-				crawling = true
-			if is_looking_down:
-				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
-				sprite.play("LookDown")
-		else:
+		if input_direction:
+			crawling = true
 			sprite.play(anim_name[anim.CRAWLING],abs(input_direction))
 			camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y/2,0.05)
 			collision.disabled = true
 			collision_allfour.disabled = false
+		elif is_looking_down:
+				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
+				sprite.play("LookDown")
 	else:
 		camera.offset.y = lerpf(camera.offset.y,0,0.1)
 		collision.disabled = false
@@ -226,6 +227,7 @@ func on_gameover():
 	await wait(2.3)
 	await Transitions.change_scene("reload","fade_out")
 	PlayerStats.load_file(PlayerStats.save_types.DEFAULT)
+	print(is_abletomove)
 
 
 """
