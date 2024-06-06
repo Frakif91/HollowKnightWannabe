@@ -20,6 +20,7 @@ var in_cutscene = false
 var crawling = false
 var jump_remaining = 0
 var gameover_load = preload("res://Assets/SFX/lego-breaking.mp3")
+var direction = 0
 
 var STOPPING_FRICTION = PlayerStats.STOPPING_FRICTION
 var ACCELERATION_SPEED = PlayerStats.ACCELERATION_SPEED
@@ -126,8 +127,9 @@ func _physics_process(delta):
 	if is_on_floor():
 		has_double_jump = true
 
+
 	# Handle Attacks
-	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"] and direction == 0 and not Input.is_action_pressed("look_up"):
 		sprite.play(anim_name[anim.ATTACK])
 		swingSFX.play()
 		hit_collition.disabled = false
@@ -137,18 +139,35 @@ func _physics_process(delta):
 		await wait(0.01)
 		is_attacking = false
 		sprite.play(anim_name[anim.STAND])
-		
+
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"] and direction != 0 and not Input.is_action_pressed("look_up"):
+		sprite.play(anim_name[anim.ATTACKWALK])
+		swingSFX.play()
+		hit_collition.disabled = false
+		is_attacking = true
+		await wait(0.4)
+		hit_collition.disabled = true
+		await wait(0.01)
+		is_attacking = false
+		sprite.play(anim_name[anim.WALK])
+	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"] and direction == 0 and Input.is_action_pressed("look_up"):
+		sprite.play(anim_name[anim.UPATTACK])
+		swingSFX.play()
+		hit_collition.disabled = false
+		is_attacking = true
+		await wait(0.4)
+		hit_collition.disabled = true
+		await wait(0.01)
+		is_attacking = false
 	#region Movement
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = 0
 	direction = Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
-	
 	if sign(direction) == -1: sprite.flip_h = true ; hit_collition.scale.x = -1
 	elif sign(direction) == 1: sprite.flip_h = false ; hit_collition.scale.x = 1
 
-	if is_attacking and (not PlayerStats.can_attack_and_slide):
-		direction = 0
+	#if is_attacking and (not PlayerStats.can_attack_and_slide):
+		#direction = 0
 	if camera.menu_visible:
 		direction = 0
 
