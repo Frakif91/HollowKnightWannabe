@@ -22,7 +22,7 @@ const save_path = "user://gamesave.save"
 	"STOPPING_FRICTION_AIRBORN"		= 10,
 	"ACCELERATION_SPEED_AIRBORN"	= 600,
 	"LOOK_DOWN_Y"					= 50,
-	"can_attack_and_slide" 			= false,
+	#"can_attack_and_slide" 			= true,
 	"wall_slide_enabled" 			= false,
  	"wall_slide_percentage" 		= 0.2,
 	"wall_slide_min_spd" 			= 50.0,
@@ -81,8 +81,8 @@ const save_path = "user://gamesave.save"
 @export var ACCELERATION_SPEED_AIRBORN = 500
 @export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
-enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING}
-const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword","Crawling"]
+enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING, ATTACKWALK,UPATTACK}
+const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword","Crawling","attack_en_marchant","attack_up"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var player : MainCharacter

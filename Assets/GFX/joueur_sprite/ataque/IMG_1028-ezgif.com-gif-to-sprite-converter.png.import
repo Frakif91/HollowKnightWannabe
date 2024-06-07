@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blqbsteh7iar4"
-path="res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-7c3de98745b9463803225712c2aefacb.ctex"
+path="res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-1dbf3287c0f9a991dcc62e3322e88b58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/IMG_1028-ezgif.com-gif-to-sprite-converter.png"
-dest_files=["res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-7c3de98745b9463803225712c2aefacb.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/ataque/IMG_1028-ezgif.com-gif-to-sprite-converter.png"
+dest_files=["res://.godot/imported/IMG_1028-ezgif.com-gif-to-sprite-converter.png-1dbf3287c0f9a991dcc62e3322e88b58.ctex"]
 
 [params]
 

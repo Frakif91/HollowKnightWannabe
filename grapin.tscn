@@ -21,6 +21,7 @@ texture = SubResource("NoiseTexture2D_1vsh6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.15922, 1.00276)
 shape = SubResource("RectangleShape2D_46ecb")
+debug_color = Color(1.34766e-06, 0.564591, 0.868854, 0.42)
 
 [node name="Indicator" type="Sprite2D" parent="."]
 position = Vector2(2.38419e-07, 2.38419e-07)

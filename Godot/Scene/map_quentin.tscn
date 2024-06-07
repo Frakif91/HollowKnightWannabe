@@ -154,7 +154,7 @@ scale = Vector2(0.83197, 0.914654)
 reward_count = 15
 
 [node name="Roach" parent="." instance=ExtResource("11_bt2k3")]
-position = Vector2(47, 882)
+position = Vector2(125, 1139)
 scale = Vector2(0.1, 0.1)
 
 [node name="Mario" parent="." instance=ExtResource("2_1a3nc")]

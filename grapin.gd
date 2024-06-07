@@ -4,7 +4,7 @@ var shoot_time = 0.1
 var cooldown = 0.5
 var direction = Vector2.ZERO
 var shooting = false
-var speed = 300
+var speed = 500
 var progression = 0
 
 @onready var direction_indicator = $"Indicator"
@@ -32,6 +32,7 @@ func _process(delta):
 	if shooting:
 		progression += 1
 		position = PlayerStats.player.position
+		#print(direction,speed,progression)
 		velocity = direction * speed * progression
 		move()
 
