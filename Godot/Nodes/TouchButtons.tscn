@@ -24,15 +24,17 @@ scale = Vector2(0.558594, 0.558594)
 texture_normal = ExtResource("1_caftl")
 texture_pressed = ExtResource("1_caftl")
 shape = SubResource("RectangleShape2D_1mi86")
+passby_press = true
 action = "Move_right"
 visibility_mode = 1
 script = ExtResource("1_yxlah")
 
-[node name="RIGHTBUTTON2" type="TouchScreenButton" parent="."]
+[node name="LEFTBUTTON" type="TouchScreenButton" parent="."]
 position = Vector2(43, 461)
 scale = Vector2(0.558594, 0.558594)
 texture_normal = ExtResource("2_n5pmf")
 shape = SubResource("RectangleShape2D_1mi86")
+passby_press = true
 action = "Move_Left"
 visibility_mode = 1
 script = ExtResource("1_yxlah")
@@ -42,6 +44,7 @@ position = Vector2(191, 527)
 scale = Vector2(0.300781, 0.308594)
 texture_normal = ExtResource("3_mvcaf")
 shape = SubResource("RectangleShape2D_av4rk")
+passby_press = true
 action = "Look_Down"
 visibility_mode = 1
 script = ExtResource("1_yxlah")
