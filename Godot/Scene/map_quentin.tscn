@@ -194,7 +194,9 @@ position = Vector2(1262, 1039)
 script = ExtResource("15_hox65")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -20)
+tp_to_scene = "res://Godot/Scene/tuto_scene.tscn"
 tp_fade_animation = "fade_right_left_in"
+tp_pos = Vector2(104, 360)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/TP_MapTuto"]
 position = Vector2(1.5, -24.5)
@@ -257,6 +259,16 @@ script = ExtResource("15_hox65")
 object_type = "Checkpoint"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint8"]
+position = Vector2(4.5, -33)
+shape = SubResource("RectangleShape2D_w5eou")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="Checkpoint10" type="Area2D" parent="MapObjects"]
+position = Vector2(589.59, 908.991)
+script = ExtResource("15_hox65")
+object_type = "Checkpoint"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/Checkpoint10"]
 position = Vector2(4.5, -33)
 shape = SubResource("RectangleShape2D_w5eou")
 debug_color = Color(0, 0.648632, 0.174227, 0.42)

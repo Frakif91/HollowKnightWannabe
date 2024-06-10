@@ -1,0 +1,211 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxbq2lfbuf3kl"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour.gd" id="1_e4btn"]
+[ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="2_n1283"]
+[ext_resource type="AudioStream" uid="uid://cptvxa074f0co" path="res://Assets/Music/TLOZ-TW_Boutique.mp3" id="3_4i07k"]
+[ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="4_ixftl"]
+[ext_resource type="Script" path="res://Godot/Scripts/LightBehaviour.gd" id="5_4mdwh"]
+[ext_resource type="Theme" uid="uid://bdgwcurxul1wa" path="res://shop_theme.tres" id="6_u6haq"]
+[ext_resource type="FontFile" uid="uid://hypo2b0odnw2" path="res://Assets/Fonts/The Wild Breath of Zelda.otf" id="7_8b1fc"]
+[ext_resource type="Texture2D" uid="uid://cracad6crkkkc" path="res://Assets/GFX/Right_Button.png" id="8_0kmel"]
+[ext_resource type="Texture2D" uid="uid://cnpjvi0xjcvdn" path="res://Assets/GFX/Interact_Button.png" id="9_npllf"]
+[ext_resource type="AudioStream" uid="uid://b6s8qa1qm7od8" path="res://Assets/SFX/minecraft_click.mp3" id="10_rak7t"]
+[ext_resource type="AudioStream" uid="uid://clxu747fpwwml" path="res://Assets/SFX/DR_SFX/sys_talk_sfx.mp3" id="11_d0few"]
+[ext_resource type="AudioStream" uid="uid://dtvi1p5cm4pq1" path="res://Assets/SFX/Mario_&_Luigi_DT_Heal.ogg" id="12_l8322"]
+[ext_resource type="Texture2D" uid="uid://b7wu2873aa1lt" path="res://Assets/GFX/Car_shop.png" id="13_74djg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_431r6"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_o4wbj"]
+font = ExtResource("7_8b1fc")
+font_size = 68
+outline_size = 10
+outline_color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[sub_resource type="Gradient" id="Gradient_6h0y8"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.107143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2d0ga"]
+gradient = SubResource("Gradient_6h0y8")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="ShopUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4btn")
+
+[node name="ShopUi" type="Sprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(0.5755, 0.432667)
+texture = ExtResource("2_n1283")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4i07k")
+autoplay = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(173, 146)
+scale = Vector2(8.23532, 8.23532)
+energy = 0.995374
+texture = ExtResource("4_ixftl")
+texture_scale = 0.7
+script = ExtResource("5_4mdwh")
+min_light = 0.1
+max_light = 1.2
+step_light = 200.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(506, 125)
+scale = Vector2(8.23532, 8.23532)
+energy = 5.0
+texture = ExtResource("4_ixftl")
+texture_scale = 0.7
+script = ExtResource("5_4mdwh")
+min_light = 0.1
+max_light = 5.0
+step_light = 1000.0
+power_light = 60.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 369.0
+offset_right = 1144.0
+offset_bottom = 644.0
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 1123.0
+offset_top = -287.0
+offset_right = 1136.0
+offset_bottom = 280.0
+theme = ExtResource("6_u6haq")
+
+[node name="PanelName" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -71.0
+offset_right = 172.0
+offset_bottom = 25.0
+theme = ExtResource("6_u6haq")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = -287.0
+offset_right = 1131.0
+offset_bottom = 28.0
+theme = ExtResource("6_u6haq")
+
+[node name="Text" type="Label" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -529.0
+offset_top = -216.0
+offset_right = 376.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SHOP_HI"
+label_settings = SubResource("LabelSettings_431r6")
+autowrap_mode = 3
+text_overrun_behavior = 4
+language = "en"
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = -9.0
+offset_top = -62.0
+offset_right = 164.0
+offset_bottom = 17.0
+text = "CAR"
+label_settings = SubResource("LabelSettings_o4wbj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -81.0
+offset_right = -12.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 2
+icon = ExtResource("8_0kmel")
+expand_icon = true
+
+[node name="Pass Button" type="TouchScreenButton" parent="Control"]
+position = Vector2(1044, 112)
+scale = Vector2(0.28125, 0.28125)
+texture_normal = ExtResource("9_npllf")
+texture_pressed = SubResource("GradientTexture2D_2d0ga")
+action = "Interact"
+visibility_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.788
+anchor_top = 0.14
+anchor_right = 0.988
+anchor_bottom = 0.64
+offset_left = 0.223999
+offset_top = 1.28
+offset_right = -0.176025
+offset_bottom = -23.72
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_u6haq")
+text = "HEAL_BUTTON"
+
+[node name="AskText" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("6_u6haq")
+text = "SHOP_Q7"
+
+[node name="SelectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rak7t")
+
+[node name="Talk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d0few")
+
+[node name="HealSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l8322")
+
+[node name="CarShop" type="Sprite2D" parent="."]
+position = Vector2(587.933, 225.703)
+scale = Vector2(0.574625, 0.574625)
+texture = ExtResource("13_74djg")
+
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/HealButton" to="." method="_on_heal_button"]
+[connection signal="pressed" from="GridContainer/AskText" to="." method="_on_guard_qna"]
