@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bxbq2lfbuf3kl"]
 
-[ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour.gd" id="1_e4btn"]
+[ext_resource type="Script" path="res://Godot/Scripts/shop_behaviour_car.gd" id="1_1qlt5"]
 [ext_resource type="Texture2D" uid="uid://bt80jn3gnx1bg" path="res://Assets/GFX/shop_ui.png" id="2_n1283"]
 [ext_resource type="AudioStream" uid="uid://cptvxa074f0co" path="res://Assets/Music/TLOZ-TW_Boutique.mp3" id="3_4i07k"]
 [ext_resource type="Texture2D" uid="uid://c7xuhf10f8qv3" path="res://Godot/point_light_high.tres" id="4_ixftl"]
@@ -42,12 +42,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e4btn")
+script = ExtResource("1_1qlt5")
 
 [node name="ShopUi" type="Sprite2D" parent="."]
 position = Vector2(576, 325)
 scale = Vector2(0.5755, 0.432667)
 texture = ExtResource("2_n1283")
+
+[node name="CarShop" type="Sprite2D" parent="."]
+position = Vector2(671, 253)
+scale = Vector2(0.856714, 0.856714)
+texture = ExtResource("13_74djg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 355.0
+offset_right = 1150.0
+offset_bottom = 651.0
+theme = ExtResource("6_u6haq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4i07k")
@@ -56,7 +69,7 @@ autoplay = true
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(173, 146)
 scale = Vector2(8.23532, 8.23532)
-energy = 0.995374
+energy = 1.15815
 texture = ExtResource("4_ixftl")
 texture_scale = 0.7
 script = ExtResource("5_4mdwh")
@@ -68,7 +81,7 @@ step_light = 200.0
 visible = false
 position = Vector2(506, 125)
 scale = Vector2(8.23532, 8.23532)
-energy = 5.0
+energy = 4.3147
 texture = ExtResource("4_ixftl")
 texture_scale = 0.7
 script = ExtResource("5_4mdwh")
@@ -200,11 +213,6 @@ stream = ExtResource("11_d0few")
 
 [node name="HealSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l8322")
-
-[node name="CarShop" type="Sprite2D" parent="."]
-position = Vector2(587.933, 225.703)
-scale = Vector2(0.574625, 0.574625)
-texture = ExtResource("13_74djg")
 
 [connection signal="pressed" from="Control/QuitButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GridContainer/HealButton" to="." method="_on_heal_button"]

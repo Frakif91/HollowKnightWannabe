@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="4_tdvxj"]
 [ext_resource type="AudioStream" uid="uid://b7hwqioqmvl36" path="res://Assets/Music/HKM3_boss_song.mp3" id="6_fw6py"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_be8pd"]
-[ext_resource type="PackedScene" path="res://Godot/Scene/porte.tscn" id="8_xmnir"]
+[ext_resource type="PackedScene" uid="uid://casdmtl36ij64" path="res://Godot/Scene/porte.tscn" id="8_xmnir"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_h2prk"]
 [ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="9_ogms8"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_bt2k3"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c164oy5rxp026" path="res://Assets/GFX/IMG_1033.png" id="13_7ig4k"]
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="15_hox65"]
 [ext_resource type="AudioStream" uid="uid://b7p2rhxuabu6m" path="res://Assets/SFX/139-item-catch.mp3" id="19_61n1b"]
-[ext_resource type="PackedScene" path="res://Godot/Nodes/porte_interactible.tscn" id="19_to7wp"]
+[ext_resource type="PackedScene" uid="uid://bbg7qtmj4k87l" path="res://Godot/Nodes/porte_interactible.tscn" id="19_to7wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wehwd"]
 size = Vector2(20, 77)
