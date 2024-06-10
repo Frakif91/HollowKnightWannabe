@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwqa0o8vsoy0n"
-path="res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"
+uid="uid://drmx2deqwgruj"
+path="res://.godot/imported/marche boss.png-6dd040735d802b9bca14646ff077ba55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/ataque/IMG_1052-ezgif.com-gif-to-sprite-converter.png"
-dest_files=["res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"]
+source_file="res://Assets/GFX/Enemies/chevailier desous de simetire/marche boss.png"
+dest_files=["res://.godot/imported/marche boss.png-6dd040735d802b9bca14646ff077ba55.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwqa0o8vsoy0n"
-path="res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"
+uid="uid://b1376wdrr5jad"
+path="res://.godot/imported/coup de pie boos.png-9f997bf00e0e5fb272f66396afec6c13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/ataque/IMG_1052-ezgif.com-gif-to-sprite-converter.png"
-dest_files=["res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"]
+source_file="res://Assets/GFX/Enemies/chevailier desous de simetire/coup de pie boos.png"
+dest_files=["res://.godot/imported/coup de pie boos.png-9f997bf00e0e5fb272f66396afec6c13.ctex"]
 
 [params]
 

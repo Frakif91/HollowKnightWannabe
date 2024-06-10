@@ -26,16 +26,11 @@ collision_mask = 2
 script = ExtResource("2_k8n8l")
 
 [node name="Attack_Area" type="CollisionPolygon2D" parent="Col_Hit"]
+visible = false
 light_mask = 2
 visibility_layer = 2
 position = Vector2(-4, 0)
 polygon = PackedVector2Array(12, 24, 24, 20, 32, 12, 36, 4, 36, 0, 24, -4, 4, -4, 4, 24)
-
-[node name="Attack_Run_Area" type="CollisionPolygon2D" parent="Col_Hit"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-4, 0)
-polygon = PackedVector2Array(-12.8004, 25.0421, 21.1303, 27.6217, 27.6783, 23.6532, 36, 4, 36, 0, 24, -4, 4, -4, -17.761, 15.5177)
 
 [node name="Collision_AllFour" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 14.25)
@@ -47,14 +42,23 @@ debug_color = Color(0.354277, 0.249659, 1, 0.42)
 position = Vector2(1, 1)
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"attack_en_marchant"
-frame_progress = 0.0013654
+animation = &"Swing_Sword"
+frame = 5
+frame_progress = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.0883865, 0.618717)
 shape = SubResource("CapsuleShape2D_w3gs6")
 
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mrnn2")
+volume_db = -14.0
+
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="LowEffectSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lin24")
+volume_db = -20.0
 
 [node name="LowLight" type="PointLight2D" parent="."]
 visible = false
@@ -71,19 +75,9 @@ shadow_filter_smooth = 10.1
 texture = ExtResource("5_vusjh")
 texture_scale = 7.0
 
-[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_mrnn2")
-volume_db = -14.0
-
-[node name="LowEffectSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_lin24")
-volume_db = -30.0
-
 [node name="Sound" type="AudioStreamPlayer" parent="."]
-
-[node name="SwingSwordSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_nh53m")
 
 [node name="ITimer" type="Timer" parent="."]
 
-[node name="ITimer2" type="Timer" parent="."]
+[node name="SwingSwordSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nh53m")

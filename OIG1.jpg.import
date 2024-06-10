@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwqa0o8vsoy0n"
-path="res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"
+uid="uid://d2huormaxb2j1"
+path="res://.godot/imported/OIG1.jpg-e61b656efa88b85d87a2103f59680484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/ataque/IMG_1052-ezgif.com-gif-to-sprite-converter.png"
-dest_files=["res://.godot/imported/IMG_1052-ezgif.com-gif-to-sprite-converter.png-da9ffbff2d5a0be34678305de2414899.ctex"]
+source_file="res://OIG1.jpg"
+dest_files=["res://.godot/imported/OIG1.jpg-e61b656efa88b85d87a2103f59680484.ctex"]
 
 [params]
 

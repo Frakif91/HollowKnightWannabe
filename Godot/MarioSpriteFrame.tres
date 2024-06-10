@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://v1iejopiby11" path="res://Assets/GFX/joueur_sprite/spritesheet_hlk.png" id="7_g80kj"]
 [ext_resource type="Texture2D" uid="uid://blqbsteh7iar4" path="res://Assets/GFX/joueur_sprite/ataque/IMG_1028-ezgif.com-gif-to-sprite-converter.png" id="8_lr0ri"]
 [ext_resource type="Texture2D" uid="uid://dgefuejhkj1qd" path="res://Assets/GFX/joueur_sprite/ataque/IMG_1053-ezgif.com-gif-to-sprite-converter.png" id="10_klotv"]
-[ext_resource type="Texture2D" uid="uid://pgdla0anaxbt" path="res://Assets/GFX/joueur_sprite/ataque/IMG_1052-ezgif.com-gif-to-sprite-converter.png" id="11_n52wp"]
+[ext_resource type="Texture2D" uid="uid://cwqa0o8vsoy0n" path="res://Assets/GFX/joueur_sprite/ataque/IMG_1052-ezgif.com-gif-to-sprite-converter.png" id="11_n52wp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_831km"]
 atlas = ExtResource("1_iqswm")

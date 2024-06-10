@@ -3,9 +3,6 @@ extends CharacterBody2D
 class_name MainCharacter
 #var point_de_sovgarde = Vector2.ZERO
 #region variable
-var CRAWL_VERSION = 1
-enum CRAWL_VERSIONS {MATHIS,FLORENT}
-
 var SPEED = PlayerStats.SPEED
 var CRAWL_SPEED = PlayerStats.CRAWL_SPEED
 var JUMP_VELOCITY = PlayerStats.JUMP_VELOCITY
@@ -14,7 +11,7 @@ var is_attacking = false
 var is_in_jump_action = false
 var has_double_jump = true
 var is_dead = false
-var invulnerability_timer = 0.5
+var invulnerability_timer = 0.3
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color : Color = Color(1,0,0)
@@ -195,46 +192,25 @@ func _physics_process(delta):
 			else:
 				velocity.x = move_toward(velocity.x, 0, delta * STOPPING_FRICTION_AIRBORN)
 
-	if CRAWL_VERSION == CRAWL_VERSIONS.FLORENT:
-		if Input.is_action_pressed(&"Look_Down") and is_on_floor():
-			var input_direction =  Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
+	
+	if Input.is_action_pressed(&"Look_Down") and is_on_floor():
+		var input_direction =  Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
 
-			if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
-				is_looking_down = true
-			if input_direction:
-				crawling = true
-				sprite.play(anim_name[anim.CRAWLING],abs(input_direction))
-				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y/2,0.05)
-				collision.disabled = true
-				collision_allfour.disabled = false
-			elif is_looking_down:
-					camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
-					sprite.play("LookDown")
-		else:
-			camera.offset.y = lerpf(camera.offset.y,0,0.1)
-			collision.disabled = false
-			collision_allfour.disabled = true
-	elif CRAWL_VERSION == CRAWL_VERSIONS.MATHIS:
-		if Input.is_action_pressed(&"Look_Down") and is_on_floor():
-			var input_direction =  Input.get_axis("Move_Left", "Move_right") * (is_abletomove as float)
-
-			if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
-				is_looking_down = true
-			if not crawling:
-				if input_direction:
-					crawling = true
-				if is_looking_down:
-					camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
-					sprite.play("LookDown")
-			else:
-				sprite.play(anim_name[anim.CRAWLING],abs(input_direction))
-				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y/2,0.05)
-				collision.disabled = true
-				collision_allfour.disabled = false
-		else:
-			camera.offset.y = lerpf(camera.offset.y,0,0.1)
-			collision.disabled = false
-			collision_allfour.disabled = true
+		if PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
+			is_looking_down = true
+		if input_direction:
+			crawling = true
+			sprite.play(anim_name[anim.CRAWLING],abs(input_direction))
+			camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y/2,0.05)
+			collision.disabled = true
+			collision_allfour.disabled = false
+		elif is_looking_down:
+				camera.offset.y = lerpf(camera.offset.y,LOOK_DOWN_Y,0.1)
+				sprite.play("LookDown")
+	else:
+		camera.offset.y = lerpf(camera.offset.y,0,0.1)
+		collision.disabled = false
+		collision_allfour.disabled = true
 
 	#region Handle Other Things
 	
