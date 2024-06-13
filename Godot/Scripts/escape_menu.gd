@@ -26,9 +26,7 @@ func _ready():
 			i += 1
 			if PlayerStats.chosed_local_index == i:
 				PlayerStats.chosed_local = lang
-	
-	if scene_file_path == "res://Godot/Scene/debug_menu.tscn":
-		Transitions.play("Hide")
+
 	$MenuBar/Menu/MarginContainer/QuitButton.pressed.connect(when_quit)
 	$MenuBar/Menu/MarginContainer/Resume.pressed.connect(when_resume)
 	$"../ConfirmationDialog".confirmed.connect(_quit)
@@ -86,6 +84,8 @@ func TP_But5():
 	teleporting(5)
 func TP_But6():
 	teleporting(6)
+func TP_But7():
+	teleporting(7)
 
 func _save_game_state():
 	$"MenuBar/Options/MarginContainer/SaveSFX".play()
@@ -118,6 +118,8 @@ func teleporting(index: int):
 			file = "tuto_scene.tscn"
 		6:
 			file = "laboratoir de bob.tscn"
+		7:
+			file = "SteamTest.tscn"
 		_:
 			file = "title.tscn"
 	Transitions.play("RESET")

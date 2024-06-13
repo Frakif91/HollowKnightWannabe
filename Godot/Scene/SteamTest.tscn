@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://tyg7tlspw255"]
+
+[ext_resource type="Theme" uid="uid://u1hl8ir320oa" path="res://Godot/debug_menu_theme_basic.tres" id="1_m2h8t"]
+[ext_resource type="Script" path="res://Godot/Scripts/SteamTest.gd" id="2_5ltg3"]
+[ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="2_ngq7o"]
+[ext_resource type="Texture2D" uid="uid://braiwgqxyun01" path="res://icon.svg" id="3_cx8u3"]
+
+[node name="SteamTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m2h8t")
+script = ExtResource("2_5ltg3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Welcome to Steam API Test !"
+label_settings = ExtResource("2_ngq7o")
+
+[node name="SteamPower" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -140.0
+offset_right = 97.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your Steam is currently..."
+
+[node name="ProfileCardPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -64.0
+offset_right = 250.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[node name="SteamIcon" type="TextureRect" parent="ProfileCardPanel"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("3_cx8u3")
+
+[node name="SteamName" type="RichTextLabel" parent="ProfileCardPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -182.81
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Steam User Name"
+context_menu_enabled = true
+metadata/_edit_use_anchors_ = true

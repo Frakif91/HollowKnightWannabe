@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cb4ogd82yrpqx"]
+[gd_scene load_steps=35 format=3 uid="uid://bnwsc7pfot12a"]
 
 [ext_resource type="Texture2D" uid="uid://dtbkxehamw548" path="res://Assets/GFX/Tileset/tilset_tuto.png" id="1_qmtfc"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_6n682"]
