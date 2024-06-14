@@ -1,9 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://tgdu2xr3p1ix"]
+[gd_scene load_steps=31 format=3 uid="uid://tgdu2xr3p1ix"]
 
 [ext_resource type="Texture2D" uid="uid://c8e8ldifk77nl" path="res://Assets/map/fond cimetire soutérin.png" id="1_3g1hs"]
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="1_4ojid"]
 [ext_resource type="Texture2D" uid="uid://cyhvvjpioxutm" path="res://Assets/GFX/fond_cimetier.png" id="1_m340d"]
-[ext_resource type="Texture2D" uid="uid://d2mggu1bh2ijs" path="res://Assets/map/IMG_1017.png" id="1_wt8wl"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_1a3nc"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_bwo3r"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_t3m54"]
@@ -87,7 +86,6 @@ metadata/_edit_lock_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(674, 806)
 scale = Vector2(0.658203, 0.675)
-texture = ExtResource("1_wt8wl")
 
 [node name="Musique" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fw6py")

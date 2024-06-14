@@ -10,7 +10,6 @@ func _on_area_2d_body_entered(body):
 		premire_position = position
 func _physics_process(delta):
 	if toucher == true:
-		print(velocity)
 		velocity = direction
 		move_and_slide()
 		if velocity == Vector2.ZERO:

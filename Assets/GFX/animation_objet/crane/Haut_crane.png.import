@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2mggu1bh2ijs"
-path="res://.godot/imported/IMG_1017.png-e873425371daf8caeb69f3a79422d768.ctex"
+uid="uid://q1xbyuh6gcqd"
+path="res://.godot/imported/Haut_crane.png-8a0bdb3754061ffba1c6aad6f0e17d5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/map/IMG_1017.png"
-dest_files=["res://.godot/imported/IMG_1017.png-e873425371daf8caeb69f3a79422d768.ctex"]
+source_file="res://Assets/GFX/animation_objet/crane/Haut_crane.png"
+dest_files=["res://.godot/imported/Haut_crane.png-8a0bdb3754061ffba1c6aad6f0e17d5b.ctex"]
 
 [params]
 

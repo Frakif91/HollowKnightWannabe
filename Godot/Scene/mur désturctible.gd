@@ -11,11 +11,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("Attack") and proche == true:
 		queue_free()
 
-
-
-
-
-
 func _body_entered(body):
 	if body is MainCharacter:
 		proche = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://els3vjexjhof"
-path="res://.godot/imported/map cline.png-1288baccbd9a0eeaa7bcd4ce78196462.ctex"
+uid="uid://cqyklmd4cs8sl"
+path="res://.godot/imported/IMG_1060.png-9bf781ce3854ff3c1ba69ca9b743d64c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/map/map cline.png"
-dest_files=["res://.godot/imported/map cline.png-1288baccbd9a0eeaa7bcd4ce78196462.ctex"]
+source_file="res://Assets/map/surfasse/IMG_1060.png"
+dest_files=["res://.godot/imported/IMG_1060.png-9bf781ce3854ff3c1ba69ca9b743d64c.ctex"]
 
 [params]
 

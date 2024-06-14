@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://de0gk8lo15bab"]
+[gd_scene load_steps=9 format=3 uid="uid://de0gk8lo15bab"]
 
+[ext_resource type="Texture2D" uid="uid://doeau5pxl4sv7" path="res://icon.png" id="1_chj0f"]
 [ext_resource type="Texture2D" uid="uid://cioglqvkl36vv" path="res://Assets/GFX/Tileset/test_tileset_grass.png" id="1_pgrid"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="2_4dl67"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_3qgj5"]
@@ -503,6 +504,14 @@ sources/0 = SubResource("TileSetAtlasSource_mu4ey")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(101, 35)
+rotation = 1.05282
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.0830534, 0.0801451)
+texture = ExtResource("1_chj0f")
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_2gclx")
@@ -510,7 +519,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524299, 393216, 2, 524300, 589824, 4, 524301, 327680, 2, 589837, 589824, 4, 589836, 589824, 4, 589835, 65536, 1, 589834, 589824, 4, 589833, 589824, 4, 589832, 589824, 4, 589831, 65536, 1, 589830, 589824, 4, 589829, 65536, 1, 589828, 589824, 4, 589827, 589824, 4, 589826, 65536, 1, 589825, 589824, 4, 655361, 65536, 2, 655360, 0, 2, 589824, 0, 1, 655362, 65536, 2, 655363, 65536, 2, 655364, 65536, 2, 655365, 65536, 2, 655366, 65536, 2, 655367, 65536, 2, 655368, 65536, 2, 655369, 65536, 2, 655370, 65536, 2, 655371, 65536, 2, 655372, 65536, 2, 655373, 65536, 2, 655374, 131072, 2, 589838, 131072, 1, 524302, 131072, 0, 458763, 0, 1, 393227, 0, 1, 327691, 0, 1, 262155, 0, 1, 262156, 589824, 4, 262157, 131072, 1, 327693, 131072, 1, 393229, 131072, 1, 393228, 589824, 4, 458764, 589824, 4, 327692, 589824, 4, 458765, 131072, 1, 196619, 0, 1, 131083, 0, 1, 131084, 589824, 4, 65548, 65536, 1, 196620, 65536, 1, 196621, 131072, 1, 131085, 131072, 1, 65549, 131072, 1, 13, 131072, 0, 65547, 0, 1, 12, 65536, 0, 11, 0, 0)
 
 [node name="Mario" parent="." instance=ExtResource("2_4dl67")]
-position = Vector2(79, 77)
+position = Vector2(77, 81)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
@@ -525,7 +534,14 @@ limit_bottom = 9546
 editor_draw_drag_margin = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_v84nu")]
-position = Vector2(-61, -44)
+position = Vector2(126, 79)
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(126, 79)
+rotation = 2.62888
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+stiffness = 64.0
 
 [node name="SceneProperties" type="Node" parent="."]
 script = ExtResource("5_wt68k")

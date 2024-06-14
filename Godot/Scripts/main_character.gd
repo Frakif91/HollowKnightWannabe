@@ -90,6 +90,9 @@ func _process(delta):
 	)
 
 func _physics_process(delta):
+	if is_on_floor() and is_on_ceiling():
+		print("a")
+		on_gameover()
 	#not finished
 	PlayerStats.states["IsWallSliding"] = is_on_wall_only()	
 
