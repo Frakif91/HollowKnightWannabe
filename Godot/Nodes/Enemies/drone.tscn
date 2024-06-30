@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://bmdoge7h26456"]
+
+[ext_resource type="Script" path="res://Godot/Scripts/Roach.gd" id="1_wnjwo"]
+[ext_resource type="Texture2D" uid="uid://dwcigdbbiuq8" path="res://Assets/GFX/Enemies/tire-.png" id="2_v35i8"]
+[ext_resource type="Texture2D" uid="uid://b4coijpdf7pqv" path="res://Assets/GFX/Enemies/énemit-volent.png" id="3_edcyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x0d8"]
+size = Vector2(219, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmi2p"]
+atlas = ExtResource("2_v35i8")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq87u"]
+atlas = ExtResource("2_v35i8")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr14c"]
+atlas = ExtResource("2_v35i8")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sae0a"]
+atlas = ExtResource("2_v35i8")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20qgc"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_equvf"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uf55"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbnan"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pvs1"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocxhs"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oletn"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c502"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tarl4"]
+atlas = ExtResource("3_edcyl")
+region = Rect2(3072, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shhfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmi2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq87u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr14c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sae0a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20qgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_equvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uf55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbnan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pvs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocxhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oletn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c502")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tarl4")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uiyqa"]
+size = Vector2(232, 164)
+
+[node name="Ennemies" type="CharacterBody2D"]
+script = ExtResource("1_wnjwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14.5, -86)
+shape = SubResource("RectangleShape2D_0x0d8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(76, -18)
+sprite_frames = SubResource("SpriteFrames_shhfy")
+
+[node name="Damage_Trigger" type="Area2D" parent="."]
+scale = Vector2(1.29114, -7.1534)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Damage_Area" type="CollisionShape2D" parent="Damage_Trigger"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_uiyqa")
+debug_color = Color(0.959195, 0.203621, 5.77569e-07, 0.42)

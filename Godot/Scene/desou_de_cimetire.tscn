@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://casdmtl36ij64" path="res://Godot/Scene/porte.tscn" id="7_008u5"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_uju76"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_wsanw"]
-[ext_resource type="Texture2D" uid="uid://cjw8d7volxfhx" path="res://Assets/map/IMG_1015.png" id="10_yg332"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="11_vi6oo"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="12_2uvdi"]
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="13_1tsnt"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bbg7qtmj4k87l" path="res://Godot/Nodes/porte_interactible.tscn" id="17_rujlg"]
 [ext_resource type="AudioStream" uid="uid://b7p2rhxuabu6m" path="res://Assets/SFX/139-item-catch.mp3" id="18_qv8tg"]
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="19_86ix7"]
+[ext_resource type="Texture2D" uid="uid://dk02iqh438x6j" path="res://Assets/map/Squelette.png" id="20_01isk"]
 [ext_resource type="Texture2D" uid="uid://q1xbyuh6gcqd" path="res://Assets/GFX/animation_objet/crane/Haut_crane.png" id="20_vbe7p"]
 [ext_resource type="PackedScene" uid="uid://4dp3ef2a2s7o" path="res://Godot/Nodes/chevailier_cimetire.tscn" id="20_vqfyv"]
 [ext_resource type="Texture2D" uid="uid://bm0lgs81e870o" path="res://Assets/GFX/animation_objet/crane/bas_crane.png" id="21_3rrjg"]
@@ -85,9 +85,9 @@ scale = Vector2(0.658203, 0.675)
 texture = ExtResource("3_7m2a4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(505, 142)
+position = Vector2(376, 193)
 rotation = 3.14159
-scale = Vector2(0.317208, 0.317208)
+scale = Vector2(0.251741, 0.251741)
 texture = ExtResource("4_2ldfx")
 
 [node name="Musique" type="AudioStreamPlayer" parent="."]
@@ -133,11 +133,6 @@ texture = ExtResource("8_uju76")
 position = Vector2(629, 829)
 scale = Vector2(0.557453, 0.593744)
 texture = ExtResource("9_wsanw")
-
-[node name="cofre" type="Sprite2D" parent="."]
-position = Vector2(692, 785)
-scale = Vector2(0.634735, 0.55013)
-texture = ExtResource("10_yg332")
 
 [node name="Chest" parent="." instance=ExtResource("11_vi6oo")]
 position = Vector2(423, 711)
@@ -317,15 +312,20 @@ do_player_emit_light = false
 position = Vector2(-16, 1134)
 scale = Vector2(0.185525, 0.185525)
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(413, 828)
+scale = Vector2(0.447, 0.458407)
+texture = ExtResource("20_01isk")
+
 [node name="haut_crane" type="Sprite2D" parent="."]
-position = Vector2(641, 918)
+position = Vector2(488, 912)
 rotation = 0.187894
-scale = Vector2(0.658203, 0.675)
+scale = Vector2(0.525768, 0.539185)
 texture = ExtResource("20_vbe7p")
 
 [node name="bah_crane" type="Sprite2D" parent="."]
-position = Vector2(637, 798)
-scale = Vector2(0.658203, 0.675)
+position = Vector2(506, 814)
+scale = Vector2(0.548, 0.561984)
 texture = ExtResource("21_3rrjg")
 
 [node name="TileMap" type="TileMap" parent="."]

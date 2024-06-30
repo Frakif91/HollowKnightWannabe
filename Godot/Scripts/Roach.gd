@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 class_name Ennemies
-
+var  diférence = Vector2.ZERO
 @export_category("Stats")
 
 var is_dead = false
@@ -14,7 +14,6 @@ var invulnerability_timer = 1.
 var is_invulnerable = false 
 var gravity = 98
 var hurt_color : Color = Color(1,0,0)
-
 @export_category("Behavior")
 enum movement_type {XAXIS,YAXIS,BAXIS,NAXIS}
 enum states {IDLE, MOVING, CHASING, SCARED, DEAD}
@@ -43,7 +42,6 @@ func _ready():
 	#damage_trigger.body_entered.connect(_body_entered)
 
 func _process(delta):
-
 	var turn = sign(velocity.x)
 	if velocity.x > 0:
 		sprite.flip_h = false
@@ -79,6 +77,7 @@ func _process(delta):
 
 func _body_entered(body):
 	if body is Col_Hit:
+		print("a")
 		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
 		velocity = (position - body.position).normalized() * 30
