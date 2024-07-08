@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="3_f1crn"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="4_0cgpl"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="6_dhnbe"]
-[ext_resource type="AudioStream" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
+[ext_resource type="AudioStream" uid="uid://pqedancyv440" path="res://Assets/Music/musique mario/Cave Dungeon (Hazy Maze) - Super Mario 64 Music Extended.mp3" id="6_jllkm"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="9_rrlpr"]
 
 [node name="Node2D3" type="Node2D"]
@@ -16,7 +16,7 @@
 unique_name_in_owner = true
 scene_description = "First part of your adventure"
 npPlayer = NodePath("../Mario")
-npCamera = NodePath("../Mario/Camera")
+npCamera = NodePath("../Camera")
 npBGAudio = NodePath("../AudioStreamPlayer")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -37,18 +37,22 @@ scale = Vector2(3.35938, 2.37723)
 texture = ExtResource("1_kvecr")
 metadata/_edit_lock_ = true
 
-[node name="Mario" parent="." instance=ExtResource("3_f1crn")]
+[node name="Camera" parent="." instance=ExtResource("4_0cgpl")]
+unique_name_in_owner = true
 position = Vector2(207, 548)
 scale = Vector2(0.66, 0.66)
-floor_max_angle = 0.261799
-
-[node name="Camera" parent="Mario" instance=ExtResource("4_0cgpl")]
-unique_name_in_owner = true
 zoom = Vector2(3.5, 3.5)
 limit_left = 25
 limit_top = 20
 limit_right = 1135
 limit_bottom = 616
+followed_node = NodePath("../Mario")
+second_follow = null
+
+[node name="Mario" parent="." instance=ExtResource("3_f1crn")]
+position = Vector2(207, 548)
+scale = Vector2(0.66, 0.66)
+floor_max_angle = 0.261799
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.65834, 0.65834, 0.65834, 1)

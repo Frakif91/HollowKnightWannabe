@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4x4pdehhl0wq"]
+[gd_scene load_steps=15 format=3 uid="uid://c4x4pdehhl0wq"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/Camera2D.gd" id="1_3wtfx"]
-[ext_resource type="Shader" path="res://Godot/Shaders/Glitchy.gdshader" id="1_vxlrh"]
 [ext_resource type="PackedScene" uid="uid://ohegt8ob1uca" path="res://Godot/Scene/debug_menu.tscn" id="3_32stw"]
 [ext_resource type="PackedScene" uid="uid://smt3xe85w32f" path="res://Godot/Nodes/hearts.tscn" id="3_ftv57"]
 [ext_resource type="PackedScene" uid="uid://drf4owgyw5us6" path="res://Godot/Nodes/TouchButtons.tscn" id="5_bh64k"]
@@ -9,36 +8,98 @@
 [ext_resource type="FontFile" uid="uid://b7lu2exjpd0hf" path="res://Assets/Fonts/Daydream.ttf" id="6_0qbdx"]
 [ext_resource type="Script" path="res://Godot/Scripts/Timer.gd" id="7_mim6k"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecwrm"]
-shader = ExtResource("1_vxlrh")
-shader_parameter/shake_power = 0.03
-shader_parameter/shake_rate = 0.2
-shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.01
-
 [sub_resource type="LabelSettings" id="LabelSettings_hov78"]
 font = ExtResource("6_0qbdx")
 font_size = 32
 outline_size = 12
 outline_color = Color(0.125911, 0.125911, 0.125911, 1)
 
+[sub_resource type="Gradient" id="Gradient_4vmk7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1ah2"]
+gradient = SubResource("Gradient_4vmk7")
+width = 1
+
+[sub_resource type="Animation" id="Animation_jatrq"]
+resource_name = "Aim"
+
+[sub_resource type="Animation" id="Animation_18t1m"]
+resource_name = "Hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SightDown:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(288, 296), Vector2(288, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SightUp:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(287.75, 31.75), Vector2(288, -40)]
+}
+
+[sub_resource type="Animation" id="Animation_0735g"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SightDown:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(288, 296)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SightUp:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(287.75, 31.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvd5v"]
+_data = {
+"Aim": SubResource("Animation_jatrq"),
+"Hide": SubResource("Animation_18t1m"),
+"RESET": SubResource("Animation_0735g")
+}
+
 [node name="Camera" type="Camera2D"]
-material = SubResource("ShaderMaterial_ecwrm")
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1155
 limit_bottom = 646
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 4.0
-drag_vertical_enabled = true
 drag_left_margin = 0.35
 drag_top_margin = 0.3
 drag_right_margin = 0.35
 editor_draw_limits = true
 script = ExtResource("1_3wtfx")
+second_follow = null
 
 [node name="ScreenAnchor" type="CanvasLayer" parent="."]
 
@@ -71,6 +132,23 @@ grow_vertical = 0
 text = "16:59:59"
 label_settings = SubResource("LabelSettings_hov78")
 script = ExtResource("7_mim6k")
+
+[node name="SightUp" type="Sprite2D" parent="ScreenAnchor"]
+visible = false
+position = Vector2(287.75, 31.75)
+scale = Vector2(576.5, 64.5)
+texture = SubResource("GradientTexture1D_n1ah2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenAnchor"]
+libraries = {
+"": SubResource("AnimationLibrary_mvd5v")
+}
+
+[node name="SightDown" type="Sprite2D" parent="ScreenAnchor"]
+visible = false
+position = Vector2(288, 296)
+scale = Vector2(576.5, 61.5)
+texture = SubResource("GradientTexture1D_n1ah2")
 
 [node name="Menu" parent="." instance=ExtResource("3_32stw")]
 unique_name_in_owner = true

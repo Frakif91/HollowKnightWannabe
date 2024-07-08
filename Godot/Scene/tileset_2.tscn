@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="3_edkg2"]
 [ext_resource type="Texture2D" uid="uid://l88fcy8m1ypu" path="res://Assets/GFX/SMM_Backgrounds/Underground/Front_Piece_01.png" id="4_1phjy"]
 [ext_resource type="Script" path="res://Assets/Music/Tempo.gd" id="6_8nxdw"]
-[ext_resource type="AudioStream" uid="uid://c3fcvmjyicfcx" path="res://Assets/Music/musique mario/Cult of the Lamb OST - Anchordeep Extended.mp3" id="6_y0xsm"]
+[ext_resource type="AudioStream" uid="uid://c3fcvmjyicfcx" path="res://Assets/Music/Cult of the Lamb OST - Anchordeep Extended.mp3" id="6_y0xsm"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="7_nrh5l"]
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="8_3n6dj"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="8_yebiq"]
@@ -30,7 +30,7 @@ shader_parameter/shake_color_rate = 0.01
 
 [node name="SceneProperties" parent="." instance=ExtResource("1_au2sm")]
 npPlayer = NodePath("../Mario")
-npCamera = NodePath("../Mario/Camera")
+npCamera = NodePath("../Camera")
 npBGAudio = NodePath("../BackgroundMusic")
 
 [node name="Tiles_Moduler" type="CanvasModulate" parent="."]
@@ -65,20 +65,23 @@ script = ExtResource("2_x1vb5")
 ig_node_modulate = Color(0.235294, 0.235294, 0.235294, 1)
 ie_node_modulate = Color(0.239216, 0.239216, 0.239216, 1)
 
-[node name="Mario" parent="." instance=ExtResource("2_3pj8h")]
+[node name="Camera" parent="." instance=ExtResource("3_edkg2")]
+unique_name_in_owner = true
 position = Vector2(1086, 164)
 scale = Vector2(0.66, 0.66)
-floor_max_angle = 0.261799
-
-[node name="Camera" parent="Mario" instance=ExtResource("3_edkg2")]
-unique_name_in_owner = true
-material = null
 zoom = Vector2(3, 3)
 limit_left = 25
 limit_top = 20
 limit_right = 1135
 limit_bottom = 616
 drag_top_margin = 0.35
+followed_node = NodePath("../Mario")
+second_follow = null
+
+[node name="Mario" parent="." instance=ExtResource("2_3pj8h")]
+position = Vector2(1086, 164)
+scale = Vector2(0.66, 0.66)
+floor_max_angle = 0.261799
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

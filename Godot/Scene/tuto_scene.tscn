@@ -768,6 +768,7 @@ zoom = Vector2(5, 5)
 limit_top = 250
 limit_right = 1175
 limit_bottom = 896
+second_follow = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("10_tnw54")

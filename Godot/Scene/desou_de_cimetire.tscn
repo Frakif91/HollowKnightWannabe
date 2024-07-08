@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqyklmd4cs8sl" path="res://Assets/map/surfasse/IMG_1060.png" id="4_2ldfx"]
 [ext_resource type="AudioStream" uid="uid://b7hwqioqmvl36" path="res://Assets/Music/HKM3_boss_song.mp3" id="5_i4ln3"]
 [ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="6_exndq"]
-[ext_resource type="PackedScene" uid="uid://casdmtl36ij64" path="res://Godot/Scene/porte.tscn" id="7_008u5"]
+[ext_resource type="PackedScene" path="res://Godot/Scene/porte.tscn" id="7_008u5"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="8_uju76"]
 [ext_resource type="Texture2D" uid="uid://dityl3qwg307f" path="res://Assets/map/IMG_1014.png" id="9_wsanw"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="11_vi6oo"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="13_1tsnt"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="14_eu5nl"]
 [ext_resource type="Script" path="res://Godot/Scripts/MapObject.gd" id="16_5pq0e"]
-[ext_resource type="PackedScene" uid="uid://bbg7qtmj4k87l" path="res://Godot/Nodes/porte_interactible.tscn" id="17_rujlg"]
+[ext_resource type="PackedScene" path="res://Godot/Nodes/porte_interactible.tscn" id="17_rujlg"]
 [ext_resource type="AudioStream" uid="uid://b7p2rhxuabu6m" path="res://Assets/SFX/139-item-catch.mp3" id="18_qv8tg"]
 [ext_resource type="Script" path="res://Godot/Scripts/SceneProperties.gd" id="19_86ix7"]
 [ext_resource type="Texture2D" uid="uid://dk02iqh438x6j" path="res://Assets/map/Squelette.png" id="20_01isk"]
@@ -155,7 +155,10 @@ limit_left = -70
 limit_top = -3600
 limit_right = 4450
 limit_bottom = 5546
+position_smoothing_enabled = true
 editor_draw_drag_margin = true
+followed_node = NodePath("..")
+second_follow = null
 
 [node name="MapObjects" type="Node2D" parent="."]
 

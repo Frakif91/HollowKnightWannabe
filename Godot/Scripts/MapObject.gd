@@ -72,7 +72,7 @@ func _on_body_entered(_body):
 				instructions_animation.play("upward")
 		"Spikes":
 			if _body is MainCharacter and not _body.is_invulnerable:
-				PlayerStats.camera.apply_shake(3)
+				PlayerStats.camera.CameraShake.shake_camera(5,5)
 				Input.vibrate_handheld(200)
 				Input.start_joy_vibration(0,0.5,1,0.2)
 				PlayerStats.hp -= spike_damage
