@@ -12,9 +12,13 @@ func _physics_process(delta):
 	anim.play("default")
 	
 	différence = position - PlayerStats.player.position
-
-	if différence.length() > good_distance + around_distance and différence.length() < good_distance - around_distance:
-		velocity = Vector2( Vector2(position - PlayerStats.player.position).normalized() * 90 - (position - PlayerStats.player.position)).normalized() * move_speed
+	if différence.length() < good_distance + around_distance: # and différence.length() < good_distance - around_distance:
+		velocity = différence.normalized() * move_speed
+	else :
+		velocity = différence.normalized() * move_speed * -1 + Vector2(0,-10)
+		if can_shot == true :
+			shot()
+		#velocity = Vector2( Vector2(position - PlayerStats.player.position).normalized() * 90 - (position - PlayerStats.player.position)).normalized() * move_speed
 	# if diférence < Vector2(120,120) and  diférence > Vector2(-120,-120):
 	# 	if diférence[0] > 90 or diférence[0] < -90 :
 	# 		velocity[0] = diférence[0]*-1
@@ -34,5 +38,5 @@ func _physics_process(delta):
 func shot():
 	can_shot =false
 	emit_signal("fire",position)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	can_shot = true
