@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="1_fsq2m"]
 [ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_fhbud"]
-[ext_resource type="PackedScene" path="res://Godot/Nodes/MapObject.tscn" id="3_u67ub"]
+[ext_resource type="PackedScene" uid="uid://rblu52mqggkk" path="res://Godot/Nodes/MapObject.tscn" id="3_u67ub"]
 [ext_resource type="Script" path="res://Godot/Scene/CharacterBody2D.gd" id="4_31p8k"]
 [ext_resource type="Script" path="res://Godot/Scene/mur désturctible.gd" id="5_qnq7g"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="6_ylwus"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="7_b7e6m"]
-[ext_resource type="PackedScene" path="res://Godot/Nodes/Enemies/vol-tire.tscn" id="8_1a7vp"]
+[ext_resource type="PackedScene" uid="uid://c4kg0nk6b8jli" path="res://Godot/Nodes/Enemies/vol-tire.tscn" id="8_1a7vp"]
 [ext_resource type="TileSet" uid="uid://dg1q5dvmubve8" path="res://Assets/GFX/Tileset/ressources/carelage_16.tres" id="8_o40fs"]
-[ext_resource type="PackedScene" path="res://Godot/Nodes/Enemies/tir.tscn" id="10_cands"]
+[ext_resource type="PackedScene" uid="uid://c0etgiua62lyg" path="res://Godot/Nodes/Enemies/tir.tscn" id="10_cands"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rxk4x"]
 

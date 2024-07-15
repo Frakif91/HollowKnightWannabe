@@ -532,6 +532,7 @@ limit_top = -9600
 limit_right = 9320
 limit_bottom = 9546
 editor_draw_drag_margin = true
+second_follow = NodePath("")
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_v84nu")]
 position = Vector2(126, 79)

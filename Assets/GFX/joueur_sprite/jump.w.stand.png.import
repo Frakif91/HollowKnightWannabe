@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciffv3w4iko5e"
-path="res://.godot/imported/aquatrepatte.png-98867197e8ffd98f0af7843c563ac249.ctex"
+uid="uid://13ibs55ro1vj"
+path="res://.godot/imported/jump.w.stand.png-8c03cefbd48d4eb7d35004fdad1d24d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/aquatrepatte.png"
-dest_files=["res://.godot/imported/aquatrepatte.png-98867197e8ffd98f0af7843c563ac249.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/jump.w.stand.png"
+dest_files=["res://.godot/imported/jump.w.stand.png-8c03cefbd48d4eb7d35004fdad1d24d8.ctex"]
 
 [params]
 

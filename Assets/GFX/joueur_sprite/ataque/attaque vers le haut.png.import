@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsk6latin1gou"
-path="res://.godot/imported/all_fours.png-9baba063c69d220e0ecd7be0ce458515.ctex"
+uid="uid://cyv521gs1fewb"
+path="res://.godot/imported/attaque vers le haut.png-30c98352af16b4224ecfe88cba71a6ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/all_fours.png"
-dest_files=["res://.godot/imported/all_fours.png-9baba063c69d220e0ecd7be0ce458515.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/ataque/attaque vers le haut.png"
+dest_files=["res://.godot/imported/attaque vers le haut.png-30c98352af16b4224ecfe88cba71a6ab.ctex"]
 
 [params]
 

@@ -200,6 +200,7 @@ limit_left = -74
 limit_top = -70
 limit_right = 77
 limit_bottom = 20
+second_follow = NodePath("")
 metadata/_edit_lock_ = true
 
 [node name="Exit" type="Area2D" parent="."]

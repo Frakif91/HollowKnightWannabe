@@ -76,7 +76,7 @@ limit_right = 1135
 limit_bottom = 616
 drag_top_margin = 0.35
 followed_node = NodePath("../Mario")
-second_follow = null
+second_follow = NodePath("")
 
 [node name="Mario" parent="." instance=ExtResource("2_3pj8h")]
 position = Vector2(1086, 164)

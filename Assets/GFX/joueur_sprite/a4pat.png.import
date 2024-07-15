@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://13ibs55ro1vj"
-path="res://.godot/imported/spritesheet_hlk_jump.w.stand.png-71d8c3937092503e20a2fa11fcf9f563.ctex"
+uid="uid://dt5xix75qi8kx"
+path="res://.godot/imported/a4pat.png-5c1840093c635a971efc5337a50d133a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/spritesheet_hlk_jump.w.stand.png"
-dest_files=["res://.godot/imported/spritesheet_hlk_jump.w.stand.png-71d8c3937092503e20a2fa11fcf9f563.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/a4pat.png"
+dest_files=["res://.godot/imported/a4pat.png-5c1840093c635a971efc5337a50d133a.ctex"]
 
 [params]
 

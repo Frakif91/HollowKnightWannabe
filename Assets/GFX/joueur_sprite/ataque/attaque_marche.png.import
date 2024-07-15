@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v1iejopiby11"
-path="res://.godot/imported/spritesheet_hlk.png-4549e774cabe47c583ec8432cfe737c4.ctex"
+uid="uid://dgefuejhkj1qd"
+path="res://.godot/imported/attaque_marche.png-53a57a0cb1bb3637fc6b555e7a8dc7bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/joueur_sprite/spritesheet_hlk.png"
-dest_files=["res://.godot/imported/spritesheet_hlk.png-4549e774cabe47c583ec8432cfe737c4.ctex"]
+source_file="res://Assets/GFX/joueur_sprite/ataque/attaque_marche.png"
+dest_files=["res://.godot/imported/attaque_marche.png-53a57a0cb1bb3637fc6b555e7a8dc7bc.ctex"]
 
 [params]
 
