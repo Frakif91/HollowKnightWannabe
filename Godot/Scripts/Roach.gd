@@ -3,20 +3,21 @@ extends CharacterBody2D
 class_name Ennemies
 var  diférence = Vector2.ZERO
 @export_category("Stats")
-
+var can_shot = true
 var is_dead = false
 @export var speed = 20
 @export var runing_speed = 200
 @export var health : int = 2
 @export var damage_dealt : int = 2
 @export var coin_reward : int = 1
-var invulnerability_timer = 1.
+var invulnerability_timer = 0.6
 var is_invulnerable = false 
 var gravity = 98
 var hurt_color : Color = Color(1,0,0)
 @export_category("Behavior")
 enum movement_type {XAXIS,YAXIS,BAXIS,NAXIS}
 enum states {IDLE, MOVING, CHASING, SCARED, DEAD}
+
 enum entity_type {ROACH,FLY}
 @export var cur_entity_type : entity_type = entity_type.ROACH
 
@@ -142,17 +143,38 @@ func _old_move():
 			'print_debug('Markers are invalid / absent')"
 
 func move():
-	if is_on_wall():
-		move_direction_right = not move_direction_right
-	
-	if is_on_floor():
-		velocity.x = ((int(move_direction_right) * 2) - 1) * speed
-		velocity.y = 0
-	else:
-		velocity.x = ((int(move_direction_right) * 2) - 1) * (speed/3)
-		velocity.y += gravity
-	if not is_dead:
-		move_and_slide()
+	match (cur_entity_type):
+		entity_type.ROACH:
+			if is_on_wall():
+				move_direction_right = not move_direction_right
+			
+			if is_on_floor():
+				velocity.x = ((int(move_direction_right) * 2) - 1) * speed
+				velocity.y = 0
+			else:
+				velocity.x = ((int(move_direction_right) * 2) - 1) * (speed/3)
+				velocity.y += gravity
+			if not is_dead:
+				move_and_slide()
+				
+		entity_type.FLY:
+				$ASprite.play("default")
+				var good_distance = 100
+				var around_distance = 20
+				var move_speed = 5
+				var différence = position - PlayerStats.player.position
+				if différence.length() < good_distance + around_distance: # and différence.length() < good_distance - around_distance:
+					velocity = différence.normalized() * move_speed
+				else:
+					velocity = différence.normalized() * move_speed * -1 + Vector2(0,-10)
+					if can_shot == true :
+						shot()
+
+func shot():
+	can_shot =false
+	emit_signal("fire",position)
+	await get_tree().create_timer(3.0).timeout
+	can_shot = true
 "
 func change_direction(direction_s):
 	movement_target_spos = direction_s

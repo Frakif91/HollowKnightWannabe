@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbg7qtmj4k87l"]
+[gd_scene load_steps=6 format=3 uid="uid://db0ntp8t1ytvg"]
 
 [ext_resource type="Script" path="res://Godot/Scripts/porte_interactible.gd" id="1_nxuit"]
 [ext_resource type="Texture2D" uid="uid://poovw8u5jfln" path="res://Assets/GFX/Interact_door_atlas.png" id="2_a7wah"]

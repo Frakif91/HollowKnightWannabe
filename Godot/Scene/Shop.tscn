@@ -149,7 +149,6 @@ texture = ExtResource("3_67dox")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.592183
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -159,7 +158,6 @@ max_light = 1.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(6, -21)
 color = Color(1, 0.764706, 0.14902, 1)
-energy = 0.801108
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -188,27 +186,29 @@ polygon = PackedVector2Array(-66, -64, 57, -64, 58, 13, -72, 14, -72, 24, 64, 24
 position = Vector2(-68, 6)
 shape = SubResource("RectangleShape2D_jk25x")
 
-[node name="Player" parent="." instance=ExtResource("7_vbply")]
+[node name="Camera" parent="." instance=ExtResource("8_0plf6")]
 position = Vector2(-32, 0)
-scale = Vector2(0.5, 0.5)
-
-[node name="Camera" parent="Player" instance=ExtResource("8_0plf6")]
-position = Vector2(1.66667, -3.33333)
-scale = Vector2(0.416667, 0.416667)
+scale = Vector2(0.208334, 0.208334)
 zoom = Vector2(8.16, 8.16)
 limit_left = -74
 limit_top = -70
 limit_right = 77
 limit_bottom = 20
-second_follow = NodePath("")
+followed_node = NodePath("../Player")
+animation_curve = null
 metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("7_vbply")]
+position = Vector2(-32, 0)
+scale = Vector2(0.5, 0.5)
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(-56, 2)
 script = ExtResource("12_w0ske")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
-tp_pos = Vector2(312, 315)
+tp_to_scene = "res://Godot/Scene/desou_de_cimetire.tscn"
+tp_pos = Vector2(641, 752)
 
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
 position = Vector2(-5, 0)
@@ -224,6 +224,6 @@ script = ExtResource("14_kbj0y")
 scene_name = "SHOP_SCENE_TITLE"
 scene_description = "SHOP_SCENE_DESCR"
 npPlayer = NodePath("../Player")
-npCamera = NodePath("../Player/Camera")
+npCamera = NodePath("../Camera")
 npBGAudio = NodePath("../AudioStreamPlayer")
 do_player_emit_light = false

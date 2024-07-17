@@ -116,6 +116,7 @@ func _on_body_entered(_body):
 				can_interact_with_levier = true
 				instructions.visible = true
 				instructions_animation.play("upward")
+
 func _on_body_exited(_body):
 	match object_type:
 		"Chest":

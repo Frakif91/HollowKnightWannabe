@@ -1,0 +1,526 @@
+[gd_scene load_steps=36 format=3 uid="uid://dkxe7vulnwa33"]
+
+[ext_resource type="Texture2D" path="res://Assets/GFX/output-onlinepngtools.png" id="1_iuor7"]
+[ext_resource type="Texture2D" uid="uid://c1f6duvpfuijb" path="res://Assets/GFX/T_Grid.png" id="1_o7u1g"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/Goku/hey-its-me-goku.mp3" id="2_qdh51"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/Goku/ARC_BTL_CMN_Down_Utsubuse.ogg" id="4_edo2g"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/Goku/Falling.ogg" id="5_44vda"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/Goku/ARC_BTL_CMN_Charge_Start.ogg" id="7_mp4nl"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/Goku/ARC_BTL_CMN_Hit_XLarge.ogg" id="7_um684"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lg8k"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(465, 116, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_likmo"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(651, 116, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ymhs"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(558, 116, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6nwh"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(837, 812, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aamfl"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(0, 0, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdg4c"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(93, 0, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04vq4"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(186, 0, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ivrd"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(279, 0, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1bkw"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(744, 0, 93, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyn57"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(837, 0, 93, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqrh5"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(837, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75b6k"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(558, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8brni"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(651, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3fwt"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(744, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6d8m"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(837, 1160, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02rum"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(0, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihbwb"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(93, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bo8o"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(186, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drivw"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(279, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_054gg"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(372, 1276, 93, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df17e"]
+atlas = ExtResource("1_iuor7")
+region = Rect2(465, 1276, 93, 116)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rkqek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lg8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lg8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lg8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_likmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ymhs")
+}],
+"loop": false,
+"name": &"falling",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6nwh")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aamfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdg4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04vq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ivrd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1bkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyn57")
+}],
+"loop": true,
+"name": &"super",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqrh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75b6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8brni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3fwt")
+}],
+"loop": false,
+"name": &"teleportation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6d8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02rum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihbwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bo8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drivw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_054gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df17e")
+}],
+"loop": false,
+"name": &"up_b",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_grtyr"]
+resource_name = "temp_playanim"
+script/source = "extends AnimatedSprite2D
+
+@onready var anim_p : AnimatedSprite2D = self
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_animation_changed():
+	anim_p.play(anim_p.animation)
+"
+
+[sub_resource type="Animation" id="Animation_pdjrh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hey, It\'s me:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hit:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/AnimatedSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("fall_sound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0af65"]
+resource_name = "from the sky"
+length = 1.5085
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -500), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"falling"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("fall_sound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(-0.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t6wsr"]
+resource_name = "new_animation"
+length = 5.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.95, 2.375),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"super", &"up_b"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.95, 1.975, 2.375, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -8), Vector2(272, -8), Vector2(272, -32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hey, It\'s me:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hit:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.375),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.95),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llawl"]
+_data = {
+"RESET": SubResource("Animation_pdjrh"),
+"from the sky": SubResource("Animation_0af65"),
+"new_animation": SubResource("Animation_t6wsr")
+}
+
+[sub_resource type="GDScript" id="GDScript_jdqme"]
+resource_name = "animating_continue"
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_animation_player_animation_finished(anim_name):
+	pass
+
+func _on_animation_finished(anim_name):
+	print(anim_name)
+	if anim_name == \"from the sky\":
+		self.play(&\"new_animation\")
+	else:
+		print_debug(\"Wrong anim\", anim_name)
+"
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-34, 23)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(-71, 11)
+texture = ExtResource("1_o7u1g")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-287, -5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+sprite_frames = SubResource("SpriteFrames_rkqek")
+animation = &"hit"
+autoplay = "idle"
+script = SubResource("GDScript_grtyr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_llawl")
+}
+autoplay = "from the sky"
+script = SubResource("GDScript_jdqme")
+
+[node name="Hey, It\'s me" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qdh51")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_um684")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-119, 3)
+zoom = Vector2(2.03, 2.03)
+
+[node name="fall_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_edo2g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_44vda")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mp4nl")
+volume_db = -14.102
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(34, -23)
+
+[connection signal="animation_changed" from="Node2D/AnimatedSprite2D" to="Node2D/AnimatedSprite2D" method="_on_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

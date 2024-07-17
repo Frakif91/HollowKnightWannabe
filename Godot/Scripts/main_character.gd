@@ -11,7 +11,7 @@ var is_attacking = false
 var is_in_jump_action = false
 var has_double_jump = true
 var is_dead = false
-var invulnerability_timer = 0.3
+var invulnerability_timer = 1.6
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color: Color = Color(1, 0, 0)
@@ -311,7 +311,7 @@ func when_hit(damage, object: Node2D=Node2D.new()):
 	#Cannot check collition so, check Roach.gd for this function "call"
 	#print_debug("Body in Collition")
 	if object.position != Vector2(0, 0):
-		velocity = (position - object.position).normalized() * 50
+		velocity = (position - object.position).normalized() * 100
 	Input.vibrate_handheld(100)
 	Input.start_joy_vibration(0, 0.0, 1.0, 0.1)
 	is_dead = await get_hurt(damage)
