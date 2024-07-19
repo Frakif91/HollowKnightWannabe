@@ -735,7 +735,7 @@ script = ExtResource("4_s8gn2")
 scene_name = "Map Quentin"
 scene_description = "Tutorial map"
 npPlayer = NodePath("../Mario")
-npCamera = NodePath("../Mario/Camera")
+npCamera = NodePath("../Camera")
 npBGAudio = NodePath("../Musique")
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -756,19 +756,21 @@ script = ExtResource("10_tnw54")
 ig_node_modulate = Color(1, 1, 1, 1)
 ie_node_modulate = Color(0.992157, 0.992157, 0.992157, 1)
 
+[node name="Camera" parent="." instance=ExtResource("3_xxdj1")]
+position = Vector2(104, 360)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(5, 5)
+limit_top = 250
+limit_right = 1175
+limit_bottom = 896
+followed_node = NodePath("../Mario")
+second_follow = NodePath("../Mario")
+
 [node name="Mario" parent="." instance=ExtResource("2_6n682")]
 position = Vector2(104, 360)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
-
-[node name="Camera" parent="Mario" instance=ExtResource("3_xxdj1")]
-position = Vector2(0, 2)
-zoom = Vector2(5, 5)
-limit_top = 250
-limit_right = 1175
-limit_bottom = 896
-second_follow = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("10_tnw54")

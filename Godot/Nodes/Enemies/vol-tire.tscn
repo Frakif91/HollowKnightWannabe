@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c4kg0nk6b8jli"]
 
-[ext_resource type="Script" path="res://Godot/Scripts/Roach.gd" id="1_luik1"]
+[ext_resource type="Script" path="res://Godot/Nodes/Enemies/énemit volen.gd" id="1_yyw44"]
 [ext_resource type="Texture2D" uid="uid://dwcigdbbiuq8" path="res://Assets/GFX/Enemies/tire-.png" id="2_6xc0v"]
 [ext_resource type="Texture2D" uid="uid://b4coijpdf7pqv" path="res://Assets/GFX/Enemies/énemit-volent.png" id="3_qncjc"]
 
@@ -113,8 +113,7 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 scale = Vector2(0.507129, 0.507129)
-script = ExtResource("1_luik1")
-cur_entity_type = 1
+script = ExtResource("1_yyw44")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14.5, -86)

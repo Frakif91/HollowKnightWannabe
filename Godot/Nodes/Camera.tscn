@@ -191,8 +191,6 @@ drag_top_margin = 0.3
 drag_right_margin = 0.35
 editor_draw_limits = true
 script = ExtResource("1_3wtfx")
-anim_pth = NodePath("ScreenAnchor/AnimationPlayer")
-animation_curve = 3.0
 
 [node name="ScreenAnchor" type="CanvasLayer" parent="."]
 
@@ -232,6 +230,7 @@ libraries = {
 }
 
 [node name="SightUp" type="TextureRect" parent="ScreenAnchor"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,6 +242,7 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_k3ft3")
 
 [node name="SightDown" type="TextureRect" parent="ScreenAnchor"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
