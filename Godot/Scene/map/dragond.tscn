@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqr65m3eto6u6"]
+
+[ext_resource type="TileSet" uid="uid://67utkh87t7q4" path="res://Assets/map/new_tile_set.tres" id="1_1ae1v"]
+[ext_resource type="PackedScene" uid="uid://c4x4pdehhl0wq" path="res://Godot/Nodes/Camera.tscn" id="2_wqwxj"]
+[ext_resource type="PackedScene" uid="uid://bubeuilvqxf2o" path="res://Godot/Nodes/main_character.tscn" id="3_7a67p"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("2_wqwxj")]
+position = Vector2(371, 1595)
+scale = Vector2(0.25, 0.25)
+zoom = Vector2(5, 5)
+limit_left = -9970
+limit_top = -9600
+limit_right = 9320
+limit_bottom = 9546
+followed_node = NodePath("../Mario")
+second_follow = NodePath("../Mario")
+
+[node name="Mario" parent="." instance=ExtResource("3_7a67p")]
+position = Vector2(5, -5)
+scale = Vector2(0.5, 0.5)
+floor_max_angle = 0.261799
+safe_margin = 0.001
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = ExtResource("1_1ae1v")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048615, 131072, 2, 589824, 65536, 2, 589825, 65536, 2, 589826, 65536, 2, 589827, 65536, 2, 589828, 65536, 2, 589829, 65536, 2, 589835, 65536, 2, 589830, 65536, 2, 589831, 65536, 2, 589832, 65536, 2, 589833, 65536, 2, 589834, 65536, 2, 589836, 65536, 2, 655356, 65536, 2, 655357, 65536, 2, 655358, 65536, 2, 655359, 65536, 2)

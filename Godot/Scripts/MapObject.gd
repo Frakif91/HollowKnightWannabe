@@ -3,7 +3,7 @@ extends Area2D
 class_name MapObject
 
 @export_category("Map Object")
-@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense","Lever") var object_type : String
+@export_enum("Spikes","Checkpoint","Chest","Teleport","Teleport Interact","Death Sentense","Lever","tét dragon") var object_type : String
 @export var spike_damage = 2
 @export var connected_door : Door_Interact
 
@@ -31,6 +31,7 @@ var close_door_sound = load("res://Assets/SFX/WU_SE_OBJ_DOOR_CLOSE.wav")
 var can_interact_with_chest = false
 var can_interact_with_teleporter = false
 var can_interact_with_levier = false
+var can_interact_with_tét_dragon = false
 var already_interacted_with_levier = false
 
 var interact_icon : AnimatedSprite2D
@@ -101,7 +102,6 @@ func _on_body_entered(_body):
 					_body.sprite.play("Stand")
 					Transitions.play("fade_bottom_up_out",3)
 					#_body.move_and_slide()
-				
 		"Checkpoint":
 			if _body is MainCharacter:
 				PlayerStats.safety_checkpoint_pos = _body.position
@@ -116,6 +116,11 @@ func _on_body_entered(_body):
 				can_interact_with_levier = true
 				instructions.visible = true
 				instructions_animation.play("upward")
+		"tét dragon":
+			if _body is MainCharacter:
+				can_interact_with_tét_dragon = true
+			else :
+				can_interact_with_tét_dragon = false
 func _on_body_exited(_body):
 	match object_type:
 		"Chest":
@@ -176,6 +181,10 @@ func _input(event):
 				$"OpenSFX".play()
 				if connected_door:
 					connected_door._on_lever_refresh()
-				
+		"tét dragon":
+			var _rotation = 45
+			if can_interact_with_tét_dragon == true and event.is_action_pressed(&"Interact"):
+				self.rotation_degrees += _rotation
+				rotation = rotation * -1
 		
 		

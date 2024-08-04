@@ -149,6 +149,7 @@ texture = ExtResource("3_67dox")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(-20, -32)
 color = Color(1, 0.764706, 0.14902, 1)
+energy = 0.969813
 texture = ExtResource("8_5adlr")
 texture_scale = 0.7
 script = ExtResource("6_pnpqe")
@@ -207,7 +208,7 @@ position = Vector2(-56, 2)
 script = ExtResource("12_w0ske")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -40)
-tp_to_scene = "res://Godot/Scene/desou_de_cimetire.tscn"
+tp_to_scene = "res://Godot/Scene/map/desou_de_cimetire.tscn"
 tp_pos = Vector2(641, 752)
 
 [node name="Exit_Trigger" type="CollisionShape2D" parent="Exit"]
