@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
 class_name Ennemies
+
+signal fier()
+
 var  diférence = Vector2.ZERO
 @export_category("Stats")
 var can_shot = true
+var shot_animation = false
 var is_dead = false
 @export var speed = 20
 @export var runing_speed = 200
@@ -44,11 +48,13 @@ func _ready():
 
 func _process(delta):
 	var turn = sign(velocity.x)
-	if velocity.x > 0:
-		sprite.flip_h = false
-	elif velocity.x < 0:
-		sprite.flip_h = true
-	
+	if cur_entity_type == entity_type.ROACH :
+		
+		if velocity.x > 0:
+			sprite.flip_h = false
+		elif velocity.x < 0:
+			sprite.flip_h = true
+	#
 	move()
 
 	for i in get_slide_collision_count():
@@ -78,9 +84,10 @@ func _process(delta):
 
 func _body_entered(body):
 	if body is Col_Hit:
-		print("a")
+		#print("a")
 		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
+		print(velocity)
 		velocity = (position - body.position).normalized() * 30
 		if is_dead:
 			damage_trigger.queue_free()
@@ -158,23 +165,27 @@ func move():
 				move_and_slide()
 				
 		entity_type.FLY:
-				$ASprite.play("default")
-				var good_distance = 100
+				if shot_animation == false:
+					$AnimatedSprite2D.play("default")
+				var good_distance = 40
 				var around_distance = 20
-				var move_speed = 5
+				var move_speed = 100
+				
 				var différence = position - PlayerStats.player.position
 				if différence.length() < good_distance + around_distance: # and différence.length() < good_distance - around_distance:
 					velocity = différence.normalized() * move_speed
 				else:
 					velocity = différence.normalized() * move_speed * -1 + Vector2(0,-10)
-					if can_shot == true :
-						shot()
+				if can_shot == true: #and différence.length() < good_distance:
+					shot()
+				move_and_slide()
 
 func shot():
-	can_shot =false
-	emit_signal("fire",position)
-	await get_tree().create_timer(3.0).timeout
-	can_shot = true
+	can_shot = false
+	shot_animation = true
+	$AnimatedSprite2D.play("new_animation")
+	#emit_signal("fier",position)
+	#$Timershot.start()
 "
 func change_direction(direction_s):
 	movement_target_spos = direction_s
@@ -194,3 +205,13 @@ func get_hurt():
 		await Invincibility_Timer.timeout
 		is_invulnerable = false
 		return false
+
+
+func _on_timershot_timeout():
+	can_shot = true
+
+
+func _on_animated_sprite_2d_animation_finished():
+	shot_animation = false
+	emit_signal("fier",position)
+	$Timershot.start()

@@ -87,7 +87,7 @@ position = Vector2(275, 357)
 scale = Vector2(0.15, 0.15)
 
 [node name="Ball" parent="." instance=ExtResource("6_gcmv5")]
-position = Vector2(628, 311)
+position = Vector2(440, 607)
 can_sleep = false
 
 [connection signal="body_entered" from="TP" to="TP" method="_on_player_entered_area"]
