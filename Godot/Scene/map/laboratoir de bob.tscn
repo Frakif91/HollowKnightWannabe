@@ -867,7 +867,7 @@ followed_node = NodePath("../Mario")
 second_follow = NodePath("../Mario")
 
 [node name="Mario" parent="." instance=ExtResource("9_iucru")]
-position = Vector2(339, 1548)
+position = Vector2(31, 68)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001

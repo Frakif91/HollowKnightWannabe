@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dshfw3bo1hd20"]
+
+[ext_resource type="PackedScene" uid="uid://4dp3ef2a2s7o" path="res://Godot/Nodes/chevailier_cimetire.tscn" id="1_xmjvj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_xmjvj")]
+position = Vector2(290, 266)
+scale = Vector2(0.2, 0.2)

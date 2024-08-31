@@ -1,141 +1,865 @@
-[gd_scene load_steps=21 format=3 uid="uid://4dp3ef2a2s7o"]
+[gd_scene load_steps=23 format=3 uid="uid://4dp3ef2a2s7o"]
 
-[ext_resource type="Texture2D" uid="uid://b4ov7waa0ah67" path="res://Assets/GFX/Enemies/chevailier desous de simetire/retoure_boss.png" id="1_ep18j"]
-[ext_resource type="Texture2D" uid="uid://drmx2deqwgruj" path="res://Assets/GFX/Enemies/chevailier desous de simetire/marche boss.png" id="2_vrtpw"]
-[ext_resource type="Texture2D" uid="uid://ca6hgtcx8i4n" path="res://Assets/GFX/Enemies/chevailier desous de simetire/attak boos.png" id="3_3eyrh"]
+[ext_resource type="Script" path="res://Godot/Nodes/Enemies/Animation_chevalier cimetire.gd" id="1_26ti6"]
+[ext_resource type="Texture2D" uid="uid://dhoa6p8doycjo" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1068.png" id="1_es4a2"]
+[ext_resource type="Texture2D" uid="uid://dfued8luta1fr" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1070.png" id="2_ikf5g"]
+[ext_resource type="Texture2D" uid="uid://banssmhilg0qk" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1069.png" id="3_sc4wj"]
+[ext_resource type="Texture2D" uid="uid://b5rrphn2mcbew" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1074.png" id="4_1i6qc"]
+[ext_resource type="Texture2D" uid="uid://dl0wnwbx15l18" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1067.png" id="5_creyh"]
+[ext_resource type="Texture2D" uid="uid://bwwth64vk81b4" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1075.png" id="6_jrif6"]
+[ext_resource type="Texture2D" uid="uid://bmki5yynunivi" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1072.png" id="7_rixh2"]
+[ext_resource type="Texture2D" uid="uid://8cddwr765wqh" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1071.png" id="8_1th66"]
+[ext_resource type="Texture2D" uid="uid://dvmicv3skpt5g" path="res://Assets/GFX/Enemies/chevailier desous de simetire/membre/IMG_1073.png" id="9_1r1jo"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrd4q"]
-atlas = ExtResource("1_ep18j")
-region = Rect2(0, 0, 391, 671)
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_wwbrj"]
+target_nodepath = NodePath("../iktargueteLegue")
+joint_one_bone_idx = 1
+joint_one_bone2d_node = NodePath("basse/jambe")
+joint_two_bone_idx = 2
+joint_two_bone2d_node = NodePath("basse/jambe/Bone2D")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6bjp"]
-atlas = ExtResource("1_ep18j")
-region = Rect2(391, 0, 391, 671)
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_e4vku"]
+target_nodepath = NodePath("../iktargueteLegue2")
+joint_one_bone_idx = 4
+joint_one_bone2d_node = NodePath("basse/jambe2")
+joint_two_bone_idx = 5
+joint_two_bone2d_node = NodePath("basse/jambe2/Bone2D")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_owu3m"]
-atlas = ExtResource("1_ep18j")
-region = Rect2(782, 0, 391, 671)
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_em2u2"]
+target_nodepath = NodePath("../iktargueteharme")
+flip_bend_direction = true
+joint_one_bone_idx = 8
+joint_one_bone2d_node = NodePath("basse/body/bras")
+joint_two_bone_idx = 9
+joint_two_bone2d_node = NodePath("basse/body/bras/Bone2D")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywa7n"]
-atlas = ExtResource("1_ep18j")
-region = Rect2(1173, 0, 391, 671)
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_lqrin"]
+target_nodepath = NodePath("../iktargueteSorde")
+flip_bend_direction = true
+joint_one_bone_idx = 10
+joint_one_bone2d_node = NodePath("basse/body/bras/Bone2D/Bone2D")
+joint_two_bone_idx = 11
+joint_two_bone2d_node = NodePath("basse/body/bras/Bone2D/Bone2D/Bone2D")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0fyk8"]
-atlas = ExtResource("2_vrtpw")
-region = Rect2(0, 0, 264, 684)
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_q3s40"]
+enabled = true
+modification_count = 4
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_wwbrj")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_e4vku")
+modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_em2u2")
+modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_lqrin")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yegf7"]
-atlas = ExtResource("2_vrtpw")
-region = Rect2(264, 0, 264, 684)
+[sub_resource type="Animation" id="Animation_c4qwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Skeleton2D/basse/body/haede:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.81522, -66.3715)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton2D/basse/body/bras/Bone2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(77.6116, 250.161)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton2D/basse/body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21.8133, -315.911)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Skeleton2D/basse/jambe2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2.48669, 74.5275)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton2D/basse/jambe:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37.6021, 64.1208)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton2D/basse/body/bras:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-45.2214, 56.2541)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Skeleton2D/basse/jambe/Bone2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.56834, 173.342)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Skeleton2D/basse/jambe/Bone2D/Bone2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.69077, 247.072)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../iktargueteLegue:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-174.181, 1006.25)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-110.283, 892.075)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../iktargueteharme:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(139.304, 331.219)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Skeleton2D/basse:rest")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, -226.384, 456.461)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../iktargueteSorde:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(171.943, -470.64)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../Skeleton2D/basse/body:rest")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, -21.8133, -315.911)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../Skeleton2D/basse:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-213.73, 453.236)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../Skeleton2D/basse:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.095142]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ph70e"]
-atlas = ExtResource("2_vrtpw")
-region = Rect2(528, 0, 264, 684)
+[sub_resource type="Animation" id="Animation_iae8s"]
+resource_name = "frap loude"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../iktargueteharme:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 0.9, 1, 1.6, 1.9, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(125.127, 341.993), Vector2(43.7781, 180.705), Vector2(75.5935, -4.8141), Vector2(-62.9911, -227.141), Vector2(499.154, 242.515), Vector2(507.594, 452.76), Vector2(394.702, 392.794), Vector2(309.92, 396.157), Vector2(140.108, 305.773)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../iktargueteSorde:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.9, 1, 1.9, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(171.943, -470.64), Vector2(301.214, -93.6392), Vector2(355.79, 105.85), Vector2(628.671, 1103.29), Vector2(628.671, 1103.29), Vector2(662.447, 238.76), Vector2(323.896, -97.262), Vector2(112.804, -169.671)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.1424, 951.852)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../iktargueteLegue:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-174.181, 1006.25), Vector2(-173.081, 942.673), Vector2(-176.4, 950.973)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton2D/basse:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.9, 1.4, 1.6, 1.9, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-213.73, 453.236), Vector2(-232.622, 483.031), Vector2(-232.622, 483.031), Vector2(-189.268, 516.71), Vector2(-178.069, 477.236), Vector2(-178.069, 477.236), Vector2(-205.271, 459.255), Vector2(-218.034, 459.761)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton2D/basse:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.9, 1.4, 1.6, 1.9, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.095142, 0.449828, 0.689268, 0.48218, 0.180332, 0.180332, 0.0276439]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s154w"]
-atlas = ExtResource("2_vrtpw")
-region = Rect2(792, 0, 264, 684)
+[sub_resource type="Animation" id="Animation_vleul"]
+resource_name = "frape"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../iktargueteharme:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(101.56, 346.331), Vector2(171.141, 305.449), Vector2(255.009, 324.814), Vector2(283.516, 420.804), Vector2(251.119, 591.823), Vector2(119.843, 597.031), Vector2(64.3095, 555.665), Vector2(64.4421, 308.774)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../iktargueteSorde:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(171.943, -470.64), Vector2(414.788, -312.355), Vector2(671.377, -107.416), Vector2(731.702, 553.697), Vector2(705.624, 995.859), Vector2(931.801, 807.168), Vector2(892.247, 299.535), Vector2(371.331, -416.828)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ntyl"]
-atlas = ExtResource("2_vrtpw")
-region = Rect2(1056, 0, 264, 684)
+[sub_resource type="Animation" id="Animation_r31sf"]
+resource_name = "marche"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../iktargueteLegue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-174.181, 1006.25), Vector2(-166.04, 913.348), Vector2(-89.3854, 866.739), Vector2(-3.4407, 915.067), Vector2(-68.8264, 946.706), Vector2(-113.058, 936.661)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-84.1424, 951.852), Vector2(-110.283, 892.075), Vector2(-42.5985, 849.453), Vector2(12.0208, 913.546), Vector2(-18.8316, 941.092)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton2D/basse/body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-21.8133, -315.911), Vector2(-22.2865, -327.692), Vector2(-22.614, -335.848), Vector2(-18.2398, -317.868), Vector2(-19.4061, -324.176)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../iktargueteharme:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(139.304, 331.219), Vector2(177.593, 329.7), Vector2(127.232, 348.944), Vector2(82.5958, 374.314)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton2D/basse:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-213.73, 453.236)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton2D/basse:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0160653]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ijwgr"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(0, 0, 546, 686)
+[sub_resource type="Animation" id="Animation_c4xq1"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Skeleton2D/basse/body/haede:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.81522, -66.3715), Vector2(2.81522, -66.3715)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton2D/basse/body/bras/Bone2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(77.6116, 250.161)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton2D/basse/body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-21.8133, -315.911), Vector2(-21.8133, -315.911)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Skeleton2D/basse/jambe2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2.48669, 74.5275), Vector2(-2.48669, 74.5275)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton2D/basse/jambe:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-37.6021, 64.1208), Vector2(-37.6021, 64.1208), Vector2(-37.6021, 64.1208)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton2D/basse/body/bras:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-45.2214, 56.2541), Vector2(-45.2214, 56.2541)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_672xy"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(546, 0, 546, 686)
+[sub_resource type="Animation" id="Animation_pad2n"]
+resource_name = "stand"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Skeleton2D/basse:rest")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, -226.384, 456.461)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton2D/basse/jambe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-37.6021, 64.1208)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton2D/basse/jambe/Bone2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.56834, 173.342)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../iktargueteLegue:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-165.351, 953.258)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-84.1424, 951.852)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../iktargueteharme:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(125.127, 341.993)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../iktargueteSorde:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(171.943, -470.64)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Skeleton2D/basse/body:rest")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, -21.8133, -315.911)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Skeleton2D/basse/body/haede:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.81522, -66.3715)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_atsf8"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(1092, 0, 546, 686)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ay0td"]
+_data = {
+"RESET": SubResource("Animation_c4qwh"),
+"frap loude": SubResource("Animation_iae8s"),
+"frape": SubResource("Animation_vleul"),
+"marche": SubResource("Animation_r31sf"),
+"new_animation": SubResource("Animation_c4xq1"),
+"stand": SubResource("Animation_pad2n")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wyb3"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(1638, 0, 546, 686)
+[node name="chevalier cimetire" type="Node2D"]
+position = Vector2(2, 2)
+script = ExtResource("1_26ti6")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8y3a"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(2184, 0, 546, 686)
+[node name="sekelétoneconténeur" type="Node2D" parent="."]
+position = Vector2(569, -414)
+rotation = 0.0398854
+scale = Vector2(1.09605, 1.1026)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4qn0t"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(0, 686, 546, 686)
+[node name="membre" type="Node2D" parent="sekelétoneconténeur"]
+position = Vector2(-503.664, 395.755)
+rotation = -0.0396485
+scale = Vector2(0.912361, 0.906955)
+skew = -0.000475168
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0qhb"]
-atlas = ExtResource("3_3eyrh")
-region = Rect2(546, 686, 546, 686)
+[node name="jambe ghauche" type="Node2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(278, 489)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2b8te"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qrd4q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s6bjp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_owu3m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ywa7n")
-}],
-"loop": true,
-"name": &"demit tour",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0fyk8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yegf7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ph70e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s154w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0ntyl")
-}],
-"loop": true,
-"name": &"marche",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ijwgr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_672xy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_atsf8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4wyb3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y8y3a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4qn0t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q0qhb")
-}],
-"loop": false,
-"name": &"new_animation",
-"speed": 9.0
-}]
+[node name="G_molet" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche"]
+position = Vector2(167.148, -281.223)
+rotation = -0.787284
+scale = Vector2(1.09931, 1.0988)
+skew = 0.00594389
+texture = ExtResource("2_ikf5g")
 
-[node name="chevalier" type="CharacterBody2D"]
+[node name="G_piet+jambe" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche"]
+position = Vector2(357.555, -80.7609)
+rotation = -0.726299
+scale = Vector2(1.09885, 1.09914)
+skew = 0.00595605
+texture = ExtResource("1_es4a2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_2b8te")
-animation = &"demit tour"
+[node name="G_genou" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche/G_piet+jambe"]
+position = Vector2(2, -159)
+texture = ExtResource("3_sc4wj")
+
+[node name="jambe droite" type="Node2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(231, 483)
+rotation = 0.0165281
+
+[node name="D_molet" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite"]
+position = Vector2(138.476, -251.339)
+rotation = -0.101072
+scale = Vector2(1.0959, 1.10225)
+skew = 0.00145996
+texture = ExtResource("2_ikf5g")
+
+[node name="D_piet+jambe" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite"]
+position = Vector2(150.484, 9.92313)
+rotation = -0.0702001
+scale = Vector2(1.09573, 1.10217)
+skew = 0.00110269
+texture = ExtResource("1_es4a2")
+
+[node name="D_genou" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite/D_piet+jambe"]
+position = Vector2(2, -159)
+texture = ExtResource("3_sc4wj")
+
+[node name="corp" type="Sprite2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(402.29, -57.297)
+rotation = 0.0559448
+scale = Vector2(1.09598, 1.10253)
+skew = -0.000190258
+texture = ExtResource("4_1i6qc")
+
+[node name="téte" type="Sprite2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(422.742, -335.987)
+rotation = 0.0560467
+scale = Vector2(1.09598, 1.10253)
+skew = -0.00019145
+texture = ExtResource("5_creyh")
+
+[node name="bras" type="Sprite2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(377.803, -97.9974)
+rotation = 0.0382158
+scale = Vector2(1.0958, 1.10235)
+skew = 1.97887e-05
+texture = ExtResource("7_rixh2")
+
+[node name="épé" type="Sprite2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(707.087, -301.26)
+rotation = 0.068184
+scale = Vector2(1.09548, 1.10202)
+skew = -0.000335217
+texture = ExtResource("6_jrif6")
+
+[node name="main" type="Sprite2D" parent="sekelétoneconténeur/membre"]
+position = Vector2(900.288, 63.5083)
+rotation = 0.24473
+scale = Vector2(1.0959, 1.10191)
+skew = -0.00236177
+texture = ExtResource("8_1th66")
+
+[node name="coude" type="Sprite2D" parent="sekelétoneconténeur/membre/main"]
+position = Vector2(-416.141, 114.259)
+rotation = -0.0972292
+scale = Vector2(0.862612, 0.862612)
+texture = ExtResource("9_1r1jo")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="sekelétoneconténeur"]
+position = Vector2(96.0862, 5.265)
+modification_stack = SubResource("SkeletonModificationStack2D_q3s40")
+
+[node name="basse" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D"]
+position = Vector2(-213.73, 453.236)
+rotation = 0.095142
+scale = Vector2(0.999936, 0.999936)
+rest = Transform2D(1, 0, 0, 1, -226.384, 456.461)
+
+[node name="jambe" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse"]
+position = Vector2(-37.6021, 64.1208)
+rotation = -0.0655046
+scale = Vector2(0.999848, 0.999848)
+rest = Transform2D(0.999828, -0.00526959, 0.00526959, 0.999828, -37.6021, 64.1208)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe"]
+position = Vector2(-1.85715, 72.2923)
+rotation = -0.0742583
+scale = Vector2(0.999989, 0.999989)
+remote_path = NodePath("../../../../membre/jambe droite/D_molet")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe"]
+position = Vector2(0.56834, 173.342)
+rotation = -0.0221297
+scale = Vector2(0.999878, 0.999878)
+rest = Transform2D(0.999626, -0.0221252, 0.0221252, 0.999626, 0.56834, 173.342)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe/Bone2D"]
+position = Vector2(-0.632385, 136.197)
+rotation = -0.0214354
+remote_path = NodePath("../../../../../membre/jambe droite/D_piet+jambe")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe/Bone2D"]
+position = Vector2(-4.69077, 247.072)
+rotation = 0.00263371
+rest = Transform2D(0.999997, 0.00263371, -0.00263371, 0.999997, -4.69077, 247.072)
+
+[node name="jambe2" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse"]
+position = Vector2(-2.48669, 74.5275)
+rotation = -0.747658
+scale = Vector2(0.999865, 0.999865)
+rest = Transform2D(0.996029, -0.0873788, 0.0873788, 0.996029, -2.48669, 74.5275)
+
+[node name="conete_g_molet" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe2"]
+position = Vector2(-0.269257, 46.7703)
+rotation = -0.0926059
+scale = Vector2(0.999948, 0.999948)
+remote_path = NodePath("../../../../membre/jambe ghauche/G_molet")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe2"]
+position = Vector2(4.54435, 158.662)
+rotation = -0.0532477
+scale = Vector2(0.999893, 0.999893)
+rest = Transform2D(0.998469, -0.0532137, 0.0532137, 0.998469, 4.54435, 158.662)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe2/Bone2D"]
+position = Vector2(5.60266, 139.559)
+rotation = 0.0216343
+remote_path = NodePath("../../../../../membre/jambe ghauche/G_piet+jambe")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe2/Bone2D"]
+position = Vector2(-6.29577, 252.582)
+rotation = 0.0216343
+rest = Transform2D(0.999766, 0.0216326, -0.0216326, 0.999766, -6.29577, 252.582)
+
+[node name="body" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse"]
+position = Vector2(-21.8133, -315.911)
+rest = Transform2D(1, 0, 0, 1, -21.8133, -315.911)
+
+[node name="RemoteTransform2D corp" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/body"]
+position = Vector2(-1.6209, 187.044)
+rotation = -0.000101261
+remote_path = NodePath("../../../../membre/corp")
+
+[node name="bras" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body"]
+position = Vector2(-45.2214, 56.2541)
+rotation = -0.0177249
+scale = Vector2(0.999841, 0.999841)
+rest = Transform2D(0.999823, 0.00628997, -0.00628997, 0.999823, -45.2214, 56.2541)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras"]
+position = Vector2(17.5323, 95.5174)
+remote_path = NodePath("../../../../../membre/bras")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras"]
+position = Vector2(77.6116, 250.161)
+rotation = 0.100707
+scale = Vector2(0.999843, 0.999843)
+rest = Transform2D(0.973195, 0.229271, -0.229271, 0.973195, 77.6116, 250.161)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras/Bone2D"]
+position = Vector2(417.291, -68.6549)
+rotation = 0.104613
+remote_path = NodePath("../../../../../../membre/main")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras/Bone2D"]
+position = Vector2(216.525, -158.017)
+rotation = -0.135466
+scale = Vector2(0.999856, 0.999856)
+rest = Transform2D(0.983441, -0.180371, 0.180371, 0.983441, 216.525, -158.017)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras/Bone2D/Bone2D"]
+position = Vector2(9.29727, -214.756)
+rotation = 0.0645486
+remote_path = NodePath("../../../../../../../membre/épé")
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras/Bone2D/Bone2D"]
+position = Vector2(0.314993, -495.779)
+rotation = 1.24607
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(0.319001, 0.947608, -0.947608, 0.319001, 0.314993, -495.779)
+
+[node name="haede" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body"]
+position = Vector2(2.81522, -66.3715)
+rest = Transform2D(1, 0, 0, 1, 2.81522, -66.3715)
+
+[node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/haede"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/haede"]
+remote_path = NodePath("../../../../../membre/téte")
+
+[node name="iktargueteLegue" type="Node2D" parent="sekelétoneconténeur"]
+position = Vector2(-174.181, 1006.25)
+rotation = 3.08142
+
+[node name="iktargueteLegue2" type="Node2D" parent="sekelétoneconténeur"]
+position = Vector2(-110.283, 892.075)
+
+[node name="iktargueteharme" type="Node2D" parent="sekelétoneconténeur"]
+position = Vector2(139.304, 331.219)
+rotation = -0.588431
+
+[node name="iktargueteSorde" type="Node2D" parent="sekelétoneconténeur"]
+position = Vector2(171.943, -470.64)
+rotation = 1.32711
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sekelétoneconténeur"]
+root_node = NodePath("../iktargueteLegue2")
+libraries = {
+"": SubResource("AnimationLibrary_ay0td")
+}

@@ -1,15 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://14jg2wwpox6w"]
+[gd_scene load_steps=37 format=3 uid="uid://14jg2wwpox6w"]
 
 [ext_resource type="Texture2D" uid="uid://bxrootcq2syk6" path="res://Assets/map/surfasse/IMG_1062.png" id="1_eahe5"]
-[ext_resource type="Texture2D" uid="uid://c78lm5uaqpeaa" path="res://Assets/map/surfasse/IMG_1061.png" id="2_1ev6g"]
-[ext_resource type="Texture2D" uid="uid://cqyklmd4cs8sl" path="res://Assets/map/surfasse/IMG_1060.png" id="3_lbox0"]
 [ext_resource type="Texture2D" uid="uid://c8e8ldifk77nl" path="res://Assets/map/fond cimetire soutérin.png" id="4_u6if2"]
 [ext_resource type="Texture2D" uid="uid://bo8pviqdrg12q" path="res://Assets/map/IMG_1040.png" id="5_quujx"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="6_ygu8o"]
 [ext_resource type="Texture2D" uid="uid://dk02iqh438x6j" path="res://Assets/map/Squelette.png" id="7_s4lai"]
+[ext_resource type="PackedScene" uid="uid://dshfw3bo1hd20" path="res://Godot/Nodes/Chevalier_cimetire2.tscn" id="8_eya4f"]
 [ext_resource type="Texture2D" uid="uid://q1xbyuh6gcqd" path="res://Assets/GFX/animation_objet/crane/Haut_crane.png" id="8_njkbj"]
 [ext_resource type="Texture2D" uid="uid://bm0lgs81e870o" path="res://Assets/GFX/animation_objet/crane/bas_crane.png" id="9_j301l"]
-[ext_resource type="PackedScene" uid="uid://4dp3ef2a2s7o" path="res://Godot/Nodes/chevailier_cimetire.tscn" id="10_c6ee5"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_1qga7"]
 [ext_resource type="PackedScene" uid="uid://casdmtl36ij64" path="res://Godot/Scene/porte.tscn" id="12_rwico"]
 [ext_resource type="PackedScene" uid="uid://cighbat1wnbkp" path="res://Godot/Nodes/Chest.tscn" id="13_gl8li"]
@@ -25,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j8ws1i7gpk" path="res://Godot/Nodes/teleporter.tscn" id="23_mlkrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7tgb"]
-size = Vector2(13, 32)
+size = Vector2(22.0484, 23.9875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xabw"]
 
@@ -83,23 +81,11 @@ scale = Vector2(1.38479, 1.62878)
 skew = 0.00546992
 texture = ExtResource("1_eahe5")
 
-[node name="fond cimetire" type="Sprite2D" parent="décort"]
-position = Vector2(-384.952, -991.967)
-rotation = 3.14159
-scale = Vector2(0.313698, 0.369003)
-texture = ExtResource("2_1ev6g")
-
-[node name="avant plant cimetire" type="Sprite2D" parent="décort"]
-position = Vector2(-426.494, -998.482)
-rotation = 3.14159
-scale = Vector2(0.348591, 0.410047)
-texture = ExtResource("3_lbox0")
-
 [node name="de_sous_cimetire" type="Sprite2D" parent="décort"]
 texture = ExtResource("4_u6if2")
 
 [node name="avant plant de_sous_cimetire2" type="Sprite2D" parent="décort"]
-position = Vector2(-6.92365, 0)
+position = Vector2(-6.92371, 0)
 scale = Vector2(0.911426, 1.09947)
 texture = ExtResource("5_quujx")
 
@@ -114,7 +100,7 @@ scale = Vector2(0.627866, 0.833361)
 texture = ExtResource("6_ygu8o")
 
 [node name="Camera" parent="." instance=ExtResource("18_6gj4t")]
-position = Vector2(185, 347)
+position = Vector2(192, 348)
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(5, 5)
 limit_left = -70
@@ -125,27 +111,27 @@ editor_draw_drag_margin = true
 followed_node = NodePath("../Mario")
 
 [node name="Mario" parent="." instance=ExtResource("19_b3uaw")]
-position = Vector2(130, 854)
+position = Vector2(227, 548)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
 
 [node name="énemit" type="Node2D" parent="."]
 
-[node name="CharacterBody2D" parent="énemit" instance=ExtResource("10_c6ee5")]
-position = Vector2(-16, 1134)
-scale = Vector2(0.185525, 0.185525)
-
 [node name="Roach" parent="énemit" instance=ExtResource("11_1qga7")]
 position = Vector2(1209, 1024)
 scale = Vector2(0.1, 0.1)
+
+[node name="Node2D" parent="énemit" instance=ExtResource("8_eya4f")]
+position = Vector2(119, 444)
+scale = Vector2(0.3, 0.3)
 
 [node name="MapObjects" type="Node2D" parent="."]
 
 [node name="TP" type="Node2D" parent="MapObjects"]
 
-[node name="TP_MapTuto" type="Area2D" parent="MapObjects/TP"]
-position = Vector2(1776, 956)
+[node name="TP_shop" type="Area2D" parent="MapObjects/TP"]
+position = Vector2(640, 752)
 script = ExtResource("16_o0mjk")
 object_type = "Teleport Interact"
 interact_offset = Vector2(0, -20)
@@ -153,8 +139,24 @@ tp_to_scene = "res://Godot/Scene/Shop.tscn"
 tp_fade_animation = "fade_right_left_in"
 tp_pos = Vector2(-51, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/TP/TP_MapTuto"]
-position = Vector2(-1136.5, -203)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/TP/TP_shop"]
+position = Vector2(0, 1)
+scale = Vector2(0.610698, 1.33465)
+shape = SubResource("RectangleShape2D_t7tgb")
+debug_color = Color(0, 0.648632, 0.174227, 0.42)
+
+[node name="TP_cimetire" type="Area2D" parent="MapObjects/TP"]
+position = Vector2(317, 553)
+script = ExtResource("16_o0mjk")
+object_type = "Teleport Interact"
+interact_offset = Vector2(0, -20)
+tp_to_scene = "res://Godot/Scene/map/cimetire.tscn"
+tp_fade_animation = "fade_right_left_in"
+tp_pos = Vector2(-350, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapObjects/TP/TP_cimetire"]
+position = Vector2(-11.9748, -24)
+scale = Vector2(2.08403, 2.75144)
 shape = SubResource("RectangleShape2D_t7tgb")
 debug_color = Color(0, 0.648632, 0.174227, 0.42)
 
@@ -217,7 +219,6 @@ scale = Vector2(2.29966, -1.1321)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MapObjects/dragond squelete/tét haut/StaticBody2D"]
 position = Vector2(0, -8.69165)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_j455y")
 debug_color = Color(0.885246, 0.288293, 0.431754, 0.42)
 
