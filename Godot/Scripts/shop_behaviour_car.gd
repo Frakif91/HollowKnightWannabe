@@ -139,4 +139,3 @@ func _on_heal_button():
 func _on_guard_qna():
 	if not is_typing:
 		await tr_typing("SHOP_R7")
-

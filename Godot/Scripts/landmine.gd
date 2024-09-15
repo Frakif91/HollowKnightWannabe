@@ -57,4 +57,3 @@ func _on_body_entered(body:Node2D):
 			else:
 				await wait(0.8)
 				mario.is_abletomove = true
-
