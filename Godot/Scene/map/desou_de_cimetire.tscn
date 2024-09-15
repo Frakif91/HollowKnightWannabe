@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo8pviqdrg12q" path="res://Assets/map/IMG_1040.png" id="5_quujx"]
 [ext_resource type="Texture2D" uid="uid://cv8uq2oq5lteb" path="res://Assets/map/IMG_0996.png" id="6_ygu8o"]
 [ext_resource type="Texture2D" uid="uid://dk02iqh438x6j" path="res://Assets/map/Squelette.png" id="7_s4lai"]
-[ext_resource type="PackedScene" uid="uid://dshfw3bo1hd20" path="res://Godot/Nodes/Chevalier_cimetire2.tscn" id="8_eya4f"]
+[ext_resource type="PackedScene" uid="uid://4dp3ef2a2s7o" path="res://Godot/Nodes/chevailier_cimetire.tscn" id="8_0wmye"]
 [ext_resource type="Texture2D" uid="uid://q1xbyuh6gcqd" path="res://Assets/GFX/animation_objet/crane/Haut_crane.png" id="8_njkbj"]
 [ext_resource type="Texture2D" uid="uid://bm0lgs81e870o" path="res://Assets/GFX/animation_objet/crane/bas_crane.png" id="9_j301l"]
 [ext_resource type="PackedScene" uid="uid://dl4e42dvomf8s" path="res://Godot/Nodes/Enemies/roach.tscn" id="11_1qga7"]
@@ -111,7 +111,7 @@ editor_draw_drag_margin = true
 followed_node = NodePath("../Mario")
 
 [node name="Mario" parent="." instance=ExtResource("19_b3uaw")]
-position = Vector2(227, 548)
+position = Vector2(106, 1185)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
@@ -122,9 +122,9 @@ safe_margin = 0.001
 position = Vector2(1209, 1024)
 scale = Vector2(0.1, 0.1)
 
-[node name="Node2D" parent="énemit" instance=ExtResource("8_eya4f")]
-position = Vector2(119, 444)
-scale = Vector2(0.3, 0.3)
+[node name="chevalier cimetire" parent="énemit" instance=ExtResource("8_0wmye")]
+position = Vector2(-16, 1160)
+scale = Vector2(0.0518789, 0.0518789)
 
 [node name="MapObjects" type="Node2D" parent="."]
 
