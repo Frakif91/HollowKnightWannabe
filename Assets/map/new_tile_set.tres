@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://67utkh87t7q4"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://67utkh87t7q4"]
 
 [ext_resource type="Texture2D" uid="uid://mv4wk6l8kgxt" path="res://Assets/map/pixil-frame-0.png" id="1_0vhks"]
 [ext_resource type="Texture2D" uid="uid://dhedurdmnhgxx" path="res://Assets/GFX/Tileset/tileset lab.png" id="2_fgx4p"]
 [ext_resource type="Texture2D" uid="uid://doqblvlve23fa" path="res://Assets/GFX/Tileset/pixil-frame-0 (5).png" id="2_n8gms"]
 [ext_resource type="Texture2D" uid="uid://63gmvd0vny36" path="res://Assets/GFX/Tileset/tilset_carelage_16.png" id="3_c2viu"]
+[ext_resource type="Texture2D" uid="uid://buk6bv1ks0xch" path="res://Assets/GFX/Tileset/spirtechaine.png" id="5_at71t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fm7f3"]
 texture = ExtResource("1_0vhks")
@@ -514,6 +515,12 @@ texture_region_size = Vector2i(11, 11)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.5, -5.5, 5.5, -5.5, 5.5, 5.5, -5.5, 5.5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpmml"]
+texture = ExtResource("5_at71t")
+margins = Vector2i(5, 0)
+texture_region_size = Vector2i(11, 11)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(11, 11)
 uv_clipping = true
@@ -527,3 +534,4 @@ sources/0 = SubResource("TileSetAtlasSource_fm7f3")
 sources/3 = SubResource("TileSetAtlasSource_j5i6h")
 sources/1 = SubResource("TileSetAtlasSource_chcnb")
 sources/2 = SubResource("TileSetAtlasSource_vew20")
+sources/4 = SubResource("TileSetAtlasSource_qpmml")
