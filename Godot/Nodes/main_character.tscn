@@ -42,8 +42,8 @@ debug_color = Color(0.354277, 0.249659, 1, 0.42)
 position = Vector2(1, 1)
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"attack_up"
-frame_progress = 0.395627
+animation = &"attack_up_jump"
+frame_progress = 0.48312
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.0883865, 0.618717)

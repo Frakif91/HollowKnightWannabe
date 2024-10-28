@@ -271,7 +271,6 @@ tracks/17/keys = {
 [sub_resource type="Animation" id="Animation_iae8s"]
 resource_name = "frap loude"
 length = 3.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -714,17 +713,17 @@ skew = -0.000475168
 position = Vector2(0.999994, 3.00929e-05)
 
 [node name="G_molet" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche"]
-position = Vector2(22.4764, 243.571)
-rotation = -0.0639046
-scale = Vector2(1.09575, 1.10216)
-skew = 0.00122166
+position = Vector2(40.8999, 224.108)
+rotation = -0.717656
+scale = Vector2(1.09875, 1.09916)
+skew = 0.00595057
 texture = ExtResource("2_ikf5g")
 
 [node name="G_piet+jambe" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche"]
-position = Vector2(33.8838, 520.631)
-rotation = -0.00254093
-scale = Vector2(1.09563, 1.10216)
-skew = 0.000502348
+position = Vector2(70.6995, 468.1)
+rotation = 0.368026
+scale = Vector2(1.09629, 1.10149)
+skew = -0.00362074
 texture = ExtResource("1_es4a2")
 
 [node name="G_genou" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe ghauche/G_piet+jambe"]
@@ -736,17 +735,17 @@ position = Vector2(-0.999939, 2.00005)
 rotation = 0.0165281
 
 [node name="D_molet" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite"]
-position = Vector2(-10.0886, 253.29)
-rotation = -0.0671766
-scale = Vector2(1.09575, 1.1022)
-skew = 0.0010674
+position = Vector2(-26.2583, 243.347)
+rotation = -0.0289484
+scale = Vector2(1.09571, 1.10223)
+skew = 0.000618935
 texture = ExtResource("2_ikf5g")
 
 [node name="D_piet+jambe" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite"]
-position = Vector2(-6.83798, 514.791)
-rotation = -0.0363021
-scale = Vector2(1.0956, 1.10211)
-skew = 0.0007056
+position = Vector2(-32.8865, 504.784)
+rotation = 0.00192782
+scale = Vector2(1.09557, 1.10212)
+skew = 0.000253916
 texture = ExtResource("1_es4a2")
 
 [node name="D_genou" type="Sprite2D" parent="sekelétoneconténeur/membre/jambe droite/D_piet+jambe"]
@@ -754,38 +753,38 @@ position = Vector2(2, -159)
 texture = ExtResource("3_sc4wj")
 
 [node name="corp" type="Sprite2D" parent="sekelétoneconténeur/membre"]
-position = Vector2(29.9999, -33.0006)
+position = Vector2(17.0005, -43.0004)
 rotation = 0.135491
 scale = Vector2(1.09594, 1.10238)
 skew = -0.00112641
 texture = ExtResource("4_1i6qc")
 
 [node name="téte" type="Sprite2D" parent="sekelétoneconténeur/membre"]
-position = Vector2(74.8659, -309.431)
+position = Vector2(61.8664, -319.43)
 rotation = 0.135593
 scale = Vector2(1.09594, 1.10238)
 skew = -0.0011276
 texture = ExtResource("5_creyh")
 
 [node name="bras" type="Sprite2D" parent="sekelétoneconténeur/membre"]
-position = Vector2(-7.50003, -76.2312)
-rotation = 0.296535
-scale = Vector2(1.09613, 1.10185)
-skew = -0.0029124
+position = Vector2(-0.221221, -85.8666)
+rotation = 0.104569
+scale = Vector2(1.09574, 1.10223)
+skew = -0.000764608
 texture = ExtResource("7_rixh2")
 
 [node name="épé" type="Sprite2D" parent="sekelétoneconténeur/membre"]
-position = Vector2(314.401, -246.11)
-rotation = 0.189367
-scale = Vector2(1.09552, 1.10178)
-skew = -0.00174606
+position = Vector2(345.842, -262.297)
+rotation = 0.144579
+scale = Vector2(1.09544, 1.10185)
+skew = -0.00123203
 texture = ExtResource("6_jrif6")
 
 [node name="main" type="Sprite2D" parent="sekelétoneconténeur/membre"]
-position = Vector2(468.783, 131.297)
-rotation = 0.323575
-scale = Vector2(1.09604, 1.10158)
-skew = -0.00318801
+position = Vector2(510.119, 117.281)
+rotation = 0.326935
+scale = Vector2(1.09605, 1.10157)
+skew = -0.00322163
 texture = ExtResource("8_1th66")
 
 [node name="coude" type="Sprite2D" parent="sekelétoneconténeur/membre/main"]
@@ -801,13 +800,13 @@ modification_stack = SubResource("SkeletonModificationStack2D_q3s40")
 [node name="basse" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D"]
 position = Vector2(-213.73, 453.236)
 rotation = 0.095142
-scale = Vector2(0.999852, 0.999852)
+scale = Vector2(0.999849, 0.999849)
 rest = Transform2D(1, 0, 0, 1, -226.384, 456.461)
 
 [node name="jambe" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse"]
 position = Vector2(-37.6021, 64.1208)
-rotation = -0.083216
-scale = Vector2(0.999843, 0.999843)
+rotation = -0.193686
+scale = Vector2(0.999839, 0.999839)
 rest = Transform2D(0.999828, -0.00526959, 0.00526959, 0.999828, -37.6021, 64.1208)
 metadata/_local_pose_override_enabled_ = true
 
@@ -819,8 +818,8 @@ remote_path = NodePath("../../../../membre/jambe droite/D_molet")
 
 [node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/jambe"]
 position = Vector2(0.56834, 173.342)
-rotation = -0.0221296
-scale = Vector2(0.999878, 0.999878)
+rotation = 0.0969127
+scale = Vector2(0.999879, 0.999879)
 rest = Transform2D(0.999626, -0.0221252, 0.0221252, 0.999626, 0.56834, 173.342)
 metadata/_local_pose_override_enabled_ = true
 
@@ -836,8 +835,8 @@ rest = Transform2D(0.999997, 0.00263371, -0.00263371, 0.999997, -4.69077, 247.07
 
 [node name="jambe2" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse"]
 position = Vector2(-2.48669, 74.5275)
-rotation = -0.0993757
-scale = Vector2(0.999865, 0.999865)
+rotation = -0.239216
+scale = Vector2(0.999862, 0.999862)
 rest = Transform2D(0.996029, -0.0873788, 0.0873788, 0.996029, -2.48669, 74.5275)
 metadata/_local_pose_override_enabled_ = true
 
@@ -875,8 +874,8 @@ remote_path = NodePath("../../../../membre/corp")
 
 [node name="bras" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body"]
 position = Vector2(-45.2214, 56.2541)
-rotation = -0.0178286
-scale = Vector2(0.99984, 0.99984)
+rotation = 0.236555
+scale = Vector2(0.999842, 0.999842)
 rest = Transform2D(0.999823, 0.00628997, -0.00628997, 0.999823, -45.2214, 56.2541)
 metadata/_local_pose_override_enabled_ = true
 
@@ -886,7 +885,7 @@ remote_path = NodePath("../../../../../membre/bras")
 
 [node name="Bone2D" type="Bone2D" parent="sekelétoneconténeur/Skeleton2D/basse/body/bras"]
 position = Vector2(77.6116, 250.161)
-rotation = 0.100789
+rotation = 0.0565945
 scale = Vector2(0.999841, 0.999841)
 rest = Transform2D(0.973195, 0.229271, -0.229271, 0.973195, 77.6116, 250.161)
 metadata/_local_pose_override_enabled_ = true
@@ -949,3 +948,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 93.5)
 shape = SubResource("RectangleShape2D_hq25q")
+
+[connection signal="animation_finished" from="sekelétoneconténeur/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
