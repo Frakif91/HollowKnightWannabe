@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://tyg7tlspw255"]
+[gd_scene load_steps=7 format=3 uid="uid://tyg7tlspw255"]
 
 [ext_resource type="Theme" uid="uid://u1hl8ir320oa" path="res://Godot/debug_menu_theme_basic.tres" id="1_m2h8t"]
 [ext_resource type="Script" path="res://Godot/Scripts/SteamTest.gd" id="2_5ltg3"]
 [ext_resource type="LabelSettings" uid="uid://dgbsuapkqro78" path="res://new_label_settings.tres" id="2_ngq7o"]
 [ext_resource type="Texture2D" uid="uid://braiwgqxyun01" path="res://icon.svg" id="3_cx8u3"]
+
+[sub_resource type="SystemFont" id="SystemFont_4ky13"]
+font_names = PackedStringArray("Calibri")
+
+[sub_resource type="SystemFont" id="SystemFont_r7jnq"]
+fallbacks = Array[Font]([SubResource("SystemFont_4ky13")])
+font_names = PackedStringArray("Arial")
+font_weight = 700
+generate_mipmaps = true
+subpixel_positioning = 2
+multichannel_signed_distance_field = true
 
 [node name="SteamTest" type="Control"]
 layout_mode = 3
@@ -70,18 +81,21 @@ layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("3_cx8u3")
+expand_mode = 1
 
 [node name="SteamName" type="RichTextLabel" parent="ProfileCardPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.274
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -182.81
-offset_bottom = -64.0
-grow_horizontal = 2
+anchor_top = 0.101563
+anchor_right = 0.978
+anchor_bottom = 0.914063
+offset_right = -176.0
+offset_bottom = -52.0
+grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
+theme_override_fonts/normal_font = SubResource("SystemFont_r7jnq")
 text = "Steam User Name"
 context_menu_enabled = true
 metadata/_edit_use_anchors_ = true

@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 
 Transitions="*res://Godot/Nodes/Fade_Out.tscn"
 PlayerStats="*res://Godot/Scripts/PlayerStats.gd"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 

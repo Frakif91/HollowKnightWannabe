@@ -1,15 +1,18 @@
+@tool
 extends Control
 
-@onready var hp = PlayerStats.hp
-@onready var bp = PlayerStats.bp
-@onready var low_health_effect = PlayerStats.low_health_effect
-@onready var low_hp_color = PlayerStats.low_hp_color
-@onready var low_bp_color = PlayerStats.low_bp_color
-@onready var low_percentage = PlayerStats.low_percentage
-@onready var max_hp = PlayerStats.max_hp
-@onready var max_bp = PlayerStats.max_bp
-@onready var affect_BP = PlayerStats.affect_BP
-@onready var hide_zeros = PlayerStats.hide_zeros
+@export_category("Health & BP")
+@export var max_hp : int = 20
+@export var max_bp : int = 15
+@export var hp : int = 10 
+@export var bp : int = 7
+@export var hide_zeros = true
+@export_range(0,1,0.01) var low_percentage = 0.33
+@export_category("\"Low\" Effect")
+@export var low_health_effect : bool = true
+@export var affect_BP : bool = false
+@export var low_hp_color = Color(1, 0.322, 1)
+@export var low_bp_color = Color(0.5, 0.5, 0.5)
 
 const og_link = "res://Assets/GFX/Numbers/"
 var images = [

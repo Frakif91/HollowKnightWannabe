@@ -78,7 +78,7 @@ const save_path = "user://gamesave.save"
 @export var STOPPING_FRICTION = 1000
 @export var ACCELERATION_SPEED = 600
 @export var STOPPING_FRICTION_AIRBORN = 10
-@export var ACCELERATION_SPEED_AIRBORN = 500
+@export var ACCELERATION_SPEED_AIRBORN = 1000
 @export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
 enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING, ATTACKWALK,UPATTACK}

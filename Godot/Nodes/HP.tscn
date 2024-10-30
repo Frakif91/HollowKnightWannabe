@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bj2thy5b8woxq" path="res://Assets/GFX/Healths.png" id="1_7bt3t"]
 [ext_resource type="Script" path="res://Godot/Scripts/UI_HP.gd" id="1_amk17"]
-[ext_resource type="Texture2D" uid="uid://ode65m5hqba2" path="res://Assets/GFX/Numbers/9.png" id="2_yy7sh"]
+[ext_resource type="Texture2D" uid="uid://c8qga18gqccj4" path="res://Assets/GFX/Numbers/1.png" id="3_bhh2c"]
 [ext_resource type="Texture2D" uid="uid://56b044xq0dta" path="res://Assets/GFX/Numbers/0.png" id="3_gpjy4"]
 [ext_resource type="Texture2D" uid="uid://bipvm1mjnlti" path="res://Assets/GFX/Numbers/2.png" id="4_r0ilm"]
 
@@ -36,7 +36,7 @@ offset = Vector2(0, -256)
 [node name="HP_10" type="Sprite2D" parent="UI_Health"]
 position = Vector2(152, 96)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_yy7sh")
+texture = ExtResource("3_bhh2c")
 
 [node name="HP_01" type="Sprite2D" parent="UI_Health"]
 position = Vector2(192, 96)

@@ -113,7 +113,7 @@ func teleporting(index: int):
 		3:
 			file = "Shop.tscn"
 		4:
-			file = "map_quentin.tscn"
+			file = "desou_de_cimetire.tscn"
 		5:
 			file = "tuto_scene.tscn"
 		6:

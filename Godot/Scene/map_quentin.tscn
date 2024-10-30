@@ -166,6 +166,10 @@ limit_bottom = 5546
 editor_draw_drag_margin = true
 followed_node = NodePath("../Mario")
 second_follow = null
+default_randomStrength = null
+default_shakeFade = null
+animation_speed_multiplayer = null
+animation_curve = null
 
 [node name="Mario" parent="." instance=ExtResource("2_1a3nc")]
 position = Vector2(236, 547)

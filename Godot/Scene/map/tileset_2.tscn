@@ -100,14 +100,14 @@ reward_count = 10
 
 [node name="To the main scene" parent="." instance=ExtResource("11_ho0ue")]
 position = Vector2(1156, 163)
-scene = "res://Godot/Scene/tileset_test.tscn"
+scene = "res://Godot/Scene/map/tileset_test.tscn"
 animation = "fade_right_left_in"
 tp_pos = Vector2(105, 99)
 
 [node name="Teleporter" parent="." instance=ExtResource("11_ho0ue")]
 position = Vector2(-26, 176)
 scale = Vector2(0.573913, 1.0462)
-scene = "res://Godot/Scene/desou_de_cimetire.tscn"
+scene = "res://Godot/Scene/map/desou_de_cimetire.tscn"
 animation = "fade_left_right_in"
 tp_pos = Vector2(219, 542)
 

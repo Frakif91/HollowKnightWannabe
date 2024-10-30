@@ -111,7 +111,7 @@ editor_draw_drag_margin = true
 followed_node = NodePath("../Mario")
 
 [node name="Mario" parent="." instance=ExtResource("19_b3uaw")]
-position = Vector2(141, 1136)
+position = Vector2(141, 874)
 scale = Vector2(0.5, 0.5)
 floor_max_angle = 0.261799
 safe_margin = 0.001
@@ -134,7 +134,7 @@ scale = Vector2(0.0518789, 0.0518789)
 position = Vector2(640, 752)
 script = ExtResource("16_o0mjk")
 object_type = "Teleport Interact"
-interact_offset = Vector2(0, -20)
+interact_offset = Vector2(0, 0)
 tp_to_scene = "res://Godot/Scene/Shop.tscn"
 tp_fade_animation = "fade_right_left_in"
 tp_pos = Vector2(-51, 5)

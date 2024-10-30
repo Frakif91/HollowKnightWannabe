@@ -6,12 +6,13 @@ signal switch()
 var switching : bool = false
 
 func switching_camera():
-	print_debug("Debug Cam")
-	switching = not switching
-	if switching:
-		follow_node = get_node(followed_node)
-	else:
-		follow_node = get_node(second_follow)
+	pass
+	# print_debug("Debug Cam")
+	# switching = not switching
+	# if switching:
+	# 	follow_node = get_node(followed_node)
+	# else:
+	# 	follow_node = get_node(second_follow)
 		
 
 var camera: Camera2D = self

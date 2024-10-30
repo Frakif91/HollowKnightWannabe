@@ -1,9 +1,12 @@
 [gd_resource type="SpriteFrames" load_steps=101 format=3 uid="uid://dmt7s23wcpnw6"]
 
 [ext_resource type="Texture2D" uid="uid://dt5xix75qi8kx" path="res://Assets/GFX/joueur_sprite/a4pat.png" id="1_2pouh"]
+[ext_resource type="Texture2D" uid="uid://dt5xix75qi8kx" path="res://Assets/GFX/joueur_sprite/a4pat.png" id="1_2pouh"]
 [ext_resource type="Texture2D" uid="uid://b1as7u2bu3rxm" path="res://Assets/GFX/Mario Juming Sprite Sheets.png" id="1_864oi"]
 [ext_resource type="Texture2D" uid="uid://dexklbigndqvj" path="res://Assets/GFX/Mario Battle Sheet.png" id="2_1d46a"]
 [ext_resource type="Texture2D" uid="uid://ddwl6p1nvkfhg" path="res://Assets/GFX/joueur_sprite/mort.png" id="2_k4hso"]
+[ext_resource type="Texture2D" uid="uid://13ibs55ro1vj" path="res://Assets/GFX/joueur_sprite/jump.w.stand.png" id="2_t7mf6"]
+[ext_resource type="Texture2D" uid="uid://segfejt8p4ay" path="res://Assets/GFX/joueur_sprite/player_hurt.png" id="5_jc6ti"]
 [ext_resource type="Texture2D" uid="uid://13ibs55ro1vj" path="res://Assets/GFX/joueur_sprite/jump.w.stand.png" id="2_t7mf6"]
 [ext_resource type="Texture2D" uid="uid://segfejt8p4ay" path="res://Assets/GFX/joueur_sprite/player_hurt.png" id="5_jc6ti"]
 [ext_resource type="Texture2D" uid="uid://d337j2ygfdw6u" path="res://Assets/GFX/joueur_sprite/sprite_sheet_down.png" id="5_mt5so"]
@@ -35,6 +38,7 @@ atlas = ExtResource("1_2pouh")
 region = Rect2(1600, 284, 400, 484)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_prtdy"]
+atlas = ExtResource("2_t7mf6")
 atlas = ExtResource("2_t7mf6")
 region = Rect2(252, 0, 252, 399)
 
@@ -93,8 +97,12 @@ region = Rect2(0, 1426, 84, 62)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxl66"]
 atlas = ExtResource("5_jc6ti")
 region = Rect2(0, 0, 505, 399)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxl66"]
+atlas = ExtResource("5_jc6ti")
+region = Rect2(0, 0, 505, 399)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s47c3"]
+atlas = ExtResource("2_t7mf6")
 atlas = ExtResource("2_t7mf6")
 region = Rect2(252, 0, 252, 399)
 
@@ -104,29 +112,36 @@ region = Rect2(498, 0, 249, 399)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omdm6"]
 atlas = ExtResource("2_t7mf6")
+atlas = ExtResource("2_t7mf6")
 region = Rect2(0, 0, 252, 399)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mb366"]
+atlas = ExtResource("8_e8uyf")
 atlas = ExtResource("8_e8uyf")
 region = Rect2(0, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dundl"]
 atlas = ExtResource("8_e8uyf")
+atlas = ExtResource("8_e8uyf")
 region = Rect2(638, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4iqd"]
+atlas = ExtResource("8_e8uyf")
 atlas = ExtResource("8_e8uyf")
 region = Rect2(1276, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3srn8"]
 atlas = ExtResource("8_e8uyf")
+atlas = ExtResource("8_e8uyf")
 region = Rect2(1914, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdg8"]
 atlas = ExtResource("8_e8uyf")
+atlas = ExtResource("8_e8uyf")
 region = Rect2(2552, 0, 638, 386)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_salcy"]
+atlas = ExtResource("8_e8uyf")
 atlas = ExtResource("8_e8uyf")
 region = Rect2(0, 386, 638, 386)
 
@@ -256,17 +271,21 @@ region = Rect2(504, 558, 84, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urbu1"]
 atlas = ExtResource("9_hav2m")
+atlas = ExtResource("9_hav2m")
 region = Rect2(0, 0, 259, 406)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hssj"]
+atlas = ExtResource("9_hav2m")
 atlas = ExtResource("9_hav2m")
 region = Rect2(299, 0, 259, 406)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fcs4"]
 atlas = ExtResource("9_hav2m")
+atlas = ExtResource("9_hav2m")
 region = Rect2(598, 0, 259, 406)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cd4x6"]
+atlas = ExtResource("9_hav2m")
 atlas = ExtResource("9_hav2m")
 region = Rect2(897, 0, 259, 406)
 
@@ -386,6 +405,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_po3no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf442")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imir5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7shp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d28n4")
+}],
+"loop": true,
+"name": &"Crawling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_prtdy")
 }],
 "loop": true,
@@ -449,6 +488,7 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rxl66")
+"texture": SubResource("AtlasTexture_rxl66")
 }],
 "loop": true,
 "name": &"Hurt",
@@ -499,6 +539,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Swing_Sword",
+"speed": 16.0
 "speed": 16.0
 }, {
 "frames": [{

@@ -75,7 +75,7 @@ autoplay = true
 [node name="Teleporter" parent="." instance=ExtResource("6_dhnbe")]
 position = Vector2(18, 100)
 scale = Vector2(0.9, 1.14)
-scene = "res://Godot/Scene/tileset_2.tscn"
+scene = "res://Godot/Scene/map/tileset_2.tscn"
 animation = "fade_left_right_in"
 marker_path = NodePath("Marker2D")
 tp_pos = Vector2(1097, 159)
