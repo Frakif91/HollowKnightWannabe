@@ -57,10 +57,11 @@ func _process(delta):
 	#
 	move()
 
-	for i in get_slide_collision_count():
-		var c = get_slide_collision(i)
-		if c == MainCharacter:
-			c.when_hit()
+	#Already in main_character.gd 
+	# for i in get_slide_collision_count():
+	# 	var c = get_slide_collision(i)
+	# 	if c == MainCharacter:
+	# 		c.when_hit()
 
 
 	var t_colorm = [modulate.r,modulate.g,modulate.b] # Actual color

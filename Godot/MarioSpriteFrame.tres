@@ -386,26 +386,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_po3no")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kf442")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_imir5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b7shp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d28n4")
-}],
-"loop": true,
-"name": &"Crawling",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_prtdy")
 }],
 "loop": true,

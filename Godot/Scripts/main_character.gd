@@ -11,7 +11,8 @@ var is_attacking = false
 var is_in_jump_action = false
 var has_double_jump = true
 var is_dead = false
-var invulnerability_timer = 0.3
+var invulnerability_timer = 1.5
+var blink_interval = 0.1
 var is_invulnerable = false
 var is_looking_down = false
 var hurt_color: Color = Color(1, 0, 0)
@@ -80,14 +81,24 @@ func _ready():
 	PlayerStats.player = self
 
 func _process(delta):
-	var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
-	var t_colort = [1, 1, 1] # Target color (colorT for Target)
-	var t_colorw = [delta, delta, delta] # Delta color (colorW for Weight)
-	sprite.modulate = Color(
-		lerpf(t_colorm[0], t_colort[0], t_colorw[0]),
-		lerpf(t_colorm[1], t_colort[1], t_colorw[1]),
-		lerpf(t_colorm[2], t_colort[2], t_colorw[2])
-	)
+	# var t_colorm = [sprite.modulate.r, sprite.modulate.g, sprite.modulate.b] # Actual color (colorM for Modulate)
+	# var t_colort = [1, 1, 1] # Target color (colorT for Target)
+	# var t_colorw = [delta, delta, delta] # Delta color (colorW for Weight)
+	# sprite.modulate = Color(
+	# 	lerpf(t_colorm[0], t_colort[0], t_colorw[0]),
+	# 	lerpf(t_colorm[1], t_colort[1], t_colorw[1]),
+	# 	lerpf(t_colorm[2], t_colort[2], t_colorw[2])
+	# )
+	if is_invulnerable:
+		# 0.5 % 0.1 == 0    -> every 0.1 seconds for 0.5 seconds
+		var blink_twice_as_fast = Invincibility_Timer.time_left < invulnerability_timer/2
+		# visible = Invi_Timer % blink_interval*(2 - (btaf)) <= blink_interval*(1 + (btaf*0.5))
+		sprite.visible = floori(Invincibility_Timer.time_left*100) % roundi(blink_interval*(2 - (blink_twice_as_fast as int))*100) <= (blink_interval*(1 - (blink_twice_as_fast as int)*0.5)*100)
+		sprite.modulate = Color(
+	 		1.0,
+	 		lerpf(1.0, 0.0, Invincibility_Timer.time_left / invulnerability_timer),
+	 		lerpf(1.0, 0.0, Invincibility_Timer.time_left / invulnerability_timer)
+		)
 
 func _physics_process(delta):
 	if is_on_floor() and is_on_ceiling():
@@ -298,28 +309,21 @@ func ground():
 
 func _on_body_collition(body):
 	if body is Ennemies:
-		when_hit(body.damage_dealt)
-	"""_add_constant_torqueif body is Interaction:
-		if body.type == "Spikes":
-			_on_spike_collition(body.spike_damage)
-		elif body.type == "Checkpoint":
-			_on_checkpoint_collition(body)
-		elif body.type == "Chest":
-			pass"""
+		when_hit(body.damage_dealt, body, false)
 
-func when_hit(damage, object: Node2D=Node2D.new()):
+func when_hit(damage, object: Node2D, forced_damage : bool = false):
 	#Cannot check collition so, check Roach.gd for this function "call"
 	#print_debug("Body in Collition")
-	if object.position != Vector2(0, 0):
-		velocity = (position - object.position).normalized() * 50
-	Input.vibrate_handheld(100)
-	Input.start_joy_vibration(0, 0.0, 1.0, 0.1)
-	is_dead = await get_hurt(damage)
-	if is_dead:
-		on_gameover()
+	if not is_dead:
+		if object:
+			velocity = (position - object.position).normalized() * 50
+		Input.vibrate_handheld(100)
+		Input.start_joy_vibration(0, 0.0, 1.0, 0.1)
+		is_dead = await get_hurt(damage, not forced_damage)
+		if is_dead:
+			on_gameover()
 
-func get_hurt(damage, use_vulnerability=true):
-	
+func get_hurt(damage, use_vulnerability = true):
 	if use_vulnerability:
 		if (not is_invulnerable):
 			PlayerStats.hp -= damage

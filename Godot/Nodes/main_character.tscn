@@ -17,14 +17,6 @@ height = 40.0
 radius = 12.0
 height = 50.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iykkh"]
-radius = 11.625
-height = 40.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w3gs6"]
-radius = 12.0
-height = 50.0
-
 [node name="Body" type="CharacterBody2D"]
 script = ExtResource("1_8cylk")
 
@@ -48,11 +40,8 @@ debug_color = Color(0.354277, 0.249659, 1, 0.42)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
-position = Vector2(1, 1)
 scale = Vector2(0.139273, 0.133005)
 sprite_frames = ExtResource("2_f7kyk")
-animation = &"attack_up_jump"
-frame_progress = 0.48312
 animation = &"attack_up"
 frame_progress = 0.395627
 
