@@ -648,10 +648,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ww47h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww47h")
 }],
 "loop": true,
 "name": &"attack_jump",
-"speed": 10.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -703,5 +706,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_up_jump",
-"speed": 14.0
+"speed": 16.0
 }]

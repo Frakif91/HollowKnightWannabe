@@ -115,9 +115,9 @@ func _physics_process(delta):
 			velocity.y = clamp(velocity.y, PlayerStats.wall_slide_max_spd, PlayerStats.wall_slide_min_spd)
 		else:
 			velocity.y += (gravity * delta)
-		if (velocity.y < 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene: # y < 0 = HIGHER
+		if (velocity.y < 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene and not is_attacking: # y < 0 = HIGHER
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.JUMP])
-		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene:
+		elif (velocity.y > 0) and not PlayerStats.states["InGameoverState"] and PlayerStats.is_abletomove and not PlayerStats.in_cutscene and not is_attacking:
 			sprite.play(PlayerStats.anim_name[PlayerStats.anim.FALL])
 
 	#region HDL Jump
@@ -144,9 +144,9 @@ func _physics_process(delta):
 	#endregion
 
 	#region HDL Attacks
-	if Input.is_action_just_pressed("Attack") and is_on_floor() and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
+	if Input.is_action_just_pressed("Attack") and not is_attacking and PlayerStats.is_abletomove and not PlayerStats.states["InGameoverState"]:
 		camera.switch.emit()
-		if direction == 0 and not Input.is_action_pressed("look_up"):
+		if direction == 0 and not Input.is_action_pressed("look_up") and is_on_floor():
 			sprite.play(anim_name[anim.ATTACK])
 			swingSFX.play()
 			hit_collition.disabled = false
@@ -157,7 +157,7 @@ func _physics_process(delta):
 			is_attacking = false
 			sprite.play(anim_name[anim.STAND])
 
-		elif direction != 0 and not Input.is_action_pressed("look_up"):
+		elif direction != 0 and not Input.is_action_pressed("look_up") and is_on_floor():
 			sprite.play(anim_name[anim.ATTACKWALK])
 			swingSFX.play()
 			hit_collition.disabled = false
@@ -167,7 +167,7 @@ func _physics_process(delta):
 			await wait(0.01)
 			is_attacking = false
 			sprite.play(anim_name[anim.WALK])
-		elif direction == 0 and Input.is_action_pressed("look_up"):
+		elif direction == 0 and Input.is_action_pressed("look_up") and is_on_floor():
 			sprite.play(anim_name[anim.UPATTACK])
 			swingSFX.play()
 			hit_collition.disabled = false
@@ -175,6 +175,26 @@ func _physics_process(delta):
 			await wait(0.4)
 			hit_collition.disabled = true
 			await wait(0.01)
+			is_attacking = false
+		elif  is_on_floor() == false and not Input.is_action_pressed("look_up"):
+			is_attacking = true
+			sprite.play(anim_name[anim.JUMPATTACK])
+			swingSFX.play()
+			hit_collition.disabled = false
+			await wait(0.4)
+			hit_collition.disabled = true
+			await wait(0.01)
+			sprite.play(anim_name[anim.JUMP])
+			is_attacking = false
+		elif  is_on_floor() == false and Input.is_action_pressed("look_up"):
+			is_attacking = true
+			sprite.play(anim_name[anim.UPJUMPATTACK])
+			swingSFX.play()
+			hit_collition.disabled = false
+			await wait(0.4)
+			hit_collition.disabled = true
+			await wait(0.01)
+			sprite.play(anim_name[anim.JUMP])
 			is_attacking = false
 	#endregion
 

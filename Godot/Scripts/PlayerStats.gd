@@ -81,8 +81,8 @@ const save_path = "user://gamesave.save"
 @export var ACCELERATION_SPEED_AIRBORN = 1000
 @export var LOOK_DOWN_Y = 50
 @export var JUMP_HOLD = 12
-enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING, ATTACKWALK,UPATTACK}
-const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword","Crawling","attack_en_marchant","attack_up"]
+enum anim {WALK, STAND, JUMP, FALL, HURT, OVER, ATTACK, CRAWLING, ATTACKWALK, UPATTACK, JUMPATTACK, UPJUMPATTACK}
+const anim_name : Array[String] = ["Walk", "Stand", "Jump", "Fall", "Hurt", "Gameover", "Swing_Sword","Crawling","attack_en_marchant","attack_up","attack_jump","attack_up_jump"]
 var is_abletomove = true
 var tp_pos = Vector2(0,0)
 var player : MainCharacter
