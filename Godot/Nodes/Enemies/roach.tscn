@@ -11,7 +11,6 @@ size = Vector2(193.333, 164)
 size = Vector2(150, 138.667)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u5pf1"]
-load_path = "res://.godot/imported/Monster.png-fa9f47ec938487d54d57c3cb65d390b2.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_us5fo"]
 atlas = SubResource("CompressedTexture2D_u5pf1")

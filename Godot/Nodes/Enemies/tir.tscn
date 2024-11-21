@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0etgiua62lyg"]
+[gd_scene load_steps=7 format=3 uid="uid://c0etgiua62lyg"]
 
 [ext_resource type="Script" path="res://Godot/Nodes/Enemies/tir.gd" id="1_unep0"]
-[ext_resource type="Texture2D" uid="uid://56b044xq0dta" path="res://Assets/GFX/Numbers/0.png" id="2_hf0k3"]
+[ext_resource type="Texture2D" uid="uid://csc3htk7pfum1" path="res://Assets/GFX/Enemies/tire.png" id="2_71sc4"]
 [ext_resource type="Script" path="res://Godot/Nodes/Enemies/Area2D.gd" id="3_jsu2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vka8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygjuf"]
 size = Vector2(25, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbpsb"]
+size = Vector2(193.333, 164)
 
 [node name="CharacterBody2D3" type="CharacterBody2D"]
 script = ExtResource("1_unep0")
@@ -16,8 +19,9 @@ script = ExtResource("1_unep0")
 shape = SubResource("RectangleShape2D_vka8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.464134, 0.464134)
-texture = ExtResource("2_hf0k3")
+position = Vector2(-1, 0)
+scale = Vector2(0.159199, 0.159199)
+texture = ExtResource("2_71sc4")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_jsu2m")
@@ -25,5 +29,16 @@ script = ExtResource("3_jsu2m")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ygjuf")
+
+[node name="Damage_Trigger" type="Area2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.205891, 0.22281)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Damage_Area" type="CollisionShape2D" parent="Damage_Trigger"]
+position = Vector2(-6.66666, -10)
+shape = SubResource("RectangleShape2D_bbpsb")
+debug_color = Color(0.959195, 0.203621, 5.77569e-07, 0.42)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

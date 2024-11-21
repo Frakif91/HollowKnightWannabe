@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmhg2gr1l4yc"
-path="res://.godot/imported/pixil-frame-0.png-8576aa00a2aa312f9508b16e86978e37.ctex"
+uid="uid://bo3uvo0tj0adj"
+path="res://.godot/imported/chain.png-3398403508017af166ea7368e78af210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GFX/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-8576aa00a2aa312f9508b16e86978e37.ctex"]
+source_file="res://Assets/GFX/Tileset/chain.png"
+dest_files=["res://.godot/imported/chain.png-3398403508017af166ea7368e78af210.ctex"]
 
 [params]
 

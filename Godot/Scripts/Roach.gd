@@ -85,7 +85,7 @@ func _process(delta):
 
 func _body_entered(body):
 	if body is Col_Hit:
-		#print("a")
+		print("b")
 		#print_debug("Body in Collition",body)
 		is_dead = await get_hurt()
 		print(velocity)
